@@ -39,17 +39,28 @@
       <li>Banco de Dados Relacioal</li>
       <li>Documentações</li>
     </ol>
-    
-    
-    
-| **Scrum Master**        | **Product Owner**    |**Dev Team**        | **Dev Team**    | **Dev Team**        |**Dev Team**    |
-| :-------------: | :-------------: |:-------------: | :-------------: |:-------------: | :-------------: |
-| [<img src="https://avatars.githubusercontent.com/u/61194755?v=4" width=115><br><sub>Matheus Cruz Fiebig</sub>](https://github.com/matheus-fiebig)   | [<img src="https://avatars.githubusercontent.com/u/111617208?v=4" width=115><br><sub>Danillo Wesley da Costa Silva</sub>](https://github.com/zZzidanillo)  | [<img src="https://avatars.githubusercontent.com/u/111614619?v=4"  width=115><br><sub>Alisson dos Santos Pereira</sub>](https://github.com/4l1son) | [<img src="https://avatars.githubusercontent.com/u/102562662?v=4" width=115><br><sub>Luciano</sub>](https://github.com/lucianonps) | [<img src="https://avatars.githubusercontent.com/u/111614619?v=4" width=115><br><sub>Wagner de Deus Silva Junior</sub>](https://github.com/wdeus) | [<img src="https://avatars.githubusercontent.com/u/99774131?v=4" width=115><br><sub>Lucas Caetano da Silva</sub>](https://github.com/L0uks)
-
-<h2>Configurar Projeto</h2>
+   <hr>
+   <h2>Backlog do Projeto</h2>
+  <strong> Épicos </strong>
+   <h2>Épico-1</h2>
+   <h2>User history</h2>
+   <ul>
+   <li>
+      Como um usuário, eu quero me cadastrar no site para poder acessar os recursos exclusivos.
+   </li>
+   </ul>
+   
+   <h2>Configurar Projeto</h2>
 <div style="display: inline_block">
 
     
   <li>Clonar projeto via comando git clone (ex: git clone https://github.com/api-2sem-pixel/api.git) </li>
   <li>Configurar variaveis de ambiente e setar o JAVA_HOME para o jdk_19 </li>
   <li>Rodar o comando mvn clean javafx:run (Ex: https://openjfx.io/openjfx-docs/index.html#maven)</li>
+</div>
+    <h2>Equipe</h2>
+    
+| **Scrum Master**        | **Product Owner**    |**Dev Team**        | **Dev Team**    | **Dev Team**        |**Dev Team**    |
+| :-------------: | :-------------: |:-------------: | :-------------: |:-------------: | :-------------: |
+| [<img src="https://avatars.githubusercontent.com/u/61194755?v=4" width=115><br><sub>Matheus Cruz Fiebig</sub>](https://github.com/matheus-fiebig)   | [<img src="https://avatars.githubusercontent.com/u/111617208?v=4" width=115><br><sub>Danillo Wesley da Costa Silva</sub>](https://github.com/zZzidanillo)  | [<img src="https://avatars.githubusercontent.com/u/111581261?v=4"  width=115><br><sub>Alisson dos Santos Pereira</sub>](https://github.com/4l1son) | [<img src="https://avatars.githubusercontent.com/u/102562662?v=4" width=115><br><sub>Luciano</sub>](https://github.com/lucianonps) | [<img src="https://avatars.githubusercontent.com/u/111614619?v=4" width=115><br><sub>Wagner de Deus Silva Junior</sub>](https://github.com/wdeus) | [<img src="https://avatars.githubusercontent.com/u/99774131?v=4" width=115><br><sub>Lucas Caetano da Silva</sub>](https://github.com/L0uks)
+
