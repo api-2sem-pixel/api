@@ -49,8 +49,7 @@
 <h2>Configurar Projeto</h2>
 <div style="display: inline_block">
 
-    <ol>
-      <li>Clonar projeto via comando git clone (ex: git clone https://github.com/api-2sem-pixel/api.git) </li>
-      <li>Configurar variaveis de ambiente e setar o JAVA_HOME para o jdk_19 </li>
-      <li>Rodar o comando mvn clean javafx:run (Ex: https://openjfx.io/openjfx-docs/index.html#maven)</li>
-    </ol>
+    
+  <li>Clonar projeto via comando git clone (ex: git clone https://github.com/api-2sem-pixel/api.git) </li>
+  <li>Configurar variaveis de ambiente e setar o JAVA_HOME para o jdk_19 </li>
+  <li>Rodar o comando mvn clean javafx:run (Ex: https://openjfx.io/openjfx-docs/index.html#maven)</li>
