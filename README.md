@@ -41,13 +41,7 @@
     </ol>
    <hr>
    <h2>Backlog do Projeto</h2>
-  <strong> Épicos </strong>
-   <h2>Épico-1</h2>
-   <h2>User history</h2>
-   <ul>
-   <li>
-      Como um usuário, eu quero me cadastrar no site para poder acessar os recursos exclusivos.
-   </li>
+
    </ul>
    
    <h2>Configurar Projeto</h2>
