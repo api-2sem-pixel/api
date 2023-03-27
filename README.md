@@ -31,7 +31,11 @@
   <li>Cadastro de clientes e CRs</li>
   <li>Recurso para aprovação de horas extras executadas</li>
   <li>Parametrização de sistema (período de fechamento das horas, percentual de classificação das horas extras e adicional noturno juntamente com as verbas salariais, definição dos horários de início e fim de horas noturnas)</li>
-  <li>Extração de relatório csv de todos os colaboradores com as horas trabalhadas(matrícula, nome, verba, quantidade de horas, cliente, CR, projeto, justificativa)</li>
+  <li>Extração de relatório csv de todos os colaboradores com as horas trabalhadas(matrícula, nome, verba, quantidade de horas, cliente, CR, projeto, justificativa)
+  <li>Aplicar regras de horas extras e sobreavisos na extração (classificação de HEs e cálculo do sobreaviso considerando as HEs conflitantes)</li>
+  <li>Dashboard com acompanhamento em tempo real das horas extras executadas com filtro cliente</li>
+CR e colaborador
+</li>
   </ol>
     <h2>Requisitos não funcionais</h2>
     <ol>
