@@ -1,5 +1,5 @@
 
-<p align="center"> <img src="https://raw.githubusercontent.com/4l1son/testte/main/Pixel%20(1).jpg?token=GHSAT0AAAAAACAYEGCA4SSS3DJIULCYNQN4ZBEYKCQ" width=320>
+<p align="center"> <img src="https://raw.githubusercontent.com/4l1son/testte/main/Pixel%20(1).jpg?token=GHSAT0AAAAAACAYEGCA5KQZQKKM6S2RYG2QZBEYY5Q" width=320>
 </p>
     <h2>Equipe de desemvolvimento</h2>
     
