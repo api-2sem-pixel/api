@@ -58,6 +58,7 @@ CR e colaborador
 | :-------------: | :-------------: |:-------------: | 
 |   Sprint-1    |      **Backlog**           |   **Alta**              |
 |   Sprint-1    |      **Prototipação das telas** | **Alta** |
+|   Sprint-1    |      **Configuração do projeto** | **Alta** |
    </ul>
    
    <h2>Configurar Projeto</h2>
