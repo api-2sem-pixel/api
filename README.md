@@ -52,7 +52,12 @@ CR e colaborador
    <hr>
    <h2><a href="https://github.com/orgs/api-2sem-pixel/projects/5/views/1" target="_blank" rel="noopener">Backlog do Projeto</a></h2>
    <h2>Sprints</h2>
-
+   <h3>Sprint-1</h3>
+  
+|      | **Entrega**    |**Prioridade**  |   
+| :-------------: | :-------------: |:-------------: | 
+|   Sprint-1    |      **Backlog**           |   **Alta**              |
+|   Sprint-1    |      **Prototipação das telas** | **Alta** |
    </ul>
    
    <h2>Configurar Projeto</h2>
