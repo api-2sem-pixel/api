@@ -50,7 +50,7 @@ CR e colaborador
       <li>Documentações</li>
     </ol>
    <hr>
-   <h2><a href="https://github.com/orgs/api-2sem-pixel/projects/5/views/1" target="_blank">Backlog do Projeto</a></h2>
+   <h2><a href="https://github.com/orgs/api-2sem-pixel/projects/5/views/1" target="_blank" rel="noopener">Backlog do Projeto</a></h2>
    <h2>Sprints</h2>
 
    </ul>
