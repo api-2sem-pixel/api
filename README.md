@@ -16,13 +16,8 @@
 <img align="center" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-plain-wordmark.svg" width=100>
 
 <img align="center" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/java/java-original-wordmark.svg" width=100 />
-          
-<img align="center" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-plain-wordmark.svg" width=100 />
 
 <img align="center" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-plain-wordmark.svg" width=100 />
-          
-          
-
           
 
 </div>
@@ -49,14 +44,13 @@ CR e colaborador
       <li>Banco de Dados Relacioal</li>
       <li>Documentações</li>
     </ol>
-   <hr>
-   <h2><a href="https://github.com/orgs/api-2sem-pixel/projects/5/views/1" target="_blank"  rel="noopener noreferrer">Backlog do Projeto</a></h2>
-   <hr>
+    
    <h2>Sprints</h2>
    <h3>Sprint-1</h3>
     <ul> 
-        <li><a src="https://github.com/api-2sem-pixel/api/blob/master/assets/burndown_sp1.png"> Burndown </a></li>
+        <li><a href="https://github.com/api-2sem-pixel/api/blob/master/assets/burndown_sp1.png"> Burndown </a></li>
     </ul>
+    
 |      | **Entrega**    |**Prioridade**  |   
 | :-------------: | :-------------: |:-------------: | 
 |   Sprint-1    |      **<a href="https://github.com/orgs/api-2sem-pixel/projects/5/views/1" target="_blank"  rel="noopener noreferrer">Backlog</a>**           |   **1**              |
