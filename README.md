@@ -1,7 +1,7 @@
 
 <p align="center"> <img src="https://github.com/4l1son/teste/blob/main/pixil-frame-0%20(1).png" width=320>
 </p>
-    <h2>Equipe de desemvolvimento</h2>
+    <h2>Equipe de desenvolvimento</h2>
     
 | **Scrum Master**        | **Product Owner**    |**Dev Team**        | **Dev Team**    | **Dev Team**        |**Dev Team**    |
 | :-------------: | :-------------: |:-------------: | :-------------: |:-------------: | :-------------: |
