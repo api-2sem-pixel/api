@@ -62,8 +62,10 @@ CR e colaborador
    </ul>
 
 
+
     <h3>Sprint-2</h3>
-    
+
+
 |      | **Entrega**    |**Prioridade**  |   
 | :-------------: | :-------------: |:-------------: | 
 |   Sprint-2    |      **Cadastro de usuário**           |   **1**              |
