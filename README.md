@@ -60,15 +60,18 @@ CR e colaborador
 |   Sprint-1    |      **<a href="https://www.figma.com/file/hx3r91rIMQuKtc1SqZCcA1/Untitled?node-id=0-1&t=tqA1mjN1BqEtjECe-0" target="_blank" >Prototipação das telas</a>** | **1** |
 |   Sprint-1    |      **<a href="https://github.com/api-2sem-pixel/api" target="_blank">Configurações do projeto</a>** | **5** |
    </ul>
-   
+
+
     <h3>Sprint-2</h3>
+    
     |      | **Entrega**    |**Prioridade**  |   
 | :-------------: | :-------------: |:-------------: | 
 |   Sprint-2    |      **Cadastro de usuário**           |   **1**              |
 |   Sprint-2    |      **Cadastro de squad** | **1** |
 |   Sprint-2    |      **Lançamento de horas extras** | **1** |
    </ul>
-   
+
+
    <h2>Configurar Projeto</h2>
 <div style="display: inline_block">
 
