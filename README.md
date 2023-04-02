@@ -64,7 +64,7 @@ CR e colaborador
 
     <h3>Sprint-2</h3>
     
-    |      | **Entrega**    |**Prioridade**  |   
+|      | **Entrega**    |**Prioridade**  |   
 | :-------------: | :-------------: |:-------------: | 
 |   Sprint-2    |      **Cadastro de usuário**           |   **1**              |
 |   Sprint-2    |      **Cadastro de squad** | **1** |
