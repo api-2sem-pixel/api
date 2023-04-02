@@ -61,7 +61,7 @@ CR e colaborador
 |   Sprint-1    |      **<a href="https://github.com/api-2sem-pixel/api" target="_blank">Configurações do projeto</a>** | **5** |
    </ul>
    
-    <h3>Sprint-2</h3>
+   <h3>Sprint-2</h3>
 
 |      | **Entrega**    |**Prioridade**  |   
 | :-------------: | :-------------: |:-------------: | 
