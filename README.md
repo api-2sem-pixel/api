@@ -67,6 +67,7 @@ CR e colaborador
 |   Sprint-2    |      **Cadastro de usuário**           |   **1**              |
 |   Sprint-2    |      **Cadastro de squad** | **1** |
 |   Sprint-2    |      **Lançamento de horas extras** | **1** |
+   </ul>
    
    <h2>Configurar Projeto</h2>
 <div style="display: inline_block">
