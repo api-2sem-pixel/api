@@ -56,7 +56,7 @@ CR e colaborador
     
 |      | **Entrega**    |**Prioridade**  |   
 | :-------------: | :-------------: |:-------------: | 
-|   Sprint-1    |      **<a href="https://github.com/api-2sem-pixel/api/blob/master/assets/backlog.png"  rel="noopener noreferrer">Backlog</a>**           |   **1**              |
+|   Sprint-1    |      **<a href="https://github.com/api-2sem-pixel/api/blob/master/assets/backlog.pdf"  rel="noopener noreferrer">Backlog</a>**           |   **1**              |
 |   Sprint-1    |      **<a href="https://www.figma.com/file/hx3r91rIMQuKtc1SqZCcA1/Untitled?node-id=0-1&t=tqA1mjN1BqEtjECe-0" target="_blank" >Prototipação das telas</a>** | **1** |
 |   Sprint-1    |      **<a href="https://github.com/api-2sem-pixel/api" target="_blank">Configurações do projeto</a>** | **5** |
    </ul>
