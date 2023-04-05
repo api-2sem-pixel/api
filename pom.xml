@@ -6,25 +6,41 @@
   <name>api_pixel</name>
   
   
-	<dependencies>
-		<!-- Depedência do JavaFX-->
-		<dependency>
-			<groupId>org.openjfx</groupId>
-			<artifactId>javafx-controls</artifactId>
-			<version>19</version>
-		</dependency>
-		<!-- Dependência do BD (no caso: MySql)-->
-		<dependency>
-			<groupId>mysql</groupId>
-			<artifactId>mysql-connector-java</artifactId>
-			<version>8.0.30</version>
-		</dependency>
+  <dependencies>
+
+    <dependency>
+      <groupId>org.jfxcore</groupId>
+      <artifactId>javafx-fxml</artifactId>
+      <version>18-ea+1</version>
+    </dependency>
+
+	  <!-- Depedência do JavaFX-->
+	  <dependency>
+		  <groupId>org.openjfx</groupId>
+          <artifactId>javafx-controls</artifactId>
+          <version>19</version>
+	  </dependency>
+	  
+	  <!-- Dependência do Hibernate-->
+	  <dependency>
+		  <groupId>org.hibernate</groupId>
+		  <artifactId>hibernate-entitymanager</artifactId>
+		  <version>5.4.27.Final</version>
+	  </dependency>
+	  
+	  <!-- Dependência do BD (no caso: MySql)-->
+	  <dependency>
+          <groupId>mysql</groupId>
+          <artifactId>mysql-connector-java</artifactId>
+    	  <version>8.0.30</version>
+	  </dependency>
+
 		<dependency>
 			<groupId>c3p0</groupId>
 			<artifactId>c3p0</artifactId>
 			<version>0.9.1.2</version>
 		</dependency>
-	</dependencies>
+  </dependencies>
   
   <build>
 	  <plugins>
