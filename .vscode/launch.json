@@ -9,7 +9,7 @@
             "name": "Current File",
             "request": "launch",
             "mainClass": "${file}",
-            "vmArgs": "--module-path 'C:/Java/javafx-sdk-20/lib' --add-modules=javafx.controls"
+            "vmArgs": "--module-path 'C:/Java/javafx-sdk-20/lib' --add-modules=javafx.swing,javafx.graphics,javafx.fxml,javafx.media,javafx.web"
         },
         {
             "type": "java",
@@ -17,7 +17,7 @@
             "request": "launch",
             "mainClass": "api_pixel.HelloFX",
             "projectName": "api_pixel",
-            "vmArgs": "--module-path 'C:/Java/javafx-sdk-20/lib' --add-modules=javafx.controls"
+            "vmArgs": "--module-path 'C:/Java/javafx-sdk-20/lib' --add-modules=javafx.swing,javafx.graphics,javafx.fxml,javafx.media,javafx.web"
         },
         {
             "type": "java",
@@ -25,7 +25,7 @@
             "request": "launch",
             "mainClass": "testes.InsertTabelaTeste",
             "projectName": "api_pixel",
-            "vmArgs": "--module-path 'C:/Java/javafx-sdk-20/lib' --add-modules=javafx.controls"
+            "vmArgs": "--module-path 'C:/Java/javafx-sdk-20/lib' --add-modules=javafx.swing,javafx.graphics,javafx.fxml,javafx.media,javafx.web"
         }
     ]
 }
