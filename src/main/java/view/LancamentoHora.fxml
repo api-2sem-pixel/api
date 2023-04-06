@@ -52,8 +52,9 @@
           <content>
             <AnchorPane id="Content" styleClass="content">
               <children>
-                        <TableView fx:id="table_lancamento" layoutX="35.0" layoutY="185.0" onMouseClicked="#criarNovaCelula" prefHeight="225.0" prefWidth="760.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="25.0">
+                        <TableView fx:id="table_lancamento" layoutX="35.0" layoutY="185.0" onMouseClicked="#criarNovaLinha" prefHeight="225.0" prefWidth="760.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="25.0">
                           <columns>
+                              <TableColumn fx:id="col_id" prefWidth="75.0" styleClass="rp-column" text="Id" visible="false" />
                             <TableColumn fx:id="col_projeto" prefWidth="75.0" styleClass="rp-column" text="Projeto" />
                               <TableColumn fx:id="col_cr" prefWidth="75.0" styleClass="rp-column" text="CR" />
                               <TableColumn fx:id="col_modalidade" prefWidth="75.0" styleClass="rp-column" text="Modalidade" />

@@ -1,6 +1,7 @@
 package model;
 
 import java.time.LocalDateTime;
+import java.util.function.Predicate;
 
 import enums.EtapaExtrato;
 
@@ -15,6 +16,11 @@ public class ExtratoHoraModel {
 	private LocalDateTime dataHoraInicio;
 	private LocalDateTime dataHoraFim;
     
+    public ExtratoHoraModel() {
+        super();
+        id = 0;
+    }
+
     public Integer getId() {
         return id;
     }
