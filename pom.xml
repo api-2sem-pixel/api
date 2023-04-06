@@ -13,6 +13,11 @@
 			<artifactId>javafx-controls</artifactId>
 			<version>19</version>
 		</dependency>
+		 <dependency>
+            <groupId>org.openjfx</groupId>
+            <artifactId>javafx-fxml</artifactId>
+            <version>19</version>
+        </dependency>
 		<!-- Dependência do BD (no caso: MySql)-->
 		<dependency>
 			<groupId>mysql</groupId>
@@ -42,7 +47,7 @@
         	<artifactId>javafx-maven-plugin</artifactId>
         	<version>0.0.8</version>
         	<configuration>
-            	<mainClass>api_pixel.HelloFX</mainClass>
+            	<mainClass>api_pixel.Main</mainClass>
         	</configuration>
     </plugin>
 	  </plugins>
