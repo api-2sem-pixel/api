@@ -14,7 +14,7 @@ public class Main extends Application {
         Parent root = null;
         
         var resource = getClass()
-            .getResource("/view/LancamentoHora.fxml");
+            .getResource("/view/CadastroUsuario.fxml");
         
         try {
             root =  FXMLLoader.load(resource);
