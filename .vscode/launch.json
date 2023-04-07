@@ -13,9 +13,9 @@
         },
         {
             "type": "java",
-            "name": "HelloFX",
+            "name": "Main",
             "request": "launch",
-            "mainClass": "api_pixel.HelloFX",
+            "mainClass": "api_pixel.Main",
             "projectName": "api_pixel",
             "vmArgs": "--module-path 'C:/Java/javafx-sdk-20/lib' --add-modules=javafx.swing,javafx.graphics,javafx.fxml,javafx.media,javafx.web"
         }
