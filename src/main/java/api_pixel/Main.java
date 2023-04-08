@@ -1,7 +1,6 @@
 package api_pixel;
 
 import java.io.IOException;
-
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -12,7 +11,7 @@ public class Main extends Application {
     @Override
     public void start(Stage stage) {
         Parent root = null;
-        
+        stage.setTitle("Cadastro novo usuario");
         var resource = getClass()
             .getResource("/view/CadastroUsuario.fxml");
         
@@ -24,9 +23,10 @@ public class Main extends Application {
         
         Scene scene = new Scene(root, 944, 609);
         stage.setScene(scene);
-        
+        /*
         var stylesPath = getClass().getResource("/view/styles.css").toString();
         stage.getScene().getStylesheets().add(stylesPath);
+        */
         
         stage.show();
     }

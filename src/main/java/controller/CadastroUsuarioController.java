@@ -7,10 +7,10 @@ import javafx.scene.control.Button;
 public class CadastroUsuarioController {
 
     @FXML
-    private Button btn_lancar;
+    private Button btn_cadastrar;
 
     @FXML
-    void lancarHoras(ActionEvent event) {
+    void cadastrarUsuario(ActionEvent event) {
 
     }
 
