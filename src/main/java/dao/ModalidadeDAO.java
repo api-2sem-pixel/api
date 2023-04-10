@@ -14,7 +14,7 @@ public class ModalidadeDAO extends BaseDAO {
     }
     
     public List<ModalidadeComboboxModel> obterCombobox(){
-		String sql = "SELECT ID, NOME FROM CR";
+		String sql = "SELECT ID, NOME FROM api2sem.Modalidade";
 		return executarQuery(sql, x -> {
 			try {
 				return new ModalidadeComboboxModel(x.getInt(0), x.getString(1));

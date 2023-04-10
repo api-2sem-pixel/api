@@ -25,7 +25,7 @@ public class CrDAO extends BaseDAO {
 	}
 	
 	public List<CrComboboxModel> obterCombobox(){
-		String sql = "SELECT ID, NOME FROM CR";
+		String sql = "SELECT ID, NOME FROM api2sem.Cr";
 		return executarQuery(sql, x -> {
 			try {
 				return new CrComboboxModel(x.getInt(0), x.getString(1));

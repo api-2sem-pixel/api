@@ -85,7 +85,7 @@ public class LancamentoHoraController implements Initializable {
     private void carregarComboBox() {
         this.comboBox_cr = crDAO.obterCombobox();
         this.comboBox_modalidade = modalidaeDAO.obterCombobox();
-        this.comboBox_motivo = motivoDAO.obterCombobox();
+        this.comboBox_motivo = motivoDAO.obterCombobox(); 
         this.comboBox_projeto = projetoDAO.obterCombobox();
     }
 
@@ -121,8 +121,8 @@ public class LancamentoHoraController implements Initializable {
             )
         );
 
-        col_inicio.setCellFactory(col -> new DateTimeCell<ExtratoHoraModel>());
-        col_fim.setCellFactory(col -> new DateTimeCell<ExtratoHoraModel>());
+        /* col_inicio.setCellFactory(col -> new DateTimeCell<ExtratoHoraModel>());
+        col_fim.setCellFactory(col -> new DateTimeCell<ExtratoHoraModel>()); */
 
         col_motivo.setCellFactory(
             ComboBoxTableCell.forTableColumn(
@@ -150,7 +150,7 @@ public class LancamentoHoraController implements Initializable {
 
     @FXML
     public void criarNovaLinha(MouseEvent event) {
-        table_lancamento.getItems().add(new ExtratoHoraModel());
+        //table_lancamento.getItems().add(new ExtratoHoraModel());
     }
 
     @FXML

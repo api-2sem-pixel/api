@@ -13,7 +13,7 @@ public class MotivoDAO extends BaseDAO{
     }
     
     public List<MotivoComboboxModel> obterCombobox(){
-		String sql = "SELECT ID, NOME FROM CR";
+		String sql = "SELECT ID, NOME FROM api2sem.Motivo";
 		return executarQuery(sql, x -> {
 			try {
 				return new MotivoComboboxModel(x.getInt(0), x.getString(1));

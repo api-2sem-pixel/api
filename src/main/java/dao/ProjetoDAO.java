@@ -13,10 +13,10 @@ public class ProjetoDAO extends BaseDAO {
     }
 
     public List<ProjetoComboboxModel> obterCombobox(){
-		String sql = "SELECT ID, NOME FROM CR";
+		String sql = "select id, nome from api2sem.Projeto";
 		return executarQuery(sql, x -> {
 			try {
-				return new ProjetoComboboxModel(x.getInt(0), x.getString(1));
+				return new ProjetoComboboxModel(x.getInt("id"), x.getString("nome"));
 			} catch (SQLException e) {
 				return null;
 			}
