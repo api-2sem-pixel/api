@@ -1,0 +1,156 @@
+package controller.LancamentoHora;
+
+import java.net.URL;
+import java.sql.Connection;
+import java.time.LocalDateTime;
+import java.util.ArrayList;
+import java.util.ResourceBundle;
+
+import dao.SquadDAO;
+import factory.ConnectionFactory;
+import javafx.collections.FXCollections;
+import javafx.event.ActionEvent;
+import javafx.fxml.FXML;
+import javafx.fxml.Initializable;
+import javafx.scene.control.Button;
+import javafx.scene.control.TableColumn;
+import javafx.scene.control.TableView;
+import javafx.scene.control.cell.ComboBoxTableCell;
+import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.input.MouseEvent;
+import javafx.util.converter.DefaultStringConverter;
+import model.ExtratoHoraModel;
+import model.ComboboxModel.ModalidadeComboboxModel;
+import model.ComboboxModel.MotivoComboboxModel;
+import model.ComboboxModel.ProjetoComboboxModel;
+import model.ComboboxModel.SquadComboboxModel;
+import utils.custom_cells.DateTimeCell;
+
+public class LancamentoHoraController implements Initializable {
+    @FXML private TableColumn<ExtratoHoraModel, Integer> col_id;
+    @FXML private TableColumn<ExtratoHoraModel, String> col_projeto;
+    @FXML private TableColumn<ExtratoHoraModel, String> col_cr;
+    @FXML private TableColumn<ExtratoHoraModel, String> col_modalidade;
+    @FXML private TableColumn<ExtratoHoraModel, LocalDateTime> col_inicio;
+    @FXML private TableColumn<ExtratoHoraModel, LocalDateTime> col_fim;
+    @FXML private TableColumn<ExtratoHoraModel, String> col_motivo;
+    @FXML private TableColumn<ExtratoHoraModel, ?> col_acoes;
+    @FXML private TableView<ExtratoHoraModel> table_lancamento;
+    @FXML private Button btn_lancar;
+
+    private ArrayList<ProjetoComboboxModel> comboBox_projeto;
+    private ArrayList<SquadComboboxModel> comboBox_cr;
+    private ArrayList<ModalidadeComboboxModel> comboBox_modalidade;
+    private ArrayList<MotivoComboboxModel> comboBox_motivo;
+
+    private SquadDAO squadDAO;
+
+    public LancamentoHoraController() {
+        super();
+        Connection connection = new ConnectionFactory().recuperarConexao();
+        squadDAO = new SquadDAO(connection);
+    }
+
+    @Override
+    public void initialize(URL location, ResourceBundle resources) {
+        final var propertyNames = new String[] {
+            "id",
+            "projeto",
+            "cr",
+            "modalidade",
+            "dataHoraInicio",
+            "dataHoraFim",
+            "motivo",
+            ""
+        };
+
+        carregarComboBox();
+        configurarLinha(propertyNames); 
+
+        var extratos = obterExtratoHora();
+        table_lancamento.getItems().addAll(extratos);
+    }
+
+    private void carregarComboBox() {
+        
+    }
+
+    private void configurarLinha(final String[] propertyNames) {
+        int index = 0;
+        col_id.setCellValueFactory(new PropertyValueFactory<ExtratoHoraModel, Integer>(propertyNames[index++]));
+        col_projeto.setCellValueFactory(new PropertyValueFactory<ExtratoHoraModel, String>(propertyNames[index++]));
+        col_cr.setCellValueFactory(new PropertyValueFactory<ExtratoHoraModel, String>(propertyNames[index++]));
+        col_modalidade.setCellValueFactory(new PropertyValueFactory<ExtratoHoraModel, String>(propertyNames[index++]));
+        col_inicio.setCellValueFactory(new PropertyValueFactory<ExtratoHoraModel, LocalDateTime>(propertyNames[index++]));
+        col_fim.setCellValueFactory(new PropertyValueFactory<ExtratoHoraModel, LocalDateTime>(propertyNames[index++])); 
+        col_motivo.setCellValueFactory(new PropertyValueFactory<ExtratoHoraModel, String>(propertyNames[index++]));
+        col_acoes.setCellValueFactory(new PropertyValueFactory<>(propertyNames[index++]));
+        
+        col_projeto.setCellFactory(
+            ComboBoxTableCell.forTableColumn(
+                new DefaultStringConverter(), 
+                FXCollections.observableArrayList(comboBox_projeto.stream().map(x -> x.getNome()).toList())
+            )
+        );
+        
+        col_cr.setCellFactory(
+            ComboBoxTableCell.forTableColumn(
+                new DefaultStringConverter(), 
+                FXCollections.observableArrayList(FXCollections.observableArrayList(comboBox_cr.stream().map(x -> x.getNome()).toList()))
+            )
+        );
+
+        col_modalidade.setCellFactory(
+            ComboBoxTableCell.forTableColumn(
+                new DefaultStringConverter(), 
+                FXCollections.observableArrayList(comboBox_modalidade.stream().map(x -> x.getDescricao()).toList())
+            )
+        );
+
+        col_inicio.setCellFactory(col -> new DateTimeCell<ExtratoHoraModel>());
+        col_fim.setCellFactory(col -> new DateTimeCell<ExtratoHoraModel>());
+
+        col_motivo.setCellFactory(
+            ComboBoxTableCell.forTableColumn(
+                new DefaultStringConverter(), 
+                FXCollections.observableArrayList(comboBox_motivo.stream().map(x -> x.getDescricao()).toList())
+            )
+        );
+    }
+
+    private ArrayList<ExtratoHoraModel> obterExtratoHora(){
+        var extratos = new ArrayList<ExtratoHoraModel>();
+        
+        var extrato = new ExtratoHoraModel();
+        extrato.setCr("Teste");
+        extrato.setDataHoraInicio(LocalDateTime.now());
+        extrato.setDataHoraFim(LocalDateTime.now());
+        extrato.setJustificativa("Teste");
+        extrato.setModalidade("Teste");
+        extrato.setMotivo("Teste");
+        extrato.setProjeto("Teste");
+
+        extratos.add(extrato);
+        return extratos;
+    }
+
+    @FXML
+    public void criarNovaLinha(MouseEvent event) {
+        table_lancamento.getItems().add(new ExtratoHoraModel());
+    }
+
+    @FXML
+    public void lancarHoras(ActionEvent event) {
+       var rows = table_lancamento.getItems();
+
+       for (ExtratoHoraModel extratoHoraModel : rows) {
+            if(extratoHoraModel.getId() != 0){
+                //se precisar dar update
+                //update()
+                continue;
+            }
+
+            //insert()
+       }
+    }
+}
