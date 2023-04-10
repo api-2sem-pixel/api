@@ -1,10 +1,10 @@
 package model.ComboboxModel;
 
-public class SquadComboboxModel {
+public class CrComboboxModel {
     private Integer id;
 	private String nome;
 
-	public SquadComboboxModel(Integer id, String nome) {
+	public CrComboboxModel(Integer id, String nome) {
 		super();
 		this.id = id;
 		this.nome = nome;

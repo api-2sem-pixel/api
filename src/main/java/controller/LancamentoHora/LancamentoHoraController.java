@@ -4,9 +4,13 @@ import java.net.URL;
 import java.sql.Connection;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
+import java.util.List;
 import java.util.ResourceBundle;
 
-import dao.SquadDAO;
+import dao.CrDAO;
+import dao.ModalidadeDAO;
+import dao.MotivoDAO;
+import dao.ProjetoDAO;
 import factory.ConnectionFactory;
 import javafx.collections.FXCollections;
 import javafx.event.ActionEvent;
@@ -20,10 +24,10 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.MouseEvent;
 import javafx.util.converter.DefaultStringConverter;
 import model.ExtratoHoraModel;
+import model.ComboboxModel.CrComboboxModel;
 import model.ComboboxModel.ModalidadeComboboxModel;
 import model.ComboboxModel.MotivoComboboxModel;
 import model.ComboboxModel.ProjetoComboboxModel;
-import model.ComboboxModel.SquadComboboxModel;
 import utils.custom_cells.DateTimeCell;
 
 public class LancamentoHoraController implements Initializable {
@@ -38,17 +42,24 @@ public class LancamentoHoraController implements Initializable {
     @FXML private TableView<ExtratoHoraModel> table_lancamento;
     @FXML private Button btn_lancar;
 
-    private ArrayList<ProjetoComboboxModel> comboBox_projeto;
-    private ArrayList<SquadComboboxModel> comboBox_cr;
-    private ArrayList<ModalidadeComboboxModel> comboBox_modalidade;
-    private ArrayList<MotivoComboboxModel> comboBox_motivo;
+    private List<ProjetoComboboxModel> comboBox_projeto;
+    private List<CrComboboxModel> comboBox_cr;
+    private List<ModalidadeComboboxModel> comboBox_modalidade;
+    private List<MotivoComboboxModel> comboBox_motivo;
 
-    private SquadDAO squadDAO;
+    private CrDAO crDAO;
+    private ModalidadeDAO modalidaeDAO;
+    private MotivoDAO motivoDAO;
+    private ProjetoDAO projetoDAO;
 
     public LancamentoHoraController() {
         super();
         Connection connection = new ConnectionFactory().recuperarConexao();
-        squadDAO = new SquadDAO(connection);
+
+        crDAO = new CrDAO(connection);
+        modalidaeDAO = new ModalidadeDAO(connection);
+        motivoDAO = new MotivoDAO(connection);
+        projetoDAO = new ProjetoDAO(connection);
     }
 
     @Override
@@ -72,7 +83,10 @@ public class LancamentoHoraController implements Initializable {
     }
 
     private void carregarComboBox() {
-        
+        this.comboBox_cr = crDAO.obterCombobox();
+        this.comboBox_modalidade = modalidaeDAO.obterCombobox();
+        this.comboBox_motivo = motivoDAO.obterCombobox();
+        this.comboBox_projeto = projetoDAO.obterCombobox();
     }
 
     private void configurarLinha(final String[] propertyNames) {

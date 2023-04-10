@@ -3,17 +3,17 @@ package controller;
 import java.sql.Connection;
 import java.util.List;
 
-import dao.SquadDAO;
+import dao.CrDAO;
 import factory.ConnectionFactory;
 import model.SquadModel;
 
 public class SquadController {
 
-	private SquadDAO squadDAO;
+	private CrDAO squadDAO;
 
 	public SquadController() {
 		Connection connection = new ConnectionFactory().recuperarConexao();
-		this.squadDAO = new SquadDAO(connection);
+		this.squadDAO = new CrDAO(connection);
 	}
 	
 	public List<SquadModel> listar() {
