@@ -31,19 +31,29 @@ import model.ComboboxModel.ProjetoComboboxModel;
 import utils.custom_cells.DateTimeCell;
 
 public class LancamentoHoraController implements Initializable {
-    @FXML private TableColumn<ExtratoHoraModel, Integer> col_id;
-    @FXML private TableColumn<ExtratoHoraModel, String> col_projeto;
-    @FXML private TableColumn<ExtratoHoraModel, String> col_cr;
-    @FXML private TableColumn<ExtratoHoraModel, String> col_modalidade;
-    @FXML private TableColumn<ExtratoHoraModel, LocalDateTime> col_inicio;
-    @FXML private TableColumn<ExtratoHoraModel, LocalDateTime> col_fim;
-    @FXML private TableColumn<ExtratoHoraModel, String> col_motivo;
-    @FXML private TableColumn<ExtratoHoraModel, ?> col_acoes;
-    @FXML private TableView<ExtratoHoraModel> table_lancamento;
-    @FXML private Button btn_lancar;
-    @FXML private Button btn_adicionarLinha;
+    @FXML
+    private TableColumn<ExtratoHoraModel, Integer> col_id;
+    @FXML
+    private TableColumn<ExtratoHoraModel, String> col_projeto;
+    @FXML
+    private TableColumn<ExtratoHoraModel, String> col_cr;
+    @FXML
+    private TableColumn<ExtratoHoraModel, String> col_modalidade;
+    @FXML
+    private TableColumn<ExtratoHoraModel, LocalDateTime> col_inicio;
+    @FXML
+    private TableColumn<ExtratoHoraModel, LocalDateTime> col_fim;
+    @FXML
+    private TableColumn<ExtratoHoraModel, String> col_motivo;
+    @FXML
+    private TableColumn<ExtratoHoraModel, ?> col_acoes;
+    @FXML
+    private TableView<ExtratoHoraModel> table_lancamento;
+    @FXML
+    private Button btn_lancar;
+    @FXML
+    private Button btn_adicionarLinha;
 
-    
     private List<ProjetoComboboxModel> comboBox_projeto = new ArrayList<ProjetoComboboxModel>();
     private List<CrComboboxModel> comboBox_cr = new ArrayList<CrComboboxModel>();
     private List<ModalidadeComboboxModel> comboBox_modalidade = new ArrayList<ModalidadeComboboxModel>();
@@ -56,7 +66,7 @@ public class LancamentoHoraController implements Initializable {
 
     public LancamentoHoraController() {
         super();
-        // Connection connection = new ConnectionFactory().recuperarConexao();
+        /// Connection connection = new ConnectionFactory().recuperarConexao();
 
         // crDAO = new CrDAO(connection);
         // modalidaeDAO = new ModalidadeDAO(connection);

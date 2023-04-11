@@ -10,7 +10,7 @@ import com.mchange.v2.c3p0.ComboPooledDataSource;
 import net.bytebuddy.asm.Advice.Local;
 
 public class ConnectionFactory {
-	private boolean useLocal = false;
+	private boolean useLocal = true;
 	public DataSource dataSource;
 
 	public ConnectionFactory() {
