@@ -31,27 +31,19 @@ import model.ComboboxModel.ProjetoComboboxModel;
 import utils.custom_cells.DateTimeCell;
 
 public class LancamentoHoraController implements Initializable {
-    @FXML
-    private TableColumn<ExtratoHoraModel, Integer> col_id;
-    @FXML
-    private TableColumn<ExtratoHoraModel, String> col_projeto;
-    @FXML
-    private TableColumn<ExtratoHoraModel, String> col_cr;
-    @FXML
-    private TableColumn<ExtratoHoraModel, String> col_modalidade;
-    @FXML
-    private TableColumn<ExtratoHoraModel, LocalDateTime> col_inicio;
-    @FXML
-    private TableColumn<ExtratoHoraModel, LocalDateTime> col_fim;
-    @FXML
-    private TableColumn<ExtratoHoraModel, String> col_motivo;
-    @FXML
-    private TableColumn<ExtratoHoraModel, ?> col_acoes;
-    @FXML
-    private TableView<ExtratoHoraModel> table_lancamento;
-    @FXML
-    private Button btn_lancar;
+    @FXML private TableColumn<ExtratoHoraModel, Integer> col_id;
+    @FXML private TableColumn<ExtratoHoraModel, String> col_projeto;
+    @FXML private TableColumn<ExtratoHoraModel, String> col_cr;
+    @FXML private TableColumn<ExtratoHoraModel, String> col_modalidade;
+    @FXML private TableColumn<ExtratoHoraModel, LocalDateTime> col_inicio;
+    @FXML private TableColumn<ExtratoHoraModel, LocalDateTime> col_fim;
+    @FXML private TableColumn<ExtratoHoraModel, String> col_motivo;
+    @FXML private TableColumn<ExtratoHoraModel, ?> col_acoes;
+    @FXML private TableView<ExtratoHoraModel> table_lancamento;
+    @FXML private Button btn_lancar;
+    @FXML private Button btn_adicionarLinha;
 
+    
     private List<ProjetoComboboxModel> comboBox_projeto = new ArrayList<ProjetoComboboxModel>();
     private List<CrComboboxModel> comboBox_cr = new ArrayList<CrComboboxModel>();
     private List<ModalidadeComboboxModel> comboBox_modalidade = new ArrayList<ModalidadeComboboxModel>();
@@ -158,8 +150,8 @@ public class LancamentoHoraController implements Initializable {
     }
 
     @FXML
-    public void criarNovaLinha(MouseEvent event) {
-        // table_lancamento.getItems().add(new ExtratoHoraModel());
+    public void criarNovaLinha(ActionEvent event) {
+        table_lancamento.getItems().add(ExtratoHoraModel.criarLinhaPadrao());
     }
 
     @FXML

@@ -20,6 +20,19 @@ public class ExtratoHoraModel {
         id = 0;
     }
 
+    public static ExtratoHoraModel criarLinhaPadrao(){
+        var extrato = new ExtratoHoraModel();
+        extrato.setCr("NOVO");
+        extrato.setProjeto("NOVO");
+        extrato.setModalidade("NOVO");
+        extrato.setJustificativa("NOVO");
+        extrato.setDataHoraInicio(LocalDateTime.MIN);
+        extrato.setDataHoraFim(LocalDateTime.MAX);
+        extrato.setStatus(EtapaExtrato.CRIACAO);
+
+        return extrato;
+    }
+
     public Integer getId() {
         return id;
     }
