@@ -15,7 +15,6 @@ public class Main extends Application {
         
         var resource = getClass()
             .getResource("/view/LancamentoHora/LancamentoHora.fxml");
-        
         try {
             root =  FXMLLoader.load(resource);
         } catch (IOException e) {
