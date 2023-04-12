@@ -49,7 +49,7 @@
         	<configuration>
             	<mainClass>api_pixel.Main</mainClass>
         	</configuration>
-    </plugin>
+    	</plugin>
 	  </plugins>
   </build>
   

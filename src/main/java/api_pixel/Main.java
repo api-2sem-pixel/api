@@ -16,10 +16,10 @@ public class Main extends Application {
     @Override
     public void start(Stage stage) {
     	try {
-			Parent root = FXMLLoader.load(getClass().getResource("/view/CadastroSquad.fxml"));
+			Parent root = FXMLLoader.load(getClass().getResource("/view/CadastroCR.fxml"));
 			Scene scene = new Scene(root);
 			
-			stage.setTitle("Teste");
+			stage.setTitle("Cadastro de Projeto");
 			stage.setScene(scene);
 			stage.show();
     	} catch (IOException e) {
