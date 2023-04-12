@@ -45,7 +45,7 @@
 <?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Font?>
 
-<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="609.0" prefWidth="944.0" scaleShape="false" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.LancamentoHora.LancamentoHoraController">
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="609.0" prefWidth="944.0" scaleShape="false" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.MenuController">
   <children>
     <SplitPane centerShape="false" dividerPositions="0.11587436332767402" focusTraversable="true" prefHeight="-1.0" prefWidth="-1.0" styleClass="window" VBox.vgrow="ALWAYS">
       <items>
@@ -74,15 +74,15 @@
                         </Label>
                         <ImageView fitHeight="32.0" fitWidth="32.0" layoutX="759.0" layoutY="33.0" pickOnBounds="true" preserveRatio="true" AnchorPane.rightAnchor="124.0" AnchorPane.topAnchor="33.0">
                            <image>
-                              <Image url="@Usuario.png" />
+                              <Image url="@../assets/Usuario.png" />
                            </image>
                         </ImageView>
                         <Group layoutX="41.0" layoutY="258.0" AnchorPane.leftAnchor="41.0">
                            <children>
-                              <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#2128bf1f" height="112.0" layoutY="-7.0" stroke="BLACK" strokeType="INSIDE" width="192.0" />
+                              <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#2128bf1f" height="112.0" layoutY="-7.0" onMouseClicked="#irControleUsuario" stroke="BLACK" strokeType="INSIDE" style="-fx-border-radious: 10px;" width="192.0" />
                               <ImageView fitHeight="54.0" fitWidth="65.0" layoutX="64.0" layoutY="22.0" pickOnBounds="true" preserveRatio="true">
                                  <image>
-                                    <Image url="@Visualizacao.png" />
+                                    <Image url="@../assets/Grafico.png" />
                                  </image>
                               </ImageView>
                               <Label layoutX="18.0" layoutY="76.0" text="Controle de Usuario" textFill="#1f25c1">
@@ -97,10 +97,10 @@
                         </Group>
                         <Group layoutX="309.0" layoutY="280.0" AnchorPane.leftAnchor="286.0" AnchorPane.topAnchor="251.0">
                            <children>
-                              <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#2128bf1f" height="112.0" layoutY="-7.0" stroke="BLACK" strokeType="INSIDE" width="192.0" />
+                              <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#2128bf1f" height="112.0" layoutY="-7.0" onMouseClicked="#irControleCr" stroke="BLACK" strokeType="INSIDE" width="192.0" />
                               <ImageView fitHeight="54.0" fitWidth="65.0" layoutX="64.0" layoutY="22.0" pickOnBounds="true" preserveRatio="true">
                                  <image>
-                                    <Image url="@Visualizacao.png" />
+                                    <Image url="@../assets/Grafico.png" />
                                  </image>
                               </ImageView>
                               <Label layoutX="34.0" layoutY="76.0" text="Controle de CRs" textFill="#1f25c1">
@@ -115,10 +115,10 @@
                         </Group>
                         <Group layoutX="531.0" layoutY="258.0">
                            <children>
-                              <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#2128bf1f" height="112.0" layoutY="-7.0" stroke="BLACK" strokeType="INSIDE" width="192.0" />
+                              <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#2128bf1f" height="112.0" layoutY="-7.0" onMouseClicked="#irLancamentoHora" stroke="BLACK" strokeType="INSIDE" width="192.0" />
                               <ImageView fitHeight="54.0" fitWidth="65.0" layoutX="64.0" layoutY="22.0" pickOnBounds="true" preserveRatio="true">
                                  <image>
-                                    <Image url="@Visualizacao.png" />
+                                    <Image url="@../assets/Grafico.png" />
                                  </image>
                               </ImageView>
                               <Label layoutX="11.0" layoutY="76.0" text="Lançamento de Horas" textFill="#1f25c1">
