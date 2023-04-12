@@ -13,7 +13,7 @@ public class ConnectionFactory {
 
 	public ConnectionFactory() {
 		ComboPooledDataSource comboPooledDataSource = new ComboPooledDataSource();
-		comboPooledDataSource.setJdbcUrl("jdbc:mysql://34.95.173.113:3306/RP_HE");
+		comboPooledDataSource.setJdbcUrl("jdbc:mysql://34.95.173.113:3306/api2sem");
 		comboPooledDataSource.setUser("root");
 		comboPooledDataSource.setPassword("@yY{=s9ELktt'vXd");
 
