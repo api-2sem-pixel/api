@@ -47,7 +47,7 @@
   <children>
 <AnchorPane id="Content" minHeight="571.0" prefHeight="571.0" prefWidth="1122.0" style="-fx-background-color: ffffff;" styleClass="content" stylesheets="@../api_pixel/stylesCadastroUsuario.css">
   <children>
-            <Button fx:id="btn_cadastrar" layoutX="682.0" layoutY="429.0" mnemonicParsing="false" onAction="#cadastrarUsuario" prefHeight="45.0" prefWidth="208.0" style="-fx-background-color: #1f25c1; -fx-background-radius: 50px;" styleClass="myButton" text="Cadastrar" textAlignment="CENTER" textFill="WHITE">
+            <Button fx:id="btn_cadastrar" layoutX="682.0" layoutY="429.0" mnemonicParsing="false" onAction="#cadastrarUsuario" prefHeight="45.0" prefWidth="208.0" style="-fx-background-color: #1f25c1; -fx-background-radius: 50px;" styleClass="myButton" text="ENTRAR" textAlignment="CENTER" textFill="WHITE">
                <font>
                   <Font size="14.0" />
                </font>
