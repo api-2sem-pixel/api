@@ -1,0 +1,67 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>api_pixel</groupId>
+  <artifactId>api_pixel</artifactId>
+  <version>0.0.1-SNAPSHOT</version>
+  <name>api_pixel</name>
+  
+  
+  <dependencies>
+
+    <dependency>
+      <groupId>org.jfxcore</groupId>
+      <artifactId>javafx-fxml</artifactId>
+      <version>18-ea+1</version>
+    </dependency>
+
+	  <!-- Depedência do JavaFX-->
+	  <dependency>
+		  <groupId>org.openjfx</groupId>
+          <artifactId>javafx-controls</artifactId>
+          <version>19</version>
+	  </dependency>
+	  
+	  <!-- Dependência do Hibernate-->
+	  <dependency>
+		  <groupId>org.hibernate</groupId>
+		  <artifactId>hibernate-entitymanager</artifactId>
+		  <version>5.4.27.Final</version>
+	  </dependency>
+	  
+	  <!-- Dependência do BD (no caso: MySql)-->
+	  <dependency>
+          <groupId>mysql</groupId>
+          <artifactId>mysql-connector-java</artifactId>
+    	  <version>8.0.30</version>
+	  </dependency>
+
+		<dependency>
+			<groupId>c3p0</groupId>
+			<artifactId>c3p0</artifactId>
+			<version>0.9.1.2</version>
+		</dependency>
+  </dependencies>
+  
+  <build>
+	  <plugins>
+		  <plugin>
+            <groupId>org.apache.maven.plugins</groupId>
+            <artifactId>maven-compiler-plugin</artifactId>
+            <version>3.1</version>
+            <configuration>
+                <source>19</source>
+                <target>19</target>
+            </configuration>
+          </plugin>
+          <plugin>
+        	<groupId>org.openjfx</groupId>
+        	<artifactId>javafx-maven-plugin</artifactId>
+        	<version>0.0.8</version>
+        	<configuration>
+            	<mainClass>api_pixel.HelloFX</mainClass>
+        	</configuration>
+    </plugin>
+	  </plugins>
+  </build>
+  
+</project>
