@@ -18,7 +18,7 @@ public class CadastroCRController {
 	private UsuarioDAO usuarioDAO;
 	
 	public CadastroCRController() {
-		Connection connection = new ConnectionFactory().recuperarConexao();
+		Connection connection = null;//new ConnectionFactory().recuperarConexao();
 		this.crDAO = new CrDAO(connection);
 		this.usuarioDAO = new UsuarioDAO(connection);
 	}

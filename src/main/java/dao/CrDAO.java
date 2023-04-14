@@ -5,8 +5,11 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.ArrayList;
+import java.util.List;
 
 import model.CR;
+import model.Squad;
 
 public class CrDAO {
 
@@ -38,6 +41,33 @@ public class CrDAO {
 		}
 
 	}
-
-
+	// Criação da lista nomeCR
+	public List<String> listarNomeCR() {
+		// Lista nomeCR instanciada
+		List<String> nomeCR = new ArrayList<String>();
+		try {
+			// Buscando a informação do Banco de Dados
+			String sql = "SELECT NOME FROM Cr";
+			
+			try (PreparedStatement pstm = connection.prepareStatement(sql)) {
+				pstm.execute();
+				
+				//Chamando o método para transformar a busca em nomeCR
+				trasformarResultSetEmCR(nomeCR, pstm);
+			}
+			return nomeCR;
+		} catch (SQLException e) {
+			throw new RuntimeException(e);
+		}
+	}
+	
+	//Método para transformar a busca em nomeCR
+	private void trasformarResultSetEmCR(List<String> nomeCR, PreparedStatement pstm) throws SQLException {
+		try (ResultSet rst = pstm.getResultSet()) {
+			while (rst.next()) {
+				//Adicionar retorno da busca em nomeCR
+				nomeCR.add(rst.getString(1));
+			}
+		}
+	}
 }
