@@ -8,6 +8,7 @@ import java.util.List;
 import java.util.ResourceBundle;
 
 import dao.CrDAO;
+import dao.ExtratoHoraDAO;
 import dao.ModalidadeDAO;
 import dao.MotivoDAO;
 import dao.ProjetoDAO;
@@ -63,15 +64,17 @@ public class LancamentoHoraController implements Initializable {
     private ModalidadeDAO modalidaeDAO;
     private MotivoDAO motivoDAO;
     private ProjetoDAO projetoDAO;
+    private ExtratoHoraDAO extratoHoraDao;
 
     public LancamentoHoraController() {
         super();
-        /// Connection connection = new ConnectionFactory().recuperarConexao();
+        Connection connection = new ConnectionFactory().recuperarConexao();
 
         // crDAO = new CrDAO(connection);
         // modalidaeDAO = new ModalidadeDAO(connection);
         // motivoDAO = new MotivoDAO(connection);
         // projetoDAO = new ProjetoDAO(connection);
+        extratoHoraDao = new ExtratoHoraDAO(connection);
     }
 
     @Override
@@ -175,7 +178,7 @@ public class LancamentoHoraController implements Initializable {
                 continue;
             }
 
-            // insert()
+            extratoHoraDao.lancarHora(extratoHoraModel);
         }
     }
 }

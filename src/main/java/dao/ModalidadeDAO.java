@@ -9,15 +9,15 @@ import model.ComboboxModel.MotivoComboboxModel;
 
 public class ModalidadeDAO extends BaseDAO {
 
-    public ModalidadeDAO(Connection connection) {
-        super(connection);
-    }
-    
-    public List<ModalidadeComboboxModel> obterCombobox(){
+	public ModalidadeDAO(Connection connection) {
+		super(connection);
+	}
+
+	public List<ModalidadeComboboxModel> obterCombobox() {
 		String sql = "SELECT ID, NOME FROM api2sem.Modalidade";
-		return executarQuery(sql, x -> {
+		return executarQuery(sql, resultSet -> {
 			try {
-				return new ModalidadeComboboxModel(x.getInt(0), x.getString(1));
+				return new ModalidadeComboboxModel(resultSet.getInt(0), resultSet.getString(1));
 			} catch (SQLException e) {
 				return null;
 			}
