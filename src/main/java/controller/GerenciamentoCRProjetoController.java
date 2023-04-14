@@ -9,6 +9,7 @@ import java.util.List;
 
 import dao.CrDAO;
 import dao.ProjetoDAO;
+import dao.UsuarioDAO;
 import factory.ConnectionFactory;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -20,17 +21,19 @@ import model.Squad;
 public class GerenciamentoCRProjetoController {
 
 	private CrDAO crDAO;
+	private UsuarioDAO usuarioDAO;
 
 	public GerenciamentoCRProjetoController() {
-		//Connection connection = new ConnectionFactory().recuperarConexao();
-		//this.crDAO = new CrDAO(connection);
+		Connection connection = new ConnectionFactory().recuperarConexao();
+		this.crDAO = new CrDAO(connection);
+		this.usuarioDAO = new UsuarioDAO(connection);
 	}
 
 	@FXML
 	private ComboBox comboSquads;
 	
 	@FXML
-	private ComboBox comboProjeto;
+	private TextField txProjeto;
 	
 	@FXML
 	private ComboBox comboNomeUsuario;
@@ -38,11 +41,12 @@ public class GerenciamentoCRProjetoController {
 	@FXML
 	protected void initialize() {
 		List<String> nomeCR = crDAO.listarNomeCR();
-		
+		List<String> nomeUsuario = usuarioDAO.getNomeUsuario();
 		comboSquads.getItems().addAll(nomeCR);
+		comboNomeUsuario.getItems().addAll(nomeUsuario);
 	}
 	
-	public void cadastrarProjeto(ActionEvent event) {
+	public void gerenciarCRProjeto(ActionEvent event) {
 		System.out.println(comboSquads.getValue().toString());
 	}
 }

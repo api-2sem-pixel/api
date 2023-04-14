@@ -43,4 +43,28 @@ public class UsuarioDAO {
 		}
 		return id;
 	}
+	
+	public List<String> getNomeUsuario() {
+		List<String> nomeUsuario = new ArrayList<String>();
+		try {
+			String sql = "Select Nome From Usuario";
+
+			try (PreparedStatement pstm = connection.prepareStatement(sql)) {
+				pstm.execute();
+
+				trasformarResultSetEmNome(nomeUsuario, pstm);
+			}
+			return nomeUsuario;
+		} catch (SQLException e) {
+			throw new RuntimeException(e);
+		}
+	}
+	
+	private void trasformarResultSetEmNome(List<String> nomeUsuario, PreparedStatement pstm) throws SQLException {
+		try (ResultSet rst = pstm.getResultSet()) {
+			while (rst.next()) {
+				nomeUsuario.add(rst.getString(1));
+			}
+		}
+	}
 }
