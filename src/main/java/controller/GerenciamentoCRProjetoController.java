@@ -1,17 +1,26 @@
 package controller;
 
 import java.sql.Connection;
+import java.sql.SQLException;
 import java.util.List;
 
 import dao.CrDAO;
 import dao.CrUsuarioDAO;
 import dao.UsuarioDAO;
 import factory.ConnectionFactory;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.scene.control.Alert;
+import javafx.scene.control.Alert.AlertType;
+import javafx.scene.control.CheckBox;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.TextField;
 import model.CrUsuario;
+import utils.mensagem_retorno.MensagemRetorno;
+import dto.CrDTO;
+import dto.UsuarioDTO;
 
 public class GerenciamentoCRProjetoController {
 
@@ -34,19 +43,35 @@ public class GerenciamentoCRProjetoController {
 	
 	@FXML
 	private ComboBox comboNomeUsuario;
+	
+	@FXML
+	private CheckBox temporario;
+
+	private ObservableList<CrDTO> cr = FXCollections.observableArrayList();
+	
+	private ObservableList<UsuarioDTO> usuario = FXCollections.observableArrayList();
+	
+	private MensagemRetorno msg = new MensagemRetorno();
 
 	@FXML
 	protected void initialize() {
-		List<String> nomeCR = crDAO.listarNomeCR();
-		List<String> nomeUsuario = usuarioDAO.getNomeUsuario();
-		comboSquads.getItems().addAll(nomeCR);
-		comboNomeUsuario.getItems().addAll(nomeUsuario);
+		cr.addAll(crDAO.getIdGestorAndNomeCr());
+		usuario.addAll(usuarioDAO.getNomeUsuarioAndId());
+		comboSquads.setItems(cr);
+		comboNomeUsuario.setItems(usuario);
+
 	}
 	
 	public void gerenciarCRProjeto(ActionEvent event) {
-		int idUsuario = 0;//comboSquads.;
-		int idGestor = 0;
-		CrUsuario crUsuario = new CrUsuario(idUsuario, idGestor);
-		crUsuarioDAO.salvar(crUsuario);
+		try {
+			CrDTO crDto = (CrDTO) comboSquads.getSelectionModel().getSelectedItem();
+			UsuarioDTO usuarioDto = (UsuarioDTO) comboNomeUsuario.getSelectionModel().getSelectedItem();
+			CrUsuario crUsuario = new CrUsuario(usuarioDto.getId(), crDto.getIdGestor());
+			int temp = temporario.isSelected() ? 1 : 0;
+			crUsuarioDAO.salvar(crUsuario, temp);
+			msg.sucesso();
+		} catch(Exception e) {
+			msg.erro();
+		}
 	}
 }

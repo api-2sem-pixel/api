@@ -8,6 +8,7 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
+import dto.CrDTO;
 import model.CR;
 import model.SquadModel;
 import model.ComboboxModel.CrComboboxModel;
@@ -43,20 +44,20 @@ public class CrDAO extends BaseDAO {
 		});
 	}
 
-	public List<String> listarNomeCR() {
+	public List<CrDTO> getIdGestorAndNomeCr() {
 		// Lista nomeCR instanciada
-		List<String> nomeCR = new ArrayList<String>();
+		List<CrDTO> cr = new ArrayList<CrDTO>();
 		try {
 			// Buscando a informação do Banco de Dados
-			String sql = "SELECT NOME FROM Cr";
+			String sql = "SELECT NOME, Id_Gestor FROM Cr";
 			
 			try (PreparedStatement pstm = connection.prepareStatement(sql)) {
 				pstm.execute();
 				
 				//Chamando o método para transformar a busca em nomeCR
-				trasformarResultSetEmCR(nomeCR, pstm);
+				trasformarResultSetEmCR(cr, pstm);
 			}
-			return nomeCR;
+			return cr;
 		} catch (SQLException e) {
 			throw new RuntimeException(e);
 		}
@@ -85,11 +86,11 @@ public class CrDAO extends BaseDAO {
 
 	}
 
-	private void trasformarResultSetEmCR(List<String> nomeCR, PreparedStatement pstm) throws SQLException {
+	private void trasformarResultSetEmCR(List<CrDTO> cr, PreparedStatement pstm) throws SQLException {
 		try (ResultSet rst = pstm.getResultSet()) {
 			while (rst.next()) {
-				//Adicionar retorno da busca em nomeCR
-				nomeCR.add(rst.getString(1));
+				CrDTO crDTO = new CrDTO(rst.getString(1), rst.getInt(2));
+				cr.add(crDTO);
 			}
 		}
 	}

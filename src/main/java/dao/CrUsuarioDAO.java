@@ -16,15 +16,15 @@ public class CrUsuarioDAO {
 		this.connection = connection;
 	}
 	
-	public void salvar(CrUsuario crUsuario) {
+	public void salvar(CrUsuario crUsuario, int temporario) {
 		try {
-			String sql = "INSERT INTO Cr (Id_Usuario, Id_Cr, Temporario) VALUES (?, ?, ?)";
+			String sql = "INSERT INTO Cr_Usuario (Id_Usuario, Id_Cr, Temporario) VALUES (?, ?, ?)";
 
 			try (PreparedStatement pstm = connection.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS)) {
 
 				pstm.setInt(1, crUsuario.getIdUsuario());
 				pstm.setInt(2, crUsuario.getIdCr());
-				pstm.setInt(3, 1);
+				pstm.setInt(3, temporario);
 
 				pstm.execute();
 

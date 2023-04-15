@@ -15,7 +15,7 @@ public class Main extends Application {
         Parent root = null;
         
         var resource = getClass()
-            .getResource("/view/Menu/Menu.fxml");
+            .getResource("/view/GerenciamentoCRProjeto.fxml");
         
         try {
             root =  FXMLLoader.load(resource);
@@ -26,8 +26,8 @@ public class Main extends Application {
         Scene scene = new Scene(root, 944, 609);
         stage.setScene(scene);
         
-        var stylesPath = getClass().getResource("/view/styles.css").toString();
-        stage.getScene().getStylesheets().add(stylesPath);
+        //var stylesPath = getClass().getResource("/view/styles.css").toString();
+        //stage.getScene().getStylesheets().add(stylesPath);
         
         MenuController.setStage(stage);
         stage.show();
