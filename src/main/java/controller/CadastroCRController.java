@@ -3,9 +3,7 @@ package controller;
 import java.sql.Connection;
 
 import dao.CrDAO;
-import dao.SquadDAO;
 import dao.UsuarioDAO;
-import factory.ConnectionFactory;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.TextField;
