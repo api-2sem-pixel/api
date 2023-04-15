@@ -28,7 +28,7 @@ public class MenuController {
 
     @FXML
     void irLancamentoHora(MouseEvent event) {
-        changeScene("/view/LancamentoHora.fxml");
+        changeScene("/view/LancamentoHora/LancamentoHora.fxml");
     }
 
     private void changeScene(String fxml){

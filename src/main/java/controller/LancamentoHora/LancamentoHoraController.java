@@ -70,10 +70,10 @@ public class LancamentoHoraController implements Initializable {
         super();
         Connection connection = new ConnectionFactory().recuperarConexao();
 
-        // crDAO = new CrDAO(connection);
-        // modalidaeDAO = new ModalidadeDAO(connection);
-        // motivoDAO = new MotivoDAO(connection);
-        // projetoDAO = new ProjetoDAO(connection);
+        crDAO = new CrDAO(connection);
+        modalidaeDAO = new ModalidadeDAO(connection);
+        motivoDAO = new MotivoDAO(connection);
+        projetoDAO = new ProjetoDAO(connection);
         extratoHoraDao = new ExtratoHoraDAO(connection);
     }
 
@@ -99,10 +99,10 @@ public class LancamentoHoraController implements Initializable {
 
     private void carregarComboBox() {
 
-        // this.comboBox_cr = crDAO.obterCombobox();
-        // this.comboBox_modalidade = modalidaeDAO.obterCombobox();
-        // this.comboBox_motivo = motivoDAO.obterCombobox();
-        // this.comboBox_projeto = projetoDAO.obterCombobox();
+        this.comboBox_cr = crDAO.obterCombobox();
+        this.comboBox_modalidade = modalidaeDAO.obterCombobox();
+        this.comboBox_motivo = motivoDAO.obterCombobox();
+        this.comboBox_projeto = projetoDAO.obterCombobox();
     }
 
     private void configurarLinha(final String[] propertyNames) {
