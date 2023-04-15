@@ -5,16 +5,29 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.List;
 
-import model.CR;
 import model.Projeto;
+import model.ComboboxModel.ProjetoComboboxModel;
 
-public class ProjetoDAO {
+public class ProjetoDAO extends BaseDAO {
 
 	private Connection connection;
 
-	public ProjetoDAO(Connection connection) {
+    public ProjetoDAO(Connection connection) {
+		super(connection);
 		this.connection = connection;
+    }
+
+    public List<ProjetoComboboxModel> obterCombobox(){
+		String sql = "select id, nome from api2sem.Projeto";
+		return executarQuery(sql, x -> {
+			try {
+				return new ProjetoComboboxModel(x.getInt("id"), x.getString("nome"));
+			} catch (SQLException e) {
+				return null;
+			}
+		});
 	}
 
 	public void salvar(Projeto projeto) {

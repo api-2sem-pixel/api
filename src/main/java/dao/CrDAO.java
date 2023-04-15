@@ -9,14 +9,57 @@ import java.util.ArrayList;
 import java.util.List;
 
 import model.CR;
-import model.Squad;
+import model.SquadModel;
+import model.ComboboxModel.CrComboboxModel;
 
-public class CrDAO {
-
+public class CrDAO extends BaseDAO {
 	private Connection connection;
 
 	public CrDAO(Connection connection) {
+		super(connection);
 		this.connection = connection;
+	}
+
+	public List<SquadModel> listar(){
+		String sql = "SELECT ID, NOME FROM SQUAD";
+		return executarQuery(sql, x -> {
+			try {
+				return new SquadModel(x.getInt(1), x.getString(2));
+			} catch (SQLException e) {
+				
+				return null;
+			}
+		});
+	}
+
+	public List<CrComboboxModel> obterCombobox(){
+		String sql = "SELECT ID, NOME FROM api2sem.Cr";
+		return executarQuery(sql, x -> {
+			try {
+				return new CrComboboxModel(x.getInt(0), x.getString(1));
+			} catch (SQLException e) {
+				return null;
+			}
+		});
+	}
+
+	public List<String> listarNomeCR() {
+		// Lista nomeCR instanciada
+		List<String> nomeCR = new ArrayList<String>();
+		try {
+			// Buscando a informação do Banco de Dados
+			String sql = "SELECT NOME FROM Cr";
+			
+			try (PreparedStatement pstm = connection.prepareStatement(sql)) {
+				pstm.execute();
+				
+				//Chamando o método para transformar a busca em nomeCR
+				trasformarResultSetEmCR(nomeCR, pstm);
+			}
+			return nomeCR;
+		} catch (SQLException e) {
+			throw new RuntimeException(e);
+		}
 	}
 
 	public void salvar(CR cr) {
@@ -41,27 +84,7 @@ public class CrDAO {
 		}
 
 	}
-	// Criação da lista nomeCR
-	public List<String> listarNomeCR() {
-		// Lista nomeCR instanciada
-		List<String> nomeCR = new ArrayList<String>();
-		try {
-			// Buscando a informação do Banco de Dados
-			String sql = "SELECT NOME FROM Cr";
-			
-			try (PreparedStatement pstm = connection.prepareStatement(sql)) {
-				pstm.execute();
-				
-				//Chamando o método para transformar a busca em nomeCR
-				trasformarResultSetEmCR(nomeCR, pstm);
-			}
-			return nomeCR;
-		} catch (SQLException e) {
-			throw new RuntimeException(e);
-		}
-	}
-	
-	//Método para transformar a busca em nomeCR
+
 	private void trasformarResultSetEmCR(List<String> nomeCR, PreparedStatement pstm) throws SQLException {
 		try (ResultSet rst = pstm.getResultSet()) {
 			while (rst.next()) {
