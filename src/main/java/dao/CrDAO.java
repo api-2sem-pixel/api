@@ -33,10 +33,10 @@ public class CrDAO extends BaseDAO {
 	}
 
 	public List<CrComboboxModel> obterCombobox(){
-		String sql = "SELECT ID, NOME FROM api2sem.Cr";
+		String sql = "SELECT Id, Nome FROM Cr";
 		return executarQuery(sql, x -> {
 			try {
-				return new CrComboboxModel(x.getInt(0), x.getString(1));
+				return new CrComboboxModel(x.getInt(1), x.getString(2));
 			} catch (SQLException e) {
 				return null;
 			}

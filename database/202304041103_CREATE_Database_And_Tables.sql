@@ -45,22 +45,6 @@ add foreign key (Id_Usuario) references Usuario(Id);
 alter table Cr_Usuario
 add foreign key (Id_Cr) references Cr(Id);
 
-create table Projeto(
-  Id int auto_increment primary key,
-  Nome varchar(40) not null
- );
-
-create table Cr_Projeto(
-  Id_Cr int not null,
-  Id_Projeto int not null
-);
-
-alter table Cr_Projeto
-add foreign key (Id_Cr) references Cr(Id);
-
-alter table Cr_Projeto
-add foreign key (Id_Projeto) references Projeto(Id);
-
 create table Tipo_Motivo(
   Id int primary key not null,
   Descricao varchar(50) not null
@@ -96,7 +80,7 @@ insert into Modalidade values(2, 'Sobreaviso');
 
 create table Extrato_Hora(
    Id int auto_increment primary key not null,
-   Id_Projeto int not null,
+   Projeto varchar(100) not null,
    Id_Cr int not null,
    Id_Usuario int not null,
    Id_Etapa_Extrato int not null,
@@ -106,9 +90,6 @@ create table Extrato_Hora(
    DataHora_Fim datetime not null,
    Justificativa varchar(300) null
 );
-
-alter table Extrato_Hora
-add foreign key (Id_Projeto) references Projeto(Id);
 
 alter table Extrato_Hora
 add foreign key (Id_Cr) references Cr(Id);
