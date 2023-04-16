@@ -1,40 +1,9 @@
 .myButton {
     -fx-background-color: #007bff;
-    -fx-text-fill: white;
-    -fx-font-size: 16px;
-    -fx-padding: 10px 20px;
-    -fx-effect: dropshadow(gaussian, rgba(245, 245, 245, 0.966), 10, 0, 0, 1);
-    -fx-transition: all 0.3s ease;
+    
 }
 
 .myButton:hover {
     -fx-background-color: #0062cc;
     -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.4), 10, 0, 0, 2);
 }
-.window{
-    -fx-min-width:944px;
-    -fx-min-height:595px;
-}
-
-.sidebar {
-    -fx-background-color: #1F25C1;
-    -fx-min-width:105px;
-    -fx-min-height:595px;
-}
-
-.content {
-    -fx-background-color:white;
-    -fx-min-width:830px;
-    -fx-min-height:595px;
-}
-
-.title{
-    -fx-background-color: white;
-    -fx-text-fill: #1f25c1;
-}
-
-.rp-column {
-    -fx-background-color:#3c80b8;
-    -fx-text-background-color:white;
-}
-

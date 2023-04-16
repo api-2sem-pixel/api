@@ -21,12 +21,10 @@ public class Main extends Application {
         } catch (IOException e) {
             e.printStackTrace();
         }
-        
+        stage.setTitle("Cadastro de novo usuario");
         Scene scene = new Scene(root, 944, 609);
         stage.setScene(scene);
         
-        var stylesPath = getClass().getResource("/view/stylesCadastroUsuario.css").toString();
-        stage.getScene().getStylesheets().add(stylesPath);
         
         stage.show();
     }
