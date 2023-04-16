@@ -32,6 +32,7 @@
   OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 -->
 
+<?import com.gluonhq.charm.glisten.control.Icon?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.image.Image?>
@@ -43,22 +44,22 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="572.0" prefWidth="1176.0" style="-fx-background-color: ffffff;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.CadastroUsuarioController">
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="523.0" prefWidth="1039.0" style="-fx-background-color: ffffff;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.CadastroUsuarioController">
   <children>
-<AnchorPane id="Content" minHeight="571.0" prefHeight="571.0" prefWidth="1122.0" style="-fx-background-color: ffffff;" styleClass="content" stylesheets="@../api_pixel/stylesCadastroUsuario.css">
+<AnchorPane id="Content" minHeight="484.0" prefHeight="571.0" prefWidth="1165.0" style="-fx-background-color: ffffff;" styleClass="content" stylesheets="@../api_pixel/stylesCadastroUsuario.css">
   <children>
-            <Button fx:id="btn_cadastrar" layoutX="682.0" layoutY="429.0" mnemonicParsing="false" onAction="#cadastrarUsuario" prefHeight="45.0" prefWidth="208.0" style="-fx-background-color: #1f25c1; -fx-background-radius: 50px;" styleClass="myButton" text="ENTRAR" textAlignment="CENTER" textFill="WHITE">
+            <Button fx:id="btn_cadastrar" layoutX="540.0" layoutY="421.0" mnemonicParsing="false" onAction="#cadastrarUsuario" prefHeight="45.0" prefWidth="208.0" style="-fx-background-color: #1f25c1; -fx-background-radius: 50px;" styleClass="myButton" text="ENTRAR" textAlignment="CENTER" textFill="WHITE">
                <font>
                   <Font size="14.0" />
                </font>
             </Button>
             <HBox alignment="CENTER" layoutX="152.0" layoutY="216.0" />
-            <TextField layoutX="519.0" layoutY="298.0" prefHeight="55.0" prefWidth="570.0" promptText="Senha" style="-fx-background-radius: 15px; -fx-background-color: f5f0f0;" />
-            <TextField layoutX="519.0" layoutY="189.0" opacity="0.85" prefHeight="55.0" prefWidth="570.0" promptText="Login" style="-fx-background-radius: 15px; -fx-background-color: f5f0f0;" />
+            <TextField layoutX="407.0" layoutY="299.0" prefHeight="55.0" prefWidth="480.0" promptText="            Senha" style="-fx-background-radius: 15px; -fx-background-color: f5f0f0;" />
+            <TextField layoutX="405.0" layoutY="203.0" opacity="0.85" prefHeight="55.0" prefWidth="480.0" promptText="            Login" style="-fx-background-radius: 15px; -fx-background-color: f5f0f0;" />
            
-            <BorderPane prefHeight="780.0" prefWidth="315.0">
+            <BorderPane prefHeight="523.0" prefWidth="315.0">
                <center>
-                  <AnchorPane layoutY="500.0" prefHeight="718.0" prefWidth="371.0" style="-fx-background-color: #1f25c1;" BorderPane.alignment="CENTER">
+                  <AnchorPane layoutY="500.0" prefHeight="535.0" prefWidth="315.0" style="-fx-background-color: #1f25c1;" BorderPane.alignment="CENTER">
                      <children>
                         <Text fill="WHITE" layoutX="64.0" layoutY="178.0" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-weight: bold;" text="Bem-vindo a tela de login" wrappingWidth="230.0">
                            <font>
@@ -87,11 +88,13 @@
                   </AnchorPane>
                </center>
             </BorderPane>
-            <Text fill="#2247ff" layoutX="631.0" layoutY="113.0" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-weight: bold;" text="Informe seus dados de cadastros" textAlignment="CENTER">
+            <Text fill="#2247ff" layoutX="469.0" layoutY="130.0" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-weight: bold;" text="Informe seus dados de cadastros" textAlignment="CENTER">
                <font>
                   <Font size="24.0" />
                </font>
             </Text>
+            <Icon blendMode="SRC_ATOP" content="ACCOUNT_CIRCLE" layoutX="420.0" layoutY="218.0" />
+            <Icon blendMode="SRC_ATOP" content="LOCK" layoutX="420.0" layoutY="314.0" />
   </children>
 </AnchorPane>
   </children>
