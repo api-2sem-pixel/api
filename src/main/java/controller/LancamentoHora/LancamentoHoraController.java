@@ -11,7 +11,6 @@ import dao.CrDAO;
 import dao.ExtratoHoraDAO;
 import dao.ModalidadeDAO;
 import dao.MotivoDAO;
-import dao.ProjetoDAO;
 import factory.ConnectionFactory;
 import javafx.collections.FXCollections;
 import javafx.event.ActionEvent;
@@ -23,13 +22,11 @@ import javafx.scene.control.TableView;
 import javafx.scene.control.cell.ComboBoxTableCell;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.control.cell.TextFieldTableCell;
-import javafx.scene.input.MouseEvent;
 import javafx.util.converter.DefaultStringConverter;
 import model.ExtratoHoraModel;
 import model.ComboboxModel.CrComboboxModel;
 import model.ComboboxModel.ModalidadeComboboxModel;
 import model.ComboboxModel.MotivoComboboxModel;
-import model.ComboboxModel.ProjetoComboboxModel;
 import utils.custom_cells.DateTimeCell;
 
 public class LancamentoHoraController implements Initializable {
@@ -80,7 +77,7 @@ public class LancamentoHoraController implements Initializable {
         carregarComboBox();
         configurarLinha(propertyNames);
 
-        var extratos = obterExtratoHora();
+        var extratos = extratoHoraDao.obterExtratosLancados(1);
         table_lancamento.getItems().addAll(extratos);
     }
 
@@ -119,22 +116,23 @@ public class LancamentoHoraController implements Initializable {
             event.getTableView().getItems().get(row).setModalidade(event.getNewValue());
         });
 
-        /*
-         * col_inicio.setCellFactory(col -> new DateTimeCell<ExtratoHoraModel>());
-         * col_fim.setCellFactory(col -> new DateTimeCell<ExtratoHoraModel>());
-         */
+        col_inicio.setCellFactory(col -> new DateTimeCell<ExtratoHoraModel>());
+        col_inicio.setOnEditCommit(event -> {
+            var row = event.getTablePosition().getRow();
+            event.getTableView().getItems().get(row).setDataHoraInicio(event.getNewValue());
+        });
+
+        col_fim.setCellFactory(col -> new DateTimeCell<ExtratoHoraModel>());
+        col_fim.setOnEditCommit(event -> {
+            var row = event.getTablePosition().getRow();
+            event.getTableView().getItems().get(row).setDataHoraFim(event.getNewValue());
+        });
 
         col_motivo.setCellFactory(ComboBoxTableCell.forTableColumn(new DefaultStringConverter(), FXCollections.observableArrayList(comboBox_motivo.stream().map(x -> x.getDescricao()).toList())));
         col_motivo.setOnEditCommit(event -> {
             var row = event.getTablePosition().getRow();
             event.getTableView().getItems().get(row).setMotivo(event.getNewValue());
         });
-    }
-
-    private ArrayList<ExtratoHoraModel> obterExtratoHora() {
-        var extratos = new ArrayList<ExtratoHoraModel>();
-        extratos.add(ExtratoHoraModel.criarLinhaPadrao());
-        return extratos;
     }
 
     @FXML

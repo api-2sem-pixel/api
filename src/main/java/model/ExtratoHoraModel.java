@@ -30,8 +30,8 @@ public class ExtratoHoraModel {
         extrato.setProjeto("NOVO");
         extrato.setModalidade("NOVO");
         extrato.setJustificativa("NOVO");
-        extrato.setDataHoraInicio(LocalDateTime.MIN);
-        extrato.setDataHoraFim(LocalDateTime.MAX);
+        extrato.setDataHoraInicio(LocalDateTime.now());
+        extrato.setDataHoraFim(LocalDateTime.now());
         extrato.setStatus(EtapaExtrato.CRIACAO);
 
         return extrato;
