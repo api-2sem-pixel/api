@@ -14,23 +14,23 @@ public class Main extends Application {
         Parent root = null;
         
         var resource = getClass()
-            .getResource("/view/LancamentoHora/LancamentoHora.fxml");
+            .getResource("/view/Login/Login.fxml");
+        
         try {
             root =  FXMLLoader.load(resource);
+       
         } catch (IOException e) {
             e.printStackTrace();
         }
-        
+        stage.setTitle("Login");
         Scene scene = new Scene(root, 944, 609);
         stage.setScene(scene);
-        
-        var stylesPath = getClass().getResource("/view/styles.css").toString();
-        stage.getScene().getStylesheets().add(stylesPath);
-        
+       
         stage.show();
+      
     }
 
     public static void main(String[] args) {
-        launch();
+        launch(args);
     }
 }
