@@ -49,7 +49,7 @@
   <children>
 <AnchorPane id="Content" minHeight="566.0" prefHeight="595.0" prefWidth="1026.0" style="-fx-background-color: ffffff;" styleClass="content" stylesheets="@../stylesCadastroUsuario.css">
   <children>
-            <Button fx:id="btn_entrar" layoutX="527.0" layoutY="328.0" mnemonicParsing="false" onAction="#entrarUsuario" prefHeight="45.0" prefWidth="208.0" style="-fx-background-color: #1f25c1; -fx-background-radius: 50px;" styleClass="myButton" text="Entrar" textAlignment="CENTER" textFill="WHITE">
+            <Button fx:id="btn_entrar" layoutX="527.0" layoutY="328.0" mnemonicParsing="false" onAction="#entrarUsuario" onMousePressed="#entrar" prefHeight="45.0" prefWidth="208.0" style="-fx-background-color: #1f25c1; -fx-background-radius: 50px;" styleClass="myButton" text="Entrar" textAlignment="CENTER" textFill="WHITE">
                <font>
                   <Font size="14.0" />
                </font>
