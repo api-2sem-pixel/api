@@ -4,10 +4,12 @@ import java.sql.Connection;
 
 import dao.CrDAO;
 import dao.UsuarioDAO;
+import factory.ConnectionFactory;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.TextField;
 import model.CR;
+import utils.mensagem_retorno.MensagemRetorno;
 
 public class CadastroCRController {
 
@@ -16,20 +18,36 @@ public class CadastroCRController {
 	private UsuarioDAO usuarioDAO;
 	
 	public CadastroCRController() {
-		Connection connection = null;//new ConnectionFactory().recuperarConexao();
+		Connection connection = new ConnectionFactory().recuperarConexao();
 		this.crDAO = new CrDAO(connection);
 		this.usuarioDAO = new UsuarioDAO(connection);
 	}
 	
 	@FXML
-	private TextField txSquad;
+	private TextField tfNome;
 	
 	@FXML
-	private TextField txGestor;
+	private TextField tfCodigo;
 	
+	@FXML
+	private TextField tfSigla;
+	
+	private MensagemRetorno msg = new MensagemRetorno();
 	
 	public void inserirCR(ActionEvent event) {
-		Integer id_gestor = this.usuarioDAO.getIdUsuario(txGestor.getText());
-		this.crDAO.salvar(new CR(id_gestor, txSquad.getText()));
+		try {
+			this.crDAO.salvar(new CR(tfNome.getText(), tfSigla.getText(), tfCodigo.getText()));
+			msg.sucesso();
+			limpar();
+		} catch(Exception e) {
+			msg.erro();
+		}
+		
+	}
+	
+	public void limpar() {
+		this.tfNome.clear();
+		this.tfCodigo.clear();
+		this.tfSigla.clear();
 	}
 }

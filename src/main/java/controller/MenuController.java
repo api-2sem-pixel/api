@@ -18,7 +18,7 @@ public class MenuController {
     @FXML
     void irControleCr(MouseEvent event) throws IOException {
         
-        changeScene("");
+        changeScene("/view/GerenciamentoCRProjeto.fxml");
     }
 
     @FXML
