@@ -11,7 +11,7 @@ import dao.CrDAO;
 import dao.ExtratoHoraDAO;
 import dao.ModalidadeDAO;
 import dao.MotivoDAO;
-import dao.ProjetoDAO;
+import dao.ClienteDAO;
 import factory.ConnectionFactory;
 import javafx.collections.FXCollections;
 import javafx.event.ActionEvent;
@@ -63,7 +63,7 @@ public class LancamentoHoraController implements Initializable {
     private CrDAO crDAO;
     private ModalidadeDAO modalidaeDAO;
     private MotivoDAO motivoDAO;
-    private ProjetoDAO projetoDAO;
+    private ClienteDAO projetoDAO;
     private ExtratoHoraDAO extratoHoraDao;
 
     public LancamentoHoraController() {
