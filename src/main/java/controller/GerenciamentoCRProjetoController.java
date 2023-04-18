@@ -37,10 +37,7 @@ public class GerenciamentoCRProjetoController {
 
 	@FXML
 	private ComboBox comboSquads;
-	
-	@FXML
-	private TextField txProjeto;
-	
+		
 	@FXML
 	private ComboBox comboNomeUsuario;
 	
@@ -66,12 +63,20 @@ public class GerenciamentoCRProjetoController {
 		try {
 			CrDTO crDto = (CrDTO) comboSquads.getSelectionModel().getSelectedItem();
 			UsuarioDTO usuarioDto = (UsuarioDTO) comboNomeUsuario.getSelectionModel().getSelectedItem();
-			CrUsuario crUsuario = new CrUsuario(usuarioDto.getId(), crDto.getIdGestor());
+			CrUsuario crUsuario = new CrUsuario(usuarioDto.getId(), crDto.getId());
 			int temp = temporario.isSelected() ? 1 : 0;
 			crUsuarioDAO.salvar(crUsuario, temp);
 			msg.sucesso();
+			limpar();
+			initialize();
 		} catch(Exception e) {
 			msg.erro();
 		}
+	}
+	
+	public void limpar() {
+		this.comboSquads.getItems().clear();
+		this.comboNomeUsuario.getItems().clear();
+		this.temporario.setSelected(false);
 	}
 }

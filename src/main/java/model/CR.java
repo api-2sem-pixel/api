@@ -3,18 +3,14 @@ package model;
 public class CR {
 
 	private Integer id;
-	private Integer id_gestor;
-	private String nomeCR;
+	private String nome;
+	private String sigla;
+	private String codigo;
 	
-	public CR(Integer id, Integer id_gestor, String nomeCR) {
-		this.id = id;
-		this.id_gestor = id_gestor;
-		this.nomeCR = nomeCR;
-	}
-	
-	public CR(Integer id_gestor, String nomeCR) {
-		this.id_gestor = id_gestor;
-		this.nomeCR = nomeCR;
+	public CR(String nome, String sigla, String codigo) {
+		this.nome = nome;
+		this.sigla = sigla;
+		this.codigo = codigo;
 	}
 	
 	public Integer getId() {
@@ -23,18 +19,24 @@ public class CR {
 	public void setId(Integer id) {
 		this.id = id;
 	}
-	public Integer getId_gestor() {
-		return id_gestor;
+	public String getNome() {
+		return nome;
 	}
-	public void setId_gestor(Integer id_gestor) {
-		this.id_gestor = id_gestor;
+	public void setNome(String nome) {
+		this.nome = nome;
 	}
-	public String getNomeCR() {
-		return nomeCR;
+	public String getSigla() {
+		return sigla;
 	}
-	public void setNomeCR(String nomeCR) {
-		this.nomeCR = nomeCR;
+	public void setSigla(String sigla) {
+		this.sigla = sigla;
 	}
-	
+	public String getCodigo() {
+		return codigo;
+	}
+	public void setCodigo(String codigo) {
+		this.codigo = codigo;
+	}
+		
 	
 }
