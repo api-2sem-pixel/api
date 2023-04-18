@@ -24,29 +24,34 @@ public class LoginController {
 	
 	
     @FXML
-    private static Button btn_entrar;
+    private  Button btn_entrar;
 
 	@FXML
     private void entrarUsuario(Stage stage)   {
 		
 		String email = emailField.getText();
     	String password = passwordField.getText();
-		String logado =  btn_entrar.getId();
-		System.out.println(logado);
-    	if (email.equals("cliente") && password.equals("senha")) {
-    		try {
-                FXMLLoader loader = new FXMLLoader();
-                loader.setLocation(getClass().getResource("/view/Menu/Menu.fxml"));
-                if(logado == "btn_entrar"){
-					Parent home = loader.load();
-				    Scene scene = new Scene(home, 944, 609);
-                    stage.setScene(scene);
-			     	stage.show();
-			  
-				}
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
+		
+		if (email.equals("cliente") && password.equals("senha")) {
+			Parent root = null;
+        
+        var resource = getClass()
+            .getResource("/view/Menu/Menu.fxml");
+        
+        try {
+            root =  FXMLLoader.load(resource);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        
+        Scene scene = new Scene(root, 944, 609);
+        stage.setScene(scene);
+        
+        var stylesPath = getClass().getResource("/view/styles.css").toString();
+        stage.getScene().getStylesheets().add(stylesPath);
+        
+        MenuController.setStage(stage);
+        stage.show();
     	}
 		else{
 			//percorrer o banco com usuarios cadastrados
@@ -55,10 +60,8 @@ public class LoginController {
     	
 
 	}
-    }
+}
     	
 		
     	
   
-
-
