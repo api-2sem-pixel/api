@@ -44,55 +44,75 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="592.0" prefWidth="963.0" style="-fx-background-color: ffffff;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.LoginController">
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="523.0" prefWidth="1039.0" style="-fx-background-color: ffffff;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.CadastroUsuarioController">
   <children>
-<AnchorPane id="Content" minHeight="566.0" prefHeight="595.0" prefWidth="1026.0" style="-fx-background-color: ffffff;" styleClass="content" stylesheets="@../stylesCadastroUsuario.css">
+<AnchorPane id="Content" minHeight="484.0" prefHeight="571.0" prefWidth="1165.0" style="-fx-background-color: ffffff;" styleClass="content" stylesheets="@../../api_pixel/stylesCadastroUsuario.css">
   <children>
-            <Button fx:id="btn_entrar" layoutX="527.0" layoutY="328.0" mnemonicParsing="false" onAction="#entrarUsuario" prefHeight="45.0" prefWidth="208.0" style="-fx-background-color: #1f25c1; -fx-background-radius: 50px;" styleClass="myButton" text="Entrar" textAlignment="CENTER" textFill="WHITE">
+            <HBox layoutX="404.0" layoutY="273.0">
+               <children>
+                  <HBox alignment="CENTER" style="-fx-background-radius: 15px; -fx-background-color: f5f0f0;">
+                     <children>
+                        <ImageView fitHeight="28.0" fitWidth="50.0" nodeOrientation="RIGHT_TO_LEFT" style="-fx-opacity: 25%;">
+                           <image>
+                              <Image url="@../assets/Lock.png" />
+                           </image>
+                        </ImageView>
+                        <PasswordField prefHeight="55.0" prefWidth="487.0" promptText="Senha" style="-fx-background-radius: 15px; -fx-background-color: f5f0f0;" />
+                     </children>
+                  </HBox>
+               </children>
+            </HBox>
+            <HBox layoutX="411.0" layoutY="216.0" style="-fx-background-color: f5f0f0;" />
+            <Button fx:id="btn_cadastrar" layoutX="538.0" layoutY="393.0" mnemonicParsing="false" onAction="#cadastrarUsuario" prefHeight="45.0" prefWidth="208.0" style="-fx-background-color: #1f25c1; -fx-background-radius: 50px;" styleClass="myButton" text="ENTRAR" textAlignment="CENTER" textFill="WHITE">
                <font>
                   <Font size="14.0" />
                </font>
             </Button>
             <HBox alignment="CENTER" layoutX="152.0" layoutY="216.0" />
-            <HBox alignment="CENTER" layoutX="414.0" layoutY="149.0" style="-fx-background-color: f5f0f0; -fx-background-radius: 15px;">
+            <HBox layoutX="407.0" layoutY="299.0" />
+            <HBox layoutX="405.0" layoutY="203.0">
                <children>
-                  <TextField fx:id="emailField" opacity="0.85" prefHeight="45.0" prefWidth="407.0" promptText="Email" style="-fx-background-radius: 15px; -fx-background-color: f5f0f0;" />
+                  <HBox />
                </children>
             </HBox>
-        	   
-            <BorderPane fx:id="rootPane" prefHeight="656.0" prefWidth="356.0">
-               <left>
-                  <AnchorPane prefHeight="651.0" prefWidth="349.0" style="-fx-background-color: #1f25c1;" BorderPane.alignment="CENTER">
+           
+            <BorderPane prefHeight="572.0" prefWidth="315.0">
+               <center>
+                  <AnchorPane layoutY="500.0" prefHeight="687.0" prefWidth="304.0" style="-fx-background-color: #1f25c1;" BorderPane.alignment="CENTER">
                      <children>
-                        <Text fill="WHITE" layoutX="64.0" layoutY="179.0" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-weight: bold;" text="Bem vindo a tela  de login" wrappingWidth="230.0">
+                        <Text fill="WHITE" layoutX="64.0" layoutY="178.0" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-weight: bold;" text="Bem-vindo a tela de login" wrappingWidth="230.0">
                            <font>
                               <Font size="30.0" />
                            </font>
                         </Text>
                         <BorderPane layoutX="49.0" layoutY="75.0" />
-                        <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="79.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true" />
-                        <ImageView fitHeight="99.0" fitWidth="200.0" layoutX="79.0" layoutY="40.0">
+                        <Text fill="WHITE" layoutX="64.0" layoutY="271.0" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-weight: bold;" wrappingWidth="200.0" />
+                        <Text fill="WHITE" layoutX="64.0" layoutY="254.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Informe seus dados de login" wrappingWidth="167.13671875">
+                           <font>
+                              <Font size="14.0" />
+                           </font></Text>
+                        <ImageView fitHeight="99.0" fitWidth="200.0" layoutX="58.0" layoutY="26.0">
                            <image>
                               <Image url="@../assets/logo.png" />
                            </image>
                         </ImageView>
-                        <Text fill="WHITE" layoutX="64.0" layoutY="275.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Informe seus dados de login" wrappingWidth="187.11195373535156">
-                           <font>
-                              <Font size="15.0" />
-                           </font>
-                        </Text>
                      </children>
                   </AnchorPane>
-               </left>
+               </center>
             </BorderPane>
-            <Text fill="#2247ff" layoutX="480.0" layoutY="81.0" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-weight: bold;" text="Informe seus dados de login" textAlignment="CENTER">
+            <Text fill="#2247ff" layoutX="468.0" layoutY="116.0" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-weight: bold;" text="Informe seus dados de cadastros" textAlignment="CENTER">
                <font>
                   <Font size="24.0" />
                </font>
             </Text>
-            <HBox layoutX="414.0" layoutY="231.0" prefHeight="45.0" prefWidth="452.0" style="-fx-background-color: f5f0f0; -fx-background-radius: 15px;">
+            <HBox alignment="CENTER" layoutX="405.0" layoutY="189.0" prefHeight="55.0" prefWidth="532.0" style="-fx-background-color: f5f0f0; -fx-background-radius: 15px;">
                <children>
-                  <PasswordField fx:id="passwordField" prefHeight="45.0" prefWidth="326.0" promptText="Senha" style="-fx-background-radius: 15px; -fx-background-color: f5f0f0;" />
+                  <ImageView fitHeight="34.0" fitWidth="46.0" style="-fx-opacity: 25%;">
+                     <image>
+                        <Image url="@../assets/user.png" />
+                     </image>
+                  </ImageView>
+                  <TextField opacity="0.85" prefHeight="55.0" prefWidth="507.0" promptText="Login" style="-fx-background-radius: 15px; -fx-background-color: f5f0f0;" />
                </children>
             </HBox>
   </children>
