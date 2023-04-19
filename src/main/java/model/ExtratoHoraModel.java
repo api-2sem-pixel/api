@@ -18,6 +18,7 @@ public class ExtratoHoraModel {
     private EtapaExtrato status;
     private LocalDateTime dataHoraInicio;
     private LocalDateTime dataHoraFim;
+    private boolean isRowEditable = false;
 
     public ExtratoHoraModel() {
         super();
@@ -26,13 +27,13 @@ public class ExtratoHoraModel {
 
     public static ExtratoHoraModel criarLinhaPadrao() {
         var extrato = new ExtratoHoraModel();
-        extrato.setCr("NOVO");
-        extrato.setProjeto("NOVO");
-        extrato.setModalidade("NOVO");
-        extrato.setJustificativa("NOVO");
+        extrato.setCr("SELECIONE");
+        extrato.setProjeto("SELECIONE");
+        extrato.setModalidade("SELECIONE");
         extrato.setDataHoraInicio(LocalDateTime.now());
         extrato.setDataHoraFim(LocalDateTime.now());
-        extrato.setStatus(EtapaExtrato.CRIACAO);
+        extrato.setMotivo("SELECIONE");
+        extrato.setStatus(EtapaExtrato.EM_APROVACAO);
 
         return extrato;
     }
@@ -139,5 +140,9 @@ public class ExtratoHoraModel {
 
     public void setIdMotivo(Integer idMotivo) {
         this.idMotivo = idMotivo;
+    }
+
+    public boolean getIsRowEditable(){
+        return this.isRowEditable;
     }
 }
