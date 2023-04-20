@@ -53,16 +53,16 @@
                </font>
             </Button>
             <HBox alignment="CENTER" layoutX="152.0" layoutY="216.0" />
-            <TextField layoutX="391.0" layoutY="253.0" prefHeight="45.0" prefWidth="485.0" promptText="  E-mail" style="-fx-background-radius: 15px; -fx-background-color: f5f0f0;" />
-            <TextField layoutX="391.0" layoutY="355.0" prefHeight="45.0" prefWidth="192.0" promptText="  CPF" style="-fx-background-radius: 15px; -fx-background-color: f5f0f0;" />
-            <TextField layoutX="674.0" layoutY="355.0" prefHeight="45.0" prefWidth="192.0" promptText="  Tel" style="-fx-background-radius: 15px; -fx-background-color: f5f0f0;" />
-            <TextField layoutX="398.0" layoutY="148.0" opacity="0.85" prefHeight="45.0" prefWidth="485.0" promptText="  Nome" style="-fx-background-radius: 15px; -fx-background-color: f5f0f0;" />
+            <TextField fx:id="tfemail" layoutX="391.0" layoutY="253.0" prefHeight="45.0" prefWidth="485.0" promptText="  E-mail" style="-fx-background-radius: 15px; -fx-background-color: f5f0f0;" />
+            <TextField fx:id="tfcpf" layoutX="391.0" layoutY="355.0" prefHeight="45.0" prefWidth="192.0" promptText="  CPF" style="-fx-background-radius: 15px; -fx-background-color: f5f0f0;" />
+            <TextField fx:id="tftel" layoutX="674.0" layoutY="355.0" prefHeight="45.0" prefWidth="192.0" promptText="  Tel" style="-fx-background-radius: 15px; -fx-background-color: f5f0f0;" />
+            <TextField fx:id="tfNome" layoutX="398.0" layoutY="148.0" opacity="0.85" prefHeight="45.0" prefWidth="485.0" promptText="  Nome" style="-fx-background-radius: 15px; -fx-background-color: f5f0f0;" />
            
             <BorderPane prefHeight="656.0" prefWidth="356.0">
                <left>
                   <AnchorPane prefHeight="651.0" prefWidth="349.0" style="-fx-background-color: #1f25c1;" BorderPane.alignment="CENTER">
                      <children>
-                        <Button layoutX="144.0" layoutY="462.0" minWidth="53.0" mnemonicParsing="false" prefHeight="45.0" prefWidth="53.0" styleClass="myButton"  stylesheets="@stylesCadastroUsuario.css" style="-fx-background-color: #1f25c1;" text="" textAlignment="CENTER">
+                        <Button layoutX="144.0" layoutY="462.0" minWidth="53.0" mnemonicParsing="false" prefHeight="45.0" prefWidth="53.0" style="-fx-background-color: #1f25c1;" styleClass="myButton" stylesheets="@stylesCadastroUsuario.css" text="" textAlignment="CENTER">
                            <graphic>
                               <ImageView fitHeight="58.0" fitWidth="68.0">
                                  <image>
