@@ -62,7 +62,7 @@
           <content>
             <AnchorPane id="Content" minHeight="578.0" minWidth="810.0" prefHeight="606.0" prefWidth="870.0" styleClass="content">
               <children>
-                        <TableView fx:id="table_lancamento" centerShape="false" editable="true" layoutX="17.0" layoutY="194.0" prefHeight="225.0" prefWidth="760.0" AnchorPane.leftAnchor="17.0" AnchorPane.rightAnchor="18.0">
+                        <TableView fx:id="table_lancamento" centerShape="false" editable="true" layoutX="14.0" layoutY="98.0" prefHeight="354.0" prefWidth="788.0" AnchorPane.leftAnchor="14.0" AnchorPane.rightAnchor="68.0">
                           <columns>
                               <TableColumn fx:id="col_cr" prefWidth="93.6000394821167" styleClass="rp-column" text="CR" />
                             <TableColumn fx:id="col_projeto" prefWidth="75.0" styleClass="rp-column" text="Projeto" />
@@ -82,8 +82,8 @@
                               <Font name="Calibri Bold" size="24.0" />
                            </font>
                         </Label>
-                        <Button fx:id="btn_adicionarLinha" layoutX="17.0" layoutY="438.0" mnemonicParsing="false" onAction="#criarNovaLinha" text="+" />
-                        <Button fx:id="btn_lancar" layoutX="84.0" layoutY="438.0" mnemonicParsing="false" onAction="#lancarHoras" text="Lançar" />
+                        <Button fx:id="btn_adicionarLinha" layoutX="683.0" layoutY="468.0" mnemonicParsing="false" onAction="#criarNovaLinha" text="+" />
+                        <Button fx:id="btn_lancar" layoutX="78.0" layoutY="468.0" mnemonicParsing="false" onAction="#lancarHoras" text="Lançar" />
               </children>
             </AnchorPane>
           </content>

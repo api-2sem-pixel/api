@@ -28,10 +28,10 @@ public class GerenciamentoCRProjetoController {
 
 	@FXML
 	private ComboBox comboSquads;
-	
+
 	@FXML
 	private TextField txProjeto;
-	
+
 	@FXML
 	private ComboBox comboNomeUsuario;
 
@@ -42,9 +42,9 @@ public class GerenciamentoCRProjetoController {
 		comboSquads.getItems().addAll(nomeCR);
 		comboNomeUsuario.getItems().addAll(nomeUsuario);
 	}
-	
+
 	public void gerenciarCRProjeto(ActionEvent event) {
-		int idUsuario = 0;//comboSquads.;
+		int idUsuario = 0;// comboSquads.;
 		int idGestor = 0;
 		CrUsuario crUsuario = new CrUsuario(idUsuario, idGestor);
 		crUsuarioDAO.salvar(crUsuario);

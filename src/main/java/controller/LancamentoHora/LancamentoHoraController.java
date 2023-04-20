@@ -68,13 +68,13 @@ public class LancamentoHoraController implements Initializable {
 
     public LancamentoHoraController() {
         super();
-        Connection connection = new ConnectionFactory().recuperarConexao();
+        // Connection connection = new ConnectionFactory().recuperarConexao();
 
         // crDAO = new CrDAO(connection);
         // modalidaeDAO = new ModalidadeDAO(connection);
         // motivoDAO = new MotivoDAO(connection);
         // projetoDAO = new ProjetoDAO(connection);
-        extratoHoraDao = new ExtratoHoraDAO(connection);
+        // extratoHoraDao = new ExtratoHoraDAO(connection);
     }
 
     @Override
