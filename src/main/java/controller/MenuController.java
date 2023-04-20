@@ -23,7 +23,7 @@ public class MenuController {
 
     @FXML
     void irControleUsuario(MouseEvent event) {
-        changeScene("");
+        changeScene("/view/CadastroUsuario.fxml");
     }
 
     @FXML
