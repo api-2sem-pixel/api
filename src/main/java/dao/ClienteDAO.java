@@ -8,7 +8,7 @@ import java.sql.Statement;
 import java.util.List;
 
 import model.Cliente;
-import model.ComboboxModel.ProjetoComboboxModel;
+import model.ComboboxModel.ClienteComboboxModel;
 
 public class ClienteDAO extends BaseDAO {
 
@@ -19,11 +19,11 @@ public class ClienteDAO extends BaseDAO {
 		this.connection = connection;
     }
 
-    public List<ProjetoComboboxModel> obterCombobox(){
-		String sql = "select id, nome from api2sem.Projeto";
+    public List<ClienteComboboxModel> obterCombobox(){
+		String sql = "select Id, Razao_Social from Cliente";
 		return executarQuery(sql, x -> {
 			try {
-				return new ProjetoComboboxModel(x.getInt("id"), x.getString("nome"));
+				return new ClienteComboboxModel(x.getInt(1), x.getString(2));
 			} catch (SQLException e) {
 				return null;
 			}

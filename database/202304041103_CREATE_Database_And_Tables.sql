@@ -105,3 +105,10 @@ add foreign key (Id_Modalidade) references Modalidade(Id);
 
 alter table Extrato_Hora
 add foreign key (Id_Motivo) references Motivo(Id);
+
+
+alter table Extrato_Hora 
+add column Id_Cliente int;
+
+alter table Extrato_Hora
+add foreign key (Id_Cliente) references Cliente(Id);

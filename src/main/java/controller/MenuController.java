@@ -40,4 +40,9 @@ public class MenuController {
             System.err.println(e);
         }
     }
+
+    public static void retornarMenu(){
+        MenuController menu = new MenuController();
+        menu.changeScene("/view/Menu/Menu.fxml");
+    }
 }

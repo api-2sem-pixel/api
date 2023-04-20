@@ -11,15 +11,19 @@ public class MensagemRetorno {
 		// TODO Auto-generated constructor stub
 	}
 
-	public void sucesso() {
+	public static void sucesso() {
 		Alert alert = new Alert(AlertType.INFORMATION);
 		alert.setContentText("Cadastro efetuado com sucesso");
 		alert.show();
 	}
 	
-	public void erro() {
+	public static void erro() {
+		erro("Não foi possível efetuar o cadastro");
+	}
+
+	public static void erro(String message) {
 		Alert alert = new Alert(AlertType.ERROR);
-		alert.setContentText("Não foi possível efetuar o cadastro");
+		alert.setContentText(message);
 		alert.show();
 	}
 }
