@@ -11,6 +11,7 @@ import dao.CrDAO;
 import dao.ExtratoHoraDAO;
 import dao.ModalidadeDAO;
 import dao.MotivoDAO;
+import dao.ClienteDAO;
 import factory.ConnectionFactory;
 import javafx.collections.FXCollections;
 import javafx.css.PseudoClass;

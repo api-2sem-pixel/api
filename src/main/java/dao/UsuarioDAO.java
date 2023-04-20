@@ -7,6 +7,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
+import dto.UsuarioDTO;
 import model.Squad;
 
 public class UsuarioDAO {
@@ -44,26 +45,27 @@ public class UsuarioDAO {
 		return id;
 	}
 	
-	public List<String> getNomeUsuario() {
-		List<String> nomeUsuario = new ArrayList<String>();
+	public List<UsuarioDTO> getNomeUsuarioAndId() {
+		List<UsuarioDTO> usuario = new ArrayList<UsuarioDTO>();
 		try {
-			String sql = "Select Nome From Usuario";
+			String sql = "Select Nome, Id From Usuario";
 
 			try (PreparedStatement pstm = connection.prepareStatement(sql)) {
 				pstm.execute();
 
-				trasformarResultSetEmNome(nomeUsuario, pstm);
+				trasformarResultSetEmUsuarioDTO(usuario, pstm);
 			}
-			return nomeUsuario;
+			return usuario;
 		} catch (SQLException e) {
 			throw new RuntimeException(e);
 		}
 	}
 	
-	private void trasformarResultSetEmNome(List<String> nomeUsuario, PreparedStatement pstm) throws SQLException {
+	private void trasformarResultSetEmUsuarioDTO(List<UsuarioDTO> usuario, PreparedStatement pstm) throws SQLException {
 		try (ResultSet rst = pstm.getResultSet()) {
 			while (rst.next()) {
-				nomeUsuario.add(rst.getString(1));
+				UsuarioDTO usuarioDTO = new UsuarioDTO(rst.getString(1), rst.getInt(2));
+				usuario.add(usuarioDTO);
 			}
 		}
 	}
