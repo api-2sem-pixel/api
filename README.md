@@ -46,7 +46,7 @@ CR e colaborador
     </ol>
    
    <h2>Modelagem</h2>
-   <img src="https://github.com/api-2sem-pixel/api/blob/master/assets/ModelagemApi.png">
+   <img src="https://github.com/api-2sem-pixel/api/blob/master/assets/ModelagemApiSprint2.png">
    
    <h2>Sprints</h2>
    <h3>Sprint-1</h3>
