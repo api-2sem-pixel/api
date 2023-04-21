@@ -10,7 +10,7 @@
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="609.0" prefWidth="944.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.CadastroCRController">
    <children>
       <Pane layoutY="-5.0" prefHeight="616.0" prefWidth="133.0" style="-fx-background-color: #4863A0;" />
-      <Label layoutX="411.0" layoutY="27.0" prefHeight="39.0" prefWidth="191.0" text="Cadastro de CR" textFill="#483fee">
+      <Label layoutX="411.0" layoutY="27.0" prefHeight="39.0" prefWidth="217.0" text="Cadastro de CR" textFill="#483fee">
          <font>
             <Font size="27.0" />
          </font>
