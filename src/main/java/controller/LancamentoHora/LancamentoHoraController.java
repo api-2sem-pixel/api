@@ -16,17 +16,13 @@ import enums.EtapaExtrato;
 import dao.ClienteDAO;
 import factory.ConnectionFactory;
 import javafx.collections.FXCollections;
-import javafx.css.PseudoClass;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.TableCell;
 import javafx.scene.control.TableColumn;
-import javafx.scene.control.TableRow;
 import javafx.scene.control.TableView;
-import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.cell.ComboBoxTableCell;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.control.cell.TextFieldTableCell;
@@ -82,14 +78,6 @@ public class LancamentoHoraController implements Initializable {
 
     public LancamentoHoraController() {
         super();
-        // Connection connection = new ConnectionFactory().recuperarConexao();
-
-        // crDAO = new CrDAO(connection);
-        // modalidaeDAO = new ModalidadeDAO(connection);
-        // motivoDAO = new MotivoDAO(connection);
-        // projetoDAO = new ProjetoDAO(connection);
-        // extratoHoraDao = new ExtratoHoraDAO(connection);
-
         Connection connection = new ConnectionFactory().recuperarConexao();
         crDAO = new CrDAO(connection);
         modalidaeDAO = new ModalidadeDAO(connection);
@@ -125,10 +113,10 @@ public class LancamentoHoraController implements Initializable {
     }
 
     private void carregarComboBox() {
-        // this.comboBox_cr = crDAO.obterCombobox();
-        // this.comboBox_modalidade = modalidaeDAO.obterCombobox();
-        // this.comboBox_motivo = motivoDAO.obterCombobox();
-        // this.comboBox_cliente = clienteDAO.obterCombobox();
+        this.comboBox_cr = crDAO.obterCombobox();
+        this.comboBox_modalidade = modalidaeDAO.obterCombobox();
+        this.comboBox_motivo = motivoDAO.obterCombobox();
+        this.comboBox_cliente = clienteDAO.obterCombobox();
     }
 
     private void configurarLinha(final String[] propertyNames) {

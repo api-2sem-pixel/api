@@ -8,7 +8,6 @@ public class MensagemRetorno {
 	
 	public MensagemRetorno() {
 		super();
-		// TODO Auto-generated constructor stub
 	}
 
 	public static void sucesso() {

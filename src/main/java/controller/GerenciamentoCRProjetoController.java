@@ -1,9 +1,6 @@
 package controller;
 
 import java.sql.Connection;
-import java.sql.SQLException;
-import java.util.List;
-
 import dao.CrDAO;
 import dao.CrUsuarioDAO;
 import dao.UsuarioDAO;
@@ -12,8 +9,6 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.scene.control.Alert;
-import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.CheckBox;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.TextField;
@@ -63,21 +58,20 @@ public class GerenciamentoCRProjetoController {
 	}
 
 	public void gerenciarCRProjeto(ActionEvent event) {
-		int idUsuario = 0;// comboSquads.;
-		int idGestor = 0;
-		CrUsuario crUsuario = new CrUsuario(idUsuario, idGestor);
-		crUsuarioDAO.salvar(crUsuario);
 		try {
 			CrDTO crDto = (CrDTO) comboSquads.getSelectionModel().getSelectedItem();
 			UsuarioDTO usuarioDto = (UsuarioDTO) comboNomeUsuario.getSelectionModel().getSelectedItem();
 			CrUsuario crUsuario = new CrUsuario(usuarioDto.getId(), crDto.getId());
+			
 			int temp = temporario.isSelected() ? 1 : 0;
 			crUsuarioDAO.salvar(crUsuario, temp);
-			msg.sucesso();
+			MensagemRetorno.sucesso();
+			
 			limpar();
 			initialize();
-		} catch (Exception e) {
-			msg.erro();
+
+		} catch(Exception e) {
+			MensagemRetorno.erro();
 		}
 	}
 

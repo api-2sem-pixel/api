@@ -24,15 +24,13 @@ public class CadastroClienteController {
 	@FXML
 	private TextField tfCNPJ;
 	
-	private MensagemRetorno msg = new MensagemRetorno();
-	
 	public void cadastrarCliente(ActionEvent event) {
 		try {
 			this.clienteDAO.salvar(new Cliente(tfRazaoSocial.getText(), tfCNPJ.getText()));
-			msg.sucesso();
+			MensagemRetorno.sucesso();
 			limpar();
 		} catch (Exception e) {
-			msg.erro();
+			MensagemRetorno.erro();
 		}
 	}
 	

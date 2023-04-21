@@ -8,10 +8,8 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
-import dto.CrDTO;
 import dto.IntegrantesCrDTO;
 import model.CrUsuario;
-import model.SquadModel;
 
 public class CrUsuarioDAO extends BaseDAO {
 	

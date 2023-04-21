@@ -5,7 +5,6 @@ import java.util.List;
 
 import dao.CrDAO;
 import dao.CrUsuarioDAO;
-import dao.UsuarioDAO;
 import dto.CrDTO;
 import dto.IntegrantesCrDTO;
 import factory.ConnectionFactory;
@@ -16,7 +15,6 @@ import javafx.fxml.FXML;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
-import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
 
 public class VisualizarCRController {
