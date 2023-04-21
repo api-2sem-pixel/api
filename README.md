@@ -46,12 +46,12 @@ CR e colaborador
     </ol>
    
    <h2>Modelagem</h2>
-   <img src="https://github.com/api-2sem-pixel/api/blob/master/assets/ModelagemApiSprint2.png">
+   <img src="https://github.com/api-2sem-pixel/api/blob/develop/assets/ModelagemApiSprint2.png">
    
    <h2>Sprints</h2>
    <h3>Sprint-1</h3>
     <ul> 
-        <li><a href="https://github.com/api-2sem-pixel/api/blob/master/assets/burndown_sp1.png"> Burndown </a></li>
+        <li><a href="https://github.com/api-2sem-pixel/api/blob/develop/assets/burndown_sp1.png"> Burndown </a></li>
     </ul>
     
 |      | **Entrega**    |**Prioridade**  |   
