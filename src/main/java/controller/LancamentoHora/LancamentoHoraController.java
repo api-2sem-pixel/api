@@ -16,17 +16,13 @@ import enums.EtapaExtrato;
 import dao.ClienteDAO;
 import factory.ConnectionFactory;
 import javafx.collections.FXCollections;
-import javafx.css.PseudoClass;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.TableCell;
 import javafx.scene.control.TableColumn;
-import javafx.scene.control.TableRow;
 import javafx.scene.control.TableView;
-import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.cell.ComboBoxTableCell;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.control.cell.TextFieldTableCell;
@@ -69,7 +65,6 @@ public class LancamentoHoraController implements Initializable {
 
     public LancamentoHoraController() {
         super();
-
         Connection connection = new ConnectionFactory().recuperarConexao();
         crDAO = new CrDAO(connection);
         modalidaeDAO = new ModalidadeDAO(connection);
@@ -258,7 +253,6 @@ public class LancamentoHoraController implements Initializable {
     void retornarMenu(MouseEvent event) {
         MenuController.retornarMenu();
     }
-
 
     @FXML
     public void lancarHoras(ActionEvent event) {

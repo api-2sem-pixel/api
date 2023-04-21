@@ -1,27 +1,23 @@
 package controller;
 
 import java.sql.Connection;
-import java.sql.SQLException;
-import java.util.List;
 
 import dao.CrDAO;
 import dao.CrUsuarioDAO;
 import dao.UsuarioDAO;
+import dto.CrDTO;
+import dto.UsuarioDTO;
 import factory.ConnectionFactory;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.scene.control.Alert;
-import javafx.scene.control.Alert.AlertType;
-import javafx.scene.input.MouseEvent;
 import javafx.scene.control.CheckBox;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.TextField;
+import javafx.scene.input.MouseEvent;
 import model.CrUsuario;
 import utils.mensagem_retorno.MensagemRetorno;
-import dto.CrDTO;
-import dto.UsuarioDTO;
 
 public class GerenciamentoCRProjetoController {
 
@@ -38,7 +34,10 @@ public class GerenciamentoCRProjetoController {
 
 	@FXML
 	private ComboBox comboSquads;
-		
+
+	@FXML
+	private TextField txProjeto;
+
 	@FXML
 	private ComboBox comboNomeUsuario;
 	
@@ -48,8 +47,6 @@ public class GerenciamentoCRProjetoController {
 	private ObservableList<CrDTO> cr = FXCollections.observableArrayList();
 	
 	private ObservableList<UsuarioDTO> usuario = FXCollections.observableArrayList();
-	
-	private MensagemRetorno msg = new MensagemRetorno();
 
 	@FXML
 	protected void initialize() {
@@ -59,19 +56,22 @@ public class GerenciamentoCRProjetoController {
 		comboNomeUsuario.setItems(usuario);
 
 	}
-	
+
 	public void gerenciarCRProjeto(ActionEvent event) {
 		try {
 			CrDTO crDto = (CrDTO) comboSquads.getSelectionModel().getSelectedItem();
 			UsuarioDTO usuarioDto = (UsuarioDTO) comboNomeUsuario.getSelectionModel().getSelectedItem();
 			CrUsuario crUsuario = new CrUsuario(usuarioDto.getId(), crDto.getId());
+			
 			int temp = temporario.isSelected() ? 1 : 0;
 			crUsuarioDAO.salvar(crUsuario, temp);
-			msg.sucesso();
+			MensagemRetorno.sucesso();
+			
 			limpar();
 			initialize();
+
 		} catch(Exception e) {
-			msg.erro();
+			MensagemRetorno.erro();
 		}
 	}
 	

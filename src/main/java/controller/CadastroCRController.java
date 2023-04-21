@@ -33,15 +33,13 @@ public class CadastroCRController {
 	@FXML
 	private TextField tfSigla;
 	
-	private MensagemRetorno msg = new MensagemRetorno();
-	
 	public void inserirCR(ActionEvent event) {
 		try {
 			this.crDAO.salvar(new CR(tfNome.getText(), tfSigla.getText(), tfCodigo.getText()));
-			msg.sucesso();
+			MensagemRetorno.sucesso();
 			limpar();
 		} catch(Exception e) {
-			msg.erro();
+			MensagemRetorno.erro();
 		}
 		
 	}
