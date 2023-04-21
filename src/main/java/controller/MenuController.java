@@ -17,13 +17,12 @@ public class MenuController {
 
     @FXML
     void irControleCr(MouseEvent event) throws IOException {
-        
         changeScene("/view/GerenciamentoCRProjeto.fxml");
     }
 
     @FXML
     void irControleUsuario(MouseEvent event) {
-        changeScene("/view/CadastroUsuario.fxml");
+        changeScene("/view/CadastroCliente.fxml");
     }
 
     @FXML
