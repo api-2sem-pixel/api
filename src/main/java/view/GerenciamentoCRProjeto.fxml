@@ -4,13 +4,27 @@
 <?import javafx.scene.control.CheckBox?>
 <?import javafx.scene.control.ComboBox?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="609.0" prefWidth="944.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.GerenciamentoCRProjetoController">
    <children>
-      <Pane layoutY="-5.0" prefHeight="616.0" prefWidth="123.0" style="-fx-background-color: #4863A0;" />
+      <Pane layoutY="-5.0" prefHeight="616.0" prefWidth="123.0" style="-fx-background-color: #4863A0;">
+         <children>
+            <ImageView fitHeight="52.0" fitWidth="93.0" layoutX="15.0" layoutY="28.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@figma/2rp.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="40.0" fitWidth="43.0" layoutX="40.0" layoutY="528.0" onMouseClicked="#retornarMenu" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@figma/log.png" />
+               </image>
+            </ImageView>
+         </children></Pane>
       <Label layoutX="410.0" layoutY="25.0" prefHeight="39.0" prefWidth="431.0" text="Gerenciamento de CR" textFill="#483fee">
          <font>
             <Font size="27.0" />

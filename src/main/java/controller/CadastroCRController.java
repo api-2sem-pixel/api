@@ -8,6 +8,7 @@ import factory.ConnectionFactory;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.TextField;
+import javafx.scene.input.MouseEvent;
 import model.CR;
 import utils.mensagem_retorno.MensagemRetorno;
 
@@ -50,4 +51,9 @@ public class CadastroCRController {
 		this.tfCodigo.clear();
 		this.tfSigla.clear();
 	}
+	
+    @FXML
+    void retornarMenu(MouseEvent event) {
+        MenuController.retornarMenu();
+    }
 }

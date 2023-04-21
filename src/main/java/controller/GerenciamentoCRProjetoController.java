@@ -14,6 +14,7 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.control.CheckBox;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.TextField;
@@ -79,4 +80,9 @@ public class GerenciamentoCRProjetoController {
 		this.comboNomeUsuario.getItems().clear();
 		this.temporario.setSelected(false);
 	}
+	
+    @FXML
+    void retornarMenu(MouseEvent event) {
+        MenuController.retornarMenu();
+    }
 }

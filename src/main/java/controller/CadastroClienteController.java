@@ -6,6 +6,7 @@ import factory.ConnectionFactory;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.TextField;
+import javafx.scene.input.MouseEvent;
 import model.Cliente;
 import utils.mensagem_retorno.MensagemRetorno;
 
@@ -40,4 +41,9 @@ public class CadastroClienteController {
 		tfRazaoSocial.clear();
 		tfCNPJ.clear();
 	}
+	
+    @FXML
+    void retornarMenu(MouseEvent event) {
+        MenuController.retornarMenu();
+    }
 }
