@@ -8,6 +8,7 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
+import dto.CrDTO;
 import model.CR;
 import model.SquadModel;
 import model.ComboboxModel.CrComboboxModel;
@@ -31,32 +32,67 @@ public class CrDAO extends BaseDAO {
 			}
 		});
 	}
+	
+	public List<String> listarNomeCR(){
+		List<String> nomesCR = new ArrayList<String>();
+		try {
+			String sql = "SELECT Nome FROM Cr";
+			
+			try (PreparedStatement pstm = connection.prepareStatement(sql)) {
+				pstm.execute();
+				
+				trasformarResultSetEmNomeCR(nomesCR, pstm);
+			}
+			return nomesCR;
+		} catch (SQLException e) {
+			throw new RuntimeException(e);
+		}
+	}
+	
+	public List<String> listarIntegrantesCR(){
+		List<String> nomesCR = new ArrayList<String>();
+		try {
+			String sql = "Select usuario.Nome from Cr cr "
+					+ "INNER JOIN Cr_Usuario crUsuario on cr.Id = crUsuario.Id_Cr "
+					+ "INNER JOIN Usuario usuario on crUsuario.Id_Usuario = usuario.Id;";
+			
+			try (PreparedStatement pstm = connection.prepareStatement(sql)) {
+				pstm.execute();
+				
+				trasformarResultSetEmNomeCR(nomesCR, pstm);
+			}
+			return nomesCR;
+		} catch (SQLException e) {
+			throw new RuntimeException(e);
+		}
+	}
 
+	
 	public List<CrComboboxModel> obterCombobox(){
-		String sql = "SELECT ID, NOME FROM api2sem.Cr";
+		String sql = "SELECT Id, Nome FROM Cr";
 		return executarQuery(sql, x -> {
 			try {
-				return new CrComboboxModel(x.getInt(0), x.getString(1));
+				return new CrComboboxModel(x.getInt(1), x.getString(2));
 			} catch (SQLException e) {
 				return null;
 			}
 		});
 	}
 
-	public List<String> listarNomeCR() {
+	public List<CrDTO> getIdGestorAndNomeCr() {
 		// Lista nomeCR instanciada
-		List<String> nomeCR = new ArrayList<String>();
+		List<CrDTO> cr = new ArrayList<CrDTO>();
 		try {
 			// Buscando a informação do Banco de Dados
-			String sql = "SELECT NOME FROM Cr";
+			String sql = "SELECT Id, Nome, Sigla, Codigo_CR  FROM Cr";
 			
 			try (PreparedStatement pstm = connection.prepareStatement(sql)) {
 				pstm.execute();
 				
 				//Chamando o método para transformar a busca em nomeCR
-				trasformarResultSetEmCR(nomeCR, pstm);
+				trasformarResultSetEmCR(cr, pstm);
 			}
-			return nomeCR;
+			return cr;
 		} catch (SQLException e) {
 			throw new RuntimeException(e);
 		}
@@ -64,13 +100,13 @@ public class CrDAO extends BaseDAO {
 
 	public void salvar(CR cr) {
 		try {
-			String sql = "INSERT INTO Cr (ID_GESTOR, NOME) VALUES (?, ?)";
+			String sql = "INSERT INTO Cr (Nome, Sigla, Codigo_CR) VALUES (?, ?, ?)";
 
 			try (PreparedStatement pstm = connection.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS)) {
-
-				pstm.setInt(1, cr.getId_gestor());
-				pstm.setString(2, cr.getNomeCR());
-
+				pstm.setString(1, cr.getNome());
+				pstm.setString(2, cr.getSigla());
+				pstm.setString(3, cr.getCodigo());
+				
 				pstm.execute();
 
 				try (ResultSet rst = pstm.getGeneratedKeys()) {
@@ -85,11 +121,19 @@ public class CrDAO extends BaseDAO {
 
 	}
 
-	private void trasformarResultSetEmCR(List<String> nomeCR, PreparedStatement pstm) throws SQLException {
+	private void trasformarResultSetEmCR(List<CrDTO> cr, PreparedStatement pstm) throws SQLException {
 		try (ResultSet rst = pstm.getResultSet()) {
 			while (rst.next()) {
-				//Adicionar retorno da busca em nomeCR
-				nomeCR.add(rst.getString(1));
+				CrDTO crDTO = new CrDTO(rst.getInt(1), rst.getString(2), rst.getString(3), rst.getString(4));
+				cr.add(crDTO);
+			}
+		}
+	}
+	
+	private void trasformarResultSetEmNomeCR(List<String> nomesCR, PreparedStatement pstm) throws SQLException {
+		try (ResultSet rst = pstm.getResultSet()) {
+			while (rst.next()) {
+				nomesCR.add(rst.getString(1));
 			}
 		}
 	}

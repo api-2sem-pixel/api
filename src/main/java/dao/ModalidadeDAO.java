@@ -5,7 +5,6 @@ import java.sql.SQLException;
 import java.util.List;
 
 import model.ComboboxModel.ModalidadeComboboxModel;
-import model.ComboboxModel.MotivoComboboxModel;
 
 public class ModalidadeDAO extends BaseDAO {
 
@@ -14,10 +13,10 @@ public class ModalidadeDAO extends BaseDAO {
 	}
 
 	public List<ModalidadeComboboxModel> obterCombobox() {
-		String sql = "SELECT ID, NOME FROM api2sem.Modalidade";
+		String sql = "SELECT Id, Descricao FROM Modalidade";
 		return executarQuery(sql, resultSet -> {
 			try {
-				return new ModalidadeComboboxModel(resultSet.getInt(0), resultSet.getString(1));
+				return new ModalidadeComboboxModel(resultSet.getInt(1), resultSet.getString(2));
 			} catch (SQLException e) {
 				return null;
 			}

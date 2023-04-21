@@ -5,17 +5,22 @@ import java.time.LocalDateTime;
 import enums.EtapaExtrato;
 
 public class ExtratoHoraModel {
-    private Integer idProjeto;
     private Integer id;
+    private Integer idUsuario;
     private String projeto;
-    private Integer usuario;
+    private Integer idModalidade;
     private String modalidade;
     private String cr;
+    private Integer idCr;
+    private Integer idMotivo;
+    private Integer idCliente;
+    private String cliente;
     private String motivo;
     private String justificativa;
     private EtapaExtrato status;
     private LocalDateTime dataHoraInicio;
     private LocalDateTime dataHoraFim;
+    private boolean isRowEditable = false;
 
     public ExtratoHoraModel() {
         super();
@@ -24,31 +29,25 @@ public class ExtratoHoraModel {
 
     public static ExtratoHoraModel criarLinhaPadrao() {
         var extrato = new ExtratoHoraModel();
-        extrato.setCr("NOVO");
-        extrato.setProjeto("NOVO");
-        extrato.setModalidade("NOVO");
-        extrato.setJustificativa("NOVO");
-        extrato.setDataHoraInicio(LocalDateTime.MIN);
-        extrato.setDataHoraFim(LocalDateTime.MAX);
+        extrato.setCr("SELECIONE");
+        extrato.setProjeto("PREENCHA");
+        extrato.setCliente("SELECIONE");
+        extrato.setModalidade("SELECIONE");
+        extrato.setDataHoraInicio(LocalDateTime.now());
+        extrato.setDataHoraFim(LocalDateTime.now());
+        extrato.setMotivo("SELECIONE");
+        extrato.setJustificativa("PREENCHA");
         extrato.setStatus(EtapaExtrato.CRIACAO);
 
         return extrato;
     }
 
-    public Integer getUsuario() {
-        return usuario;
+    public Integer getIdUsuario() {
+        return idUsuario;
     }
 
-    public void setUsuario(Integer usuario) {
-        this.usuario = usuario;
-    }
-
-    public Integer getIdProjeto() {
-        return idProjeto;
-    }
-
-    public void setIdProjeto(Integer idProjeto) {
-        this.idProjeto = idProjeto;
+    public void setIdUsuario(Integer usuario) {
+        this.idUsuario = usuario;
     }
 
     public Integer getId() {
@@ -121,5 +120,49 @@ public class ExtratoHoraModel {
 
     public void setDataHoraFim(LocalDateTime dataHoraFim) {
         this.dataHoraFim = dataHoraFim;
+    }
+
+    public Integer getIdModalidade() {
+        return idModalidade;
+    }
+
+    public void setIdModalidade(Integer idModalidade) {
+        this.idModalidade = idModalidade;
+    }
+
+    public Integer getIdCr() {
+        return idCr;
+    }
+
+    public void setIdCr(Integer idCr) {
+        this.idCr = idCr;
+    }
+
+    public Integer getIdMotivo() {
+        return idMotivo;
+    }
+
+    public void setIdMotivo(Integer idMotivo) {
+        this.idMotivo = idMotivo;
+    }
+
+    public boolean getIsRowEditable(){
+        return this.isRowEditable;
+    }
+
+    public Integer getIdCliente() {
+        return idCliente;
+    }
+
+    public void setIdCliente(Integer id) {
+        this.idCliente = id;
+    }
+
+    public String getCliente() {
+        return cliente;
+    }
+
+    public void setCliente(String cliente) {
+        this.cliente = cliente;
     }
 }

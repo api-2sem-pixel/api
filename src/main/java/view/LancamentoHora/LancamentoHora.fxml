@@ -52,7 +52,7 @@
                      </image>
                   </ImageView>
                   <Button layoutX="28.0" layoutY="542.0" minWidth="46.0" mnemonicParsing="false" prefHeight="38.0" prefWidth="46.0" scaleX="0.5" scaleY="0.5" styleClass="rp-column" text="Button" />
-                  <ImageView fitHeight="40.0" fitWidth="43.0" layoutX="36.0" layoutY="541.0" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fitHeight="40.0" fitWidth="43.0" layoutX="36.0" layoutY="541.0" onMouseClicked="#retornarMenu" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@../figma/log.png" />
                      </image>
@@ -62,13 +62,16 @@
           <content>
             <AnchorPane id="Content" minHeight="578.0" minWidth="810.0" prefHeight="606.0" prefWidth="870.0" styleClass="content">
               <children>
+
                         <TableView fx:id="table_lancamento" centerShape="false" editable="true" layoutX="14.0" layoutY="98.0" prefHeight="354.0" prefWidth="788.0" AnchorPane.leftAnchor="14.0" AnchorPane.rightAnchor="68.0">
                           <columns>
                               <TableColumn fx:id="col_cr" prefWidth="93.6000394821167" styleClass="rp-column" text="CR" />
                             <TableColumn fx:id="col_projeto" prefWidth="75.0" styleClass="rp-column" text="Projeto" />
+                              <TableColumn fx:id="col_cliente" prefWidth="75.0" styleClass="rp-column" text="Cliente" />
                               <TableColumn fx:id="col_modalidade" prefWidth="138.3999786376953" styleClass="rp-column" text="Modalidade" />
                               <TableColumn fx:id="col_inicio" prefWidth="111.20001220703125" styleClass="rp-column" text="Inicio" />
                               <TableColumn fx:id="col_fim" prefWidth="75.0" styleClass="rp-column" text="Fim" />
+                              <TableColumn fx:id="col_justificativa" prefWidth="75.0" styleClass="rp-column" text="Justificativa" />
                               <TableColumn fx:id="col_motivo" prefWidth="75.0" styleClass="rp-column" text="Motivo" />
                               <TableColumn fx:id="col_acoes" prefWidth="75.0" styleClass="rp-column" text="Ações" />
                               <TableColumn fx:id="col_id" editable="false" prefWidth="93.6000394821167" styleClass="rp-column" text="ID" visible="false" />
@@ -84,6 +87,7 @@
                         </Label>
                         <Button fx:id="btn_adicionarLinha" layoutX="683.0" layoutY="468.0" mnemonicParsing="false" onAction="#criarNovaLinha" text="+" />
                         <Button fx:id="btn_lancar" layoutX="78.0" layoutY="468.0" mnemonicParsing="false" onAction="#lancarHoras" text="Lançar" />
+
               </children>
             </AnchorPane>
           </content>
