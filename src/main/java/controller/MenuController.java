@@ -38,6 +38,10 @@ public class MenuController implements Initializable {
     void irControleUsuario(MouseEvent event) {
         changeScene("/view/CadastroCliente.fxml");
     }
+    @FXML
+    void irCadastroUsuario(MouseEvent event) {
+        changeScene("/view/CadastroUsuario.fxml");
+    }
 
     @FXML
     void irLancamentoHora(MouseEvent event) {
