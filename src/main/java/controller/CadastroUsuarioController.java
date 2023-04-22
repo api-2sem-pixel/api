@@ -36,7 +36,7 @@ public class CadastroUsuarioController {
 		this.usuarioDAO = new UsuarioDAO(connection);
     }
 
-    
+    @FXML
     public void cadastrarUsuario(ActionEvent event) {
         String email = tfemailField.getText();
         String nome = tfNome.getText();

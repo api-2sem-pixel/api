@@ -30,6 +30,11 @@ public class MenuController {
         changeScene("/view/LancamentoHora/LancamentoHora.fxml");
     }
 
+    @FXML
+    void irMenu(MouseEvent event) {
+        changeScene("/view/Menu/Menu.fxml");
+    }
+
     private void changeScene(String fxml){
         Parent scene;
         try {
