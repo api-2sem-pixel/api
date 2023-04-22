@@ -51,7 +51,7 @@ CR e colaborador
    <h2>Sprints</h2>
    <h3>Sprint-1</h3>
     <ul> 
-        <li><a href="https://github.com/api-2sem-pixel/api/blob/develop/assets/burndown_sp1.png"> Burndown </a></li>
+      <li><a href="https://github.com/api-2sem-pixel/api/blob/develop/assets/burndown/sp1/burndown_sp1.png"> Burndown </a></li>
     </ul>
     
 |      | **Entrega**    |**Prioridade**  |   
@@ -62,6 +62,9 @@ CR e colaborador
    </ul>
    
    <h3>Sprint-2</h3>
+   <ul> 
+      <li><a href="https://github.com/api-2sem-pixel/api/blob/develop/assets/burndown/sp2/burndown.png"> Burndown </a></li>
+    </ul>
 
 |      | **Entrega**    |**Prioridade**  |   
 | :-------------: | :-------------: |:-------------: | 
