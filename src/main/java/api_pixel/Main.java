@@ -2,6 +2,7 @@ package api_pixel;
 
 import java.io.IOException;
 
+import controller.MenuController;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -14,7 +15,7 @@ public class Main extends Application {
         Parent root = null;
 
         var resource = getClass()
-                .getResource("/view/Login/Login.fxml");
+                .getResource("/view/Menu/Menu.fxml");
 
         try {
             root = FXMLLoader.load(resource);
@@ -28,6 +29,7 @@ public class Main extends Application {
         var stylesPath = getClass().getResource("/view/styles.css").toString();
         stage.getScene().getStylesheets().add(stylesPath);
         
+        MenuController.setStage(stage);
         stage.show();
     }
 
