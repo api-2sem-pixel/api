@@ -6,13 +6,6 @@
     "configurations": [
         {
             "type": "java",
-            "name": "SquadController",
-            "request": "launch",
-            "mainClass": "controller.SquadController",
-            "projectName": "api_pixel"
-        },
-        {
-            "type": "java",
             "name": "Current File",
             "request": "launch",
             "mainClass": "${file}",

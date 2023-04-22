@@ -5,12 +5,10 @@ import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
-import javafx.stage.Stage;
 import model.CadastroUsuario;
 
 import java.sql.Connection;
 
-import dao.SquadDAO;
 import dao.UsuarioDAO;
 import factory.ConnectionFactory;
 
