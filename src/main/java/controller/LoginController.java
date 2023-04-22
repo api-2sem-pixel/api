@@ -50,7 +50,7 @@ public class LoginController {
         var stylesPath = getClass().getResource("/view/styles.css").toString();
         stage.getScene().getStylesheets().add(stylesPath);
         
-        MenuController.setStage(stage);
+        //MenuController.setStage(stage);
         stage.show();
     	}
 		else{
