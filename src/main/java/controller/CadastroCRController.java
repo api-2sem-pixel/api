@@ -36,10 +36,10 @@ public class CadastroCRController {
 	public void inserirCR(ActionEvent event) {
 		try {
 			this.crDAO.salvar(new CR(tfNome.getText(), tfSigla.getText(), tfCodigo.getText()));
-			MensagemRetorno.sucesso();
+			MensagemRetorno.sucessoCadastro();
 			limpar();
 		} catch(Exception e) {
-			MensagemRetorno.erro();
+			MensagemRetorno.erroCadastro();
 		}
 		
 	}
@@ -52,6 +52,6 @@ public class CadastroCRController {
 	
     @FXML
     void retornarMenu(MouseEvent event) {
-        MenuController.retornarMenu();
+        MenuController.irMenu();
     }
 }

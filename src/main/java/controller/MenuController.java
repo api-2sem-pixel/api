@@ -1,18 +1,32 @@
 package controller;
 
 import java.io.IOException;
+import java.net.URL;
+import java.util.ResourceBundle;
 
+import dao.UsuarioDAO;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.fxml.Initializable;
 import javafx.scene.Parent;
+import javafx.scene.control.Label;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 
-public class MenuController {
+public class MenuController implements Initializable {
+    @FXML
+    private Label homeText;
+
     private static Stage currentStage;
 
     public static void setStage(Stage stage){
         currentStage = stage;
+    }
+    
+    @Override
+    public void initialize(URL location, ResourceBundle resources) {
+       var txt = "BEM VINDO " + UsuarioDAO.usuarioLogado.getNome().toUpperCase() + " !";
+       homeText.setText(txt);
     }
 
     @FXML
@@ -30,11 +44,6 @@ public class MenuController {
         changeScene("/view/LancamentoHora/LancamentoHora.fxml");
     }
 
-    @FXML
-    void irMenu(MouseEvent event) {
-        changeScene("/view/Menu/Menu.fxml");
-    }
-
     private void changeScene(String fxml){
         Parent scene;
         try {
@@ -45,7 +54,7 @@ public class MenuController {
         }
     }
 
-    public static void retornarMenu(){
+    public static void irMenu(){
         MenuController menu = new MenuController();
         menu.changeScene("/view/Menu/Menu.fxml");
     }

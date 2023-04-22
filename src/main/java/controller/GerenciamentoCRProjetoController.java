@@ -65,13 +65,13 @@ public class GerenciamentoCRProjetoController {
 			
 			int temp = temporario.isSelected() ? 1 : 0;
 			crUsuarioDAO.salvar(crUsuario, temp);
-			MensagemRetorno.sucesso();
+			MensagemRetorno.sucessoCadastro();
 			
 			limpar();
 			initialize();
 
 		} catch(Exception e) {
-			MensagemRetorno.erro();
+			MensagemRetorno.erroCadastro();
 		}
 	}
 	
@@ -83,6 +83,6 @@ public class GerenciamentoCRProjetoController {
 	
     @FXML
     void retornarMenu(MouseEvent event) {
-        MenuController.retornarMenu();
+        MenuController.irMenu();
     }
 }

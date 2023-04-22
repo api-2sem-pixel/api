@@ -64,6 +64,6 @@ public class VisualizarCRController {
 	
     @FXML
     void retornarMenu(MouseEvent event) {
-        MenuController.retornarMenu();
+        MenuController.irMenu();
     }
 }

@@ -28,10 +28,10 @@ public class CadastroClienteController {
 	public void cadastrarCliente(ActionEvent event) {
 		try {
 			this.clienteDAO.salvar(new Cliente(tfRazaoSocial.getText(), tfCNPJ.getText()));
-			MensagemRetorno.sucesso();
+			MensagemRetorno.sucessoCadastro();
 			limpar();
 		} catch (Exception e) {
-			MensagemRetorno.erro();
+			MensagemRetorno.erroCadastro();
 		}
 	}
 	
@@ -42,6 +42,6 @@ public class CadastroClienteController {
 	
     @FXML
     void retornarMenu(MouseEvent event) {
-        MenuController.retornarMenu();
+        MenuController.irMenu();
     }
 }

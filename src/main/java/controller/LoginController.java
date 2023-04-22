@@ -1,61 +1,56 @@
 package controller;
 
-import java.io.IOException;
+import java.net.URL;
+import java.util.ResourceBundle;
 
+import dao.UsuarioDAO;
+import factory.ConnectionFactory;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
+import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
-import javafx.stage.Stage;
+import utils.mensagem_retorno.MensagemRetorno;
 
-
-public class LoginController {
-
-    
+public class LoginController implements Initializable {   
 	@FXML
 	private TextField emailField;
 	
 	@FXML
 	private PasswordField passwordField;
-	
-	
+		
     @FXML
-    private  Button btn_entrar;
+    private Button btn_entrar;
+
+    private UsuarioDAO usuarioDAO;
+
+    @Override
+    public void initialize(URL location, ResourceBundle resources) {
+        var connection = new ConnectionFactory().recuperarConexao();
+        usuarioDAO = new UsuarioDAO(connection);
+    }
 
 	@FXML
-    private void entrarUsuario(Stage stage)   {
-		
+    private void login(ActionEvent stage)   {
 		String email = emailField.getText();
     	String password = passwordField.getText();
 		
-		if (email.equals("cliente") && password.equals("senha")) {
-			Parent root = null;
-        
-            var resource = getClass()
-                .getResource("/view/Menu/Menu.fxml");
-            
-            try {
-                root =  FXMLLoader.load(resource);
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
-            
-            Scene scene = new Scene(root, 944, 609);
-            stage.setScene(scene);
-            
-            var stylesPath = getClass().getResource("/view/styles.css").toString();
-            stage.getScene().getStylesheets().add(stylesPath);
-            
-            MenuController.setStage(stage);
-            stage.show();
+        var usuario = usuarioDAO.getUsuarioBy(email);
+
+        if(usuario == null){
+            MensagemRetorno.erro("Email e/ou senha incorretos.");
+            return;
+        }
+
+        if (email.trim().equals(usuario.getEmail().trim()) && password.equals(usuario.getCpf_cnpj().substring(0, 3))) {
+            UsuarioDAO.usuarioLogado = usuario;
+            MensagemRetorno.sucesso("Login efetuado com sucesso");
+			MenuController.irMenu();
+            return;
     	}
-		else{
-			//percorrer o banco com usuarios cadastrados
-		}
-    	
+        
+        MensagemRetorno.erro("Email e/ou senha incorretos.");
     }
 }
     	

@@ -8,14 +8,39 @@ import java.util.ArrayList;
 import java.util.List;
 
 import dto.UsuarioDTO;
+import enums.TipoUsuario;
 import model.CadastroUsuario;
+import model.UsuarioModel;
 
-public class UsuarioDAO {
+public class UsuarioDAO extends BaseDAO {
 
 	private Connection connection;
 
+	public static UsuarioModel usuarioLogado;
+
 	public UsuarioDAO(Connection connection) {
+		super(connection);
 		this.connection = connection;
+	}
+
+	public UsuarioModel getUsuarioBy(String email){
+		String sql = "SELECT Id, Nome, Email, Cpf_Cnpj, Id_Tipo_Usuario from Usuario where Email = '" + email.trim() + "'" ;
+
+		var usuarioModel = executarQuery(sql, x -> {
+			try {
+				return new UsuarioModel(
+					x.getInt(1), 
+					x.getString(2), 
+					x.getString(3), 
+					x.getString(4), 
+					TipoUsuario.values()[x.getInt(5)]
+				);
+			} catch (SQLException e) {
+				return null;
+			}
+		});
+
+		return usuarioModel.isEmpty() ? null : usuarioModel.get(0);
 	}
 
 	public Integer getIdUsuario(String cpf) {

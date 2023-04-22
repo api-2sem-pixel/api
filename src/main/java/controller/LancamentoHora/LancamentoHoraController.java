@@ -12,6 +12,7 @@ import dao.CrDAO;
 import dao.ExtratoHoraDAO;
 import dao.ModalidadeDAO;
 import dao.MotivoDAO;
+import dao.UsuarioDAO;
 import enums.EtapaExtrato;
 import dao.ClienteDAO;
 import factory.ConnectionFactory;
@@ -95,7 +96,7 @@ public class LancamentoHoraController implements Initializable {
     }
 
     private void carregarExtratos() {
-        var extratos = extratoHoraDao.obterExtratosLancados(1);
+        var extratos = extratoHoraDao.obterExtratosLancados(UsuarioDAO.usuarioLogado.getId());
         table_lancamento.getItems().addAll(extratos);
     }
 
@@ -251,7 +252,7 @@ public class LancamentoHoraController implements Initializable {
 
     @FXML
     void retornarMenu(MouseEvent event) {
-        MenuController.retornarMenu();
+        MenuController.irMenu();
     }
 
     @FXML
@@ -263,15 +264,15 @@ public class LancamentoHoraController implements Initializable {
                continue;
             }       
  
-            extratoHoraModel.setIdUsuario(1); //Criar um usuario padrao so pra cadastrar
+            extratoHoraModel.setIdUsuario(UsuarioDAO.usuarioLogado.getId()); //Criar um usuario padrao so pra cadastrar
             
             var rowsModified = extratoHoraDao.lancarHora(extratoHoraModel);
             if(rowsModified <= 0){
-                MensagemRetorno.erro();
+                MensagemRetorno.erroCadastro();
                 return;
             }
         }
 
-        MensagemRetorno.sucesso();
+        MensagemRetorno.sucessoCadastro();
     }
 }

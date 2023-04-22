@@ -67,7 +67,7 @@
           <content>
             <AnchorPane id="Content" styleClass="content">
               <children>
-                        <Label layoutX="233.0" layoutY="35.0" styleClass="title" text="SEJA BEM VINDO USUARIO !!!" textFill="#1f25c1" AnchorPane.leftAnchor="233.0" AnchorPane.rightAnchor="384.0" AnchorPane.topAnchor="35.0">
+                        <Label fx:id="homeText" layoutX="233.0" layoutY="35.0" styleClass="title" text="SEJA BEM VINDO USUARIO !!!" textFill="#1f25c1" AnchorPane.leftAnchor="233.0" AnchorPane.rightAnchor="384.0" AnchorPane.topAnchor="35.0">
                            <font>
                               <Font name="Calibri Bold" size="24.0" />
                            </font>

@@ -10,13 +10,17 @@ public class MensagemRetorno {
 		super();
 	}
 
-	public static void sucesso() {
+	public static void sucessoCadastro() {
+		sucesso("Cadastro efetuado com sucesso");
+	}
+
+	public static void sucesso(String message) {
 		Alert alert = new Alert(AlertType.INFORMATION);
-		alert.setContentText("Cadastro efetuado com sucesso");
+		alert.setContentText(message);
 		alert.show();
 	}
 	
-	public static void erro() {
+	public static void erroCadastro() {
 		erro("Não foi possível efetuar o cadastro");
 	}
 
