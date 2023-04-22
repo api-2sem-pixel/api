@@ -8,6 +8,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import dto.UsuarioDTO;
+import model.CadastroUsuario;
 
 public class UsuarioDAO {
 
@@ -17,7 +18,6 @@ public class UsuarioDAO {
 		this.connection = connection;
 	}
 
-	
 	public Integer getIdUsuario(String cpf) {
 		Integer id = null;
 		try {
@@ -30,6 +30,27 @@ public class UsuarioDAO {
 				id = trasformarResultSetEmId(id, pstm);
 			}
 			return id;
+
+		} catch (SQLException e) {
+			throw new RuntimeException(e);
+		}
+	}
+	
+	public void cadastrar(CadastroUsuario usuario) {
+		try {
+			String sql = "INSERT INTO Usuario(Cpf_Cnpj,Id_Tipo_Usuario, Telefone, Nome, Email ) "
+					+ "VALUES (?,?,?,?,?)";
+			
+
+			try (PreparedStatement pstm = connection.prepareStatement(sql)) {
+				pstm.setString(1, usuario.getCpf());
+				pstm.setInt(2, usuario.getId());
+				pstm.setString(3, usuario.getTel());
+				pstm.setString(4, usuario.getNome());
+				pstm.setString(5, usuario.getEmail());
+				pstm.execute();			
+			}
+			
 		} catch (SQLException e) {
 			throw new RuntimeException(e);
 		}
