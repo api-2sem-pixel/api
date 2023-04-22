@@ -2,7 +2,6 @@ package controller;
 
 import java.io.IOException;
 
-
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -35,34 +34,29 @@ public class LoginController {
 		if (email.equals("cliente") && password.equals("senha")) {
 			Parent root = null;
         
-        var resource = getClass()
-            .getResource("/view/Menu/Menu.fxml");
-        
-        try {
-            root =  FXMLLoader.load(resource);
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-        
-        Scene scene = new Scene(root, 944, 609);
-        stage.setScene(scene);
-        
-        var stylesPath = getClass().getResource("/view/styles.css").toString();
-        stage.getScene().getStylesheets().add(stylesPath);
-        
-        //MenuController.setStage(stage);
-        stage.show();
+            var resource = getClass()
+                .getResource("/view/Menu/Menu.fxml");
+            
+            try {
+                root =  FXMLLoader.load(resource);
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+            
+            Scene scene = new Scene(root, 944, 609);
+            stage.setScene(scene);
+            
+            var stylesPath = getClass().getResource("/view/styles.css").toString();
+            stage.getScene().getStylesheets().add(stylesPath);
+            
+            MenuController.setStage(stage);
+            stage.show();
     	}
 		else{
 			//percorrer o banco com usuarios cadastrados
 		}
     	
-    	
-
-	}
+    }
 }
     	
-		
-    	
-  
-
+	
