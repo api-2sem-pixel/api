@@ -66,8 +66,14 @@ CR e colaborador
 |      | **Entrega**    |**Prioridade**  |   
 | :-------------: | :-------------: |:-------------: | 
 |   Sprint-2    |      **Cadastro de usuário**           |   **1**              |
-|   Sprint-2    |      **Cadastro de squad** | **1** |
+|   Sprint-2    |      **Cadastro de CR** | **1** |
+|   Sprint-2    |      **Gerenciamento de CR** | **3** |
+|   Sprint-2    |      **Visualização de CR** | **2** |
 |   Sprint-2    |      **Lançamento de horas extras** | **1** |
+|   Sprint-2    |      **Login** | **2** |
+|   Sprint-2    |      **Cadastro de Cliente** | **-** |
+
+
    </ul>
    
    <h3>Sprint-3</h3>
