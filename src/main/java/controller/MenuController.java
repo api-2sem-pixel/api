@@ -47,6 +47,11 @@ public class MenuController implements Initializable {
     }
 
     @FXML
+    void irControleCrUsuario(MouseEvent event) {
+        changeScene("/view/CrUsuario/GerenciamentoCRProjeto.fxml");
+    }
+
+    @FXML
     void irLancamentoHora(MouseEvent event) {
         changeScene("/view/LancamentoHora/LancamentoHora.fxml");
     }
