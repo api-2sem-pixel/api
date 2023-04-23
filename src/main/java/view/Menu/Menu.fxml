@@ -49,7 +49,7 @@
   <children>
     <SplitPane centerShape="false" dividerPositions="0.11587436332767402" focusTraversable="true" prefHeight="-1.0" prefWidth="-1.0" styleClass="window" VBox.vgrow="ALWAYS">
       <items>
-        <AnchorPane styleClass="sidebar" SplitPane.resizableWithParent="false">
+        <AnchorPane maxWidth="-Infinity" minHeight="580.0" minWidth="-Infinity" prefHeight="580.0" prefWidth="132.0" styleClass="sidebar" SplitPane.resizableWithParent="false">
                <children>
                   <ImageView fitHeight="52.0" fitWidth="93.0" layoutX="9.0" layoutY="41.0" pickOnBounds="true" preserveRatio="true">
                      <image>
@@ -148,7 +148,7 @@
                            </children>
                            
                            <effect>
-                              <ColorAdjust contrast="1.0" hue="0.02" saturation="1.0"  />
+                              <ColorAdjust contrast="1.0" hue="0.02" saturation="1.0" />
                            </effect>
                         </Group>
 
