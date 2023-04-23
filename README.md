@@ -69,6 +69,15 @@ CR e colaborador
 |   Sprint-2    |      **Cadastro de squad** | **1** |
 |   Sprint-2    |      **Lançamento de horas extras** | **1** |
    </ul>
+   
+   <h3>Sprint-3</h3>
+
+|      | **Entrega**    |**Prioridade**  |   
+| :-------------: | :-------------: |:-------------: | 
+|   Sprint-3    |      **Cadastro de feedback**           |   **3**              |
+|   Sprint-3    |      **Feedback das horas extras** | **4** |
+|   Sprint-3    |      **Padronização e estilização** | **-** |
+   </ul>
 
    <h2>Configurar Projeto</h2>
 <div style="display: inline_block">
