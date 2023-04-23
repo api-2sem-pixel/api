@@ -1,5 +1,7 @@
 package controller;
 
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
@@ -10,8 +12,9 @@ import model.CadastroUsuario;
 import java.sql.Connection;
 
 import dao.UsuarioDAO;
+import dto.UsuarioDTO;
 import factory.ConnectionFactory;
-
+import javafx.scene.control.ComboBox;
 public class CadastroUsuarioController {
 
 	private UsuarioDAO usuarioDAO;
@@ -32,7 +35,12 @@ public class CadastroUsuarioController {
     private Button btnVoltar;//botão voltar
     
     @FXML
+    private ComboBox<String> comb;
+    
+    @FXML
     private Button tfcadastrarButton;
+
+
 
     public CadastroUsuarioController() {
     	Connection connection = new ConnectionFactory().recuperarConexao();
@@ -45,9 +53,12 @@ public class CadastroUsuarioController {
         String nome = tfNome.getText();
         String cpf = tfcpfField.getText();
         String tel = tftelField.getText();
-
         CadastroUsuario usuario = new CadastroUsuario(email, nome, cpf, tel, 1);
-
+        
+        
+        
+        
+        
         if (usuario.isValid()) {
           this.usuarioDAO.cadastrar(usuario);
             Alert alert = new Alert(Alert.AlertType.INFORMATION);

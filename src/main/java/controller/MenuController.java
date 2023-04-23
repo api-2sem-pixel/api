@@ -19,14 +19,14 @@ public class MenuController implements Initializable {
 
     private static Stage currentStage;
 
-    public static void setStage(Stage stage){
+    public static void setStage(Stage stage) {
         currentStage = stage;
     }
-    
+
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-       var txt = "BEM VINDO " + UsuarioDAO.usuarioLogado.getNome().toUpperCase() + " !";
-       homeText.setText(txt);
+        var txt = "BEM VINDO " + UsuarioDAO.usuarioLogado.getNome().toUpperCase() + " !";
+        homeText.setText(txt);
     }
 
     @FXML
@@ -40,11 +40,16 @@ public class MenuController implements Initializable {
     }
 
     @FXML
+    void irCadastroUsuario(MouseEvent event) {
+        changeScene("/view/CadastroUsuario.fxml");
+    }
+
+    @FXML
     void irLancamentoHora(MouseEvent event) {
         changeScene("/view/LancamentoHora/LancamentoHora.fxml");
     }
 
-    private void changeScene(String fxml){
+    private void changeScene(String fxml) {
         Parent scene;
         try {
             scene = FXMLLoader.load(getClass().getResource(fxml));
@@ -54,7 +59,7 @@ public class MenuController implements Initializable {
         }
     }
 
-    public static void irMenu(){
+    public static void irMenu() {
         MenuController menu = new MenuController();
         menu.changeScene("/view/Menu/Menu.fxml");
     }
