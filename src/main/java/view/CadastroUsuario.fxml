@@ -64,11 +64,11 @@
                      <children>
                         <Button layoutX="144.0" layoutY="462.0" minWidth="53.0" mnemonicParsing="false" prefHeight="45.0" prefWidth="53.0" styleClass="myButton"  stylesheets="@stylesCadastroUsuario.css" style="-fx-background-color: #1f25c1;" text="" textAlignment="CENTER">
                            <graphic>
-                              <ImageView fitHeight="58.0" fitWidth="68.0">
+                              <ImageView fitHeight="58.0" fitWidth="68.0" onMouseClicked="#voltar" pickOnBounds="true" preserveRatio="true">
                                  <image>
                                     <Image url="@assets/botao.png" />
                                  </image>
-                              </ImageView>
+                              </ImageView >
                            </graphic>
                         </Button>
                         <Text fill="WHITE" layoutX="33.0" layoutY="208.0" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-weight: bold;" text="Bem vindo a tela de cadastro de usuario" textAlignment="CENTER" wrappingWidth="276.0">

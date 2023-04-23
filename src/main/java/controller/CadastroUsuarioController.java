@@ -27,7 +27,10 @@ public class CadastroUsuarioController {
 
     @FXML
     private TextField tftelField;
-
+       
+    @FXML
+    private Button btnVoltar;//botão voltar
+    
     @FXML
     private Button tfcadastrarButton;
 
@@ -57,6 +60,11 @@ public class CadastroUsuarioController {
             alert.showAndWait();
         }
     }
+    @FXML
+    public void voltar(ActionEvent event) {
+        MenuController.irMenu();
+    	// Código para voltar
+    	}
 
     private void limparCampos() {
         tfemailField.setText("");
@@ -64,4 +72,5 @@ public class CadastroUsuarioController {
         tfcpfField.setText("");
         tftelField.setText("");
     }
+
 }

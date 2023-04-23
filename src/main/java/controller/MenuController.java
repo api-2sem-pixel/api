@@ -31,7 +31,7 @@ public class MenuController implements Initializable {
 
     @FXML
     void irControleCr(MouseEvent event) throws IOException {
-        changeScene("/view/GerenciamentoCRProjeto.fxml");
+        changeScene("/view/CadastroUsuario.fxml");
     }
 
     @FXML
