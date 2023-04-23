@@ -1,5 +1,4 @@
-package model.ComboboxModel;
-
+package model;
 
 public class CadastroUsuarioModel {
     private String email;

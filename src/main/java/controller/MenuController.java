@@ -24,24 +24,26 @@ public class MenuController implements Initializable {
     }
 
     @Override
-    public void initialize(URL location, ResourceBundle resources) {
-        var txt = "BEM VINDO " + UsuarioDAO.usuarioLogado.getNome().toUpperCase() + " !";
-        homeText.setText(txt);
-    }
+    public void initialize(URL location, ResourceBundle resources) {}
 
     @FXML
     void irControleCr(MouseEvent event) throws IOException {
-        changeScene("/view/CadastroUsuario.fxml");
+        changeScene("/view/Cr/VisualizacaoCR.fxml");
     }
 
     @FXML
-    void irControleUsuario(MouseEvent event) {
-        changeScene("/view/CadastroCliente.fxml");
+    void irCadastroCr(MouseEvent event) throws IOException {
+        changeScene("/view/Cr/CadastroCR.fxml");
+    }
+
+    @FXML
+    void irCadastroCliente(MouseEvent event) {
+        changeScene("/view/Cliente/CadastroCliente.fxml");
     }
 
     @FXML
     void irCadastroUsuario(MouseEvent event) {
-        changeScene("/view/CadastroUsuario.fxml");
+        changeScene("/view/Usuario/CadastroUsuario.fxml");
     }
 
     @FXML

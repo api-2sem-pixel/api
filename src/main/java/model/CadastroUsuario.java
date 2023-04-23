@@ -7,12 +7,12 @@ public class CadastroUsuario {
     private String tel;
     private int tipo_id;
 
-    public CadastroUsuario(String email, String nome, String cpf, String tel, int id) {
+    public CadastroUsuario(String email, String nome, String cpf, String tel, int tipo) {
         this.email = email;
         this.nome = nome;
         this.cpf = cpf;
         this.tel = tel;
-        this.tipo_id = id;
+        this.tipo_id = tipo;
     }
 
     public int getId() {

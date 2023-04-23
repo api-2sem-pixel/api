@@ -15,30 +15,33 @@
    <children>
       <Pane minWidth="-Infinity" prefHeight="610.0" prefWidth="122.0" styleClass="sidebar">
          <children>
-            <ImageView fitHeight="52.0" fitWidth="93.0" layoutX="22.0" layoutY="35.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fitHeight="52.0" fitWidth="93.0" layoutX="15.0" layoutY="36.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@figma/2rp.png" />
+                  <Image url="@../figma/2rp.png" />
                </image>
             </ImageView>
             <Button layoutX="34.0" layoutY="538.0" mnemonicParsing="false" scaleX="0.5" scaleY="0.5" text="Button" />
             <ImageView fitHeight="40.0" fitWidth="43.0" layoutX="42.0" layoutY="533.0" onMouseClicked="#retornarMenu" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@figma/log.png" />
+                  <Image url="@../figma/log.png" />
                </image>
             </ImageView>
          </children></Pane>
-      <Label layoutX="358.0" layoutY="60.0" text="CR" textFill="#1f25c1">
+      <Label layoutX="446.0" layoutY="23.0" text="Controle de Cr" textFill="#1f25c1">
          <font>
             <Font size="28.0" />
          </font>
       </Label>
-      <Button layoutX="763.0" layoutY="67.0" mnemonicParsing="false" onAction="#buscar" prefHeight="28.0" prefWidth="90.0" text="BUSCAR" />
-      <TableView fx:id="tabela" layoutX="355.0" layoutY="180.0" prefHeight="306.0" prefWidth="486.0">
+      <Button layoutX="780.0" layoutY="134.0" minHeight="30.0" minWidth="135.0" mnemonicParsing="false" onAction="#buscar" prefHeight="30.0" prefWidth="135.0" style="-fx-background-color: #1f25c1; -fx-background-radius: 50; -fx-text-fill: white;" text="BUSCAR" />
+      <TableView fx:id="tabela" layoutX="157.0" layoutY="180.0" prefHeight="405.0" prefWidth="758.0">
         <columns>
           <TableColumn fx:id="integrantesCol" prefWidth="247.0" text="Integrantes" />
           <TableColumn fx:id="descricaoCol" prefWidth="238.0" text="Descrição" />
         </columns>
+         <columnResizePolicy>
+            <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+         </columnResizePolicy>
       </TableView>
-      <ComboBox fx:id="comboCR" layoutX="510.0" layoutY="68.0" prefWidth="150.0" />
+      <ComboBox fx:id="comboCR" layoutX="158.0" layoutY="134.0" prefHeight="30.0" prefWidth="589.0" promptText="CR" styleClass="input-text" />
    </children>
 </AnchorPane>

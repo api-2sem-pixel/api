@@ -45,7 +45,6 @@ public class LoginController implements Initializable {
 
         if (email.trim().equals(usuario.getEmail().trim()) && password.equals(usuario.getCpf_cnpj().substring(0, 3))) {
             UsuarioDAO.usuarioLogado = usuario;
-            MensagemRetorno.sucesso("Login efetuado com sucesso");
 			MenuController.irMenu();
             return;
     	}
