@@ -19,7 +19,8 @@
                   <Image url="@figma/2rp.png" />
                </image>
             </ImageView>
-            <ImageView fitHeight="40.0" fitWidth="43.0" layoutX="45.0" layoutY="531.0" onMouseClicked="#retornarMenu" pickOnBounds="true" preserveRatio="true">
+            <Button layoutX="35.0" layoutY="534.0" minWidth="45.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="45.0" scaleX="0.5" scaleY="0.5" text="Button" />
+            <ImageView fitHeight="40.0" fitWidth="43.0" layoutX="43.0" layoutY="526.0" onMouseClicked="#retornarMenu" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@figma/log.png" />
                </image>
