@@ -85,7 +85,7 @@
                               <ColorAdjust contrast="1.0" hue="0.02" saturation="1.0" />
                            </effect>
                         </Group>
-                        <Label fx:id="homeText" layoutX="316.0" layoutY="35.0" styleClass="title" text="SEJA BEM VINDO !" textFill="#1f25c1" AnchorPane.leftAnchor="316.0" AnchorPane.rightAnchor="301.0" AnchorPane.topAnchor="35.0">
+                        <Label fx:id="homeText" layoutX="316.0" layoutY="35.0" styleClass="title" text="Seja bem vindo!" textFill="#1f25c1" AnchorPane.leftAnchor="316.0" AnchorPane.rightAnchor="301.0" AnchorPane.topAnchor="35.0">
                            <font>
                               <Font name="Calibri Bold" size="24.0" />
                            </font>

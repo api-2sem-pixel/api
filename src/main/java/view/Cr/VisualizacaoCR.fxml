@@ -32,7 +32,10 @@
             <Font size="28.0" />
          </font>
       </Label>
-      <Button layoutX="780.0" layoutY="134.0" minHeight="30.0" minWidth="135.0" mnemonicParsing="false" onAction="#buscar" prefHeight="30.0" prefWidth="135.0" style="-fx-background-color: #1f25c1; -fx-background-radius: 50; -fx-text-fill: white;" text="BUSCAR" />
+      <Button layoutX="780.0" layoutY="120.0" minHeight="30.0" minWidth="135.0" mnemonicParsing="false" onAction="#buscar" prefHeight="30.0" prefWidth="135.0" style="-fx-background-color: #1f25c1; -fx-background-radius: 50; -fx-text-fill: white;" text="Buscar">
+         <font>
+            <Font size="14.0" />
+         </font></Button>
       <TableView fx:id="tabela" layoutX="157.0" layoutY="180.0" prefHeight="405.0" prefWidth="758.0">
         <columns>
           <TableColumn fx:id="integrantesCol" prefWidth="247.0" text="Integrantes" />
@@ -42,6 +45,6 @@
             <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
          </columnResizePolicy>
       </TableView>
-      <ComboBox fx:id="comboCR" layoutX="158.0" layoutY="134.0" prefHeight="30.0" prefWidth="589.0" promptText="CR" styleClass="input-text" />
+      <ComboBox fx:id="comboCR" layoutX="157.0" layoutY="107.0" prefHeight="55.0" prefWidth="589.0" promptText="CR" styleClass="input-text" />
    </children>
 </AnchorPane>

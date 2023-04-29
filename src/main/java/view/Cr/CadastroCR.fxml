@@ -25,14 +25,17 @@
                </image>
             </ImageView>
          </children></Pane>
-      <Label layoutX="495.0" layoutY="26.0" prefHeight="39.0" prefWidth="217.0" text="Cadastro de CR" textFill="#483fee">
+      <Label layoutX="432.0" layoutY="36.0" prefHeight="39.0" prefWidth="217.0" text="Cadastro de CR" textFill="#483fee">
          <font>
             <Font size="27.0" />
          </font>
       </Label>
-      <TextField fx:id="tfNome" layoutX="167.0" layoutY="207.0" prefHeight="33.0" prefWidth="726.0" promptText="Nome" styleClass="input-text" />
-      <TextField fx:id="tfSigla" layoutX="603.0" layoutY="125.0" prefHeight="33.0" prefWidth="290.0" promptText="Sigla" styleClass="input-text" />
-      <Button layoutX="482.0" layoutY="531.0" mnemonicParsing="false" onAction="#inserirCR" prefHeight="33.0" prefWidth="82.0" styleClass="myButton" text="INSERIR" />
-      <TextField fx:id="tfCodigo" layoutX="167.0" layoutY="125.0" prefHeight="33.0" prefWidth="408.0" promptText="Codigo" styleClass="input-text" />
+      <TextField fx:id="tfNome" layoutX="287.0" layoutY="325.0" prefHeight="55.0" prefWidth="507.0" promptText="Nome" styleClass="input-text" />
+      <TextField fx:id="tfSigla" layoutX="287.0" layoutY="226.0" prefHeight="55.0" prefWidth="507.0" promptText="Sigla" styleClass="input-text" />
+      <Button layoutX="509.0" layoutY="434.0" mnemonicParsing="false" onAction="#inserirCR" prefHeight="33.0" prefWidth="82.0" styleClass="myButton" text="Inserir">
+         <font>
+            <Font size="14.0" />
+         </font></Button>
+      <TextField fx:id="tfCodigo" layoutX="287.0" layoutY="119.0" prefHeight="55.0" prefWidth="507.0" promptText="Codigo" styleClass="input-text" />
    </children>
 </AnchorPane>
