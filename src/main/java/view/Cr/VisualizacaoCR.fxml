@@ -13,7 +13,7 @@
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="609.0" prefWidth="944.0" style="-fx-background-color: fffff;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.VisualizarCRController">
    <children>
-      <Pane minWidth="-Infinity" prefHeight="610.0" prefWidth="122.0" styleClass="sidebar">
+      <Pane prefHeight="610.0" prefWidth="113.0" styleClass="sidebar">
          <children>
             <ImageView fitHeight="52.0" fitWidth="93.0" layoutX="15.0" layoutY="36.0" pickOnBounds="true" preserveRatio="true">
                <image>
@@ -27,12 +27,12 @@
                </image>
             </ImageView>
          </children></Pane>
-      <Label layoutX="446.0" layoutY="23.0" text="Controle de Cr" textFill="#1f25c1">
+      <Label layoutX="446.0" layoutY="23.0" text="Controle de Cr" textFill="#483fee">
          <font>
-            <Font size="28.0" />
+            <Font size="27.0" />
          </font>
       </Label>
-      <Button layoutX="780.0" layoutY="120.0" minHeight="30.0" minWidth="135.0" mnemonicParsing="false" onAction="#buscar" prefHeight="30.0" prefWidth="135.0" style="-fx-background-color: #1f25c1; -fx-background-radius: 50; -fx-text-fill: white;" text="Buscar">
+      <Button layoutX="780.0" layoutY="120.0" minHeight="30.0" minWidth="135.0" mnemonicParsing="false" onAction="#buscar" prefHeight="30.0" prefWidth="135.0" styleClass="MYButton" text="Buscar">
          <font>
             <Font size="14.0" />
          </font></Button>
