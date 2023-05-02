@@ -2,8 +2,9 @@ package controller;
 
 import java.net.URL;
 import java.util.ResourceBundle;
-
+import dao.TipoUsuarioDAO;
 import dao.UsuarioDAO;
+import enums.TipoUsuario;
 import factory.ConnectionFactory;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -38,6 +39,9 @@ public class LoginController implements Initializable {
 		
         var usuario = usuarioDAO.getUsuarioBy(email);
 
+        var tipo_usuarioADM = TipoUsuario.values().equals(TipoUsuario.Administrador);
+        var tipo_usuarioGESTOR = TipoUsuario.values().equals(TipoUsuario.Gestor);
+        
         if(usuario == null){
             MensagemRetorno.erro("Email e/ou senha incorretos.");
             return;
