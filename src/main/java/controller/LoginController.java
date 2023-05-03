@@ -2,7 +2,7 @@ package controller;
 
 import java.net.URL;
 import java.util.ResourceBundle;
-import dao.TipoUsuarioDAO;
+
 import dao.UsuarioDAO;
 import enums.TipoUsuario;
 import factory.ConnectionFactory;
@@ -15,13 +15,13 @@ import javafx.scene.control.TextField;
 import utils.mensagem_retorno.MensagemRetorno;
 import controller.MenuFeedBack.*;
 
-public class LoginController implements Initializable {   
-	@FXML
-	private TextField emailField;
-	
-	@FXML
-	private PasswordField passwordField;
-		
+public class LoginController implements Initializable {
+    @FXML
+    private TextField emailField;
+
+    @FXML
+    private PasswordField passwordField;
+
     @FXML
     private Button btn_entrar;
 
@@ -33,35 +33,35 @@ public class LoginController implements Initializable {
         usuarioDAO = new UsuarioDAO(connection);
     }
 
-	@FXML
-    private void login(ActionEvent stage)   {
-		String email = emailField.getText();
-    	String password = passwordField.getText();
-		
+    @FXML
+    private void login(ActionEvent stage) {
+        String email = emailField.getText();
+        String password = passwordField.getText();
+
+        if (email.isEmpty() || password.isEmpty()) {
+            MensagemRetorno.erro("Por favor, preencha todos os campos.");
+            return;
+        }
+
         var usuario = usuarioDAO.getUsuarioBy(email);
 
-        var tipo_usuarioADM = TipoUsuario.values().equals(TipoUsuario.Administrador);
-        var tipo_usuarioGESTOR = TipoUsuario.values().equals(TipoUsuario.Gestor);
-        
-        if(usuario == null){
+        if (usuario == null) {
             MensagemRetorno.erro("Email e/ou senha incorretos.");
             return;
         }
 
-        if (email.trim().equals(usuario.getEmail().trim()) && password.equals(usuario.getCpf_cnpj().substring(0, 3))) {
-            if(tipo_usuarioADM == true || tipo_usuarioGESTOR == true){
-            UsuarioDAO.usuarioLogado = usuario;
-			MenuFeedBackController.irFeedBackHora();
-            return;
-            }else{
+        if (email.trim().equalsIgnoreCase(usuario.getEmail().trim()) && password.equals(usuario.getCpf_cnpj().substring(0, 3))) {
+            var tipo_usuario = usuario.getIdTipoUsuario();
+
+            if (tipo_usuario == TipoUsuario.Administrador.id || tipo_usuario == TipoUsuario.Gestor.id) {
+                UsuarioDAO.usuarioLogado = usuario;
+                MenuFeedBackController.irFeedBack();
+            } else {
                 UsuarioDAO.usuarioLogado = usuario;
                 MenuController.irMenu();
-                   
             }
-    	}
-        
-        MensagemRetorno.erro("Email e/ou senha incorretos.");
+        } else {
+            MensagemRetorno.erro("Email e/ou senha incorretos.");
+        }
     }
 }
-    	
-	
