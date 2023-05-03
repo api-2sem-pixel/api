@@ -27,7 +27,37 @@ public class MenuController implements Initializable {
     public void initialize(URL location, ResourceBundle resources) {}
 
     @FXML
-    void irFeedBackHora(MouseEvent event) throws IOException {
+    void irControleCr(MouseEvent event) throws IOException {
+        changeScene("/view/Cr/VisualizacaoCR.fxml");
+    }
+
+    @FXML
+    void irCadastroCr(MouseEvent event) throws IOException {
+        changeScene("/view/Cr/CadastroCR.fxml");
+    }
+
+    @FXML
+    void irCadastroCliente(MouseEvent event) {
+        changeScene("/view/Cliente/CadastroCliente.fxml");
+    }
+
+    @FXML
+    void irCadastroUsuario(MouseEvent event) {
+        changeScene("/view/Usuario/CadastroUsuario.fxml");
+    }
+
+    @FXML
+    void irControleCrUsuario(MouseEvent event) {
+        changeScene("/view/CrUsuario/GerenciamentoCRProjeto.fxml");
+    }
+
+    @FXML
+    void irLancamentoHora(MouseEvent event) {
+        changeScene("/view/LancamentoHora/LancamentoHora.fxml");
+    }
+
+    @FXML
+    void irFeedBackHora(MouseEvent event) {
         changeScene("/view/FeedBack/FeedBack.fxml");
     }
 
