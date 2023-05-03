@@ -17,7 +17,7 @@ import controller.MenuFeedBack.*;
 
 public class LoginController implements Initializable {
     @FXML
-    private TextField emailField; 
+    private TextField emailField;
 
     @FXML
     private PasswordField passwordField;
