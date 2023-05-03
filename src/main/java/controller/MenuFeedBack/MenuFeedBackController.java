@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
+import controller.MenuController;
 import dao.UsuarioDAO;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -24,29 +25,11 @@ public class MenuFeedBackController implements Initializable {
     }
 
     @Override
-    public void initialize(URL location, ResourceBundle resources) {
-    }
+    public void initialize(URL location, ResourceBundle resources) {}
 
-    @FXML
-    void irFeedBackHora(MouseEvent event) throws IOException {
-        changeScene("/view/FeedBack/FeedBack.fxml");
-    }
-
-    private void changeScene(String fxml) {
-        Parent scene;
-        try {
-            scene = FXMLLoader.load(getClass().getResource(fxml));
-            currentStage.getScene().setRoot(scene);
-        } catch (IOException e) {
-            System.err.println(e);
-        }
-    }
-
+    
     public static void irMenu() {
-        MenuFeedBackController menu = new MenuFeedBackController();
-        menu.changeScene("/view/Menu/Menu.fxml");
-    }
-
-    public static void irFeedBack() {
+        MenuController menu = new MenuController();
+        menu.irMenu();
     }
 }
