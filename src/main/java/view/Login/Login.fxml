@@ -50,7 +50,7 @@
   <children>
             <HBox layoutX="404.0" layoutY="273.0" />
             <HBox layoutX="411.0" layoutY="216.0" style="-fx-background-color: f5f0f0;" />
-            <Button fx:id="btn_entrar" layoutX="548.0" layoutY="392.0" mnemonicParsing="false" onAction="#login" prefHeight="45.0" prefWidth="208.0" style="-fx-background-color: #1f25c1; -fx-background-radius: 50px;" styleClass="myButton" text="ENTRAR" textAlignment="CENTER" textFill="WHITE">
+            <Button fx:id="btn_entrar" layoutX="548.0" layoutY="392.0" mnemonicParsing="false" onAction="#login" prefHeight="45.0" prefWidth="208.0" style="-fx-background-color: #1f25c1; -fx-background-radius: 50px;" styleClass="myButton" text="Entrar " textAlignment="CENTER" textFill="WHITE">
                <font>
                   <Font size="14.0" />
                </font>

@@ -112,3 +112,14 @@ add column Id_Cliente int;
 
 alter table Extrato_Hora
 add foreign key (Id_Cliente) references Cliente(Id);
+
+create table Parametrizacao_Verba(
+  Verba int primary key not null,
+  Multiplicador decimal(6,2) not null
+);
+
+insert into Parametrizacao_Verba values(1601,1);
+insert into Parametrizacao_Verba values(1602,1);
+insert into Parametrizacao_Verba values(1809,1);
+insert into Parametrizacao_Verba values(3000,1);
+insert into Parametrizacao_Verba values(3001,1);
