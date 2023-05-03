@@ -55,7 +55,8 @@ public class LoginController implements Initializable {
 
             if (tipo_usuario == TipoUsuario.Administrador.id || tipo_usuario == TipoUsuario.Gestor.id) {
                 UsuarioDAO.usuarioLogado = usuario;
-                MenuFeedBackController.irFeedBack();
+                MenuController mc = new MenuController();
+                mc.irFeedBackHora(null);
             } else {
                 UsuarioDAO.usuarioLogado = usuario;
                 MenuController.irMenu();
