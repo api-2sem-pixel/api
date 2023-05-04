@@ -14,14 +14,14 @@ import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.MouseEvent;
-import model.VerbaModel;
+import model.ParametroModel;
 import utils.mensagem_retorno.MensagemRetorno;
 
 public class VerbaController implements Initializable{
 
-    @FXML private TableView<VerbaModel> table;
-    @FXML private TableColumn<VerbaModel, Integer> colVerba;
-    @FXML private TableColumn<VerbaModel, Double> colMultiplicador;
+    @FXML private TableView<ParametroModel> table;
+    @FXML private TableColumn<ParametroModel, String> colVerba;
+    @FXML private TableColumn<ParametroModel, String> colMultiplicador;
     @FXML private TextField fieldVerba;
     @FXML private TextField fieldMultiplicador;
 
@@ -45,11 +45,11 @@ public class VerbaController implements Initializable{
 
     private void configurarLinhas() {
         colVerba.setCellValueFactory(
-            new PropertyValueFactory<VerbaModel, Integer>("verba")
+            new PropertyValueFactory<ParametroModel, String>("parametro")
         );
 
         colMultiplicador.setCellValueFactory(
-            new PropertyValueFactory<VerbaModel, Double>("multiplicador")
+            new PropertyValueFactory<ParametroModel, String>("valor")
         );
 
         table.getSelectionModel().selectedItemProperty().addListener(
@@ -58,24 +58,24 @@ public class VerbaController implements Initializable{
                     return;
                 }
 
-                fieldVerba.setText(newValue.getVerba().toString());
-                fieldMultiplicador.setText(newValue.getMultiplicador().toString());
+                fieldVerba.setText(newValue.getParametro());
+                fieldMultiplicador.setText(newValue.getValor());
             }
         );
     }
 
     @FXML void salvar(ActionEvent event) {
-        var verbaModel = new VerbaModel();
-        var verba = tryParseInteger(fieldVerba.getText());
-        var multiplicador = tryParseDouble(fieldMultiplicador.getText());
+        var verbaModel = new ParametroModel();
+        var parametro = fieldVerba.getText();
+        var valor = fieldMultiplicador.getText();
        
-        if(verba == null || multiplicador == null){
+        if(parametro == null || valor == null){
             MensagemRetorno.erro("Insira valores numéricos nos campos Verba/Multiplicador");
             return;
         }
 
-        verbaModel.setVerba(verba);
-        verbaModel.setMultiplicador(multiplicador);
+        verbaModel.setParametro(parametro);
+        verbaModel.setValor(valor);
         var sucesso = parametrizacaoDAO.salvarVerbas(verbaModel);
         if(sucesso){
             MensagemRetorno.sucesso("Dados salvos com sucesso");

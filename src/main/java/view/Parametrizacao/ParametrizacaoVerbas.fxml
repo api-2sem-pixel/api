@@ -28,15 +28,15 @@
                </image>
             </ImageView>
          </children></Pane>
-      <Label layoutX="373.0" layoutY="31.0" prefHeight="39.0" prefWidth="431.0" text="Parametrização de Verbas" textFill="#483fee">
+      <Label layoutX="450.0" layoutY="38.0" prefHeight="39.0" prefWidth="198.0" text="Parametrização " textFill="#483fee">
          <font>
             <Font size="27.0" />
          </font>
       </Label>
       <TableView fx:id="table" layoutX="192.0" layoutY="230.0" prefHeight="333.0" prefWidth="713.0">
         <columns>
-          <TableColumn fx:id="colVerba" prefWidth="75.0" text="Verba" />
-          <TableColumn fx:id="colMultiplicador" prefWidth="75.0" text="Multiplicador" />
+          <TableColumn fx:id="colVerba" prefWidth="75.0" text="Parâmetro" />
+          <TableColumn fx:id="colMultiplicador" prefWidth="75.0" text="Valor" />
         </columns>
          <columnResizePolicy>
             <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
@@ -47,7 +47,7 @@
             <Font size="14.0" />
          </font>
       </Button>
-      <TextField fx:id="fieldVerba" editable="false" layoutX="192.0" layoutY="143.0" prefHeight="45.0" prefWidth="266.0" promptText="Verba" styleClass="input-text" />
-      <TextField fx:id="fieldMultiplicador" layoutX="472.0" layoutY="143.0" prefHeight="45.0" prefWidth="266.0" promptText="Multiplicador" styleClass="input-text" />
+      <TextField fx:id="fieldVerba" editable="false" layoutX="192.0" layoutY="143.0" prefHeight="45.0" prefWidth="266.0" promptText="Parâmetro" styleClass="input-text" />
+      <TextField fx:id="fieldMultiplicador" layoutX="472.0" layoutY="143.0" prefHeight="45.0" prefWidth="266.0" promptText="Valor" styleClass="input-text" />
    </children>
 </AnchorPane>
