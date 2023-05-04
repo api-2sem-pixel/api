@@ -264,6 +264,8 @@ public class FeedBackController implements Initializable {
             }
         };
 
+        //
+
         col_acoes.setCellFactory(buttonDeletar);
 
         var buttonDeleta = new Callback<TableColumn<ExtratoHoraModel, Void>, TableCell<ExtratoHoraModel, Void>>() {
