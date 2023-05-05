@@ -94,7 +94,7 @@
             </Text>
             <HBox alignment="CENTER" layoutX="384.0" layoutY="196.0" prefHeight="55.0" prefWidth="532.0" style="-fx-background-color: f5f0f0; -fx-background-radius: 15px;">
                <children>
-                  <ImageView fitHeight="34.0" fitWidth="46.0" style="-fx-opacity: 30%;">
+                  <ImageView fitHeight="34.0" fitWidth="46.0" style="-fx-opacity: 25%;">
                      <image>
                         <Image url="@../assets/user.png" />
                      </image>
@@ -104,7 +104,7 @@
             </HBox>
             <HBox alignment="CENTER" layoutX="384.0" layoutY="302.0" style="-fx-background-radius: 15px; -fx-background-color: f5f0f0;">
                <children>
-                  <ImageView fitHeight="28.0" fitWidth="50.0" nodeOrientation="RIGHT_TO_LEFT" style="-fx-opacity: 30%;">
+                  <ImageView fitHeight="28.0" fitWidth="50.0" nodeOrientation="RIGHT_TO_LEFT" style="-fx-opacity: 25%;">
                      <image>
                         <Image url="@../assets/Lock.png" />
                      </image>

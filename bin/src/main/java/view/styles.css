@@ -24,3 +24,45 @@
     /*-fx-background-color:#98c5e993;
     -fx-text-background-color:white; */ 
 }
+
+.myButton {
+    -fx-background-color:  #1f25c1;
+    -fx-background-radius:  50px;
+    -fx-text-fill: white;
+    -fx-min-width:208px;
+    -fx-max-width:208px;
+    -fx-min-height:45px;
+    -fx-max-height:45px;
+}
+
+.MYButton {
+    -fx-background-color:  #1f25c1;
+    -fx-background-radius:  10px;
+    -fx-text-fill: white;
+    -fx-min-width:100px;
+    -fx-max-width:100px;
+    -fx-min-height:35px;
+    -fx-max-height:35px;
+}
+.MYButton:hover {
+    -fx-background-color: #0062cc;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.4), 10, 0, 0, 2);
+    -fx-text-fill: white;
+}
+
+.myButton:hover {
+    -fx-background-color: #0062cc;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.4), 10, 0, 0, 2);
+    -fx-text-fill: white;
+}
+
+.btn-no-restriction {
+    -fx-background-color:  #1f25c1;
+    -fx-background-radius:  50px;
+    -fx-text-fill: white;
+}
+
+.input-text{
+    -fx-background-radius:15px;
+    -fx-background-color: f5f0f0;
+}

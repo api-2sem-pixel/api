@@ -177,6 +177,8 @@
                                     <Image url="@../assets/Grafico.png" />
                                  </image>
                               </ImageView>
+                              
+                              
                               <Label layoutX="18.0" layoutY="76.0" text="Controle Cr - Usuario" textFill="#1f25c1">
                                  <font>
                                     <Font name="Verdana Bold" size="14.0" />

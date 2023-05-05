@@ -40,7 +40,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="609.0" prefWidth="944.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.FeedBack.FeedBackController">
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="609.0" prefWidth="944.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.MenuController">
   <children>
     <SplitPane centerShape="false" dividerPositions="0.11587436332767402" focusTraversable="true" prefHeight="-1.0" prefWidth="-1.0" styleClass="window" VBox.vgrow="ALWAYS">
       <items>
@@ -52,7 +52,7 @@
                      </image>
                   </ImageView>
                   <Button layoutX="28.0" layoutY="542.0" minWidth="46.0" mnemonicParsing="false" prefHeight="38.0" prefWidth="46.0" scaleX="0.5" scaleY="0.5" styleClass="rp-column" text="Button" />
-                  <ImageView fitHeight="40.0" fitWidth="43.0" layoutX="36.0" layoutY="541.0" onMouseClicked="#retornarMenu" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fitHeight="40.0" fitWidth="43.0" layoutX="36.0" layoutY="541.0" onMouseClicked="#irFeedBackHora" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@../figma/log.png" />
                      </image>
@@ -79,13 +79,11 @@
                               <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
                            </columnResizePolicy>
                         </TableView>
-                        <Label layoutX="258.0" layoutY="31.0" prefHeight="39.0" prefWidth="354.0" text="Lançamento de Horas Extras" textFill="#483fee">
+                        <Label layoutX="258.0" layoutY="31.0" prefHeight="39.0" prefWidth="354.0" text="Lançamento de FeedBack" textFill="#483fee">
                            <font>
                               <Font size="27.0" />
                            </font>
                         </Label>
-                        <Button fx:id="btn_adicionarLinha" layoutX="14.0" layoutY="538.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="62.0" mnemonicParsing="false" onAction="#criarNovaLinha" prefHeight="40.0" prefWidth="62.0" styleClass="MYButton" text="+" />
-                        <Button fx:id="btn_lancar" layoutX="123.0" layoutY="538.0" mnemonicParsing="false" onAction="#lancarHoras" prefHeight="40.0" prefWidth="155.0" styleClass="MYButton" text="Lançar" />
               </children>
             </AnchorPane>
           </content>
