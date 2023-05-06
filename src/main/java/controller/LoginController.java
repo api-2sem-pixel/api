@@ -3,6 +3,7 @@ package controller;
 import java.net.URL;
 import java.util.ResourceBundle;
 
+import dao.TipoUsuarioDAO;
 import dao.UsuarioDAO;
 import enums.TipoUsuario;
 import factory.ConnectionFactory;
@@ -51,9 +52,9 @@ public class LoginController implements Initializable {
         }
 
         if (email.trim().equalsIgnoreCase(usuario.getEmail().trim()) && password.equals(usuario.getCpf_cnpj().substring(0, 3))) {
-            var tipo_usuario = usuario.getIdTipoUsuario();
+            var tipoUsuario = usuario.getIdTipoUsuario();
 
-            if (tipo_usuario == TipoUsuario.Administrador.id || tipo_usuario == TipoUsuario.Gestor.id) {
+            if (tipoUsuario == TipoUsuario.Administrador || tipoUsuario == TipoUsuario.Gestor) {
                 UsuarioDAO.usuarioLogado = usuario;
                 MenuController mc = new MenuController();
                 mc.irFeedBackHora(null);
