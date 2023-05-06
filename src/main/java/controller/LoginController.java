@@ -53,10 +53,10 @@ public class LoginController implements Initializable {
         if (email.trim().equalsIgnoreCase(usuario.getEmail().trim()) && password.equals(usuario.getCpf_cnpj().substring(0, 3))) {
             var tipo_usuario = usuario.getIdTipoUsuario();
 
-            if (tipo_usuario == TipoUsuario.Administrador.id || tipo_usuario == TipoUsuario.Gestor.id) {
+            if (tipo_usuario == TipoUsuario.Administrador || tipo_usuario == TipoUsuario.Gestor) {
                 UsuarioDAO.usuarioLogado = usuario;
                 MenuController mc = new MenuController();
-                mc.irFeedBackHora(null);
+                mc.irMenuFeedBack(null);
             } else {
                 UsuarioDAO.usuarioLogado = usuario;
                 MenuController.irMenu();

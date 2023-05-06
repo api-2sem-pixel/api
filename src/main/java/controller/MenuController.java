@@ -60,6 +60,10 @@ public class MenuController implements Initializable {
     void irFeedBackHora(MouseEvent event) {
         changeScene("/view/FeedBack/FeedBack.fxml");
     }
+    @FXML
+    void irMenuFeedBack(MouseEvent event) {
+    	changeScene("/view/MenuFeedBack/MenuFeedBack.fxml");
+    }
 
 
     private void changeScene(String fxml) {
