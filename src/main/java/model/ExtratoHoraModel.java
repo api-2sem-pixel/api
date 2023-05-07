@@ -102,6 +102,10 @@ public class ExtratoHoraModel {
         return status;
     }
 
+    public void setStatus(Integer status) {
+        this.status = EtapaExtrato.values()[status];
+    }
+
     public void setStatus(EtapaExtrato status) {
         this.status = status;
     }

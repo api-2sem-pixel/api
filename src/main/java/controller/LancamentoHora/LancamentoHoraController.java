@@ -35,6 +35,7 @@ import model.ComboboxModel.ClienteComboboxModel;
 import model.ComboboxModel.CrComboboxModel;
 import model.ComboboxModel.ModalidadeComboboxModel;
 import model.ComboboxModel.MotivoComboboxModel;
+import utils.custom_cell_factories.RowColorFactory;
 import utils.custom_cells.DateTimeCell;
 import utils.mensagem_retorno.MensagemRetorno;
 
@@ -241,8 +242,9 @@ public class LancamentoHoraController implements Initializable {
                 return cell;
             }
         };
-
         col_acoes.setCellFactory(buttonDeletar);
+
+        RowColorFactory.criarCoresStatus(table_lancamento);
     }
 
     @FXML

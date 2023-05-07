@@ -24,7 +24,8 @@ public class ExtratoHoraDAO extends BaseDAO {
                         "c.Descricao Modalidade, " +
                         "a.Id IdExtrato, " +
                         "e.Razao_Social NomeCliente, " +
-                        "a.Justificativa Justificativa " +
+                        "a.Justificativa Justificativa, " +
+                        "a.Id_Etapa_Extrato " + 
                     "from Extrato_Hora a  " + 
                     "inner join Cr b on a.Id_Cr = b.Id " + 
                     "inner join Modalidade c on c.Id = a.Id_Modalidade " + 
@@ -52,6 +53,7 @@ public class ExtratoHoraDAO extends BaseDAO {
                 model.setId(resultSet.getInt(9));
                 model.setCliente(resultSet.getString(10));
                 model.setJustificativa(resultSet.getString(11));
+                model.setStatus(resultSet.getInt(12));
 
                 return model;
             } catch (Exception e) {
