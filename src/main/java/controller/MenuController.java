@@ -78,6 +78,6 @@ public class MenuController implements Initializable {
 
     public static void irMenu() {
         MenuController menu = new MenuController();
-        menu.changeScene("/view/FeedBack/FeedBack.fxml");
+        menu.changeScene("/view/Menu/Menu.fxml");
     }
 }

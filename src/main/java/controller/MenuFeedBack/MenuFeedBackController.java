@@ -18,7 +18,6 @@ public class MenuFeedBackController implements Initializable {
 
     public static void irMenu() {
         MenuController menu = new MenuController();
-        
         menu.irMenu();
     }
 }
