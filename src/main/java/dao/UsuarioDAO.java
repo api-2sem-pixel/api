@@ -7,10 +7,14 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
+import dto.CrDTO;
+import dto.IntegrantesCrDTO;
 import dto.UsuarioDTO;
 import enums.TipoUsuario;
 import model.CadastroUsuario;
 import model.UsuarioModel;
+import model.ComboboxModel.CrComboboxModel;
+import model.ComboboxModel.UsuarioComboboxModel;
 
 public class UsuarioDAO extends BaseDAO {
 
@@ -114,4 +118,51 @@ public class UsuarioDAO extends BaseDAO {
 			}
 		}
 	}
+
+	
+	
+	
+	
+	//Sprint 3
+	public List<UsuarioComboboxModel> obterCombobox(){
+		String sql = "SELECT Id, Nome FROM Usuario";
+		return executarQuery(sql, x -> {
+			try {
+				return new UsuarioComboboxModel(x.getInt(1), x.getString(2));
+			} catch (SQLException e) {
+				return null;
+			}
+		});
+	}
+	/*
+	public List<UsuarioDTO> listarUsuarios(int id, String nome){
+		List<IntegrantesCrDTO> usuarios = new ArrayList<UsuarioDTO>();
+		try {
+			String sql = "SELECT usuario.Nome, tipoUsuario.descricao FROM Cr_Usuario crUsuario "
+					+ "INNER JOIN Usuario usuario on crUsuario.Id_Usuario = usuario.Id "
+					+ "INNER JOIN Tipo_Usuario tipoUsuario on usuario.Id_Tipo_Usuario = tipoUsuario.Id "
+					+ "WHERE crUsuario.Id_Cr = ?";
+			
+			try (PreparedStatement pstm = connection.prepareStatement(sql)) {
+				pstm.setInt(1, id);
+				pstm.setString(2, nome);
+				pstm.execute();
+				
+				trasformarResultSetEmUsuarios(usuarios, pstm);
+			}
+			return usuarios;
+		} catch (SQLException e) {
+			throw new RuntimeException(e);
+		}
+	}
+	
+	private void trasformarResultSetEmUsuarios(List<UsuarioDTO> usuario, PreparedStatement pstm) throws SQLException {
+		try (ResultSet rst = pstm.getResultSet()) {
+			while (rst.next()) {
+				UsuarioDTO usuarioDTO = new UsuarioDTO(rst.getInt(1), rst.getString(2), rst.getString(3), rst.getString(4));
+				usuario.add(usuarioDTO);
+			}
+		}
+	}
+	*/
 }
