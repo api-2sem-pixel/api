@@ -39,7 +39,8 @@
       <TableView fx:id="tabela" layoutX="157.0" layoutY="180.0" prefHeight="405.0" prefWidth="758.0">
         <columns>
           <TableColumn fx:id="integrantesCol" prefWidth="247.0" text="Integrantes" />
-          <TableColumn fx:id="descricaoCol" prefWidth="238.0" text="Descrição" />
+          <TableColumn fx:id="descricaoCol" prefWidth="415.0" text="Descrição" />
+            <TableColumn fx:id="acoesCol" maxWidth="1000.0" minWidth="1.0" prefWidth="10.0" text="Ações" />
         </columns>
          <columnResizePolicy>
             <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
