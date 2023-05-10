@@ -4,7 +4,6 @@ import java.sql.Connection;
 import java.util.List;
 
 import dao.UsuarioDAO;
-import dto.IntegrantesCrDTO;
 import dto.UsuarioDTO;
 import enums.TipoUsuario;
 import factory.ConnectionFactory;
@@ -48,7 +47,13 @@ public class VisualizarUsuarioController {
 	
 	public void buscarUsuario(ActionEvent event) {
 		UsuarioDTO usuario = (UsuarioDTO) comboUsuario.getSelectionModel().getSelectedItem();
-		List<UsuarioDTO> usuarios = UsuarioDAO.listarUsuarios();
+		List<UsuarioDTO> usuarios = null;
+		try {
+			usuarios = UsuarioDAO.listarUsuarios(usuario.getId());
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		tabelaUsuarios.setItems(listarUsuario(usuarios));
 	}
 	

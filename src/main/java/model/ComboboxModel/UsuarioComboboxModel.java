@@ -1,19 +1,22 @@
 package model.ComboboxModel;
 
 public class UsuarioComboboxModel {
-	private Integer id;
+	private int id;
 	private String nome;
+	 
+    public UsuarioComboboxModel(int id, String nome) {
+        this.id = id;
+        this.nome = nome;
+    }
+
+    public UsuarioComboboxModel() {
+        super();
+    }
 	
-	public UsuarioComboboxModel(Integer id, String nome) {
-		super();
-		this.id = id;
-		this.nome = nome;
-	}
-	
-	public Integer getId() {
+	public int getId() {
 		return id;
 	}
-	public void setId(Integer id) {
+	public void setId(int id) {
 		this.id = id;
 	}
 	public String getNome() {

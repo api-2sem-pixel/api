@@ -3,13 +3,13 @@ package model;
 import enums.TipoUsuario;
 
 public class UsuarioModel {
-    private Integer id;
+    private int id;
     private String nome;
     private String email;
     private String cpf_cnpj;
     private TipoUsuario idTipoUsuario;
     
-    public UsuarioModel(Integer id, String nome, String email, String cpf_cnpj, TipoUsuario idTipoUsuario) {
+    public UsuarioModel(int id, String nome, String email, String cpf_cnpj, TipoUsuario idTipoUsuario) {
         this.id = id;
         this.nome = nome;
         this.email = email;
@@ -21,7 +21,7 @@ public class UsuarioModel {
         super();
     }
 
-    public Integer getId() {
+    public int getId() {
         return id;
     }
     

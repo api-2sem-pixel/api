@@ -134,7 +134,7 @@
                         <Group layoutX="41.0" layoutY="335.0" onMouseClicked="#irCadastroCliente">
                            <children>
                        
-                              <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#2128bf1f" height="112.0" stroke="BLACK" strokeType="INSIDE" style="-fx-border-radious: 10px;" width="192.0" />
+                                          <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#2128bf1f" height="112.0" stroke="BLACK" strokeType="INSIDE" style="-fx-border-radious: 10px;" width="192.0" />
                               <ImageView fitHeight="54.0" fitWidth="65.0" layoutX="64.0" layoutY="20.0" pickOnBounds="true" preserveRatio="true">
                                  <image>
                                     <Image url="@../assets/Grafico.png" />
@@ -147,7 +147,7 @@
                               </Label>
                            </children>
                            
-                           <effect>
+                                       <effect>
                               <ColorAdjust contrast="1.0" hue="0.02" saturation="1.0" />
                            </effect>
                         </Group>
@@ -187,13 +187,18 @@
                               <ColorAdjust contrast="1.0" hue="0.02" saturation="1.0" />
                            </effect>
                         </Group>
-
-
-
+                        <Group layoutX="41.0" layoutY="468.0" onMouseClicked="#irControleCrUsuario">
+                           <effect>
+                              <ColorAdjust contrast="1.0" hue="0.02" saturation="1.0" />
+                           </effect>
+                        </Group>
+            
+            
+            
                         
-                     </children>
+                                 </children>
                      
-            </AnchorPane>
+                        </AnchorPane>
           </content>
         </ScrollPane>
       </items>

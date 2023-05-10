@@ -10,11 +10,15 @@ public class UsuarioDTO {
     private String cpf_cnpj;
     private TipoUsuario idTipoUsuario;
 	
-	public UsuarioDTO(String nome, int id) {
+	public UsuarioDTO(String nome, int id, String email, String cpf_cnpj, int idTipoUsuario) {
 		super();
 		this.nome = nome;
 		this.id = id;
+		this.email = email;
+		this.cpf_cnpj = cpf_cnpj;
+		this.idTipoUsuario = getTipoUsuario(idTipoUsuario);
 	}
+	
 	public String getNome() {
 		return nome;
 	}
@@ -49,5 +53,17 @@ public class UsuarioDTO {
 	}
 	public void setIdTipoUsuario(TipoUsuario idTipoUsuario) {
 		this.idTipoUsuario = idTipoUsuario;
+	}
+	
+	public TipoUsuario getTipoUsuario(int id) {
+		switch(id) {
+        case 1:
+            return TipoUsuario.Colaborador;
+        case 2:
+            return TipoUsuario.Gestor;
+        case 3:
+            return TipoUsuario.Administrador;
+        }
+        return null;	
 	}
 }
