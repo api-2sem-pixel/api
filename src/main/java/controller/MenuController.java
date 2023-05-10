@@ -23,41 +23,37 @@ public class MenuController implements Initializable {
         currentStage = stage;
     }
 
-    @Override
-    public void initialize(URL location, ResourceBundle resources) {}
+    @Override public void initialize(URL location, ResourceBundle resources) {}
 
-    @FXML
-    void irControleCr(MouseEvent event) throws IOException {
+    @FXML void irControleCr(MouseEvent event) throws IOException {
         changeScene("/view/Cr/VisualizacaoCR.fxml");
     }
 
-    @FXML
-    void irCadastroCr(MouseEvent event) throws IOException {
+    @FXML public void irCadastroCr(MouseEvent event) throws IOException {
         changeScene("/view/Cr/CadastroCR.fxml");
     }
 
-    @FXML
-    void irCadastroCliente(MouseEvent event) {
+    @FXML public void irCadastroCliente(MouseEvent event) {
         changeScene("/view/Cliente/CadastroCliente.fxml");
     }
 
-    @FXML
-    void irCadastroUsuario(MouseEvent event) {
+    @FXML public void irControleCliente(MouseEvent event) {
+        changeScene("/view/Cliente/ControleCliente.fxml");
+    }
+
+    @FXML public void irCadastroUsuario(MouseEvent event) {
         changeScene("/view/Usuario/CadastroUsuario.fxml");
     }
 
-    @FXML
-    void irControleCrUsuario(MouseEvent event) {
+    @FXML public void irControleCrUsuario(MouseEvent event) {
         changeScene("/view/CrUsuario/GerenciamentoCRProjeto.fxml");
     }
 
-    @FXML
-    void irLancamentoHora(MouseEvent event) {
+    @FXML public void irLancamentoHora(MouseEvent event) {
         changeScene("/view/LancamentoHora/LancamentoHora.fxml");
     }
     
-    @FXML
-    void irFeedBackHora(MouseEvent event) {
+    @FXML public void irFeedBackHora(MouseEvent event) {
         changeScene("/view/FeedBack/FeedBack.fxml");
     }
     

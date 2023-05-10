@@ -131,7 +131,7 @@
                               <ColorAdjust contrast="1.0" hue="0.02" saturation="1.0" />
                            </effect>
                         </Group>
-                        <Group layoutX="41.0" layoutY="335.0" onMouseClicked="#irCadastroCliente">
+                        <Group layoutX="41.0" layoutY="335.0" onMouseClicked="#irControleCliente">
                            <children>
                        
                               <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#2128bf1f" height="112.0" stroke="BLACK" strokeType="INSIDE" style="-fx-border-radious: 10px;" width="192.0" />
@@ -140,7 +140,7 @@
                                     <Image url="@../assets/Grafico.png" />
                                  </image>
                               </ImageView>
-                              <Label layoutX="19.0" layoutY="80.0" text="Cadastro de Cliente" textFill="#1f25c1">
+                              <Label layoutX="21.0" layoutY="80.0" text="Controle de Cliente" textFill="#1f25c1">
                                  <font>
                                     <Font name="Verdana Bold" size="14.0" />
                                  </font>

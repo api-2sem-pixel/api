@@ -1,6 +1,8 @@
-package controller;
+package controller.Cliente;
 
 import java.sql.Connection;
+
+import controller.MenuController;
 import dao.ClienteDAO;
 import factory.ConnectionFactory;
 import javafx.event.ActionEvent;

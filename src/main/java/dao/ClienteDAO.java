@@ -30,6 +30,30 @@ public class ClienteDAO extends BaseDAO {
 		});
 	}
 
+	public List<Cliente> buscarClientes(String razaoSocial, String cnpj){
+		String sql = "select Id, Razao_Social, Cnpj from Cliente where 1 = 1";
+
+		if(razaoSocial != null && !razaoSocial.isEmpty()){
+			sql += " AND Razao_Social like '%" + razaoSocial + "%'";
+		}
+
+		if(cnpj != null && !cnpj.isEmpty()){
+			sql += " AND Cnpj = '" + cnpj + "'";
+		}
+		
+		return executarQuery(sql, x -> {
+			try {
+				return new Cliente(x.getInt(1), x.getString(2), x.getString(3));
+			} catch (SQLException e) {
+				return null;
+			}
+		});
+	}
+
+	public Integer deletarCliente(Integer id){
+		return 0;
+	}
+
 	public void salvar(Cliente cliente) {
 		try {
 			String sql = "INSERT INTO Cliente (Razao_Social, Cnpj) VALUES (?, ?)";
