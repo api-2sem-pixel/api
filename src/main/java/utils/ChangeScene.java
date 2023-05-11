@@ -29,6 +29,10 @@ public class ChangeScene implements Initializable {
     	changeScene("/view/Cr/CadastroCR.fxml");
     }
     
+    public void irVisualizacaoCR() {
+    	changeScene("/view/Cr/VisualizacaoCR.fxml");
+    }
+    
     private void changeScene(String fxml) {
         Parent scene;
         try {
