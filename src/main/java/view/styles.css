@@ -25,6 +25,10 @@
     -fx-text-background-color:white; */ 
 }
 
+.rp-column-actions{
+    -fx-alignment: center;
+}
+
 .myButton {
     -fx-background-color:  #1f25c1;
     -fx-background-radius:  50px;

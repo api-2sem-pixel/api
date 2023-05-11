@@ -20,7 +20,7 @@ public class ClienteDAO extends BaseDAO {
     }
 
     public List<ClienteComboboxModel> obterCombobox(){
-		String sql = "select Id, Razao_Social from Cliente";
+		String sql = "select Id, Razao_Social from Cliente where Ativo = 1";
 		return executarQuery(sql, x -> {
 			try {
 				return new ClienteComboboxModel(x.getInt(1), x.getString(2));
@@ -31,7 +31,7 @@ public class ClienteDAO extends BaseDAO {
 	}
 
 	public List<Cliente> buscarClientes(String razaoSocial, String cnpj){
-		String sql = "select Id, Razao_Social, Cnpj from Cliente where 1 = 1";
+		String sql = "select Id, Razao_Social, Cnpj from Cliente where Ativo = 1";
 
 		if(razaoSocial != null && !razaoSocial.isEmpty()){
 			sql += " AND Razao_Social like '%" + razaoSocial + "%'";
@@ -51,7 +51,8 @@ public class ClienteDAO extends BaseDAO {
 	}
 
 	public Integer deletarCliente(Integer id){
-		return 0;
+		String sql = "UPDATE CLIENTE SET Ativo = 0 WHERE Id = " + id;
+		return super.executeUpdate(sql);
 	}
 
 	public void salvar(Cliente cliente) {

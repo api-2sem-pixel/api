@@ -38,7 +38,7 @@
             <TableColumn fx:id="colId" prefWidth="75.0" text="Id" visible="false" />
           <TableColumn fx:id="colRazaoSocial" prefWidth="75.0" text="Razão Social" />
           <TableColumn fx:id="colCnpj" prefWidth="75.0" text="CNPJ" />
-            <TableColumn fx:id="colAcoes" prefWidth="75.0" text="Ações" />
+            <TableColumn fx:id="colAcoes" prefWidth="75.0" styleClass="rp-column-actions" text="Ações" />
         </columns>
          <columnResizePolicy>
             <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />

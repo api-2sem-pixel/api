@@ -53,7 +53,9 @@ public class ControleClienteController implements Initializable {
                     {
                         btn.setOnAction((ActionEvent event) -> {
                             var row = getTableView().getItems().get(getIndex());
+                            getTableView().getItems().remove(getIndex());
                             deletar(row);
+                            popularTabela();
                         });
                     }
 

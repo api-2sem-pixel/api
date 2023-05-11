@@ -43,6 +43,12 @@ public class CadastroClienteController {
 	}
 	
     @FXML
+    void irControleCliente(ActionEvent event) {
+		MenuController mc = new MenuController();
+		mc.irControleCliente(null);
+    }
+
+    @FXML
     void retornarMenu(MouseEvent event) {
         MenuController.irMenu();
     }
