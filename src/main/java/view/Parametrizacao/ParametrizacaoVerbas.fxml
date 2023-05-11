@@ -28,12 +28,12 @@
                </image>
             </ImageView>
          </children></Pane>
-      <Label layoutX="450.0" layoutY="38.0" prefHeight="39.0" prefWidth="198.0" text="Parametrização " textFill="#483fee">
+      <Label layoutX="450.0" layoutY="14.0" prefHeight="39.0" prefWidth="198.0" text="Parametrização " textFill="#483fee">
          <font>
             <Font size="27.0" />
          </font>
       </Label>
-      <TableView fx:id="table" layoutX="192.0" layoutY="230.0" prefHeight="333.0" prefWidth="713.0">
+      <TableView fx:id="table" layoutX="193.0" layoutY="135.0" prefHeight="425.0" prefWidth="713.0">
         <columns>
           <TableColumn fx:id="colVerba" prefWidth="75.0" text="Parâmetro" />
           <TableColumn fx:id="colMultiplicador" prefWidth="75.0" text="Valor" />
@@ -42,12 +42,12 @@
             <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
          </columnResizePolicy>
       </TableView>
-      <Button layoutX="764.0" layoutY="146.0" mnemonicParsing="false" onAction="#salvar" prefHeight="39.0" prefWidth="141.0" styleClass="btn-no-restriction" text="Salvar">
+      <Button layoutX="764.0" layoutY="71.0" mnemonicParsing="false" onAction="#salvar" prefHeight="39.0" prefWidth="141.0" styleClass="btn-no-restriction" text="Salvar">
          <font>
             <Font size="14.0" />
          </font>
       </Button>
-      <TextField fx:id="fieldVerba" editable="false" layoutX="192.0" layoutY="143.0" prefHeight="45.0" prefWidth="266.0" promptText="Parâmetro" styleClass="input-text" />
-      <TextField fx:id="fieldMultiplicador" layoutX="472.0" layoutY="143.0" prefHeight="45.0" prefWidth="266.0" promptText="Valor" styleClass="input-text" />
+      <TextField fx:id="fieldVerba" editable="false" layoutX="192.0" layoutY="68.0" prefHeight="45.0" prefWidth="266.0" promptText="Parâmetro" styleClass="input-text" />
+      <TextField fx:id="fieldMultiplicador" layoutX="472.0" layoutY="68.0" prefHeight="45.0" prefWidth="266.0" promptText="Valor" styleClass="input-text" />
    </children>
 </AnchorPane>

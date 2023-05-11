@@ -27,18 +27,23 @@
                </image>
             </ImageView>
          </children></Pane>
-      <Label layoutX="379.0" layoutY="29.0" prefHeight="39.0" prefWidth="431.0" text="Gerenciamento de CR" textFill="#483fee">
+      <Label layoutX="379.0" layoutY="14.0" prefHeight="39.0" prefWidth="431.0" text="Gerenciamento de CR" textFill="#483fee">
          <font>
             <Font size="27.0" />
          </font>
       </Label>
-      <Button layoutX="459.0" layoutY="515.0" mnemonicParsing="false" onAction="#gerenciarCRProjeto" prefHeight="28.0" prefWidth="70.0" styleClass="myButton" text="Inserir">
+      <Button layoutX="549.0" layoutY="515.0" mnemonicParsing="false" onAction="#gerenciarCRProjeto" prefHeight="28.0" prefWidth="70.0" styleClass="myButton" text="Inserir">
          <font>
             <Font size="14.0" />
          </font></Button>
-      <ComboBox fx:id="comboSquads" layoutX="250.0" layoutY="143.0" prefHeight="55.0" prefWidth="507.0" promptText="Squad" styleClass="input-text" />
-      <ComboBox fx:id="comboNomeUsuario" layoutX="250.0" layoutY="288.0" prefHeight="55.0" prefWidth="507.0" promptText="Nome do usuario" styleClass="input-text" />
-      <Label layoutX="810.0" layoutY="112.0" text="Temporário" />
-      <CheckBox fx:id="temporario" layoutX="821.0" layoutY="143.0" mnemonicParsing="false" text="Sim" />
+      <ComboBox fx:id="comboSquads" layoutX="250.0" layoutY="153.0" prefHeight="45.0" prefWidth="507.0" promptText="Squad" styleClass="input-text" />
+      <ComboBox fx:id="comboNomeUsuario" layoutX="250.0" layoutY="298.0" prefHeight="45.0" prefWidth="507.0" promptText="Nome do usuario" styleClass="input-text" />
+      <Label layoutX="821.0" layoutY="145.0" text="Temporário" />
+      <CheckBox fx:id="temporario" layoutX="821.0" layoutY="167.0" mnemonicParsing="false" text="Sim" />
+      <Button layoutX="250.0" layoutY="515.0" mnemonicParsing="false" onAction="#voltar" prefHeight="28.0" prefWidth="70.0" styleClass="myButton" text="Voltar">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Button>
    </children>
 </AnchorPane>

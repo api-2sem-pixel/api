@@ -85,4 +85,9 @@ public class GerenciamentoCRProjetoController {
     void retornarMenu(MouseEvent event) {
         MenuController.irMenu();
     }
+	
+	@FXML
+    void voltar(ActionEvent event) {
+		MenuController.irMenu();
+    }
 }

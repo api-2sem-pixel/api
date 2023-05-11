@@ -25,17 +25,17 @@
                </image>
             </ImageView>
          </children></Pane>
-      <Label layoutX="408.0" layoutY="21.0" prefHeight="39.0" prefWidth="272.0" text="Cadastro de Cliente" textFill="#483fee">
+      <Label layoutX="377.0" layoutY="14.0" prefHeight="39.0" prefWidth="272.0" text="Cadastro de Cliente" textFill="#483fee">
          <font>
             <Font size="27.0" />
          </font>
       </Label>
-      <TextField fx:id="tfRazaoSocial" layoutX="259.0" layoutY="113.0" prefHeight="55.0" prefWidth="507.0" promptText="Razão Social" styleClass="input-text" />
+      <TextField fx:id="tfRazaoSocial" layoutX="259.0" layoutY="123.0" prefHeight="45.0" prefWidth="507.0" promptText="Razão Social" styleClass="input-text" />
       <Button layoutX="558.0" layoutY="520.0" mnemonicParsing="false" onAction="#cadastrarCliente" prefHeight="32.0" prefWidth="86.0" styleClass="myButton" text="Inserir">
          <font>
             <Font size="14.0" />
          </font></Button>
-      <TextField fx:id="tfCNPJ" layoutX="259.0" layoutY="248.0" prefHeight="55.0" prefWidth="507.0" promptText="CNPJ" styleClass="input-text" />
+      <TextField fx:id="tfCNPJ" layoutX="259.0" layoutY="258.0" prefHeight="45.0" prefWidth="507.0" promptText="CNPJ" styleClass="input-text" />
       <Button layoutX="259.0" layoutY="520.0" mnemonicParsing="false" onAction="#irControleCliente" prefHeight="32.0" prefWidth="86.0" styleClass="myButton" text="Voltar">
          <font>
             <Font size="14.0" />

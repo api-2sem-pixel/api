@@ -27,16 +27,16 @@
                </image>
             </ImageView>
          </children></Pane>
-      <Label layoutX="446.0" layoutY="23.0" text="Controle de Cr" textFill="#483fee">
+      <Label layoutX="449.0" layoutY="14.0" text="Controle de CR" textFill="#483fee">
          <font>
             <Font size="27.0" />
          </font>
       </Label>
-      <Button layoutX="780.0" layoutY="120.0" minHeight="30.0" minWidth="135.0" mnemonicParsing="false" onAction="#buscar" prefHeight="30.0" prefWidth="135.0" styleClass="MYButton" text="Buscar">
+      <Button layoutX="815.0" layoutY="77.0" minHeight="30.0" minWidth="135.0" mnemonicParsing="false" onAction="#buscar" prefHeight="30.0" prefWidth="135.0" styleClass="MYButton" text="Buscar">
          <font>
             <Font size="14.0" />
          </font></Button>
-      <TableView fx:id="tabela" layoutX="157.0" layoutY="180.0" prefHeight="380.0" prefWidth="758.0">
+      <TableView fx:id="tabela" layoutX="157.0" layoutY="137.0" prefHeight="378.0" prefWidth="758.0">
         <columns>
           <TableColumn fx:id="integrantesCol" prefWidth="247.0" text="Integrantes" />
           <TableColumn fx:id="descricaoCol" prefWidth="415.0" text="Descrição" />
@@ -46,8 +46,8 @@
             <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
          </columnResizePolicy>
       </TableView>
-      <ComboBox fx:id="comboCR" layoutX="157.0" layoutY="107.0" prefHeight="55.0" prefWidth="589.0" promptText="CR" styleClass="input-text" />
-      <Button layoutX="780.0" layoutY="566.0" minHeight="30.0" minWidth="135.0" mnemonicParsing="false" onAction="#irCadastro" prefHeight="30.0" prefWidth="135.0" styleClass="MYButton" text="Cadastrar">
+      <ComboBox fx:id="comboCR" layoutX="157.0" layoutY="79.0" prefHeight="35.0" prefWidth="618.0" promptText="CR" styleClass="input-text" />
+      <Button layoutX="157.0" layoutY="535.0" minHeight="30.0" minWidth="135.0" mnemonicParsing="false" onAction="#irCadastro" prefHeight="30.0" prefWidth="135.0" styleClass="MYButton" text="Criar CR">
          <font>
             <Font size="14.0" />
          </font>
