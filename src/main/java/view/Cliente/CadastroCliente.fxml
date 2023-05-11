@@ -9,7 +9,7 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="609.0" prefWidth="944.0" style="-fx-background-color: fffff;" styleClass="content" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.CadastroClienteController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="609.0" prefWidth="944.0" style="-fx-background-color: fffff;" styleClass="content" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.Cliente.CadastroClienteController">
    <children>
       <Pane layoutY="-5.0" prefHeight="615.0" prefWidth="114.0" styleClass="sidebar">
          <children>
@@ -30,11 +30,16 @@
             <Font size="27.0" />
          </font>
       </Label>
-      <TextField fx:id="tfRazaoSocial" layoutX="259.0" layoutY="100.0" prefHeight="55.0" prefWidth="507.0" promptText="Razão Social" styleClass="input-text" />
-      <Button layoutX="486.0" layoutY="499.0" mnemonicParsing="false" onAction="#cadastrarCliente" prefHeight="32.0" prefWidth="86.0" styleClass="myButton" text="Inserir">
+      <TextField fx:id="tfRazaoSocial" layoutX="259.0" layoutY="113.0" prefHeight="55.0" prefWidth="507.0" promptText="Razão Social" styleClass="input-text" />
+      <Button layoutX="558.0" layoutY="520.0" mnemonicParsing="false" onAction="#cadastrarCliente" prefHeight="32.0" prefWidth="86.0" styleClass="myButton" text="Inserir">
          <font>
             <Font size="14.0" />
          </font></Button>
-      <TextField fx:id="tfCNPJ" layoutX="259.0" layoutY="220.0" prefHeight="55.0" prefWidth="507.0" promptText="CNPJ" styleClass="input-text" />
+      <TextField fx:id="tfCNPJ" layoutX="259.0" layoutY="248.0" prefHeight="55.0" prefWidth="507.0" promptText="CNPJ" styleClass="input-text" />
+      <Button layoutX="259.0" layoutY="520.0" mnemonicParsing="false" onAction="#irControleCliente" prefHeight="32.0" prefWidth="86.0" styleClass="myButton" text="Voltar">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Button>
    </children>
 </AnchorPane>

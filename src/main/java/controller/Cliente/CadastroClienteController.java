@@ -1,6 +1,8 @@
-package controller;
+package controller.Cliente;
 
 import java.sql.Connection;
+
+import controller.MenuController;
 import dao.ClienteDAO;
 import factory.ConnectionFactory;
 import javafx.event.ActionEvent;
@@ -40,6 +42,12 @@ public class CadastroClienteController {
 		tfCNPJ.clear();
 	}
 	
+    @FXML
+    void irControleCliente(ActionEvent event) {
+		MenuController mc = new MenuController();
+		mc.irControleCliente(null);
+    }
+
     @FXML
     void retornarMenu(MouseEvent event) {
         MenuController.irMenu();

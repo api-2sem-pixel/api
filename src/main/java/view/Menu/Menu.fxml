@@ -96,19 +96,6 @@
                            </image>
                         </ImageView>
                         <Group layoutX="316.0" layoutY="193.0" onMouseClicked="#irCadastroCr" AnchorPane.leftAnchor="316.0" AnchorPane.topAnchor="186.0">
-                           <children>
-                              <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#2128bf1f" height="112.0" layoutY="-7.0" stroke="BLACK" strokeType="INSIDE" width="192.0" />
-                              <ImageView fitHeight="54.0" fitWidth="65.0" layoutX="64.0" layoutY="22.0" pickOnBounds="true" preserveRatio="true">
-                                 <image>
-                                    <Image url="@../assets/Grafico.png" />
-                                 </image>
-                              </ImageView>
-                              <Label layoutX="32.0" layoutY="76.0" text="Cadastro de CRs" textFill="#1f25c1">
-                                 <font>
-                                    <Font name="Verdana Bold" size="14.0" />
-                                 </font>
-                              </Label>
-                           </children>
                            <effect>
                               <ColorAdjust contrast="1.0" hue="0.02" saturation="1.0" />
                            </effect>
@@ -131,7 +118,7 @@
                               <ColorAdjust contrast="1.0" hue="0.02" saturation="1.0" />
                            </effect>
                         </Group>
-                        <Group layoutX="41.0" layoutY="335.0" onMouseClicked="#irCadastroCliente">
+                        <Group layoutX="41.0" layoutY="335.0" onMouseClicked="#irControleCliente">
                            <children>
                        
                                           <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#2128bf1f" height="112.0" stroke="BLACK" strokeType="INSIDE" style="-fx-border-radious: 10px;" width="192.0" />
@@ -140,7 +127,7 @@
                                     <Image url="@../assets/Grafico.png" />
                                  </image>
                               </ImageView>
-                              <Label layoutX="19.0" layoutY="80.0" text="Cadastro de Cliente" textFill="#1f25c1">
+                              <Label layoutX="21.0" layoutY="80.0" text="Controle de Cliente" textFill="#1f25c1">
                                  <font>
                                     <Font name="Verdana Bold" size="14.0" />
                                  </font>
@@ -159,7 +146,7 @@
                                     <Image url="@../assets/Grafico.png" />
                                  </image>
                               </ImageView>
-                              <Label layoutX="18.0" layoutY="76.0" text="Visualização de CRs" textFill="#1f25c1">
+                              <Label layoutX="18.0" layoutY="76.0" text="Controle de CRs" textFill="#1f25c1">
                                  <font>
                                     <Font name="Verdana Bold" size="14.0" />
                                  </font>

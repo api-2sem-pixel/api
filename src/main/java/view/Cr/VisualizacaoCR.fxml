@@ -36,15 +36,21 @@
          <font>
             <Font size="14.0" />
          </font></Button>
-      <TableView fx:id="tabela" layoutX="157.0" layoutY="180.0" prefHeight="405.0" prefWidth="758.0">
+      <TableView fx:id="tabela" layoutX="157.0" layoutY="180.0" prefHeight="380.0" prefWidth="758.0">
         <columns>
           <TableColumn fx:id="integrantesCol" prefWidth="247.0" text="Integrantes" />
-          <TableColumn fx:id="descricaoCol" prefWidth="238.0" text="Descrição" />
+          <TableColumn fx:id="descricaoCol" prefWidth="415.0" text="Descrição" />
+            <TableColumn fx:id="acoesCol" maxWidth="1000.0" minWidth="1.0" prefWidth="10.0" text="Ações" />
         </columns>
          <columnResizePolicy>
             <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
          </columnResizePolicy>
       </TableView>
       <ComboBox fx:id="comboCR" layoutX="157.0" layoutY="107.0" prefHeight="55.0" prefWidth="589.0" promptText="CR" styleClass="input-text" />
+      <Button layoutX="780.0" layoutY="566.0" minHeight="30.0" minWidth="135.0" mnemonicParsing="false" onAction="#irCadastro" prefHeight="30.0" prefWidth="135.0" styleClass="MYButton" text="Cadastrar">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Button>
    </children>
 </AnchorPane>

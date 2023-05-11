@@ -8,6 +8,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
+import utils.ChangeScene;
 
 public class Main extends Application {
     @Override
@@ -30,6 +31,7 @@ public class Main extends Application {
         stage.getScene().getStylesheets().add(stylesPath);
 
         MenuController.setStage(stage);
+        ChangeScene.setStage(stage);
         stage.show();
     }
 
