@@ -1,76 +1,83 @@
 package dao;
 
 import model.ExtratoHoraModel;
-import model.ComboboxModel.ProjetoComboboxModel;
-
 import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.SQLException;
+import java.sql.ResultSet;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
-import java.util.List;
-
-import javax.naming.spi.DirStateFactory.Result;
-
 import enums.EtapaExtrato;
 
 public class ExtratoHoraDAO extends BaseDAO {
+
+    private String getQueryExtratoHoraModel(){
+        return "select b.Nome Cr, " +
+        "a.Projeto, " +
+        "c.Descricao Modalidade, " +
+        "a.DataHora_Inicio Inicio, " +
+        "a.DataHora_Fim Fim, " +
+        "a.Motivo Motivo, " +
+        "a.Id_Modalidade Id_Modalidade, " +
+        "c.Descricao Modalidade, " +
+        "a.Id IdExtrato, " +
+        "e.Razao_Social NomeCliente, " +
+        "a.Justificativa Justificativa " +
+        "from Extrato_Hora a  " +
+        "inner join Cr b on a.Id_Cr = b.Id " +
+        "inner join Modalidade c on c.Id = a.Id_Modalidade " +
+        "inner join Cliente e on e.Id = a.Id_Cliente ";
+    }
 
     public ExtratoHoraDAO(Connection connection) {
         super(connection);
     }
 
     public ArrayList<ExtratoHoraModel> obterExtratosLancados(int userId, String projeto) {
-        String sql = "select b.Nome Cr, " +
-                "a.Projeto, " +
-                "c.Descricao Modalidade, " +
-                "a.DataHora_Inicio Inicio, " +
-                "a.DataHora_Fim Fim, " +
-                "a.Motivo Motivo, " +
-                "a.Id_Modalidade Id_Modalidade, " +
-                /* "d.Possivel_Edicao PossivelEditar, " + */
-                "c.Descricao Modalidade, " +
-                "a.Id IdExtrato, " +
-                "e.Razao_Social NomeCliente, " +
-                "a.Justificativa Justificativa " +
-                "from Extrato_Hora a  " +
-                "inner join Cr b on a.Id_Cr = b.Id " +
-                "inner join Modalidade c on c.Id = a.Id_Modalidade " +
-                "inner join Cliente e on e.Id = a.Id_Cliente " +
-                "where a.Id = " + userId;
+        String sql = getQueryExtratoHoraModel() + 
+                " where a.Id = " + userId;
 
         if (projeto != null && !projeto.isEmpty())
             sql += " AND projeto like '%" + projeto + "%'";
 
-        return this.executarQuery(sql, resultSet -> {
-            try {
-                var model = new ExtratoHoraModel();
+        return this.executarQuery(sql, resultSet -> mapearParaExtratoHoraModel(resultSet));
+    }
 
-                model.setCr(resultSet.getString(1));
-                model.setProjeto(resultSet.getString(2));
-                model.setModalidade(resultSet.getString(3));
+    public ArrayList<ExtratoHoraModel> obterExtratosParaAprovar(int userId, String projeto){
+        String sql = getQueryExtratoHoraModel() + 
+                    " where a.Id_Cr in (SELECT Id_Cr FROM Cr_Usuario where Id_Usuario = "+ userId + ") ";
 
-                var formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
-                var inicio = resultSet.getString(4);
-                model.setDataHoraInicio(LocalDateTime.parse(inicio, formatter));
-                var fim = resultSet.getString(5);
-                model.setDataHoraFim(LocalDateTime.parse(fim, formatter));
+        if (projeto != null && !projeto.isEmpty())
+            sql += " AND projeto like '%" + projeto + "%'";
 
-                model.setMotivo(resultSet.getString(6));
-                model.setIdModalidade(resultSet.getInt(7));
-                model.setModalidade(resultSet.getString(8));
-                model.setId(resultSet.getInt(9));
-                model.setCliente(resultSet.getString(10));
-                model.setJustificativa(resultSet.getString(11));
+        return this.executarQuery(sql, resultSet ->  mapearParaExtratoHoraModel(resultSet));  
+    }
 
-                return model;
-            } catch (Exception e) {
-                e.printStackTrace();
-                return null;
-            }
+    private ExtratoHoraModel mapearParaExtratoHoraModel(ResultSet resultSet) {
+        try {
+            var model = new ExtratoHoraModel();
 
-        });
+            model.setCr(resultSet.getString(1));
+            model.setProjeto(resultSet.getString(2));
+            model.setModalidade(resultSet.getString(3));
+
+            var formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
+            var inicio = resultSet.getString(4);
+            model.setDataHoraInicio(LocalDateTime.parse(inicio, formatter));
+            var fim = resultSet.getString(5);
+            model.setDataHoraFim(LocalDateTime.parse(fim, formatter));
+
+            model.setMotivo(resultSet.getString(6));
+            model.setIdModalidade(resultSet.getInt(7));
+            model.setModalidade(resultSet.getString(8));
+            model.setId(resultSet.getInt(9));
+            model.setCliente(resultSet.getString(10));
+            model.setJustificativa(resultSet.getString(11));
+
+            return model;
+        } catch (Exception e) {
+            e.printStackTrace();
+            return null;
+        }
     }
 
     public int lancarHora(ExtratoHoraModel model) {
@@ -102,7 +109,7 @@ public class ExtratoHoraDAO extends BaseDAO {
 
     }
 
-    public void ReprovarHoraExtra(ExtratoHoraModel extratoHora) {
+    public void reprovarHoraExtra(ExtratoHoraModel extratoHora) {
         try {
             String sql = "UPDATE extrato_hora SET Id_Etapa_Extrato = 3 WHERE Id = " + extratoHora.getId();
             executeUpdate(sql);

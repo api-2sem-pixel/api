@@ -115,7 +115,7 @@ public class FeedBackController implements Initializable {
 
     private void carregarExtratos() {
         var projeto = tfFiltro.getText();
-        var extratos = extratoHoraDao.obterExtratosLancados(12, projeto);
+        var extratos = extratoHoraDao.obterExtratosParaAprovar(12, projeto);
         table_lancamento.setItems(FXCollections.observableArrayList(extratos));
     }
 
@@ -289,7 +289,7 @@ public class FeedBackController implements Initializable {
                             extratoHora.setStatus(EtapaExtrato.REPROVADA);
 
                             if (EtapaExtrato.REPROVADA == extratoHora.getStatus()) {
-                                extratoHoraDao.ReprovarHoraExtra(extratoHora);
+                                extratoHoraDao.reprovarHoraExtra(extratoHora);
                                 System.out.println("11");
                                 getTableRow().setStyle("-fx-background-color: red;");
                                 FeedBackRetorno.motivo();
