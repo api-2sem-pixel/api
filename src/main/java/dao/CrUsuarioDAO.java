@@ -47,10 +47,10 @@ public class CrUsuarioDAO extends BaseDAO {
 	public List<IntegrantesCrDTO> listarIntegrantes(int id_Cr){
 		List<IntegrantesCrDTO> integrantesCR = new ArrayList<IntegrantesCrDTO>();
 		try {
-			String sql = "SELECT usuario.Nome, tipoUsuario.descricao FROM Cr_Usuario crUsuario "
+			String sql = "SELECT usuario.Nome, tipoUsuario.descricao, crUsuario.Id_Usuario, crUsuario.Id_Cr  FROM Cr_Usuario crUsuario "
 					+ "INNER JOIN Usuario usuario on crUsuario.Id_Usuario = usuario.Id "
 					+ "INNER JOIN Tipo_Usuario tipoUsuario on usuario.Id_Tipo_Usuario = tipoUsuario.Id "
-					+ "WHERE crUsuario.Id_Cr = ?";
+					+ "WHERE crUsuario.Id_Cr = ? and crUsuario.Ativo = 0";
 			
 			try (PreparedStatement pstm = connection.prepareStatement(sql)) {
 				pstm.setInt(1, id_Cr);
@@ -68,9 +68,33 @@ public class CrUsuarioDAO extends BaseDAO {
 			throws SQLException {
 		try (ResultSet rst = pstm.getResultSet()) {
 			while (rst.next()) {
-				IntegrantesCrDTO integrante = new IntegrantesCrDTO(rst.getString(1), rst.getString(2));
+				IntegrantesCrDTO integrante = new IntegrantesCrDTO(rst.getString(1), rst.getString(2), rst.getInt(3), rst.getInt(4));
 				integrantes.add(integrante);
 			}
 		}
 	}
+	
+	public void deletar(int idUsuario, int idCr) {
+		try {
+			String sql = "UPDATE Cr_Usuario SET Ativo = 1 WHERE Id_Usuario = ? and Id_Cr = ?";
+
+			try (PreparedStatement pstm = connection.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS)) {
+
+				pstm.setInt(1, idUsuario);
+				pstm.setInt(2, idCr);
+
+				pstm.execute();
+
+				try (ResultSet rst = pstm.getGeneratedKeys()) {
+					while (rst.next()) {
+						//cr.setId(rst.getInt(1));
+					}
+				}
+			}
+		} catch (SQLException e) {
+			throw new RuntimeException(e);
+		}
+
+	}
+
 }

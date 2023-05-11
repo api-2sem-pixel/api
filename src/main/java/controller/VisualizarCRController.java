@@ -60,12 +60,15 @@ public class VisualizarCRController {
 		integrantesCol.setCellValueFactory(new PropertyValueFactory<>("integrante"));
 		descricaoCol.setCellValueFactory(new PropertyValueFactory<>("descricao"));
 		acoesCol.setCellValueFactory(new PropertyValueFactory<>(""));
-		
-		//adicionarBotaoDeletar();
+
 	}
 	
 	public void buscar(ActionEvent event) {
 		adicionarBotaoDeletar();
+		listar();
+	}
+	
+	public void listar() {
 		CrDTO cr = (CrDTO) comboCR.getSelectionModel().getSelectedItem();
 		List<IntegrantesCrDTO> integrantes = crUsuarioDAO.listarIntegrantes(cr.getId());
 		tabela.setItems(listaIntegrantes(integrantes));
@@ -91,7 +94,9 @@ public class VisualizarCRController {
                     {
                         btn.setOnAction((ActionEvent event) -> {
                             var row = getTableView().getItems().get(getIndex());
+                            crUsuarioDAO.deletar(row.getIdUsuario(), row.getIdCr());
                             getTableView().getItems().remove(getIndex());
+                            listar();
                             return;
                         });
                     }
