@@ -69,15 +69,13 @@
               <children>
                            <Group layoutX="305.0" layoutY="232.0" onMouseClicked="#irFeedBackHora">
                            <children>
-                              <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#2128bf1f" height="112.0" layoutY="-7.0" stroke="BLACK" strokeType="INSIDE" width="192.0" />
-                              <ImageView fitHeight="54.0" fitWidth="65.0" layoutX="64.0" layoutY="22.0" pickOnBounds="true" preserveRatio="true">
+                              <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#2128bf1f" height="112.0" layoutY="49.0" stroke="BLACK" strokeType="INSIDE" width="192.0" />
+                              <ImageView fitHeight="54.0" fitWidth="65.0" layoutX="63.0" layoutY="78.0" pickOnBounds="true" preserveRatio="true">
                                  <image>
                                     <Image url="@../assets/Grafico.png" />
                                  </image>
                               </ImageView>
-                              
-                              
-                              <Label layoutX="58.0" layoutY="76.0" text="FeedBack" textFill="#1f25c1">
+                              <Label layoutX="57.0" layoutY="132.0" text="FeedBack" textFill="#1f25c1">
                                  <font>
                                     <Font name="Verdana Bold" size="14.0" />
                                  </font>
@@ -87,6 +85,38 @@
                               <ColorAdjust contrast="1.0" hue="0.02" saturation="1.0" />
                            </effect>
                         </Group>
+                        <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#2128bf1f" height="112.0" layoutX="543.0" layoutY="281.0" stroke="BLACK" strokeType="INSIDE" width="192.0" />
+                        <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#2128bf1f" height="112.0" layoutX="305.0" layoutY="136.0" stroke="BLACK" strokeType="INSIDE" width="192.0" />
+                        <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#2128bf1f" height="112.0" layoutX="543.0" layoutY="136.0" stroke="BLACK" strokeType="INSIDE" width="192.0" />
+                        <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#2128bf1f" height="112.0" layoutX="75.0" layoutY="136.0" stroke="BLACK" strokeType="INSIDE" width="192.0" />
+                        <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#2128bf1f" height="112.0" layoutX="75.0" layoutY="281.0" stroke="BLACK" strokeType="INSIDE" width="192.0" />
+                        <Label layoutX="347.0" layoutY="217.0" text="Cadastro de cr" textFill="#1f25c1">
+                           <font>
+                              <Font name="Verdana Bold" size="14.0" />
+                           </font>
+                        </Label>
+                        <Label layoutX="557.0" layoutY="364.0" text="Controle cr - Usuario" textFill="#1f25c1">
+                           <font>
+                              <Font name="Verdana Bold" size="14.0" />
+                           </font>
+                        </Label>
+                        
+                              
+                        <Label layoutX="607.0" layoutY="217.0" text="FeedBack" textFill="#1f25c1">
+                           <font>
+                              <Font name="Verdana Bold" size="14.0" />
+                           </font>
+                        </Label>
+                        <Label layoutX="100.0" layoutY="217.0" text="Visualização de cr" textFill="#1f25c1">
+                           <font>
+                              <Font name="Verdana Bold" size="14.0" />
+                           </font>
+                        </Label>
+                        <Label layoutX="95.0" layoutY="364.0" text="Cadastro de cliente" textFill="#1f25c1">
+                           <font>
+                              <Font name="Verdana Bold" size="14.0" />
+                           </font>
+                        </Label>
      
      
      
