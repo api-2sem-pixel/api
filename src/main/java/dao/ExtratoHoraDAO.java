@@ -44,9 +44,10 @@ public class ExtratoHoraDAO extends BaseDAO {
 
     public ArrayList<ExtratoHoraModel> obterExtratosParaAprovar(int userId, String projeto){
         String sql = getQueryExtratoHoraModel() + 
-                    " where a.Id_Cr in (SELECT Id_Cr FROM Cr_Usuario where Id_Usuario = "+ userId + ") ";
+                    " where a.Id_Cr in (SELECT Id_Cr FROM Cr_Usuario where Id_Usuario = "+ userId + ") or " +
+                    " Id_Usuario in (SELECT Id_Usuario FROM Usuario where Id_Tipo_Usuario = 3)";
 
-        if (projeto != null && !projeto.isEmpty())
+         if (projeto != null && !projeto.isEmpty())
             sql += " AND projeto like '%" + projeto + "%'";
 
         return this.executarQuery(sql, resultSet ->  mapearParaExtratoHoraModel(resultSet));  
