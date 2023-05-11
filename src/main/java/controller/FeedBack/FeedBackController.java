@@ -24,10 +24,14 @@ import javafx.scene.control.Button;
 import javafx.scene.control.TableCell;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
+import javafx.scene.control.TextField;
 import javafx.scene.control.cell.ComboBoxTableCell;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.control.cell.TextFieldTableCell;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.HBox;
+import javafx.scene.layout.Priority;
+import javafx.scene.layout.Region;
 import javafx.util.Callback;
 import javafx.util.converter.DefaultStringConverter;
 import model.ExtratoHoraModel;
@@ -37,6 +41,7 @@ import model.ComboboxModel.ModalidadeComboboxModel;
 import model.ComboboxModel.MotivoComboboxModel;
 import utils.custom_cells.DateTimeCell;
 import utils.mensagem_retorno.MensagemRetorno;
+import utils.feedback_retorno.FeedBackRetorno;
 
 public class FeedBackController implements Initializable {
     @FXML
@@ -62,9 +67,10 @@ public class FeedBackController implements Initializable {
     @FXML
     private TableView<ExtratoHoraModel> table_lancamento;
     @FXML
-    private Button btn_lancar;
+    private TextField tfFiltro;
+
     @FXML
-    private Button btn_adicionarLinha;
+    private Button bnt_filtro;
 
     private List<CrComboboxModel> comboBox_cr = new ArrayList<CrComboboxModel>();
     private List<ModalidadeComboboxModel> comboBox_modalidade = new ArrayList<ModalidadeComboboxModel>();
@@ -108,8 +114,9 @@ public class FeedBackController implements Initializable {
     }
 
     private void carregarExtratos() {
-        var extratos = extratoHoraDao.obterExtratosLancados(UsuarioDAO.usuarioLogado.getId());
-        table_lancamento.getItems().addAll(extratos);
+        var projeto = tfFiltro.getText();
+        var extratos = extratoHoraDao.obterExtratosLancados(12, projeto);
+        table_lancamento.setItems(FXCollections.observableArrayList(extratos));
     }
 
     private void carregarComboBox() {
@@ -230,108 +237,95 @@ public class FeedBackController implements Initializable {
             model.setIdMotivo(motivo.get().getId());
             model.setMotivo(motivo.get().getDescricao());
         });
-
-        var buttonDeletar = new Callback<TableColumn<ExtratoHoraModel, Void>, TableCell<ExtratoHoraModel, Void>>() {
+        var buttonAprovar = new Callback<TableColumn<ExtratoHoraModel, Void>, TableCell<ExtratoHoraModel, Void>>() {
             @Override
-            public TableCell<ExtratoHoraModel, Void> call(final TableColumn<ExtratoHoraModel, Void> param) {
-                final TableCell<ExtratoHoraModel, Void> cell = new TableCell<ExtratoHoraModel, Void>() {
-
-                    private final Button btn = new Button("Aprovar");
+            public TableCell<ExtratoHoraModel, Void> call(TableColumn<ExtratoHoraModel, Void> param) {
+                return new TableCell<ExtratoHoraModel, Void>() {
+                    private final Button btnAprovar = new Button("Aprovar");
 
                     {
-                        btn.setOnAction((ActionEvent event) -> {
-                            var row = getTableView().getItems().get(getIndex());
-                            if (row.getStatus() == EtapaExtrato.CRIACAO) {
-                                getTableView().getItems().remove(getIndex());
-                                return;
-                            }
+                        btnAprovar.setOnAction((ActionEvent event) -> {
+                            ExtratoHoraModel extratoHora = getTableView().getItems().get(getIndex());
+                            extratoHora.setStatus(EtapaExtrato.APROVADA);
 
-                            MensagemRetorno.erro("Apenas linhas não lançadas podem ser excluídas");
+                            if (EtapaExtrato.APROVADA == extratoHora.getStatus()) {
+                                extratoHoraDao.aprovarHoraExtra(extratoHora);
+                                System.out.println("10");
+                                getTableRow().setStyle("-fx-background-color: green;");
+                                FeedBackRetorno.motivo();
+
+                            }
                         });
+
                     }
 
                     @Override
-                    public void updateItem(Void item, boolean empty) {
+                    protected void updateItem(Void item, boolean empty) {
                         super.updateItem(item, empty);
                         if (empty) {
                             setGraphic(null);
                         } else {
-                            setGraphic(btn);
+                            setGraphic(btnAprovar);
+
                         }
                     }
+
                 };
-                return cell;
             }
         };
 
-        col_acoes.setCellFactory(buttonDeletar);
+        col_acoes.setCellFactory(buttonAprovar);
 
-        var buttonDeleta = new Callback<TableColumn<ExtratoHoraModel, Void>, TableCell<ExtratoHoraModel, Void>>() {
+        var buttonReprovar = new Callback<TableColumn<ExtratoHoraModel, Void>, TableCell<ExtratoHoraModel, Void>>() {
             @Override
             public TableCell<ExtratoHoraModel, Void> call(final TableColumn<ExtratoHoraModel, Void> param) {
-                final TableCell<ExtratoHoraModel, Void> cell = new TableCell<ExtratoHoraModel, Void>() {
+                return new TableCell<ExtratoHoraModel, Void>() {
 
-                    private final Button btn = new Button("Aprovar");
+                    private final Button btnReprovar = new Button("Reprovar");
 
                     {
-                        btn.setOnAction((ActionEvent event) -> {
-                            var row = getTableView().getItems().get(getIndex());
-                            if (row.getStatus() == EtapaExtrato.CRIACAO) {
-                                getTableView().getItems().remove(getIndex());
-                                return;
-                            }
+                        btnReprovar.setOnAction((final ActionEvent event) -> {
+                            final ExtratoHoraModel extratoHora = getTableView().getItems().get(getIndex());
+                            extratoHora.setStatus(EtapaExtrato.REPROVADA);
 
-                            MensagemRetorno.erro("Apenas linhas não lançadas podem ser excluídas");
+                            if (EtapaExtrato.REPROVADA == extratoHora.getStatus()) {
+                                extratoHoraDao.ReprovarHoraExtra(extratoHora);
+                                System.out.println("11");
+                                getTableRow().setStyle("-fx-background-color: red;");
+                                FeedBackRetorno.motivo();
+
+                            }
                         });
+
                     }
 
                     @Override
-                    public void updateItem(Void item, boolean empty) {
+                    protected void updateItem(final Void item, final boolean empty) {
                         super.updateItem(item, empty);
                         if (empty) {
                             setGraphic(null);
                         } else {
-                            setGraphic(btn);
+                            setGraphic(btnReprovar);
+
                         }
                     }
+
                 };
-                return cell;
             }
         };
 
-        col_acoes.setCellFactory(buttonDeleta);
+        col_acoes.setCellFactory(buttonReprovar);
 
     }
 
     @FXML
-    public void criarNovaLinha(ActionEvent event) {
-        table_lancamento.getItems().add(ExtratoHoraModel.criarLinhaPadrao());
+    private void fltrarProjeto() {
+        carregarExtratos();
     }
 
     @FXML
     void retornarMenu(MouseEvent event) {
         MenuController.irMenu();
-    }
-
-    @FXML
-    public void lancarHoras(ActionEvent event) {
-        var rows = table_lancamento.getItems();
-
-        for (ExtratoHoraModel extratoHoraModel : rows) {
-            if (extratoHoraModel.getId() != 0) {
-                continue;
-            }
-
-            extratoHoraModel.setIdUsuario(UsuarioDAO.usuarioLogado.getId()); // Criar um usuario padrao so pra cadastrar
-
-            var rowsModified = extratoHoraDao.lancarHora(extratoHoraModel);
-            if (rowsModified <= 0) {
-                MensagemRetorno.erroCadastro();
-                return;
-            }
-        }
-
-        MensagemRetorno.sucessoCadastro();
     }
 
 }

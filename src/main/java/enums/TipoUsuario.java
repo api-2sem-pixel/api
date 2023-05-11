@@ -5,5 +5,6 @@ public enum TipoUsuario {
     Colaborador,
     Gestor,
     Administrador,
-    id
+    id,
+
 }

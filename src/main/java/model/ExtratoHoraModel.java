@@ -102,8 +102,8 @@ public class ExtratoHoraModel {
         return status;
     }
 
-    public void setStatus(EtapaExtrato status) {
-        this.status = status;
+    public void setStatus(EtapaExtrato criacao) {
+        this.status = criacao;
     }
 
     public LocalDateTime getDataHoraInicio() {
@@ -146,7 +146,7 @@ public class ExtratoHoraModel {
         this.idMotivo = idMotivo;
     }
 
-    public boolean getIsRowEditable(){
+    public boolean getIsRowEditable() {
         return this.isRowEditable;
     }
 
@@ -165,4 +165,5 @@ public class ExtratoHoraModel {
     public void setCliente(String cliente) {
         this.cliente = cliente;
     }
+
 }

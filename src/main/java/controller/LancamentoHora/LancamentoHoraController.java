@@ -39,19 +39,32 @@ import utils.custom_cells.DateTimeCell;
 import utils.mensagem_retorno.MensagemRetorno;
 
 public class LancamentoHoraController implements Initializable {
-    @FXML private TableColumn<ExtratoHoraModel, Integer> col_id;
-    @FXML private TableColumn<ExtratoHoraModel, String> col_projeto;
-    @FXML private TableColumn<ExtratoHoraModel, String> col_cr;
-    @FXML private TableColumn<ExtratoHoraModel, String> col_cliente;
-    @FXML private TableColumn<ExtratoHoraModel, String> col_justificativa;
-    @FXML private TableColumn<ExtratoHoraModel, String> col_modalidade;
-    @FXML private TableColumn<ExtratoHoraModel, LocalDateTime> col_inicio;
-    @FXML private TableColumn<ExtratoHoraModel, LocalDateTime> col_fim;
-    @FXML private TableColumn<ExtratoHoraModel, String> col_motivo;
-    @FXML private TableColumn<ExtratoHoraModel, Void> col_acoes;
-    @FXML private TableView<ExtratoHoraModel> table_lancamento;
-    @FXML private Button btn_lancar;
-    @FXML private Button btn_adicionarLinha;
+    @FXML
+    private TableColumn<ExtratoHoraModel, Integer> col_id;
+    @FXML
+    private TableColumn<ExtratoHoraModel, String> col_projeto;
+    @FXML
+    private TableColumn<ExtratoHoraModel, String> col_cr;
+    @FXML
+    private TableColumn<ExtratoHoraModel, String> col_cliente;
+    @FXML
+    private TableColumn<ExtratoHoraModel, String> col_justificativa;
+    @FXML
+    private TableColumn<ExtratoHoraModel, String> col_modalidade;
+    @FXML
+    private TableColumn<ExtratoHoraModel, LocalDateTime> col_inicio;
+    @FXML
+    private TableColumn<ExtratoHoraModel, LocalDateTime> col_fim;
+    @FXML
+    private TableColumn<ExtratoHoraModel, String> col_motivo;
+    @FXML
+    private TableColumn<ExtratoHoraModel, Void> col_acoes;
+    @FXML
+    private TableView<ExtratoHoraModel> table_lancamento;
+    @FXML
+    private Button btn_lancar;
+    @FXML
+    private Button btn_adicionarLinha;
 
     private List<CrComboboxModel> comboBox_cr = new ArrayList<CrComboboxModel>();
     private List<ModalidadeComboboxModel> comboBox_modalidade = new ArrayList<ModalidadeComboboxModel>();
@@ -96,7 +109,7 @@ public class LancamentoHoraController implements Initializable {
     }
 
     private void carregarExtratos() {
-        var extratos = extratoHoraDao.obterExtratosLancados(UsuarioDAO.usuarioLogado.getId());
+        var extratos = extratoHoraDao.obterExtratosLancados(UsuarioDAO.usuarioLogado.getId(), null);
         table_lancamento.getItems().addAll(extratos);
     }
 
@@ -115,10 +128,12 @@ public class LancamentoHoraController implements Initializable {
         col_cr.setCellValueFactory(new PropertyValueFactory<ExtratoHoraModel, String>(propertyNames[index++]));
         col_cliente.setCellValueFactory(new PropertyValueFactory<ExtratoHoraModel, String>(propertyNames[index++]));
         col_modalidade.setCellValueFactory(new PropertyValueFactory<ExtratoHoraModel, String>(propertyNames[index++]));
-        col_inicio.setCellValueFactory(new PropertyValueFactory<ExtratoHoraModel, LocalDateTime>(propertyNames[index++]));
+        col_inicio
+                .setCellValueFactory(new PropertyValueFactory<ExtratoHoraModel, LocalDateTime>(propertyNames[index++]));
         col_fim.setCellValueFactory(new PropertyValueFactory<ExtratoHoraModel, LocalDateTime>(propertyNames[index++]));
         col_motivo.setCellValueFactory(new PropertyValueFactory<ExtratoHoraModel, String>(propertyNames[index++]));
-        col_justificativa.setCellValueFactory(new PropertyValueFactory<ExtratoHoraModel, String>(propertyNames[index++]));
+        col_justificativa
+                .setCellValueFactory(new PropertyValueFactory<ExtratoHoraModel, String>(propertyNames[index++]));
         col_acoes.setCellValueFactory(new PropertyValueFactory<>(propertyNames[index++]));
 
         col_projeto.setCellFactory(TextFieldTableCell.forTableColumn());
@@ -127,7 +142,7 @@ public class LancamentoHoraController implements Initializable {
             var model = event.getTableView().getItems().get(row);
             model.setProjeto(event.getNewValue());
         });
-        
+
         col_justificativa.setCellFactory(TextFieldTableCell.forTableColumn());
         col_justificativa.setOnEditCommit(event -> {
             var row = event.getTablePosition().getRow();
@@ -135,49 +150,53 @@ public class LancamentoHoraController implements Initializable {
             model.setJustificativa(event.getNewValue());
         });
 
-        col_cr.setCellFactory(ComboBoxTableCell.forTableColumn(new DefaultStringConverter(),FXCollections.observableArrayList(FXCollections.observableArrayList(comboBox_cr.stream().map(x -> x.getNome()).toList()))));
+        col_cr.setCellFactory(
+                ComboBoxTableCell.forTableColumn(new DefaultStringConverter(), FXCollections.observableArrayList(
+                        FXCollections.observableArrayList(comboBox_cr.stream().map(x -> x.getNome()).toList()))));
         col_cr.setOnEditCommit(event -> {
             var row = event.getTablePosition().getRow();
             var model = event.getTableView().getItems().get(row);
 
             var cr = comboBox_cr.stream()
-                .filter(x -> x.getNome().equals(event.getNewValue()))
-                .findFirst();
-            
-            if(cr.isEmpty())
+                    .filter(x -> x.getNome().equals(event.getNewValue()))
+                    .findFirst();
+
+            if (cr.isEmpty())
                 return;
-            
+
             model.setIdCr(cr.get().getId());
             model.setCr(cr.get().getNome());
         });
 
-        col_cliente.setCellFactory(ComboBoxTableCell.forTableColumn(new DefaultStringConverter(),FXCollections.observableArrayList(comboBox_cliente.stream().map(x -> x.getRazaoSocial()).toList())));
+        col_cliente.setCellFactory(ComboBoxTableCell.forTableColumn(new DefaultStringConverter(),
+                FXCollections.observableArrayList(comboBox_cliente.stream().map(x -> x.getRazaoSocial()).toList())));
         col_cliente.setOnEditCommit(event -> {
             var row = event.getTablePosition().getRow();
             var model = event.getTableView().getItems().get(row);
-            
+
             var cliente = comboBox_cliente.stream()
-                .filter(x -> x.getRazaoSocial().equals(event.getNewValue()))
-                .findFirst();
-            if(cliente.isEmpty())
+                    .filter(x -> x.getRazaoSocial().equals(event.getNewValue()))
+                    .findFirst();
+            if (cliente.isEmpty())
                 return;
 
-            model.setCliente(cliente.get().getRazaoSocial());  
+            model.setCliente(cliente.get().getRazaoSocial());
             model.setIdCliente(cliente.get().getId());
         });
 
-        col_modalidade.setCellFactory(ComboBoxTableCell.forTableColumn(new DefaultStringConverter(),FXCollections.observableArrayList(comboBox_modalidade.stream().map(x -> x.getDescricao()).toList())));
+        col_modalidade.setCellFactory(ComboBoxTableCell.forTableColumn(new DefaultStringConverter(),
+                FXCollections.observableArrayList(comboBox_modalidade.stream().map(x -> x.getDescricao()).toList())));
         col_modalidade.setOnEditCommit(event -> {
             var row = event.getTablePosition().getRow();
             var model = event.getTableView().getItems().get(row);
-            
+
             var modalidade = comboBox_modalidade.stream()
-                .filter(x -> x.getDescricao().equals(event.getNewValue()))
-                .findFirst();
-            if(modalidade.isEmpty())
+                    .filter(x -> x.getDescricao().equals(event.getNewValue()))
+                    .findFirst();
+            if (modalidade.isEmpty())
                 return;
 
-            model.setModalidade(modalidade.get().getDescricao());  
+            model.setModalidade(modalidade.get().getDescricao());
             model.setIdModalidade(modalidade.get().getId());
         });
 
@@ -193,16 +212,17 @@ public class LancamentoHoraController implements Initializable {
             event.getTableView().getItems().get(row).setDataHoraFim(event.getNewValue());
         });
 
-        col_motivo.setCellFactory(ComboBoxTableCell.forTableColumn(new DefaultStringConverter(), FXCollections.observableArrayList(comboBox_motivo.stream().map(x -> x.getDescricao()).toList())));
+        col_motivo.setCellFactory(ComboBoxTableCell.forTableColumn(new DefaultStringConverter(),
+                FXCollections.observableArrayList(comboBox_motivo.stream().map(x -> x.getDescricao()).toList())));
         col_motivo.setOnEditCommit(event -> {
             var row = event.getTablePosition().getRow();
             var model = event.getTableView().getItems().get(row);
-                
+
             var motivo = comboBox_motivo.stream()
-                .filter(x -> x.getDescricao().equals(event.getNewValue()))
-                .findFirst();
-        
-            if(motivo.isEmpty())
+                    .filter(x -> x.getDescricao().equals(event.getNewValue()))
+                    .findFirst();
+
+            if (motivo.isEmpty())
                 return;
 
             model.setIdMotivo(motivo.get().getId());
@@ -219,7 +239,7 @@ public class LancamentoHoraController implements Initializable {
                     {
                         btn.setOnAction((ActionEvent event) -> {
                             var row = getTableView().getItems().get(getIndex());
-                            if(row.getStatus() == EtapaExtrato.CRIACAO){
+                            if (row.getStatus() == EtapaExtrato.CRIACAO) {
                                 getTableView().getItems().remove(getIndex());
                                 return;
                             }
@@ -258,16 +278,16 @@ public class LancamentoHoraController implements Initializable {
     @FXML
     public void lancarHoras(ActionEvent event) {
         var rows = table_lancamento.getItems();
-        
+
         for (ExtratoHoraModel extratoHoraModel : rows) {
             if (extratoHoraModel.getId() != 0) {
-               continue;
-            }       
- 
-            extratoHoraModel.setIdUsuario(UsuarioDAO.usuarioLogado.getId()); //Criar um usuario padrao so pra cadastrar
-            
+                continue;
+            }
+
+            extratoHoraModel.setIdUsuario(UsuarioDAO.usuarioLogado.getId()); // Criar um usuario padrao so pra cadastrar
+
             var rowsModified = extratoHoraDao.lancarHora(extratoHoraModel);
-            if(rowsModified <= 0){
+            if (rowsModified <= 0) {
                 MensagemRetorno.erroCadastro();
                 return;
             }

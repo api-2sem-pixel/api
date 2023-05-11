@@ -8,7 +8,7 @@ import java.util.ArrayList;
 import java.util.function.Function;
 
 public abstract class BaseDAO {
-    private Connection connection;
+    protected Connection connection;
 
     public BaseDAO(Connection connection) {
         this.connection = connection;
