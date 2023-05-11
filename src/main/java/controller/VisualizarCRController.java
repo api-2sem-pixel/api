@@ -22,6 +22,7 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.MouseEvent;
 import javafx.util.Callback;
 import model.ExtratoHoraModel;
+import utils.ChangeScene;
 import utils.mensagem_retorno.MensagemRetorno;
 
 public class VisualizarCRController {
@@ -117,4 +118,9 @@ public class VisualizarCRController {
         acoesCol.setCellFactory(buttonDeletar);
 
     }
+    
+    public void irCadastro(ActionEvent event) {
+		ChangeScene cs = new ChangeScene();
+		cs.irCadastroCR();
+	}
 }
