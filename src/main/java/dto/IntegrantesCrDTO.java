@@ -4,10 +4,14 @@ public class IntegrantesCrDTO {
 
 	private String integrante;
 	private String descricao;
-
-	public IntegrantesCrDTO(String integrante, String descricao) {
+	private int idUsuario;
+	private int idCr;
+	
+	public IntegrantesCrDTO(String integrante, String descricao, int idUsuario, int idCr) {
 		this.integrante = integrante;
 		this.descricao = descricao;
+		this.idUsuario = idUsuario;
+		this.idCr = idCr;
 	}
 
 	public String getIntegrante() {
@@ -24,6 +28,22 @@ public class IntegrantesCrDTO {
 
 	public void setDescricao(String descricao) {
 		this.descricao = descricao;
+	}
+
+	public int getIdUsuario() {
+		return idUsuario;
+	}
+
+	public void setIdUsuario(int idUsuario) {
+		this.idUsuario = idUsuario;
+	}
+
+	public int getIdCr() {
+		return idCr;
+	}
+
+	public void setIdCr(int idCr) {
+		this.idCr = idCr;
 	}
 
 }
