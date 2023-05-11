@@ -3,6 +3,7 @@ package controller;
 import java.net.URL;
 import java.util.ResourceBundle;
 
+import dao.TipoUsuarioDAO;
 import dao.UsuarioDAO;
 import enums.TipoUsuario;
 import factory.ConnectionFactory;
@@ -50,14 +51,19 @@ public class LoginController implements Initializable {
             return;
         }
 
+<<<<<<< HEAD
         if (email.trim().equalsIgnoreCase(usuario.getEmail().trim())
                 && password.equals(usuario.getCpf_cnpj().substring(0, 3))) {
             var tipo_usuario = usuario.getIdTipoUsuario();
+=======
+        if (email.trim().equalsIgnoreCase(usuario.getEmail().trim()) && password.equals(usuario.getCpf_cnpj().substring(0, 3))) {
+            var tipoUsuario = usuario.getIdTipoUsuario();
+            if (tipoUsuario == TipoUsuario.Administrador || tipoUsuario == TipoUsuario.Gestor) {
+>>>>>>> 97da1456dd0e020dc9ffbe96e40dce536e40c8e2
 
-            if (tipo_usuario == TipoUsuario.Administrador.id || tipo_usuario == TipoUsuario.Gestor.id) {
                 UsuarioDAO.usuarioLogado = usuario;
                 MenuController mc = new MenuController();
-                mc.irFeedBackHora(null);
+                mc.irMenuFeedBack(null);
             } else {
                 UsuarioDAO.usuarioLogado = usuario;
                 MenuController.irMenu();

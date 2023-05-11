@@ -67,55 +67,30 @@
           <content>
             <AnchorPane id="Content" prefHeight="544.0" prefWidth="921.0" styleClass="content">
               <children>
-                        <Group layoutX="41.0" layoutY="193.0" onMouseClicked="#irCadastroUsuario" AnchorPane.leftAnchor="41.0">
+                           <Group layoutX="305.0" layoutY="232.0" onMouseClicked="#irFeedBackHora">
+                           <children>
+                              <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#2128bf1f" height="112.0" layoutY="-7.0" stroke="BLACK" strokeType="INSIDE" width="192.0" />
+                              <ImageView fitHeight="54.0" fitWidth="65.0" layoutX="64.0" layoutY="22.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../assets/Grafico.png" />
+                                 </image>
+                              </ImageView>
+                              
+                              
+                              <Label layoutX="58.0" layoutY="76.0" text="FeedBack" textFill="#1f25c1">
+                                 <font>
+                                    <Font name="Verdana Bold" size="14.0" />
+                                 </font>
+                              </Label>
+                           </children>
                            <effect>
                               <ColorAdjust contrast="1.0" hue="0.02" saturation="1.0" />
                            </effect>
                         </Group>
-                        <Label fx:id="homeText" layoutX="316.0" layoutY="35.0" styleClass="title" text="Seja bem vindo!" textFill="#1f25c1" AnchorPane.leftAnchor="316.0" AnchorPane.rightAnchor="301.0" AnchorPane.topAnchor="35.0">
-                           <font>
-                              <Font name="Calibri Bold" size="24.0" />
-                           </font>
-                        </Label>
-                        <ImageView fitHeight="32.0" fitWidth="32.0" layoutX="759.0" layoutY="33.0" pickOnBounds="true" preserveRatio="true" AnchorPane.rightAnchor="124.0" AnchorPane.topAnchor="33.0">
-                           <image>
-                              <Image url="@../assets/Usuario.png" />
-                           </image>
-                        </ImageView>
-                        <Group layoutX="316.0" layoutY="193.0" onMouseClicked="#irCadastroCr" AnchorPane.leftAnchor="316.0" AnchorPane.topAnchor="186.0">
-                           <effect>
-                              <ColorAdjust contrast="1.0" hue="0.02" saturation="1.0" />
-                           </effect>
-                        </Group>
-                        <Group layoutX="589.0" layoutY="193.0" onMouseClicked="#irLancamentoHora">
-                           <effect>
-                              <ColorAdjust contrast="1.0" hue="0.02" saturation="1.0" />
-                           </effect>
-                        </Group>
-                        <Group layoutX="316.0" layoutY="342.0" onMouseClicked="#irControleCr">
-                           <effect>
-                              <ColorAdjust contrast="1.0" hue="0.02" saturation="1.0" />
-                           </effect>
-                        </Group>
-                        <Group layoutX="589.0" layoutY="342.0" onMouseClicked="#irControleCrUsuario">
-                           <effect>
-                              <ColorAdjust contrast="1.0" hue="0.02" saturation="1.0" />
-                           </effect>
-                        </Group>
-                        <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#2128bf1f" height="112.0" layoutX="297.0" layoutY="216.0" stroke="BLACK" strokeType="INSIDE" width="192.0" />
-                        <Label layoutX="322.0" layoutY="291.0" text="FeedBack a lançar" textFill="#1f25c1">
-                           <font>
-                              <Font name="Verdana Bold" size="14.0" />
-                           </font>
-                        </Label>
-                        <ImageView fitHeight="54.0" fitWidth="65.0" layoutX="361.0" layoutY="237.0" pickOnBounds="true" preserveRatio="true">
-                           <image>
-                              <Image url="@../assets/Grafico.png" />
-                           </image>
-                        </ImageView>
-
-
-
+     
+     
+     
+     					
                         
                      </children>
                      
