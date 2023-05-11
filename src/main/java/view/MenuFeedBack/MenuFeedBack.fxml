@@ -68,6 +68,11 @@
             <AnchorPane id="Content" prefHeight="544.0" prefWidth="921.0" styleClass="content">
               <children>
                            <Group layoutX="305.0" layoutY="232.0" onMouseClicked="#irFeedBackHora">
+                            <Label fx:id="homeText" layoutX="316.0" layoutY="35.0" styleClass="title" text="Seja bem vindo!" textFill="#1f25c1" AnchorPane.leftAnchor="316.0" AnchorPane.rightAnchor="301.0" AnchorPane.topAnchor="35.0">
+                           <font>
+                              <Font name="Calibri Bold" size="24.0" />
+                           </font>
+                        </Label>
                            <children>
                               <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#2128bf1f" height="112.0" layoutY="49.0" stroke="BLACK" strokeType="INSIDE" width="192.0" />
                               <ImageView fitHeight="54.0" fitWidth="65.0" layoutX="63.0" layoutY="78.0" pickOnBounds="true" preserveRatio="true">
@@ -86,10 +91,183 @@
                            </effect>
                         </Group>
                         <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#2128bf1f" height="112.0" layoutX="543.0" layoutY="281.0" stroke="BLACK" strokeType="INSIDE" width="192.0" />
+                        
+                        
+
+
+
+
+
+
+
+
+
+
+
+                       <children>
+                           <Group layoutX="305.0" layoutY="232.0" onMouseClicked="#irControleCr">
+                           <children>
+                              <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#2128bf1f" height="112.0" layoutY="49.0" stroke="BLACK" strokeType="INSIDE" width="192.0" />
+                              <ImageView fitHeight="54.0" fitWidth="65.0" layoutX="63.0" layoutY="78.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../assets/Grafico.png" />
+                                 </image>
+                              </ImageView>
+                              <Label layoutX="57.0" layoutY="132.0" text="FeedBack" textFill="#1f25c1">
+                                 <font>
+                                    <Font name="Verdana Bold" size="14.0" />
+                                 </font>
+                              </Label>
+                           </children>
+                           <effect>
+                              <ColorAdjust contrast="1.0" hue="0.02" saturation="1.0" />
+                           </effect>
+                        </Group>
+                        </children>
+
+
+
+                        
+                        
+                        
                         <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#2128bf1f" height="112.0" layoutX="305.0" layoutY="136.0" stroke="BLACK" strokeType="INSIDE" width="192.0" />
+                      
+                      
+                      
+                      
+                      
+                           <children>
+                           <Group layoutX="305.0" layoutY="232.0" onMouseClicked="#irControleCrUsuario">
+                           <children>
+                              <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#2128bf1f" height="112.0" layoutY="49.0" stroke="BLACK" strokeType="INSIDE" width="192.0" />
+                              <ImageView fitHeight="54.0" fitWidth="65.0" layoutX="63.0" layoutY="78.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../assets/Grafico.png" />
+                                 </image>
+                              </ImageView>
+                              <Label layoutX="57.0" layoutY="132.0" text="FeedBack" textFill="#1f25c1">
+                                 <font>
+                                    <Font name="Verdana Bold" size="14.0" />
+                                 </font>
+                              </Label>
+                           </children>
+                           <effect>
+                              <ColorAdjust contrast="1.0" hue="0.02" saturation="1.0" />
+                           </effect>
+                        </Group>
+                        </children>
+
+                        
+                          
+                      
+                      
+                      
+                      
+                      
+                      
+                      
+                      
+                      
+                      
+                      
+                      
                         <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#2128bf1f" height="112.0" layoutX="543.0" layoutY="136.0" stroke="BLACK" strokeType="INSIDE" width="192.0" />
+                          
+                          
+                          
+                          
+                          
+                          
+                                 <children>
+                           <Group layoutX="305.0" layoutY="232.0" onMouseClicked="#irCadastroCliente">
+                           <children>
+                              <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#2128bf1f" height="112.0" layoutY="49.0" stroke="BLACK" strokeType="INSIDE" width="192.0" />
+                              <ImageView fitHeight="54.0" fitWidth="65.0" layoutX="63.0" layoutY="78.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../assets/Grafico.png" />
+                                 </image>
+                              </ImageView>
+                              <Label layoutX="57.0" layoutY="132.0" text="FeedBack" textFill="#1f25c1">
+                                 <font>
+                                    <Font name="Verdana Bold" size="14.0" />
+                                 </font>
+                              </Label>
+                           </children>
+                           <effect>
+                              <ColorAdjust contrast="1.0" hue="0.02" saturation="1.0" />
+                           </effect>
+                        </Group>
+                        </children>
+
+                        
+                          
+                        
+                        
+                        
+                        
                         <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#2128bf1f" height="112.0" layoutX="75.0" layoutY="136.0" stroke="BLACK" strokeType="INSIDE" width="192.0" />
+                        
+                        
+                        
+                           <children>
+                           <Group layoutX="305.0" layoutY="232.0" onMouseClicked="#irFeedBackHora">
+                           <children>
+                              <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#2128bf1f" height="112.0" layoutY="49.0" stroke="BLACK" strokeType="INSIDE" width="192.0" />
+                              <ImageView fitHeight="54.0" fitWidth="65.0" layoutX="63.0" layoutY="78.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../assets/Grafico.png" />
+                                 </image>
+                              </ImageView>
+                              <Label layoutX="57.0" layoutY="132.0" text="FeedBack" textFill="#1f25c1">
+                                 <font>
+                                    <Font name="Verdana Bold" size="14.0" />
+                                 </font>
+                              </Label>
+                           </children>
+                           <effect>
+                              <ColorAdjust contrast="1.0" hue="0.02" saturation="1.0" />
+                           </effect>
+                        </Group>
+                        </children>
+
+                        
+                          
+                        
+                        
+                        
+                        
+                        
+                        
                         <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#2128bf1f" height="112.0" layoutX="75.0" layoutY="281.0" stroke="BLACK" strokeType="INSIDE" width="192.0" />
+                        
+                           <children>
+                           <Group layoutX="305.0" layoutY="232.0" onMouseClicked="#irFeedBackHora">
+                           <children>
+                              <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#2128bf1f" height="112.0" layoutY="49.0" stroke="BLACK" strokeType="INSIDE" width="192.0" />
+                              <ImageView fitHeight="54.0" fitWidth="65.0" layoutX="63.0" layoutY="78.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../assets/Grafico.png" />
+                                 </image>
+                              </ImageView>
+                              <Label layoutX="57.0" layoutY="132.0" text="FeedBack" textFill="#1f25c1">
+                                 <font>
+                                    <Font name="Verdana Bold" size="14.0" />
+                                 </font>
+                              </Label>
+                           </children>
+                           <effect>
+                              <ColorAdjust contrast="1.0" hue="0.02" saturation="1.0" />
+                           </effect>
+                        </Group>
+                        </children>
+
+                        
+                          
+                        
+                        
+                        
+                        
+                        
                         <Label layoutX="347.0" layoutY="217.0" text="Cadastro de cr" textFill="#1f25c1">
                            <font>
                               <Font name="Verdana Bold" size="14.0" />
