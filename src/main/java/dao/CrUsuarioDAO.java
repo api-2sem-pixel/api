@@ -50,7 +50,7 @@ public class CrUsuarioDAO extends BaseDAO {
 			String sql = "SELECT usuario.Nome, tipoUsuario.descricao, crUsuario.Id_Usuario, crUsuario.Id_Cr  FROM Cr_Usuario crUsuario "
 					+ "INNER JOIN Usuario usuario on crUsuario.Id_Usuario = usuario.Id "
 					+ "INNER JOIN Tipo_Usuario tipoUsuario on usuario.Id_Tipo_Usuario = tipoUsuario.Id "
-					+ "WHERE crUsuario.Id_Cr = ? and crUsuario.Ativo = 0";
+					+ "WHERE crUsuario.Id_Cr = ? and crUsuario.Ativo = 1";
 			
 			try (PreparedStatement pstm = connection.prepareStatement(sql)) {
 				pstm.setInt(1, id_Cr);
@@ -76,7 +76,7 @@ public class CrUsuarioDAO extends BaseDAO {
 	
 	public void deletar(int idUsuario, int idCr) {
 		try {
-			String sql = "UPDATE Cr_Usuario SET Ativo = 1 WHERE Id_Usuario = ? and Id_Cr = ?";
+			String sql = "UPDATE Cr_Usuario SET Ativo = 0 WHERE Id_Usuario = ? and Id_Cr = ?";
 
 			try (PreparedStatement pstm = connection.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS)) {
 

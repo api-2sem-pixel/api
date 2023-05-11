@@ -147,3 +147,5 @@ INSERT INTO `Extrato_Hora` VALUES (1,'PREENCHA',3,5,1,1,1,'2023-04-23 14:38:39',
                                   (4,'PREENCHA',3,1,1,1,1,'2023-04-26 20:08:21','2023-04-28 00:00:00','PREENCHA',1);
 
 ALTER TABLE Cliente ADD COLUMN Ativo bit DEFAULT 1;
+ALTER TABLE Cr_Usuario ADD COLUMN Ativo bit DEFAULT 1;
+
