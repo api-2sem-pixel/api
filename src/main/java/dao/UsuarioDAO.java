@@ -107,17 +107,15 @@ public class UsuarioDAO extends BaseDAO {
 		}
 	}
 	
-	//Adicionei null nos parâmetros de usuarioDTO
 	private void trasformarResultSetEmUsuarioDTO(List<UsuarioDTO> usuario, PreparedStatement pstm) throws SQLException {
 		try (ResultSet rst = pstm.getResultSet()) {
 			while (rst.next()) {
-				UsuarioDTO usuarioDTO = new UsuarioDTO(rst.getString(1), rst.getInt(2), null, null, (Integer) null);
+				UsuarioDTO usuarioDTO = new UsuarioDTO(rst.getString(1), rst.getInt(2), null, null, 0);
 				usuario.add(usuarioDTO);
 			}
 		}
 	}
 	
-	//Método para obter o ComboBox de usuários pelo id e pelo nome
 	public List<UsuarioComboboxModel> obterCombobox(){
 		String sql = "SELECT Id, Nome FROM Usuario";
 		return executarQuery(sql, x -> {
@@ -129,11 +127,10 @@ public class UsuarioDAO extends BaseDAO {
 		});
 	}
 	
-	//Método para listar usuários
 	public static List<UsuarioDTO> listarUsuarios(int id){
 		List<UsuarioDTO> usuarios = new ArrayList<UsuarioDTO>();
 		try {
-			String sql = "SELECT usuario.Nome, usuario.Cpf_Cnpj, usuario.Email, tipoUsuario.descricao, FROM Usuario usuario"
+			String sql = "SELECT usuario.Nome, usuario.Cpf_Cnpj, usuario.Email, tipoUsuario.Id FROM Usuario usuario "
 					+ "INNER JOIN Tipo_Usuario tipoUsuario on usuario.Id_Tipo_Usuario = tipoUsuario.Id "
 					+ "WHERE usuario.Id = ?";
 			
@@ -152,7 +149,7 @@ public class UsuarioDAO extends BaseDAO {
 	private static void trasformarResultSetEmUsuarios(List<UsuarioDTO> usuario, PreparedStatement pstm) throws SQLException {
 		try (ResultSet rst = pstm.getResultSet()) {
 			while (rst.next()) {
-				UsuarioDTO usuarioDTO = new UsuarioDTO(rst.getString(1), rst.getInt(2), rst.getString(3), rst.getString(4), rst.getInt(5));
+				UsuarioDTO usuarioDTO = new UsuarioDTO(rst.getString(1), 0, rst.getString(3), rst.getString(2), rst.getInt(4));
 				usuario.add(usuarioDTO);
 			}
 		}

@@ -19,6 +19,8 @@ public class UsuarioDTO {
 		this.idTipoUsuario = getTipoUsuario(idTipoUsuario);
 	}
 	
+
+	
 	public String getNome() {
 		return nome;
 	}

@@ -192,6 +192,24 @@
                               <ColorAdjust contrast="1.0" hue="0.02" saturation="1.0" />
                            </effect>
                         </Group>
+                        <Group layoutX="41.0" layoutY="474.0" onMouseClicked="#irVisualizacaoUsuario">
+                           <children>
+                              <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#2128bf1f" height="112.0" layoutY="-7.0" stroke="BLACK" strokeType="INSIDE" width="192.0" />
+                              <ImageView fitHeight="54.0" fitWidth="65.0" layoutX="64.0" layoutY="22.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../assets/Grafico.png" />
+                                 </image>
+                              </ImageView>
+                              <Label layoutX="75.0" layoutY="76.0" text="Teste" textFill="#1f25c1">
+                                 <font>
+                                    <Font name="Verdana Bold" size="14.0" />
+                                 </font>
+                              </Label>
+                           </children>
+                           <effect>
+                              <ColorAdjust contrast="1.0" hue="0.02" saturation="1.0" />
+                           </effect>
+                        </Group>
             
             
             
