@@ -90,6 +90,14 @@ CR e colaborador
 |   Sprint-3    |      **Feedback das horas extras** | **4** |
 |   Sprint-3    |      **Padronização e estilização** | **-** |
    </ul>
+   
+   <h3>Sprint-4</h3>
+
+|      | **Entrega**    |**Prioridade**  |   
+| :-------------: | :-------------: |:-------------: | 
+|   Sprint-4    |      **Dashboard**           |   **6**              |
+|   Sprint-4    |      **Relatórios** | **6** |
+   </ul>
 
    <h2>Configurar Projeto</h2>
 <div style="display: inline_block">
