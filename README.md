@@ -96,7 +96,7 @@ CR e colaborador
 |      | **Entrega**    |**Prioridade**  |   
 | :-------------: | :-------------: |:-------------: | 
 |   Sprint-4    |      **Dashboard**           |   **6**              |
-|   Sprint-4    |      **Relatórios** | **6** |
+|   Sprint-4    |      **Relatórios**          |   **6**              |
    </ul>
 
    <h2>Configurar Projeto</h2>
