@@ -33,6 +33,14 @@ public class ChangeScene implements Initializable {
     	changeScene("/view/Cr/VisualizacaoCR.fxml");
     }
     
+    public void irCadastroUsuario() {
+    	changeScene("/view/Usuario/CadastroUsuario.fxml");
+    }
+    
+    public void irVisualizacaoUsuario() {
+    	changeScene("/view/Usuario/VisualizacaoUsuario.fxml");
+    }
+    
     private void changeScene(String fxml) {
         Parent scene;
         try {
@@ -42,5 +50,4 @@ public class ChangeScene implements Initializable {
             System.err.println(e);
         }
     }
-
 }
