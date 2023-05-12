@@ -123,4 +123,9 @@ public class VisualizarCRController {
 		ChangeScene cs = new ChangeScene();
 		cs.irCadastroCR();
 	}
+    
+    public void irAtribuicao(ActionEvent event) {
+		ChangeScene cs = new ChangeScene();
+		cs.irAtribuicaoCR();
+	}
 }

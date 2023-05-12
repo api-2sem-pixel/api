@@ -47,7 +47,12 @@
          </columnResizePolicy>
       </TableView>
       <ComboBox fx:id="comboCR" layoutX="157.0" layoutY="79.0" prefHeight="35.0" prefWidth="618.0" promptText="CR" styleClass="input-text" />
-      <Button layoutX="157.0" layoutY="535.0" minHeight="30.0" minWidth="135.0" mnemonicParsing="false" onAction="#irCadastro" prefHeight="30.0" prefWidth="135.0" styleClass="MYButton" text="Criar CR">
+      <Button layoutX="157.0" layoutY="533.0" minHeight="30.0" minWidth="135.0" mnemonicParsing="false" onAction="#irCadastro" prefHeight="35.0" prefWidth="135.0" styleClass="MYButton" text="Criar CR">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Button>
+      <Button layoutX="279.0" layoutY="533.0" maxWidth="170.0" minHeight="30.0" minWidth="135.0" mnemonicParsing="false" onAction="#irAtribuicao" prefHeight="35.0" prefWidth="170.0" styleClass="btn-no-restriction" text="Atribuir usuário - cr">
          <font>
             <Font size="14.0" />
          </font>

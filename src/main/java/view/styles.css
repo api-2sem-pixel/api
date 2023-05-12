@@ -31,6 +31,7 @@
 
 .myButton {
     -fx-background-color:  #1f25c1;
+    -fx-background-radius:  10px;
     -fx-background-radius:  50px;
     -fx-text-fill: white;
     -fx-min-width:208px;
@@ -62,7 +63,7 @@
 
 .btn-no-restriction {
     -fx-background-color:  #1f25c1;
-    -fx-background-radius:  50px;
+    -fx-background-radius:  10px;
     -fx-text-fill: white;
 }
 
