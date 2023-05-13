@@ -121,8 +121,6 @@ public class FeedBackController implements Initializable {
 
                             if (EtapaExtrato.APROVADA == extratoHora.getStatus()) {
                                 extratoHoraDao.aprovarHoraExtra(extratoHora);
-
-                                FeedBackRetorno.motivo(extratoHoraDao, extratoHora);
                                 carregarExtratos();
 
                             }
