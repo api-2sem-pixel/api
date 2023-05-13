@@ -83,7 +83,7 @@ public class MenuController implements Initializable {
             MenuController menu = new MenuController();
             menu.changeScene("/view/MenuFeedBack/MenuFeedBack.fxml");
         }  
-        else{ 
+        if(UsuarioDAO.usuarioLogado.getIdTipoUsuario() == TipoUsuario.Colaborador){ 
             MenuController menu = new MenuController();
             menu.changeScene("/view/Menu/Menu.fxml");
         }
@@ -97,7 +97,7 @@ public class MenuController implements Initializable {
 
     public static void irMenuUsuario(){
         MenuController menu = new MenuController();
-        menu.changeScene("/src/main/java/view/MenuUsuario.fxml");
+        menu.changeScene("/view/MenuUsuario.fxml");
     }
 
 

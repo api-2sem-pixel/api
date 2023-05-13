@@ -65,7 +65,8 @@ public class LoginController implements Initializable {
                 MenuController.irMenu();
             }
             else{
-                MenuController.irMenuUsuario();               
+                MenuController mc = new MenuController();
+                mc.irMenuUsuario();               
             }
         } else {
             MensagemRetorno.erro("Email e/ou senha incorretos.");
