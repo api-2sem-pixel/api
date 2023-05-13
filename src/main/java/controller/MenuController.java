@@ -60,11 +60,11 @@ public class MenuController implements Initializable {
     void irFeedBackHora(MouseEvent event) {
         changeScene("/view/FeedBack/FeedBack.fxml");
     }
+
     @FXML
     void irMenuFeedBack(MouseEvent event) {
-    	changeScene("/view/MenuFeedBack/MenuFeedBack.fxml");
+    	changeScene("/view/Menu/MenuFeedBack.fxml");
     }
-
 
     private void changeScene(String fxml) {
         Parent scene;
@@ -79,23 +79,22 @@ public class MenuController implements Initializable {
     public static void irMenu() {
         if (UsuarioDAO.usuarioLogado.getIdTipoUsuario() == TipoUsuario.Gestor ) {
             MenuController menu = new MenuController();
-            menu.changeScene("/view/MenuFeedBack/MenuFeedBack.fxml");
+            menu.changeScene("/view/Menu/Back.fxml");
         }  
         if(UsuarioDAO.usuarioLogado.getIdTipoUsuario() == TipoUsuario.Colaborador){ 
             MenuController menu = new MenuController();
             menu.changeScene("/view/Menu/Menu.fxml");
         }
     }
-
     
     public static void ir() {
         MenuController menu = new MenuController();
-        menu.changeScene("/view/MenuFeedBack/MenuFeedBack.fxml");
+        menu.changeScene("/view/Menu/MenuFeedBack.fxml");
     }
 
     public static void irMenuUsuario(){
         MenuController menu = new MenuController();
-        menu.changeScene("/view/MenuUsuario.fxml");
+        menu.changeScene("/view/Menu/MenuUsuario.fxml");
     }
 
 

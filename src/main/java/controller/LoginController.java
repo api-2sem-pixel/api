@@ -14,7 +14,6 @@ import javafx.scene.control.Button;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import utils.mensagem_retorno.MensagemRetorno;
-import controller.MenuFeedBack.*;
 
 public class LoginController implements Initializable {
     @FXML
@@ -54,20 +53,19 @@ public class LoginController implements Initializable {
         if (email.trim().equalsIgnoreCase(usuario.getEmail().trim())
                 && password.equals(usuario.getCpf_cnpj().substring(0, 3))) {
             
-            var tipoUsuario = usuario.getIdTipoUsuario();
             UsuarioDAO.usuarioLogado = usuario;
-            
+            var tipoUsuario = usuario.getIdTipoUsuario();
+                    
             if (tipoUsuario == TipoUsuario.Gestor) {
                 MenuController mc = new MenuController();
                 mc.irMenuFeedBack(null);
-            } 
-            if(tipoUsuario == TipoUsuario.Administrador ) {
+            } else if(tipoUsuario == TipoUsuario.Administrador ) {
                 MenuController.irMenu();
-            }
-            else{
+            } else {
                 MenuController mc = new MenuController();
                 mc.irMenuUsuario();               
             }
+            
         } else {
             MensagemRetorno.erro("Email e/ou senha incorretos.");
         }
