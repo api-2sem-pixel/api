@@ -5,6 +5,7 @@ import java.net.URL;
 import java.util.ResourceBundle;
 
 import dao.UsuarioDAO;
+import enums.TipoUsuario;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -12,7 +13,8 @@ import javafx.scene.Parent;
 import javafx.scene.control.Label;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
-
+import model.UsuarioModel;
+import dao.*;;
 public class MenuController implements Initializable {
     @FXML
     private Label homeText;
@@ -77,7 +79,26 @@ public class MenuController implements Initializable {
     }
 
     public static void irMenu() {
-        MenuController menu = new MenuController();
-        menu.changeScene("/view/Menu/Menu.fxml");
+        if (UsuarioDAO.usuarioLogado.getIdTipoUsuario() == TipoUsuario.Gestor ) {
+            MenuController menu = new MenuController();
+            menu.changeScene("/view/MenuFeedBack/MenuFeedBack.fxml");
+        }  
+        else{ 
+            MenuController menu = new MenuController();
+            menu.changeScene("/view/Menu/Menu.fxml");
+        }
     }
+
+    
+    public static void ir() {
+        MenuController menu = new MenuController();
+        menu.changeScene("/view/MenuFeedBack/MenuFeedBack.fxml");
+    }
+
+    public static void irMenuUsuario(){
+        MenuController menu = new MenuController();
+        menu.changeScene("/src/main/java/view/MenuUsuario.fxml");
+    }
+
+
 }

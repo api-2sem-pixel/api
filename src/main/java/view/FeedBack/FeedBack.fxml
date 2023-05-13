@@ -53,7 +53,7 @@
                      </image>
                   </ImageView>
                   <Button layoutX="28.0" layoutY="542.0" minWidth="46.0" mnemonicParsing="false" prefHeight="38.0" prefWidth="46.0" scaleX="0.5" scaleY="0.5" styleClass="rp-column" text="Button" />
-                  <ImageView fitHeight="40.0" fitWidth="43.0" layoutX="36.0" layoutY="541.0" onMouseClicked="#retornarMenu" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fitHeight="40.0" fitWidth="43.0" layoutX="36.0" layoutY="541.0" onMouseClicked="#retornar" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@../figma/log.png" />
                      </image>
