@@ -166,4 +166,8 @@ public class ExtratoHoraModel {
         this.cliente = cliente;
     }
 
+    public String getIdMotivo(String motivo2) {
+        return null;
+    }
+
 }
