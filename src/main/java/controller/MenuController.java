@@ -4,7 +4,6 @@ import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-import dao.UsuarioDAO;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -55,6 +54,11 @@ public class MenuController implements Initializable {
     
     @FXML public void irFeedBackHora(MouseEvent event) {
         changeScene("/view/FeedBack/FeedBack.fxml");
+    }
+    
+    @FXML
+    void irVisualizacaoUsuario(MouseEvent event) {
+        changeScene("/view/Usuario/VisualizacaoUsuario.fxml");
     }
     
     private void changeScene(String fxml) {
