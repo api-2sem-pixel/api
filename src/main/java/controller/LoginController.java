@@ -53,15 +53,19 @@ public class LoginController implements Initializable {
 
         if (email.trim().equalsIgnoreCase(usuario.getEmail().trim())
                 && password.equals(usuario.getCpf_cnpj().substring(0, 3))) {
+            
             var tipoUsuario = usuario.getIdTipoUsuario();
-            if (tipoUsuario == TipoUsuario.Administrador || tipoUsuario == TipoUsuario.Gestor) {
-
-                UsuarioDAO.usuarioLogado = usuario;
+            UsuarioDAO.usuarioLogado = usuario;
+            
+            if (tipoUsuario == TipoUsuario.Gestor) {
                 MenuController mc = new MenuController();
                 mc.irMenuFeedBack(null);
-            } else {
-                UsuarioDAO.usuarioLogado = usuario;
+            } 
+            if(tipoUsuario == TipoUsuario.Administrador ) {
                 MenuController.irMenu();
+            }
+            else{
+                MenuController.irMenuUsuario();               
             }
         } else {
             MensagemRetorno.erro("Email e/ou senha incorretos.");
