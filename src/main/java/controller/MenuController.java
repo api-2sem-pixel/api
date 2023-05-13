@@ -77,19 +77,22 @@ public class MenuController implements Initializable {
     }
 
     public static void irMenu() {
-        if (UsuarioDAO.usuarioLogado.getIdTipoUsuario() == TipoUsuario.Gestor ) {
-            MenuController menu = new MenuController();
-            menu.changeScene("/view/Menu/Back.fxml");
+        if (UsuarioDAO.usuarioLogado.getIdTipoUsuario() == TipoUsuario.Administrador ) {
+            irMenuAdmin();
         }  
+
         if(UsuarioDAO.usuarioLogado.getIdTipoUsuario() == TipoUsuario.Colaborador){ 
-            MenuController menu = new MenuController();
-            menu.changeScene("/view/Menu/Menu.fxml");
+            irMenuUsuario();
         }
+
+        if (UsuarioDAO.usuarioLogado.getIdTipoUsuario() == TipoUsuario.Gestor ) {
+            irMenuGestor();
+        }  
     }
     
-    public static void ir() {
+    public static void irMenuAdmin() {
         MenuController menu = new MenuController();
-        menu.changeScene("/view/Menu/MenuFeedBack.fxml");
+        menu.changeScene("/view/Menu/Menu.fxml");
     }
 
     public static void irMenuUsuario(){
@@ -97,5 +100,8 @@ public class MenuController implements Initializable {
         menu.changeScene("/view/Menu/MenuUsuario.fxml");
     }
 
-
+    public static void irMenuGestor(){
+        MenuController menu = new MenuController();
+        menu.changeScene("/view/Menu/MenuFeedback.fxml");
+    }
 }

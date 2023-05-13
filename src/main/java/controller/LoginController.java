@@ -62,10 +62,9 @@ public class LoginController implements Initializable {
             } else if(tipoUsuario == TipoUsuario.Administrador ) {
                 MenuController.irMenu();
             } else {
-                MenuController mc = new MenuController();
-                mc.irMenuUsuario();               
+                MenuController.irMenuUsuario();               
             }
-            
+
         } else {
             MensagemRetorno.erro("Email e/ou senha incorretos.");
         }

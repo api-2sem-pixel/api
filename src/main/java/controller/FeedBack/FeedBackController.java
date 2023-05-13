@@ -149,6 +149,6 @@ public class FeedBackController implements Initializable {
     }
 
     @FXML void retornar(MouseEvent event){
-        MenuController.ir();
+        MenuController.irMenuAdmin();
     }
 }

@@ -53,13 +53,13 @@
                <children>
                   <ImageView fitHeight="52.0" fitWidth="93.0" layoutX="9.0" layoutY="41.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@figma/2rp.png" />
+                        <Image url="@../figma/2rp.png" />
                      </image>
                   </ImageView>
                   <Button layoutX="28.0" layoutY="542.0" minWidth="46.0" mnemonicParsing="false" prefHeight="38.0" prefWidth="46.0" scaleX="0.5" scaleY="0.5" styleClass="rp-column" text="Button" />
                   <ImageView fitHeight="40.0" fitWidth="43.0" layoutX="36.0" layoutY="541.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@figma/log.png" />
+                        <Image url="@../figma/log.png" />
                      </image>
                   </ImageView>
                </children></AnchorPane>
@@ -72,7 +72,7 @@
                               <ColorAdjust contrast="1.0" hue="0.02" saturation="1.0" />
                            </effect>
                         </Group>
-                        <Label fx:id="homeText" layoutX="278.0" layoutY="35.0" styleClass="title" text="Seja bem vindo!Usuario" textFill="#1f25c1" AnchorPane.leftAnchor="278.0" AnchorPane.rightAnchor="339.0" AnchorPane.topAnchor="35.0">
+                        <Label fx:id="homeText" layoutX="358.0" layoutY="35.0" prefHeight="28.0" prefWidth="172.0" styleClass="title" text="Seja bem vindo!" textFill="#1f25c1" AnchorPane.leftAnchor="358.0" AnchorPane.rightAnchor="391.0" AnchorPane.topAnchor="35.0">
                            <font>
                               <Font name="Calibri Bold" size="24.0" />
                            </font>
@@ -103,24 +103,24 @@
                               <ColorAdjust contrast="1.0" hue="0.02" saturation="1.0" />
                            </effect>
                         </Group>
-                        <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#2128bf1f" height="112.0" layoutX="169.0" layoutY="211.0" stroke="BLACK" strokeType="INSIDE" style="-fx-border-radious: 10px;" width="192.0" />
-                        <ImageView fitHeight="54.0" fitWidth="65.0" layoutX="233.0" layoutY="224.0" pickOnBounds="true" preserveRatio="true">
+                        <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#2128bf1f" height="112.0" layoutX="183.0" layoutY="210.0" stroke="BLACK" strokeType="INSIDE" style="-fx-border-radious: 10px;" width="192.0" />
+                        <ImageView fitHeight="54.0" fitWidth="65.0" layoutX="247.0" layoutY="234.0" pickOnBounds="true" preserveRatio="true">
                            <image>
-                              <Image url="@assets/Grafico.png" />
+                              <Image url="@../assets/Grafico.png" />
                            </image>
                         </ImageView>
-                        <Label layoutX="186.0" layoutY="289.0" text="Tela de visualização" textFill="#1f25c1">
+                        <Label layoutX="200.0" layoutY="297.0" text="Tela de visualização" textFill="#1f25c1">
                            <font>
                               <Font name="Verdana Bold" size="14.0" />
                            </font>
                         </Label>
-                        <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#2128bf1f" height="112.0" layoutX="476.0" layoutY="210.0" stroke="BLACK" strokeType="INSIDE" width="192.0" />
-                        <ImageView fitHeight="54.0" fitWidth="65.0" layoutX="550.0" layoutY="224.0" pickOnBounds="true" preserveRatio="true">
+                        <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#2128bf1f" height="112.0" layoutX="492.0" layoutY="205.0" stroke="BLACK" strokeType="INSIDE" width="192.0" />
+                        <ImageView fitHeight="54.0" fitWidth="65.0" layoutX="556.0" layoutY="229.0" pickOnBounds="true" preserveRatio="true">
                            <image>
-                              <Image url="@assets/Grafico.png" />
+                              <Image url="@../assets/Grafico.png" />
                            </image>
                         </ImageView>
-                        <Label layoutX="487.0" layoutY="289.0" text="Lançamento de Horas" textFill="#1f25c1">
+                        <Label layoutX="503.0" layoutY="292.0" text="Lançamento de Horas" textFill="#1f25c1">
                            <font>
                               <Font name="Verdana Bold" size="14.0" />
                            </font>
