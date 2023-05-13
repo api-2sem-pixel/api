@@ -19,6 +19,7 @@ import javafx.scene.control.TextField;
 import javafx.scene.input.MouseEvent;
 import model.CadastroUsuario;
 import model.ComboboxModel.TipoUsuarioComboboxModel;
+import utils.ChangeScene;
 import utils.mensagem_retorno.MensagemRetorno;
 
 public class CadastroUsuarioController implements Initializable{
@@ -67,6 +68,11 @@ public class CadastroUsuarioController implements Initializable{
             MensagemRetorno.erro("Por favor, preencha todos os campos corretamente.");
         }
     }
+    
+    public void irVisualizacaoUsuario(ActionEvent event) {
+		ChangeScene cs = new ChangeScene();
+		cs.irVisualizacaoUsuario();
+	}
 
     @FXML
     void voltar(MouseEvent event) {
@@ -79,5 +85,4 @@ public class CadastroUsuarioController implements Initializable{
         txt_Cpf.setText("");
         txt_Tel.setText("");
     }
-
 }

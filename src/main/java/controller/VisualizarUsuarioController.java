@@ -19,6 +19,7 @@ import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.MouseEvent;
 import javafx.util.Callback;
+import utils.ChangeScene;
 
 public class VisualizarUsuarioController {
 	private UsuarioDAO usuarioDAO;
@@ -40,14 +41,17 @@ public class VisualizarUsuarioController {
 	
 	@FXML
 	protected void initialize() {
-		usuario.addAll(usuarioDAO.getNomeUsuarioAndId());
-		comboUsuario.setItems(usuario);
-		
+		carregarCombobox();
 		colNome.setCellValueFactory(new PropertyValueFactory<>("nome"));
 		colCPFCNPJ.setCellValueFactory(new PropertyValueFactory<>("cpf_cnpj"));
 		colEmail.setCellValueFactory(new PropertyValueFactory<>("email"));
 		colTipo.setCellValueFactory(new PropertyValueFactory<>("idTipoUsuario"));
 		colAcoes.setCellValueFactory(new PropertyValueFactory<>(""));
+	}
+	
+	public void carregarCombobox() {
+		usuario.addAll(usuarioDAO.getNomeUsuarioAndId());
+		comboUsuario.setItems(usuario);
 	}
 	
 	public void buscarUsuario(ActionEvent event) {
@@ -61,6 +65,12 @@ public class VisualizarUsuarioController {
 			e.printStackTrace();
 		}
 		tabelaUsuarios.setItems(listarUsuario(usuarios));
+
+	}
+		
+	public void irCadastroUsuario(ActionEvent event) {
+		ChangeScene cs = new ChangeScene();
+		cs.irCadastroUsuario();
 	}
 	
 	private ObservableList<UsuarioDTO> listarUsuario(List<UsuarioDTO> usuarios){
@@ -84,8 +94,9 @@ public class VisualizarUsuarioController {
                         btn.setOnAction((ActionEvent event) -> {
                             var row = getTableView().getItems().get(getIndex());
                             getTableView().getItems().remove(getIndex());
+                            usuarioDAO.deletar(row.getId());          
                             return;
-                        });
+                         });
                     }
 
                     @Override
