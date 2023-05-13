@@ -1,7 +1,5 @@
 package utils.feedback_retorno;
 
-import javafx.scene.control.Alert;
-import javafx.scene.control.Alert.AlertType;
 import model.ExtratoHoraModel;
 import javafx.scene.control.TextInputDialog;
 import java.util.Optional;
