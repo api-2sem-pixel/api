@@ -49,6 +49,10 @@
          </columnResizePolicy>
       </TableView>
       <ComboBox fx:id="comboUsuario" layoutX="157.0" layoutY="120.0" prefHeight="30.0" prefWidth="589.0" promptText="Usuário" styleClass="input-text" />
-      <Button layoutX="780.0" layoutY="535.0" mnemonicParsing="false" onAction="#irCadastroUsuario" prefHeight="35.0" prefWidth="100.0" text="Cadastrar" />
+      <Button layoutX="780.0" layoutY="534.0" minHeight="30.0" minWidth="135.0" mnemonicParsing="false" onAction="#irCadastroUsuario" prefHeight="30.0" prefWidth="135.0" styleClass="MYButton" text="Criar Usuario">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Button>
    </children>
 </AnchorPane>
