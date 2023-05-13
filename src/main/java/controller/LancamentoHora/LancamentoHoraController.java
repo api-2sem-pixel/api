@@ -11,9 +11,9 @@ import controller.MenuController;
 import dao.CrDAO;
 import dao.ExtratoHoraDAO;
 import dao.ModalidadeDAO;
-import dao.MotivoDAO;
 import dao.UsuarioDAO;
 import enums.EtapaExtrato;
+import enums.TipoUsuario;
 import dao.ClienteDAO;
 import factory.ConnectionFactory;
 import javafx.collections.FXCollections;
@@ -34,46 +34,30 @@ import model.ExtratoHoraModel;
 import model.ComboboxModel.ClienteComboboxModel;
 import model.ComboboxModel.CrComboboxModel;
 import model.ComboboxModel.ModalidadeComboboxModel;
-import model.ComboboxModel.MotivoComboboxModel;
 import utils.custom_cells.DateTimeCell;
 import utils.mensagem_retorno.MensagemRetorno;
 
 public class LancamentoHoraController implements Initializable {
-    @FXML
-    private TableColumn<ExtratoHoraModel, Integer> col_id;
-    @FXML
-    private TableColumn<ExtratoHoraModel, String> col_projeto;
-    @FXML
-    private TableColumn<ExtratoHoraModel, String> col_cr;
-    @FXML
-    private TableColumn<ExtratoHoraModel, String> col_cliente;
-    @FXML
-    private TableColumn<ExtratoHoraModel, String> col_justificativa;
-    @FXML
-    private TableColumn<ExtratoHoraModel, String> col_modalidade;
-    @FXML
-    private TableColumn<ExtratoHoraModel, LocalDateTime> col_inicio;
-    @FXML
-    private TableColumn<ExtratoHoraModel, LocalDateTime> col_fim;
-    @FXML
-    private TableColumn<ExtratoHoraModel, String> col_motivo;
-    @FXML
-    private TableColumn<ExtratoHoraModel, Void> col_acoes;
-    @FXML
-    private TableView<ExtratoHoraModel> table_lancamento;
-    @FXML
-    private Button btn_lancar;
-    @FXML
-    private Button btn_adicionarLinha;
+    @FXML private TableColumn<ExtratoHoraModel, Integer> col_id;
+    @FXML private TableColumn<ExtratoHoraModel, String> col_projeto;
+    @FXML private TableColumn<ExtratoHoraModel, String> col_cr;
+    @FXML private TableColumn<ExtratoHoraModel, String> col_cliente;
+    @FXML private TableColumn<ExtratoHoraModel, String> col_justificativa;
+    @FXML private TableColumn<ExtratoHoraModel, String> col_modalidade;
+    @FXML private TableColumn<ExtratoHoraModel, LocalDateTime> col_inicio;
+    @FXML private TableColumn<ExtratoHoraModel, LocalDateTime> col_fim;
+    @FXML private TableColumn<ExtratoHoraModel, String> col_motivo;
+    @FXML private TableColumn<ExtratoHoraModel, Void> col_acoes;
+    @FXML private TableView<ExtratoHoraModel> table_lancamento;
+    @FXML private Button btn_lancar;
+    @FXML private Button btn_adicionarLinha;
 
     private List<CrComboboxModel> comboBox_cr = new ArrayList<CrComboboxModel>();
     private List<ModalidadeComboboxModel> comboBox_modalidade = new ArrayList<ModalidadeComboboxModel>();
-    private List<MotivoComboboxModel> comboBox_motivo = new ArrayList<MotivoComboboxModel>();
     private List<ClienteComboboxModel> comboBox_cliente = new ArrayList<ClienteComboboxModel>();
 
     private CrDAO crDAO;
     private ModalidadeDAO modalidaeDAO;
-    private MotivoDAO motivoDAO;
     private ClienteDAO clienteDAO;
     private ExtratoHoraDAO extratoHoraDao;
 
@@ -82,7 +66,6 @@ public class LancamentoHoraController implements Initializable {
         Connection connection = new ConnectionFactory().recuperarConexao();
         crDAO = new CrDAO(connection);
         modalidaeDAO = new ModalidadeDAO(connection);
-        motivoDAO = new MotivoDAO(connection);
         clienteDAO = new ClienteDAO(connection);
         extratoHoraDao = new ExtratoHoraDAO(connection);
     }
@@ -116,7 +99,6 @@ public class LancamentoHoraController implements Initializable {
     private void carregarComboBox() {
         this.comboBox_cr = crDAO.obterCombobox();
         this.comboBox_modalidade = modalidaeDAO.obterCombobox();
-        this.comboBox_motivo = motivoDAO.obterCombobox();
         this.comboBox_cliente = clienteDAO.obterCombobox();
     }
 
@@ -128,12 +110,10 @@ public class LancamentoHoraController implements Initializable {
         col_cr.setCellValueFactory(new PropertyValueFactory<ExtratoHoraModel, String>(propertyNames[index++]));
         col_cliente.setCellValueFactory(new PropertyValueFactory<ExtratoHoraModel, String>(propertyNames[index++]));
         col_modalidade.setCellValueFactory(new PropertyValueFactory<ExtratoHoraModel, String>(propertyNames[index++]));
-        col_inicio
-                .setCellValueFactory(new PropertyValueFactory<ExtratoHoraModel, LocalDateTime>(propertyNames[index++]));
+        col_inicio.setCellValueFactory(new PropertyValueFactory<ExtratoHoraModel, LocalDateTime>(propertyNames[index++]));
         col_fim.setCellValueFactory(new PropertyValueFactory<ExtratoHoraModel, LocalDateTime>(propertyNames[index++]));
         col_motivo.setCellValueFactory(new PropertyValueFactory<ExtratoHoraModel, String>(propertyNames[index++]));
-        col_justificativa
-                .setCellValueFactory(new PropertyValueFactory<ExtratoHoraModel, String>(propertyNames[index++]));
+        col_justificativa.setCellValueFactory(new PropertyValueFactory<ExtratoHoraModel, String>(propertyNames[index++]));
         col_acoes.setCellValueFactory(new PropertyValueFactory<>(propertyNames[index++]));
 
         col_projeto.setCellFactory(TextFieldTableCell.forTableColumn());
@@ -211,24 +191,6 @@ public class LancamentoHoraController implements Initializable {
             var row = event.getTablePosition().getRow();
             event.getTableView().getItems().get(row).setDataHoraFim(event.getNewValue());
         });
-
-        col_motivo.setCellFactory(ComboBoxTableCell.forTableColumn(new DefaultStringConverter(),
-                FXCollections.observableArrayList(comboBox_motivo.stream().map(x -> x.getDescricao()).toList())));
-        col_motivo.setOnEditCommit(event -> {
-            var row = event.getTablePosition().getRow();
-            var model = event.getTableView().getItems().get(row);
-
-            var motivo = comboBox_motivo.stream()
-                    .filter(x -> x.getDescricao().equals(event.getNewValue()))
-                    .findFirst();
-
-            if (motivo.isEmpty())
-                return;
-
-            model.setIdMotivo(motivo.get().getId());
-            model.setMotivo(motivo.get().getDescricao());
-        });
-
         var buttonDeletar = new Callback<TableColumn<ExtratoHoraModel, Void>, TableCell<ExtratoHoraModel, Void>>() {
             @Override
             public TableCell<ExtratoHoraModel, Void> call(final TableColumn<ExtratoHoraModel, Void> param) {
@@ -265,26 +227,25 @@ public class LancamentoHoraController implements Initializable {
         col_acoes.setCellFactory(buttonDeletar);
     }
 
-    @FXML
-    public void criarNovaLinha(ActionEvent event) {
+    @FXML public void criarNovaLinha(ActionEvent event) {
         table_lancamento.getItems().add(ExtratoHoraModel.criarLinhaPadrao());
     }
 
-    @FXML
-    void retornarMenu(MouseEvent event) {
+    @FXML void retornarMenu(MouseEvent event) {
         MenuController.irMenu();
     }
 
-    @FXML
-    public void lancarHoras(ActionEvent event) {
+    @FXML public void lancarHoras(ActionEvent event) {
         var rows = table_lancamento.getItems();
 
         for (ExtratoHoraModel extratoHoraModel : rows) {
             if (extratoHoraModel.getId() != 0) {
                 continue;
             }
+            extratoHoraModel.setIdUsuario(UsuarioDAO.usuarioLogado.getId());
 
-            extratoHoraModel.setIdUsuario(UsuarioDAO.usuarioLogado.getId()); // Criar um usuario padrao so pra cadastrar
+            if(UsuarioDAO.usuarioLogado.getIdTipoUsuario() == TipoUsuario.Administrador || UsuarioDAO.usuarioLogado.getIdTipoUsuario() == TipoUsuario.Gestor)
+                extratoHoraModel.setStatus(EtapaExtrato.APROVADA);
 
             var rowsModified = extratoHoraDao.lancarHora(extratoHoraModel);
             if (rowsModified <= 0) {

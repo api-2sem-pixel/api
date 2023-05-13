@@ -12,9 +12,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.control.Label;
 import javafx.scene.input.MouseEvent;
-import javafx.stage.Stage;
-import model.UsuarioModel;
-import dao.*;;
+import javafx.stage.Stage;;
 public class MenuController implements Initializable {
     @FXML
     private Label homeText;

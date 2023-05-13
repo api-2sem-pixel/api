@@ -27,33 +27,19 @@ import model.ExtratoHoraModel;
 import utils.feedback_retorno.FeedBackRetorno;
 
 public class FeedBackController implements Initializable {
-    @FXML
-    private TableColumn<ExtratoHoraModel, Integer> col_id;
-    @FXML
-    private TableColumn<ExtratoHoraModel, String> col_projeto;
-    @FXML
-    private TableColumn<ExtratoHoraModel, String> col_cr;
-    @FXML
-    private TableColumn<ExtratoHoraModel, String> col_cliente;
-    @FXML
-    private TableColumn<ExtratoHoraModel, String> col_justificativa;
-    @FXML
-    private TableColumn<ExtratoHoraModel, String> col_modalidade;
-    @FXML
-    private TableColumn<ExtratoHoraModel, LocalDateTime> col_inicio;
-    @FXML
-    private TableColumn<ExtratoHoraModel, LocalDateTime> col_fim;
-    @FXML
-    private TableColumn<ExtratoHoraModel, String> col_motivo;
-    @FXML
-    private TableColumn<ExtratoHoraModel, Void> col_acoes;
-    @FXML
-    private TableView<ExtratoHoraModel> table_lancamento;
-    @FXML
-    private TextField tfFiltro;
-
-    @FXML
-    private Button bnt_filtro;
+    @FXML private TableColumn<ExtratoHoraModel, Integer> col_id;
+    @FXML private TableColumn<ExtratoHoraModel, String> col_projeto;
+    @FXML private TableColumn<ExtratoHoraModel, String> col_cr;
+    @FXML private TableColumn<ExtratoHoraModel, String> col_cliente;
+    @FXML private TableColumn<ExtratoHoraModel, String> col_justificativa;
+    @FXML private TableColumn<ExtratoHoraModel, String> col_modalidade;
+    @FXML private TableColumn<ExtratoHoraModel, LocalDateTime> col_inicio;
+    @FXML private TableColumn<ExtratoHoraModel, LocalDateTime> col_fim;
+    @FXML private TableColumn<ExtratoHoraModel, String> col_motivo;
+    @FXML private TableColumn<ExtratoHoraModel, Void> col_acoes;
+    @FXML private TableView<ExtratoHoraModel> table_lancamento;
+    @FXML private TextField tfFiltro;
+    @FXML private Button bnt_filtro;
 
     private ExtratoHoraDAO extratoHoraDao;
 
@@ -62,8 +48,7 @@ public class FeedBackController implements Initializable {
         extratoHoraDao = new ExtratoHoraDAO(connection);
     }
 
-    @Override
-    public void initialize(URL location, ResourceBundle resources) {
+    @Override public void initialize(URL location, ResourceBundle resources) {
         final var propertyNames = new String[] {
                 "id",
                 "projeto",
@@ -88,9 +73,6 @@ public class FeedBackController implements Initializable {
         table_lancamento.setItems(FXCollections.observableArrayList(extratos));
     }
 
-    /**
-     * @param propertyNames
-     */
     private void configurarLinha(final String[] propertyNames) {
         int index = 0;
 
@@ -99,12 +81,10 @@ public class FeedBackController implements Initializable {
         col_cr.setCellValueFactory(new PropertyValueFactory<ExtratoHoraModel, String>(propertyNames[index++]));
         col_cliente.setCellValueFactory(new PropertyValueFactory<ExtratoHoraModel, String>(propertyNames[index++]));
         col_modalidade.setCellValueFactory(new PropertyValueFactory<ExtratoHoraModel, String>(propertyNames[index++]));
-        col_inicio
-                .setCellValueFactory(new PropertyValueFactory<ExtratoHoraModel, LocalDateTime>(propertyNames[index++]));
+        col_inicio.setCellValueFactory(new PropertyValueFactory<ExtratoHoraModel, LocalDateTime>(propertyNames[index++]));
         col_fim.setCellValueFactory(new PropertyValueFactory<ExtratoHoraModel, LocalDateTime>(propertyNames[index++]));
         col_motivo.setCellValueFactory(new PropertyValueFactory<ExtratoHoraModel, String>(propertyNames[index++]));
-        col_justificativa
-                .setCellValueFactory(new PropertyValueFactory<ExtratoHoraModel, String>(propertyNames[index++]));
+        col_justificativa.setCellValueFactory(new PropertyValueFactory<ExtratoHoraModel, String>(propertyNames[index++]));
         col_acoes.setCellValueFactory(new PropertyValueFactory<>(propertyNames[index++]));
 
         var cellFactory = new Callback<TableColumn<ExtratoHoraModel, Void>, TableCell<ExtratoHoraModel, Void>>() {
@@ -158,22 +138,17 @@ public class FeedBackController implements Initializable {
             }
         };
         col_acoes.setCellFactory(cellFactory);
-
     }
 
-    @FXML
-    private void fltrarProjeto() {
+    @FXML private void fltrarProjeto() {
         carregarExtratos();
-
     }
 
-    @FXML
-    void retornarMenu(MouseEvent event) {
+    @FXML void retornarMenu(MouseEvent event) {
         MenuController.irMenu();
     }
-    @FXML
-    void retornar(MouseEvent event){
+
+    @FXML void retornar(MouseEvent event){
         MenuController.ir();
     }
-
 }

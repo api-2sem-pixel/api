@@ -12,7 +12,6 @@ public class ExtratoHoraModel {
     private String modalidade;
     private String cr;
     private Integer idCr;
-    private Integer idMotivo;
     private Integer idCliente;
     private String cliente;
     private String motivo;
@@ -136,14 +135,6 @@ public class ExtratoHoraModel {
 
     public void setIdCr(Integer idCr) {
         this.idCr = idCr;
-    }
-
-    public Integer getIdMotivo() {
-        return idMotivo;
-    }
-
-    public void setIdMotivo(Integer idMotivo) {
-        this.idMotivo = idMotivo;
     }
 
     public boolean getIsRowEditable() {

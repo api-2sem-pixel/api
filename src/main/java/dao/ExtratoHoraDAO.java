@@ -34,7 +34,7 @@ public class ExtratoHoraDAO extends BaseDAO {
 
     public ArrayList<ExtratoHoraModel> obterExtratosLancados(int userId, String projeto) {
         String sql = getQueryExtratoHoraModel() +
-                " where a.Id = " + userId;
+                " where a.Id_Usuario = " + userId;
 
         if (projeto != null && !projeto.isEmpty())
             sql += " AND projeto like '%" + projeto + "%'";
@@ -83,15 +83,14 @@ public class ExtratoHoraDAO extends BaseDAO {
     }
 
     public int lancarHora(ExtratoHoraModel model) {
-        String sql = "INSERT INTO Extrato_Hora(Projeto, Id_Cliente, Id_Etapa_Extrato, Id_Cr, Id_Usuario, Id_Modalidade, Id_Motivo, DataHora_Inicio, DataHora_Fim, Justificativa) "
+        String sql = "INSERT INTO Extrato_Hora(Projeto, Id_Cliente, Id_Etapa_Extrato, Id_Cr, Id_Usuario, Id_Modalidade, DataHora_Inicio, DataHora_Fim, Justificativa) "
                 +
                 "VALUES ('" + model.getProjeto() + "',"
                 + model.getIdCliente() + ","
-                + 1 + ","
+                + model.getStatus().ordinal() + ","
                 + model.getIdCr() + ","
                 + model.getIdUsuario() + ","
-                + model.getIdModalidade() + ","
-                + model.getIdMotivo() + ",'"
+                + model.getIdModalidade() + ",'"
                 + model.getDataHoraInicio().toString() + "','"
                 + model.getDataHoraFim().toString() + "','"
                 + model.getJustificativa() + "')";
