@@ -88,7 +88,7 @@ CR e colaborador
 | :-------------: | :-------------: |:-------------: | 
 |   Sprint-3    |      **Cadastro de feedback**           |   **3**              |
 |   Sprint-3    |      **Feedback** | **4** |
-|   Sprint-3    |      **Padronização ** | **-** |
+|   Sprint-3    |      **Padronização** | **-** |
 |   Sprint-3    |      **Estilização** | **-** |
 |   Sprint-3    |      **Visualização e deleção de Usuário** | **4** |
 |   Sprint-3    |      **Visualização e deleção de CR** | **2** |
