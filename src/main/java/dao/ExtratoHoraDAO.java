@@ -10,22 +10,22 @@ import enums.EtapaExtrato;
 
 public class ExtratoHoraDAO extends BaseDAO {
 
-    private String getQueryExtratoHoraModel(){
+    private String getQueryExtratoHoraModel() {
         return "select b.Nome Cr, " +
-        "a.Projeto, " +
-        "c.Descricao Modalidade, " +
-        "a.DataHora_Inicio Inicio, " +
-        "a.DataHora_Fim Fim, " +
-        "a.Motivo Motivo, " +
-        "a.Id_Modalidade Id_Modalidade, " +
-        "c.Descricao Modalidade, " +
-        "a.Id IdExtrato, " +
-        "e.Razao_Social NomeCliente, " +
-        "a.Justificativa Justificativa " +
-        "from Extrato_Hora a  " +
-        "inner join Cr b on a.Id_Cr = b.Id " +
-        "inner join Modalidade c on c.Id = a.Id_Modalidade " +
-        "inner join Cliente e on e.Id = a.Id_Cliente ";
+                "a.Projeto, " +
+                "c.Descricao Modalidade, " +
+                "a.DataHora_Inicio Inicio, " +
+                "a.DataHora_Fim Fim, " +
+                "a.Motivo Motivo, " +
+                "a.Id_Modalidade Id_Modalidade, " +
+                "c.Descricao Modalidade, " +
+                "a.Id IdExtrato, " +
+                "e.Razao_Social NomeCliente, " +
+                "a.Justificativa Justificativa " +
+                "from Extrato_Hora a  " +
+                "inner join Cr b on a.Id_Cr = b.Id " +
+                "inner join Modalidade c on c.Id = a.Id_Modalidade " +
+                "inner join Cliente e on e.Id = a.Id_Cliente ";
     }
 
     public ExtratoHoraDAO(Connection connection) {
@@ -33,7 +33,7 @@ public class ExtratoHoraDAO extends BaseDAO {
     }
 
     public ArrayList<ExtratoHoraModel> obterExtratosLancados(int userId, String projeto) {
-        String sql = getQueryExtratoHoraModel() + 
+        String sql = getQueryExtratoHoraModel() +
                 " where a.Id = " + userId;
 
         if (projeto != null && !projeto.isEmpty())
@@ -42,16 +42,16 @@ public class ExtratoHoraDAO extends BaseDAO {
         return this.executarQuery(sql, resultSet -> mapearParaExtratoHoraModel(resultSet));
     }
 
-    public ArrayList<ExtratoHoraModel> obterExtratosParaAprovar(int userId, String projeto){
-        String sql = getQueryExtratoHoraModel() + 
-                    " where (a.Id_Cr in (SELECT Id_Cr FROM Cr_Usuario where Id_Usuario = "+ userId + ") or " +
-                    " Id_Usuario in (SELECT Id_Usuario FROM Usuario where Id_Tipo_Usuario = 3)) " +
-                    " and Id_Etapa_Extrato in (1,4)";
+    public ArrayList<ExtratoHoraModel> obterExtratosParaAprovar(int userId, String projeto) {
+        String sql = getQueryExtratoHoraModel() +
+                " where (a.Id_Cr in (SELECT Id_Cr FROM Cr_Usuario where Id_Usuario = " + userId + ") or " +
+                " Id_Usuario in (SELECT Id_Usuario FROM Usuario where Id_Tipo_Usuario = 3)) " +
+                " and Id_Etapa_Extrato in (1,4)";
 
-         if (projeto != null && !projeto.isEmpty())
+        if (projeto != null && !projeto.isEmpty())
             sql += " AND projeto like '%" + projeto + "%'";
 
-        return this.executarQuery(sql, resultSet ->  mapearParaExtratoHoraModel(resultSet));  
+        return this.executarQuery(sql, resultSet -> mapearParaExtratoHoraModel(resultSet));
     }
 
     private ExtratoHoraModel mapearParaExtratoHoraModel(ResultSet resultSet) {
@@ -121,6 +121,11 @@ public class ExtratoHoraDAO extends BaseDAO {
             e.addSuppressed(e);
         }
 
+    }
+
+    public void inserirMotivo(String motivo, ExtratoHoraModel extratoHora) {
+        String sql = "UPDATE extrato_Hora SET Motivo = '" + motivo + "' WHERE Id= " + extratoHora.getId();
+        executeUpdate(sql);
     }
 
 }
