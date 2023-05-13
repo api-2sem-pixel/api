@@ -149,3 +149,7 @@ INSERT INTO `Extrato_Hora` VALUES (1,'PREENCHA',3,5,1,1,1,'2023-04-23 14:38:39',
 ALTER TABLE Cliente ADD COLUMN Ativo bit DEFAULT 1;
 ALTER TABLE Cr_Usuario ADD COLUMN Ativo bit DEFAULT 1;
 ALTER TABLE Usuario ADD COLUMN Ativo bit DEFAULT 1;
+
+alter table Extrato_Hora drop constraint Extrato_Hora_ibfk_5;
+alter table Extrato_Hora drop column Id_Motivo;
+alter table Extrato_Hora add column Motivo varchar(300);
