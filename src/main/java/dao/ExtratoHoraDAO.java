@@ -21,7 +21,8 @@ public class ExtratoHoraDAO extends BaseDAO {
                 "c.Descricao Modalidade, " +
                 "a.Id IdExtrato, " +
                 "e.Razao_Social NomeCliente, " +
-                "a.Justificativa Justificativa " +
+                "a.Justificativa Justificativa, " +
+                "a.Id_Etapa_Extrato Etapa_Extrato " +
                 "from Extrato_Hora a  " +
                 "inner join Cr b on a.Id_Cr = b.Id " +
                 "inner join Modalidade c on c.Id = a.Id_Modalidade " +
@@ -74,6 +75,7 @@ public class ExtratoHoraDAO extends BaseDAO {
             model.setId(resultSet.getInt(9));
             model.setCliente(resultSet.getString(10));
             model.setJustificativa(resultSet.getString(11));
+            model.setStatus(resultSet.getInt(12));
 
             return model;
         } catch (Exception e) {
@@ -100,7 +102,7 @@ public class ExtratoHoraDAO extends BaseDAO {
 
     public void aprovarHoraExtra(ExtratoHoraModel extratoHora) {
         try {
-            String sql = "UPDATE extrato_hora SET Id_Etapa_Extrato = 2 WHERE Id = " + extratoHora.getId();
+            String sql = "UPDATE Extrato_Hora SET Id_Etapa_Extrato = 2 WHERE Id = " + extratoHora.getId();
             executeUpdate(sql);
             extratoHora.setStatus(EtapaExtrato.APROVADA);
 
@@ -112,7 +114,7 @@ public class ExtratoHoraDAO extends BaseDAO {
 
     public void reprovarHoraExtra(ExtratoHoraModel extratoHora) {
         try {
-            String sql = "UPDATE extrato_hora SET Id_Etapa_Extrato = 3 WHERE Id = " + extratoHora.getId();
+            String sql = "UPDATE Extrato_Hora SET Id_Etapa_Extrato = 3 WHERE Id = " + extratoHora.getId();
             executeUpdate(sql);
             extratoHora.setStatus(EtapaExtrato.REPROVADA);
 
@@ -123,7 +125,7 @@ public class ExtratoHoraDAO extends BaseDAO {
     }
 
     public void inserirMotivo(String motivo, ExtratoHoraModel extratoHora) {
-        String sql = "UPDATE extrato_Hora SET Motivo = '" + motivo + "' WHERE Id= " + extratoHora.getId();
+        String sql = "UPDATE Extrato_Hora SET Motivo = '" + motivo + "' WHERE Id= " + extratoHora.getId();
         executeUpdate(sql);
     }
 

@@ -1,10 +1,9 @@
 package enums;
 
 public enum EtapaExtrato {
-    NAO_INFORMADO,
+    CRIACAO,
     EM_APROVACAO,
     APROVADA, 
     REPROVADA,
-    PENDENTE_CORRECAO,
-    CRIACAO
+    PENDENTE_CORRECAO
 }

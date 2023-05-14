@@ -47,6 +47,7 @@ public class VisualizarUsuarioController {
 		colEmail.setCellValueFactory(new PropertyValueFactory<>("email"));
 		colTipo.setCellValueFactory(new PropertyValueFactory<>("idTipoUsuario"));
 		colAcoes.setCellValueFactory(new PropertyValueFactory<>(""));
+		buscarUsuario(null);
 	}
 	
 	public void carregarCombobox() {
@@ -58,12 +59,13 @@ public class VisualizarUsuarioController {
 		adicionarBotaoDeletar();
 		UsuarioDTO usuario = (UsuarioDTO) comboUsuario.getSelectionModel().getSelectedItem();
 		List<UsuarioDTO> usuarios = null;
+
 		try {
-			usuarios = UsuarioDAO.listarUsuarios(usuario.getId());
+			usuarios = UsuarioDAO.listarUsuarios(usuario != null ? usuario.getId() : null);
 		} catch (Exception e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+		
 		tabelaUsuarios.setItems(listarUsuario(usuarios));
 
 	}

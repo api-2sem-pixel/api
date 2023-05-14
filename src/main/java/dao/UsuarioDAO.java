@@ -127,17 +127,19 @@ public class UsuarioDAO extends BaseDAO {
 		});
 	}
 	
-	public static List<UsuarioDTO> listarUsuarios(int id){
+	public static List<UsuarioDTO> listarUsuarios(Integer id){
 		List<UsuarioDTO> usuarios = new ArrayList<UsuarioDTO>();
 		try {
 			String sql = "SELECT usuario.Nome, usuario.Id, usuario.Cpf_Cnpj, usuario.Email, tipoUsuario.Id FROM Usuario usuario "
 					+ "INNER JOIN Tipo_Usuario tipoUsuario on usuario.Id_Tipo_Usuario = tipoUsuario.Id "
-					+ "WHERE usuario.Id = ? AND usuario.Ativo = 1";
+					+ "WHERE usuario.Ativo = 1";
 			
+			if(id != null){
+				sql += " AND Id = " + id;
+			}
+
 			try (PreparedStatement pstm = connection.prepareStatement(sql)) {
-				pstm.setInt(1, id);
 				pstm.execute();
-				
 				trasformarResultSetEmUsuarios(usuarios, pstm);
 			}
 			return usuarios;

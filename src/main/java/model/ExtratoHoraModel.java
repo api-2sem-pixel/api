@@ -34,7 +34,7 @@ public class ExtratoHoraModel {
         extrato.setModalidade("SELECIONE");
         extrato.setDataHoraInicio(LocalDateTime.now());
         extrato.setDataHoraFim(LocalDateTime.now());
-        extrato.setMotivo("SELECIONE");
+        extrato.setMotivo("-");
         extrato.setJustificativa("PREENCHA");
         extrato.setStatus(EtapaExtrato.CRIACAO);
 

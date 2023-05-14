@@ -264,9 +264,10 @@ public class LancamentoHoraController implements Initializable {
             }
             extratoHoraModel.setIdUsuario(UsuarioDAO.usuarioLogado.getId());
 
-            if (UsuarioDAO.usuarioLogado.getIdTipoUsuario() == TipoUsuario.Administrador
-                    || UsuarioDAO.usuarioLogado.getIdTipoUsuario() == TipoUsuario.Gestor)
+            if (UsuarioDAO.usuarioLogado.getIdTipoUsuario() == TipoUsuario.Administrador || UsuarioDAO.usuarioLogado.getIdTipoUsuario() == TipoUsuario.Gestor)
                 extratoHoraModel.setStatus(EtapaExtrato.APROVADA);
+            else
+                extratoHoraModel.setStatus(EtapaExtrato.EM_APROVACAO);
 
             var rowsModified = extratoHoraDao.lancarHora(extratoHoraModel);
             if (rowsModified <= 0) {

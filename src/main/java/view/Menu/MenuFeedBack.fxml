@@ -57,7 +57,7 @@
                      </image>
                   </ImageView>
                   <Button layoutX="28.0" layoutY="542.0" minWidth="46.0" mnemonicParsing="false" prefHeight="38.0" prefWidth="46.0" scaleX="0.5" scaleY="0.5" styleClass="rp-column" text="Button" />
-                  <ImageView fitHeight="40.0" fitWidth="43.0" layoutX="36.0" layoutY="541.0"  onMouseClicked="#irLogin" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fitHeight="40.0" fitWidth="43.0" layoutX="36.0" layoutY="541.0" onMouseClicked="#irLogin" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@../figma/log.png" />
                      </image>
@@ -67,7 +67,7 @@
           <content>
             <AnchorPane id="Content" prefHeight="544.0" prefWidth="921.0" styleClass="content">
               <children>
-                        <Group layoutX="41.0" layoutY="193.0" onMouseClicked="#irFeedBackHora" AnchorPane.leftAnchor="41.0">
+                        <Group layoutX="326.0" layoutY="249.0" onMouseClicked="#irFeedBackHora" AnchorPane.leftAnchor="326.0">
                            <children>
                               <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#2128bf1f" height="112.0" layoutY="-7.0" stroke="BLACK" strokeType="INSIDE" style="-fx-border-radious: 10px;" width="192.0" />
                               <ImageView fitHeight="54.0" fitWidth="65.0" layoutX="64.0" layoutY="22.0" pickOnBounds="true" preserveRatio="true">
@@ -85,7 +85,7 @@
                               <ColorAdjust contrast="1.0" hue="0.02" saturation="1.0" />
                            </effect>
                         </Group>
-                        <Label fx:id="homeText" layoutX="342.0" layoutY="35.0" prefHeight="28.0" prefWidth="238.0" styleClass="title" text="Seja bem vindo, gestor!" textFill="#1f25c1" AnchorPane.leftAnchor="342.0" AnchorPane.rightAnchor="341.0" AnchorPane.topAnchor="35.0">
+                        <Label fx:id="homeText" layoutX="300.0" layoutY="35.0" prefHeight="28.0" prefWidth="244.0" styleClass="title" text="Seja bem vindo, Gestor!" textFill="#1f25c1" AnchorPane.leftAnchor="300.0" AnchorPane.rightAnchor="377.0" AnchorPane.topAnchor="35.0">
                            <font>
                               <Font name="Calibri Bold" size="24.0" />
                            </font>
@@ -95,25 +95,7 @@
                               <Image url="@../assets/Usuario.png" />
                            </image>
                         </ImageView>
-                        <Group layoutX="316.0" layoutY="193.0" onMouseClicked="#irCadastroCr" AnchorPane.leftAnchor="316.0" AnchorPane.topAnchor="186.0">
-                           <children>
-                              <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#2128bf1f" height="112.0" layoutY="-7.0" stroke="BLACK" strokeType="INSIDE" width="192.0" />
-                              <ImageView fitHeight="54.0" fitWidth="65.0" layoutX="64.0" layoutY="22.0" pickOnBounds="true" preserveRatio="true">
-                                 <image>
-                                    <Image url="@../assets/Grafico.png" />
-                                 </image>
-                              </ImageView>
-                              <Label layoutX="32.0" layoutY="76.0" text="Cadastro de CRs" textFill="#1f25c1">
-                                 <font>
-                                    <Font name="Verdana Bold" size="14.0" />
-                                 </font>
-                              </Label>
-                           </children>
-                           <effect>
-                              <ColorAdjust contrast="1.0" hue="0.02" saturation="1.0" />
-                           </effect>
-                        </Group>
-                        <Group layoutX="589.0" layoutY="193.0" onMouseClicked="#irLancamentoHora">
+                        <Group layoutX="55.0" layoutY="249.0" onMouseClicked="#irLancamentoHora">
                            <children>
                               <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#2128bf1f" height="112.0" layoutY="-7.0" stroke="BLACK" strokeType="INSIDE" width="192.0" />
                               <ImageView fitHeight="54.0" fitWidth="65.0" layoutX="64.0" layoutY="22.0" pickOnBounds="true" preserveRatio="true">
@@ -122,64 +104,6 @@
                                  </image>
                               </ImageView>
                               <Label layoutX="11.0" layoutY="76.0" text="Lançamento de Horas" textFill="#1f25c1">
-                                 <font>
-                                    <Font name="Verdana Bold" size="14.0" />
-                                 </font>
-                              </Label>
-                           </children>
-                           <effect>
-                              <ColorAdjust contrast="1.0" hue="0.02" saturation="1.0" />
-                           </effect>
-                        </Group>
-                        <Group layoutX="41.0" layoutY="335.0" onMouseClicked="#irCadastroCliente">
-                           <children>
-                       
-                              <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#2128bf1f" height="112.0" stroke="BLACK" strokeType="INSIDE" style="-fx-border-radious: 10px;" width="192.0" />
-                              <ImageView fitHeight="54.0" fitWidth="65.0" layoutX="64.0" layoutY="20.0" pickOnBounds="true" preserveRatio="true">
-                                 <image>
-                                    <Image url="@../assets/Grafico.png" />
-                                 </image>
-                              </ImageView>
-                              <Label layoutX="19.0" layoutY="80.0" text="Cadastro de Cliente" textFill="#1f25c1">
-                                 <font>
-                                    <Font name="Verdana Bold" size="14.0" />
-                                 </font>
-                              </Label>
-                           </children>
-                           
-                           <effect>
-                              <ColorAdjust contrast="1.0" hue="0.02" saturation="1.0" />
-                           </effect>
-                        </Group>
-                        <Group layoutX="316.0" layoutY="342.0" onMouseClicked="#irControleCr">
-                           <children>
-                              <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#2128bf1f" height="112.0" layoutY="-7.0" stroke="BLACK" strokeType="INSIDE" width="192.0" />
-                              <ImageView fitHeight="54.0" fitWidth="65.0" layoutX="64.0" layoutY="22.0" pickOnBounds="true" preserveRatio="true">
-                                 <image>
-                                    <Image url="@../assets/Grafico.png" />
-                                 </image>
-                              </ImageView>
-                              <Label layoutX="18.0" layoutY="76.0" text="Visualização de CRs" textFill="#1f25c1">
-                                 <font>
-                                    <Font name="Verdana Bold" size="14.0" />
-                                 </font>
-                              </Label>
-                           </children>
-                           <effect>
-                              <ColorAdjust contrast="1.0" hue="0.02" saturation="1.0" />
-                           </effect>
-                        </Group>
-                        <Group layoutX="589.0" layoutY="342.0" onMouseClicked="#irControleCrUsuario">
-                           <children>
-                              <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#2128bf1f" height="112.0" layoutY="-7.0" stroke="BLACK" strokeType="INSIDE" width="192.0" />
-                              <ImageView fitHeight="54.0" fitWidth="65.0" layoutX="64.0" layoutY="22.0" pickOnBounds="true" preserveRatio="true">
-                                 <image>
-                                    <Image url="@../assets/Grafico.png" />
-                                 </image>
-                              </ImageView>
-                              
-                              
-                              <Label layoutX="18.0" layoutY="76.0" text="Controle Cr - Usuario" textFill="#1f25c1">
                                  <font>
                                     <Font name="Verdana Bold" size="14.0" />
                                  </font>

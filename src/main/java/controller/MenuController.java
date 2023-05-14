@@ -28,6 +28,12 @@ public class MenuController implements Initializable {
     public void initialize(URL location, ResourceBundle resources) {
     }
 
+    
+    @FXML
+    void irParametrizacao(MouseEvent event) {
+        changeScene("/view/Parametrizacao/ParametrizacaoVerbas.fxml");
+    }
+
     @FXML
     void irControleCr(MouseEvent event) throws IOException {
         changeScene("/view/Cr/VisualizacaoCR.fxml");

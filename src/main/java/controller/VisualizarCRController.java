@@ -7,7 +7,6 @@ import dao.CrDAO;
 import dao.CrUsuarioDAO;
 import dto.CrDTO;
 import dto.IntegrantesCrDTO;
-import enums.EtapaExtrato;
 import factory.ConnectionFactory;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -21,9 +20,7 @@ import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.MouseEvent;
 import javafx.util.Callback;
-import model.ExtratoHoraModel;
 import utils.ChangeScene;
-import utils.mensagem_retorno.MensagemRetorno;
 
 public class VisualizarCRController {
 
@@ -62,6 +59,7 @@ public class VisualizarCRController {
 		descricaoCol.setCellValueFactory(new PropertyValueFactory<>("descricao"));
 		acoesCol.setCellValueFactory(new PropertyValueFactory<>(""));
 
+		buscar(null);
 	}
 	
 	public void buscar(ActionEvent event) {
@@ -71,7 +69,7 @@ public class VisualizarCRController {
 	
 	public void listar() {
 		CrDTO cr = (CrDTO) comboCR.getSelectionModel().getSelectedItem();
-		List<IntegrantesCrDTO> integrantes = crUsuarioDAO.listarIntegrantes(cr.getId());
+		List<IntegrantesCrDTO> integrantes = crUsuarioDAO.listarIntegrantes(cr != null ? cr.getId() : null);
 		tabela.setItems(listaIntegrantes(integrantes));
 	}
 	
