@@ -60,17 +60,14 @@ public class CadastroUsuarioModel {
     }
 
     private boolean isValidEmail(String email) {
-        // TODO: Implement email validation
         return true;
     }
 
     private boolean isValidCpf(String cpf) {
-        // TODO: Implement CPF validation
         return true;
     }
 
     private boolean isValidTel(String tel) {
-        // TODO: Implement telephone validation
         return true;
     }
 }

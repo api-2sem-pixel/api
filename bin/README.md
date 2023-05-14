@@ -48,6 +48,9 @@ CR e colaborador
    <h2>Modelagem</h2>
    <img src="https://github.com/api-2sem-pixel/api/blob/develop/assets/ModelagemApiSprint2.png">
    
+   <h2>Documentação</h2>
+   <li><a href="https://github.com/api-2sem-pixel/api/blob/master/assets/documentacao.pdf"> Documentação </a></li>
+   
    <h2>Sprints</h2>
    <h3>Sprint-1</h3>
     <ul> 
@@ -69,8 +72,23 @@ CR e colaborador
 |      | **Entrega**    |**Prioridade**  |   
 | :-------------: | :-------------: |:-------------: | 
 |   Sprint-2    |      **Cadastro de usuário**           |   **1**              |
-|   Sprint-2    |      **Cadastro de squad** | **1** |
+|   Sprint-2    |      **Cadastro de CR** | **1** |
+|   Sprint-2    |      **Gerenciamento de CR** | **3** |
+|   Sprint-2    |      **Visualização de CR** | **2** |
 |   Sprint-2    |      **Lançamento de horas extras** | **1** |
+|   Sprint-2    |      **Login** | **2** |
+|   Sprint-2    |      **Cadastro de Cliente** | **-** |
+
+
+   </ul>
+   
+   <h3>Sprint-3</h3>
+
+|      | **Entrega**    |**Prioridade**  |   
+| :-------------: | :-------------: |:-------------: | 
+|   Sprint-3    |      **Cadastro de feedback**           |   **3**              |
+|   Sprint-3    |      **Feedback das horas extras** | **4** |
+|   Sprint-3    |      **Padronização e estilização** | **-** |
    </ul>
 
    <h2>Configurar Projeto</h2>
@@ -82,3 +100,8 @@ CR e colaborador
   <li>Rodar o comando mvn clean javafx:run (Ex: https://openjfx.io/openjfx-docs/index.html#maven)</li>
 </div>
 
+  <h2>Executável</h2>
+<div style="display: inline_block">
+[JAR_API.zip](https://github.com/api-2sem-pixel/api/files/11304566/JAR_API.zip)
+
+</div>

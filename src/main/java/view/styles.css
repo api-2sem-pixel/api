@@ -54,6 +54,20 @@
     -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.4), 10, 0, 0, 2);
     -fx-text-fill: white;
 }
+.MYButton1 {
+    -fx-background-color:  #1f25c1;
+    -fx-background-radius:  10px;
+    -fx-text-fill: white;
+    -fx-min-width:52px;
+    -fx-max-width:52px;
+    -fx-min-height:26px;
+    -fx-max-height:26px;
+}
+.MYButton1:hover {
+    -fx-background-color: #0062cc;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.4), 10, 0, 0, 2);
+    -fx-text-fill: white;
+}
 
 .myButton:hover {
     -fx-background-color: #0062cc;
