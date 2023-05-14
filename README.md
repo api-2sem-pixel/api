@@ -102,6 +102,6 @@ CR e colaborador
 
   <h2>Executável</h2>
 <div style="display: inline_block">
-[JAR_API.zip](https://github.com/api-2sem-pixel/api/files/11304566/JAR_API.zip)
+[JAR_API.zip](https://github.com/api-2sem-pixel/api/blob/develop/assets/api.jar)
 
 </div>
