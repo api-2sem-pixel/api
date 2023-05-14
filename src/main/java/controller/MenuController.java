@@ -65,6 +65,10 @@ public class MenuController implements Initializable {
     void irMenuFeedBack(MouseEvent event) {
     	changeScene("/view/Menu/MenuFeedBack.fxml");
     }
+    @FXML
+    void irLogin(MouseEvent event) {
+    	changeScene("/view/Login/Login.fxml");
+    }
 
     private void changeScene(String fxml) {
         Parent scene;

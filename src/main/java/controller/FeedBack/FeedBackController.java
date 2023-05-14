@@ -9,6 +9,7 @@ import controller.MenuController;
 import dao.ExtratoHoraDAO;
 import dao.UsuarioDAO;
 import enums.EtapaExtrato;
+import enums.TipoUsuario;
 import factory.ConnectionFactory;
 import javafx.collections.FXCollections;
 import javafx.event.ActionEvent;
@@ -149,6 +150,9 @@ public class FeedBackController implements Initializable {
     }
 
     @FXML void retornar(MouseEvent event){
-        MenuController.irMenuAdmin();
+    	if(UsuarioDAO.usuarioLogado.getIdTipoUsuario() == TipoUsuario.Colaborador){
+    		MenuController.irMenuGestor();
+    	}
+    		MenuController.irMenuAdmin();
     }
 }
