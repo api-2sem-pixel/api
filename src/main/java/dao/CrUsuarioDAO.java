@@ -54,7 +54,7 @@ public class CrUsuarioDAO extends BaseDAO {
 					+ "WHERE crUsuario.Ativo = 1";
 
 			if(idCr != null){
-				sql += "AND crUsuario.Id_Cr = " + idCr;
+				sql += " AND crUsuario.Id_Cr = " + idCr;
 			}
 			
 			try (PreparedStatement pstm = connection.prepareStatement(sql)) {

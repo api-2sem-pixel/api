@@ -135,7 +135,7 @@ public class UsuarioDAO extends BaseDAO {
 					+ "WHERE usuario.Ativo = 1";
 			
 			if(id != null){
-				sql += " AND Id = " + id;
+				sql += " AND usuario.Id = " + id;
 			}
 
 			try (PreparedStatement pstm = connection.prepareStatement(sql)) {
