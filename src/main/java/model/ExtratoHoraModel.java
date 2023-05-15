@@ -12,7 +12,6 @@ public class ExtratoHoraModel {
     private String modalidade;
     private String cr;
     private Integer idCr;
-    private Integer idMotivo;
     private Integer idCliente;
     private String cliente;
     private String motivo;
@@ -35,7 +34,7 @@ public class ExtratoHoraModel {
         extrato.setModalidade("SELECIONE");
         extrato.setDataHoraInicio(LocalDateTime.now());
         extrato.setDataHoraFim(LocalDateTime.now());
-        extrato.setMotivo("SELECIONE");
+        extrato.setMotivo("-");
         extrato.setJustificativa("PREENCHA");
         extrato.setStatus(EtapaExtrato.CRIACAO);
 
@@ -102,6 +101,10 @@ public class ExtratoHoraModel {
         return status;
     }
 
+    public void setStatus(Integer status) {
+        this.status = EtapaExtrato.values()[status];
+    }
+
     public void setStatus(EtapaExtrato status) {
         this.status = status;
     }
@@ -138,15 +141,7 @@ public class ExtratoHoraModel {
         this.idCr = idCr;
     }
 
-    public Integer getIdMotivo() {
-        return idMotivo;
-    }
-
-    public void setIdMotivo(Integer idMotivo) {
-        this.idMotivo = idMotivo;
-    }
-
-    public boolean getIsRowEditable(){
+    public boolean getIsRowEditable() {
         return this.isRowEditable;
     }
 
@@ -165,4 +160,9 @@ public class ExtratoHoraModel {
     public void setCliente(String cliente) {
         this.cliente = cliente;
     }
+
+    public String getIdMotivo(String motivo2) {
+        return null;
+    }
+
 }

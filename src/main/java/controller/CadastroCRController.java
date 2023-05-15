@@ -10,6 +10,7 @@ import javafx.fxml.FXML;
 import javafx.scene.control.TextField;
 import javafx.scene.input.MouseEvent;
 import model.CR;
+import utils.ChangeScene;
 import utils.mensagem_retorno.MensagemRetorno;
 
 public class CadastroCRController {
@@ -42,6 +43,11 @@ public class CadastroCRController {
 			MensagemRetorno.erroCadastro();
 		}
 		
+	}
+	
+    public void voltarVisualizacao(ActionEvent event) {
+		ChangeScene cs = new ChangeScene();
+		cs.irVisualizacaoCR();
 	}
 	
 	public void limpar() {

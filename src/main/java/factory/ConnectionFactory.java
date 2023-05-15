@@ -15,8 +15,9 @@ public class ConnectionFactory {
 		ComboPooledDataSource comboPooledDataSource = new ComboPooledDataSource();
 
 		if (useLocal) {
-			comboPooledDataSource.setJdbcUrl("jdbc:mysql://localhost:3306/");
+			comboPooledDataSource.setJdbcUrl("jdbc:mysql://localhost:3306/api2sem");
 			comboPooledDataSource.setUser("root");
+			comboPooledDataSource.setPassword("39657890$#hjklç");
 		} else {
 			comboPooledDataSource.setJdbcUrl("jdbc:mysql://34.95.173.113:3306/api2sem");
 			comboPooledDataSource.setUser("root");

@@ -9,7 +9,7 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="609.0" prefWidth="944.0" style="-fx-background-color: fffff;" styleClass="content" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.CadastroClienteController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="609.0" prefWidth="944.0" style="-fx-background-color: fffff;" styleClass="content" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.Cliente.CadastroClienteController">
    <children>
       <Pane layoutY="-5.0" prefHeight="615.0" prefWidth="114.0" styleClass="sidebar">
          <children>
@@ -25,13 +25,21 @@
                </image>
             </ImageView>
          </children></Pane>
-      <Label layoutX="408.0" layoutY="14.0" prefHeight="39.0" prefWidth="272.0" text="Cadastro de Cliente" textFill="#483fee">
+      <Label layoutX="377.0" layoutY="14.0" prefHeight="39.0" prefWidth="272.0" text="Cadastro de Cliente" textFill="#483fee">
          <font>
             <Font size="27.0" />
          </font>
       </Label>
-      <TextField fx:id="tfRazaoSocial" layoutX="191.0" layoutY="104.0" prefHeight="40.0" prefWidth="682.0" promptText="Razão Social" styleClass="input-text" />
-      <Button layoutX="440.0" layoutY="524.0" mnemonicParsing="false" onAction="#cadastrarCliente" prefHeight="32.0" prefWidth="86.0" styleClass="myButton" text="INSERIR" />
-      <TextField fx:id="tfCNPJ" layoutX="191.0" layoutY="187.0" prefHeight="40.0" prefWidth="682.0" promptText="CNPJ" styleClass="input-text" />
+      <TextField fx:id="tfRazaoSocial" layoutX="259.0" layoutY="123.0" prefHeight="45.0" prefWidth="507.0" promptText="Razão Social" styleClass="input-text" />
+      <Button layoutX="558.0" layoutY="520.0" mnemonicParsing="false" onAction="#cadastrarCliente" prefHeight="32.0" prefWidth="86.0" styleClass="myButton" text="Inserir">
+         <font>
+            <Font size="14.0" />
+         </font></Button>
+      <TextField fx:id="tfCNPJ" layoutX="259.0" layoutY="258.0" prefHeight="45.0" prefWidth="507.0" promptText="CNPJ" styleClass="input-text" />
+      <Button layoutX="259.0" layoutY="520.0" mnemonicParsing="false" onAction="#irControleCliente" prefHeight="32.0" prefWidth="86.0" styleClass="myButton" text="Voltar">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Button>
    </children>
 </AnchorPane>

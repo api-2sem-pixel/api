@@ -49,7 +49,7 @@ CR e colaborador
    <img src="https://github.com/api-2sem-pixel/api/blob/develop/assets/ModelagemApiSprint2.png">
    
    <h2>Documentação</h2>
-   <li><a href="https://github.com/api-2sem-pixel/api/blob/master/assets/documentacao.pdf"> Documentação </a></li>
+   <li><a href="https://github.com/api-2sem-pixel/api/blob/develop/assets/documentacao.pdf"> Documentação </a></li>
    
    <h2>Sprints</h2>
    <h3>Sprint-1</h3>
@@ -82,7 +82,12 @@ CR e colaborador
 
    </ul>
    
+   </ul>
+   
    <h3>Sprint-3</h3>
+       <ul> 
+      <li><a href="https://github.com/api-2sem-pixel/api/blob/develop/assets/burndown/sp3/burndown.png"> Burndown </a></li>
+    </ul>
 
 |      | **Entrega**    |**Prioridade**  |   
 | :-------------: | :-------------: |:-------------: | 
@@ -114,6 +119,6 @@ CR e colaborador
 
   <h2>Executável</h2>
 <div style="display: inline_block">
-[JAR_API.zip](https://github.com/api-2sem-pixel/api/files/11304566/JAR_API.zip)
+[JAR_API.zip](https://github.com/api-2sem-pixel/api/blob/develop/assets/api.jar)
 
 </div>
