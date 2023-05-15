@@ -85,6 +85,9 @@ CR e colaborador
    </ul>
    
    <h3>Sprint-3</h3>
+       <ul> 
+      <li><a href="https://github.com/api-2sem-pixel/api/blob/develop/assets/burndown/sp3/burndown.png"> Burndown </a></li>
+    </ul>
 
 |      | **Entrega**    |**Prioridade**  |   
 | :-------------: | :-------------: |:-------------: | 
