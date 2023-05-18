@@ -153,3 +153,6 @@ ALTER TABLE Usuario ADD COLUMN Ativo bit DEFAULT 1;
 alter table Extrato_Hora drop constraint Extrato_Hora_ibfk_5;
 alter table Extrato_Hora drop column Id_Motivo;
 alter table Extrato_Hora add column Motivo varchar(300);
+
+insert into parametrizacao values('Dia_Fechamento_Inicial', '26');
+insert into parametrizacao values('Dia_Fechamento_Final', '25');

@@ -16,10 +16,10 @@ public class RowColorFactory{
                 }
                 
                 switch(item.getStatus()){
-                    case PENDENTE_CORRECAO: break;
-                    case EM_APROVACAO:  setStyle("-fx-background-color: #ffcc00;"); break;
+                    case EM_APROVACAO:  setStyle("-fx-background-color: #7f7d9c;"); break;
                     case APROVADA: setStyle("-fx-background-color: lightgreen;"); break;
-                    case REPROVADA: setStyle("-fx-background-color: lightred;"); break;
+                    case REPROVADA: setStyle("-fx-background-color: #fb3b1e;"); break;
+                    case PENDENTE_CORRECAO:
                     case CRIACAO:
                     default:
                        break;

@@ -58,8 +58,6 @@ public class VisualizarCRController {
 		integrantesCol.setCellValueFactory(new PropertyValueFactory<>("integrante"));
 		descricaoCol.setCellValueFactory(new PropertyValueFactory<>("descricao"));
 		acoesCol.setCellValueFactory(new PropertyValueFactory<>(""));
-
-		buscar(null);
 	}
 	
 	public void buscar(ActionEvent event) {
