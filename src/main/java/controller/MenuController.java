@@ -82,6 +82,10 @@ public class MenuController implements Initializable {
     void irVisualizacaoUsuario(MouseEvent event) {
         changeScene("/view/Usuario/VisualizacaoUsuario.fxml");
     }
+    @FXML
+    void irDashboardColaborador(MouseEvent event) {
+    	changeScene("/view/Dashboard/DashboardColaborador.fxml");
+    }
 
     private void changeScene(String fxml) {
         Parent scene;

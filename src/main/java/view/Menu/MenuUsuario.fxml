@@ -86,11 +86,29 @@
                               <ColorAdjust contrast="1.0" hue="0.02" saturation="1.0" />
                            </effect>
                         </Group>
-                        <Text fill="#3a2fd3" layoutX="299.0" layoutY="97.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Seja bem vindo, colaborador!" textAlignment="CENTER">
+                        <Text fill="#3a2fd3" layoutX="253.0" layoutY="106.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Seja bem vindo, colaborador!" textAlignment="CENTER">
                            <font>
                               <Font name="Calibri Bold" size="24.0" />
                            </font>
                         </Text>
+                        <Group layoutX="430.0" layoutY="203.0" onMouseClicked="#irDashBoardColaborador">
+                           <children>
+                              <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#2128bf1f" height="112.0" layoutY="-7.0" stroke="BLACK" strokeType="INSIDE" style="-fx-border-radious: 10px;" width="192.0" />
+                              <ImageView fitHeight="54.0" fitWidth="65.0" layoutX="64.0" layoutY="22.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../assets/Grafico.png" />
+                                 </image>
+                              </ImageView>
+                              <Label layoutX="54.0" layoutY="76.0" text="Dashboard" textFill="#1f25c1">
+                                 <font>
+                                    <Font name="Verdana Bold" size="14.0" />
+                                 </font>
+                              </Label>
+                           </children>
+                           <effect>
+                              <ColorAdjust contrast="1.0" hue="0.02" saturation="1.0" />
+                           </effect>
+                        </Group>
                  
                         
                      </children>
