@@ -121,6 +121,29 @@ public class ExtratoHoraDAO extends BaseDAO {
         }
 
     }
+    
+    //select para pegar horas aprovada 
+    
+    public int qtdHoraAprovada() {
+    	try {
+    		String sql = "FROM extrato_hora SELECT Id_Etapa_Extrato";
+    		executarQuery(sql);
+    		return executarQuery(sql);
+    	}catch(Exception e) {
+    		e.addSuppressed(e);
+    	}
+    }
+   
+    //select para pegar horas reaprovada 
+    public int qtdHoraReprovada() {
+    	try {
+    		String sql = "FROM extrato_hora SELECT Id_Etapa_Extrato";
+    		executarQuery(sql);
+    		return executarQuery(sql);
+    	}catch(Exception e) {
+    		e.addSuppressed(e);
+    	}
+    }
 
     public void inserirMotivo(String motivo, ExtratoHoraModel extratoHora) {
         String sql = "UPDATE extrato_Hora SET Motivo = '" + motivo + "' WHERE Id= " + extratoHora.getId();
