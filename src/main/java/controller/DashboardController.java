@@ -23,7 +23,7 @@ public class DashboardController {
 
         ObservableList<PieChart.Data> pieChartData = FXCollections.observableArrayList();
 
-        // Adicione os dados da lista aprovada ao gráfico de pizza, adicionando a legenda de "Aprovado" e a quantidade aprovada
+        // Adicione os dados da lista aprovada ao gráfico de pizza, adicionando a legenda de "Aprovado" e a quantidade aprovada construção para extrair o tipo de usuario talvez necessario?
         int qtdAprovada = extratoHoraDAO.qtdHoraAprovada();
         if (qtdAprovada > 0) {
             pieChartData.add(new PieChart.Data("Aprovado", qtdAprovada));
