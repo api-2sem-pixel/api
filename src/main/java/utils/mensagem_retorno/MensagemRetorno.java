@@ -5,9 +5,12 @@ import javafx.scene.control.Alert.AlertType;
 
 public class MensagemRetorno {
 
-	
 	public MensagemRetorno() {
 		super();
+	}
+
+	public static void RelatorioGerado() {
+		sucesso("Relatório Gerado com Sucesso ");
 	}
 
 	public static void sucessoCadastro() {
@@ -19,7 +22,7 @@ public class MensagemRetorno {
 		alert.setContentText(message);
 		alert.show();
 	}
-	
+
 	public static void erroCadastro() {
 		erro("Não foi possível efetuar o cadastro");
 	}

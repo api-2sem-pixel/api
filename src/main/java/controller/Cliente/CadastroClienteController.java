@@ -23,10 +23,10 @@ public class CadastroClienteController {
 
 	@FXML
 	private TextField tfRazaoSocial;
-	
+
 	@FXML
 	private TextField tfCNPJ;
-	
+
 	public void cadastrarCliente(ActionEvent event) {
 		try {
 			this.clienteDAO.salvar(new Cliente(tfRazaoSocial.getText(), tfCNPJ.getText()));
@@ -36,20 +36,20 @@ public class CadastroClienteController {
 			MensagemRetorno.erroCadastro();
 		}
 	}
-	
+
 	public void limpar() {
 		tfRazaoSocial.clear();
 		tfCNPJ.clear();
 	}
-	
-    @FXML
-    void irControleCliente(ActionEvent event) {
+
+	@FXML
+	void irControleCliente(ActionEvent event) {
 		MenuController mc = new MenuController();
 		mc.irControleCliente(null);
-    }
+	}
 
-    @FXML
-    void retornarMenu(MouseEvent event) {
-        MenuController.irMenu();
-    }
+	@FXML
+	void retornarMenu(MouseEvent event) {
+		MenuController.irMenu();
+	}
 }

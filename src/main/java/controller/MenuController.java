@@ -28,7 +28,6 @@ public class MenuController implements Initializable {
     public void initialize(URL location, ResourceBundle resources) {
     }
 
-    
     @FXML
     void irParametrizacao(MouseEvent event) {
         changeScene("/view/Parametrizacao/ParametrizacaoVerbas.fxml");
@@ -87,6 +86,11 @@ public class MenuController implements Initializable {
     @FXML
     void irVisualizacaoUsuario(MouseEvent event) {
         changeScene("/view/Usuario/VisualizacaoUsuario.fxml");
+    }
+
+    @FXML
+    void irRelatorio(MouseEvent event) {
+        changeScene("/view/Relatorio/Relatorio.fxml");
     }
 
     private void changeScene(String fxml) {
