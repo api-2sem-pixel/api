@@ -3,6 +3,7 @@ package dao;
 import model.ExtratoHoraModel;
 import java.sql.Connection;
 import java.sql.ResultSet;
+import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
@@ -27,7 +28,8 @@ public class ExtratoHoraDAO extends BaseDAO {
                 "from Extrato_Hora a  " +
                 "inner join Cr b on a.Id_Cr = b.Id " +
                 "inner join Modalidade c on c.Id = a.Id_Modalidade " +
-                "inner join Cliente e on e.Id = a.Id_Cliente ";
+                "inner join Cliente e on e.Id = a.Id_Cliente " + 
+                "inner join Usuario f on f.Id = a.Id_Usuario ";
     }
 
     public ExtratoHoraDAO(Connection connection) {
@@ -48,9 +50,9 @@ public class ExtratoHoraDAO extends BaseDAO {
     
     
     
-    public ArrayList<ExtratoHoraModel> obterRelatorioGerente(LocalDateTime dataInicio,LocalDateTime dataFim, String projeto, int userId) {
+    public ArrayList<ExtratoHoraModel> obterRelatorioGerente(LocalDate dataInicio,LocalDate dataFim, String projeto, String userId) {
         String sql = getQueryExtratoHoraModel() +
-                " where a.Id_Usuario = " + userId;
+                " where f.Nome = " + userId;
 
         if (projeto != null && !projeto.isEmpty())
             sql += " AND projeto like '%" + projeto + "%'";
