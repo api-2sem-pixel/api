@@ -64,14 +64,14 @@
               <children>
                         <TableView fx:id="table_lancamento" centerShape="false" editable="true" layoutX="18.0" layoutY="115.0" prefHeight="401.0" prefWidth="800.0" AnchorPane.leftAnchor="18.0" AnchorPane.rightAnchor="42.0">
                           <columns>
-                              <TableColumn fx:id="col_cr" prefWidth="93.6000394821167" styleClass="rp-column" text="CR" />
-                            <TableColumn fx:id="col_projeto" prefWidth="75.0" styleClass="rp-column" text="Projeto" />
+                              <TableColumn fx:id="col_cr" prefWidth="36.0" styleClass="rp-column" text="CR" />
+                            <TableColumn fx:id="col_projeto" prefWidth="138.0" styleClass="rp-column" text="Projeto" />
                               <TableColumn fx:id="col_cliente" prefWidth="75.0" styleClass="rp-column" text="Cliente" />
-                              <TableColumn fx:id="col_modalidade" prefWidth="138.3999786376953" styleClass="rp-column" text="Modalidade" />
-                              <TableColumn fx:id="col_inicio" prefWidth="111.20001220703125" styleClass="rp-column" text="Inicio" />
-                              <TableColumn fx:id="col_fim" prefWidth="75.0" styleClass="rp-column" text="Fim" />
-                              <TableColumn fx:id="col_justificativa" prefWidth="75.0" styleClass="rp-column" text="Justificativa" />
-                              <TableColumn fx:id="col_motivo" prefWidth="75.0" styleClass="rp-column" text="Motivo" />
+                              <TableColumn fx:id="col_modalidade" prefWidth="78.0" styleClass="rp-column" text="Modalidade" />
+                              <TableColumn fx:id="col_inicio" prefWidth="126.0" styleClass="rp-column" text="Inicio" />
+                              <TableColumn fx:id="col_fim" prefWidth="81.0" styleClass="rp-column" text="Fim" />
+                              <TableColumn fx:id="col_justificativa" prefWidth="116.0" styleClass="rp-column" text="Justificativa do Lançamento" />
+                              <TableColumn fx:id="col_motivo" prefWidth="75.0" styleClass="rp-column" text="Motivo da Reprova" />
                               <TableColumn fx:id="col_acoes" prefWidth="75.0" styleClass="rp-column" text="Ações" />
                               <TableColumn fx:id="col_id" editable="false" prefWidth="93.6000394821167" styleClass="rp-column" text="ID" visible="false" />
                           </columns>

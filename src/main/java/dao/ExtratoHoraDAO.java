@@ -23,11 +23,14 @@ public class ExtratoHoraDAO extends BaseDAO {
                 "a.Id IdExtrato, " +
                 "e.Razao_Social NomeCliente, " +
                 "a.Justificativa Justificativa, " +
-                "a.Id_Etapa_Extrato Etapa_Extrato " +
+                "a.Id_Etapa_Extrato Etapa_Extrato, " +
+                "a.Id_Usuario, " +
+                "f.nome " + 
                 "from Extrato_Hora a  " +
                 "inner join Cr b on a.Id_Cr = b.Id " +
                 "inner join Modalidade c on c.Id = a.Id_Modalidade " +
-                "inner join Cliente e on e.Id = a.Id_Cliente ";
+                "inner join Cliente e on e.Id = a.Id_Cliente " + 
+                "inner join Usuario f on f.Id = a.Id_Usuario";
     }
 
     public ExtratoHoraDAO(Connection connection) {
@@ -70,7 +73,8 @@ public class ExtratoHoraDAO extends BaseDAO {
         String sql = getQueryExtratoHoraModel() +
                 " where (a.Id_Cr in (SELECT Id_Cr FROM Cr_Usuario where Id_Usuario = " + userId + ") or " +
                 " " + userId + " in (SELECT Id FROM Usuario where Id_Tipo_Usuario = 3)) " +
-                " and Id_Etapa_Extrato in (1,4)";
+                " order by Id_Etapa_Extrato ASC ";
+                //" and Id_Etapa_Extrato in (1,4)";
 
         if (projeto != null && !projeto.isEmpty())
             sql += " AND projeto like '%" + projeto + "%'";
@@ -99,6 +103,8 @@ public class ExtratoHoraDAO extends BaseDAO {
             model.setCliente(resultSet.getString(10));
             model.setJustificativa(resultSet.getString(11));
             model.setStatus(resultSet.getInt(12));
+            model.setIdUsuario(resultSet.getInt(13));
+            model.setSolicitante(resultSet.getString(14));
 
             return model;
         } catch (Exception e) {
