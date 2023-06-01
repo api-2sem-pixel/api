@@ -43,6 +43,17 @@ public class ExtratoHoraDAO extends BaseDAO {
         return this.executarQuery(sql, resultSet -> mapearParaExtratoHoraModel(resultSet));
     }
 
+    public ArrayList<ExtratoHoraModel> obterExtratoHoraAprovado(int userId, String projeto) {
+        String sql = "SELECT Projeto, Modalidade, Inicio, Fim, Motivo FROM extrato_hora WHERE Id_Usuario = " + userId
+                + " AND Status = 'Aprovado'";
+
+        if (projeto != null && !projeto.isEmpty()) {
+            sql += " AND Projeto LIKE '%" + projeto + "%'";
+        }
+
+        return this.executarQuery(sql, resultSet -> mapearParaExtratoHoraModel(resultSet));
+    }
+
     public ArrayList<ExtratoHoraModel> obterExtratosParaAprovar(int userId, String projeto) {
         String sql = getQueryExtratoHoraModel() +
                 " where (a.Id_Cr in (SELECT Id_Cr FROM Cr_Usuario where Id_Usuario = " + userId + ") or " +
