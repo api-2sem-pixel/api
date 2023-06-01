@@ -1,7 +1,6 @@
 package controller;
 
 import dao.ExtratoHoraDAO;
-import enums.EtapaExtrato;
 import factory.ConnectionFactory;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -18,7 +17,8 @@ public class DashboardController {
 
     @FXML
     protected void initialize() {
-        ExtratoHoraDAO extratoHoraDAO;
+        Connection conn = new ConnectionFactory().recuperarConexao();
+        ExtratoHoraDAO extratoHoraDAO = new ExtratoHoraDAO(conn);
 
 
         ObservableList<PieChart.Data> pieChartData = FXCollections.observableArrayList();
