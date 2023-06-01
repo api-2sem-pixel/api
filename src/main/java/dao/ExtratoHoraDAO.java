@@ -126,8 +126,8 @@ public class ExtratoHoraDAO extends BaseDAO {
     
     public int qtdHoraAprovada() {
         try {
-            String sql = "SELECT COUNT(*) FROM extrato_hora WHERE Id_Etapa_Extrato AND Id_Usuario = 1" + EtapaExtrato.APROVADA.ordinal();
-           return executeUpdate(sql);
+           String sql = "SELECT COUNT(*) FROM extrato_hora WHERE  Id_Usuario = 1 AND Id_Etapa_Extrato =" + EtapaExtrato.APROVADA.ordinal();
+           return executeCount(sql);
         } catch (Exception e) {
             e.printStackTrace();
             return 0;
@@ -137,8 +137,8 @@ public class ExtratoHoraDAO extends BaseDAO {
     //select para pegar horas reaprovada 
     public int qtdHoraReprovada() {
         try {
-            String sql = "SELECT COUNT(*) FROM extrato_hora WHERE Id_Etapa_Extrato AND Id_Usuario = 1" + EtapaExtrato.REPROVADA.ordinal();
-            return executeUpdate(sql);
+            String sql = "SELECT COUNT(*) FROM extrato_hora WHERE  Id_Usuario = 1 AND Id_Etapa_Extrato =" + EtapaExtrato.REPROVADA.ordinal();
+            return executeCount(sql);
         } catch (Exception e) {
             e.printStackTrace();
             return 0;

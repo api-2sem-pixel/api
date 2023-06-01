@@ -6,7 +6,7 @@
 <?import javafx.scene.text.Text?>
 
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="DashboardController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.DashboardController">
    <children>
       <PieChart id="dash" fx:id="dashboard" layoutX="85.0" layoutY="53.0" prefHeight="325.0" prefWidth="453.0" title="Acompanhamento de horas" />
       <Text fill="#111fe8" layoutX="187.0" layoutY="46.0" strokeType="OUTSIDE" strokeWidth="0.0" text="DashBoard Colaborador">
