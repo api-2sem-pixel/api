@@ -71,12 +71,12 @@
                              <Group layoutX="319.0" layoutY="249.0" onMouseClicked="#irLancamentoHora" AnchorPane.leftAnchor="319.0">
                            <children>
                               <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#2128bf1f" height="112.0" layoutY="-7.0" stroke="BLACK" strokeType="INSIDE" style="-fx-border-radious: 10px;" width="192.0" />
-                              <ImageView fitHeight="54.0" fitWidth="65.0" layoutX="64.0" layoutY="22.0" pickOnBounds="true" preserveRatio="true">
+                              <ImageView fitHeight="54.0" fitWidth="65.0" layoutX="72.0" layoutY="22.0" pickOnBounds="true" preserveRatio="true">
                                  <image>
-                                    <Image url="@../assets/Grafico.png" />
+                                    <Image url="@../assets/lancamento-horas.png" />
                                  </image>
                               </ImageView>
-                              <Label layoutX="18.0" layoutY="76.0" text="Lançamento de Hora" textFill="#1f25c1">
+                              <Label layoutX="18.0" layoutY="82.0" text="Lançamento de Hora" textFill="#1f25c1">
                                  <font>
                                     <Font name="Verdana Bold" size="14.0" />
                                  </font>
