@@ -3,9 +3,11 @@ package controller.Relatorio;
 import java.io.BufferedWriter;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.sql.Connection;
 import java.time.LocalDateTime;
 
 import dao.ExtratoHoraDAO;
+import factory.ConnectionFactory;
 import controller.MenuController;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -17,8 +19,9 @@ public class RelatorioControllerGestor {
 
 	  @FXML
 	    public void GerarRelatorio(ActionEvent event) {
-		  
-		  ExtratoHoraDAO extrato = new ExtratoHoraDAO(null);
+		  Connection connection = new ConnectionFactory().recuperarConexao();
+		 
+		  ExtratoHoraDAO extrato = new ExtratoHoraDAO(connection);
 		  
 		  extrato.obterRelatorioGerente(null, null, null, 0);
 		  
