@@ -3,7 +3,9 @@ package controller.Relatorio;
 import java.io.BufferedWriter;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.time.LocalDateTime;
 
+import dao.ExtratoHoraDAO;
 import controller.MenuController;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -12,15 +14,23 @@ import utils.mensagem_retorno.MensagemRetorno;
 
 public class RelatorioControllerGestor {
 
+
 	  @FXML
 	    public void GerarRelatorio(ActionEvent event) {
+		  
+		  ExtratoHoraDAO extrato = new ExtratoHoraDAO(null);
+		  
+		  extrato.obterRelatorioGerente(null, null, null, 0);
+		  
 
 	        String csvFilePath = "relatorio.csv";
+	        
 
 	        try (BufferedWriter writer = new BufferedWriter(new FileWriter(csvFilePath))) {
 	            // Escreve os cabeçalhos das colunas
 	            writer.write("Projeto,Modalidade, Hora de Inicio, Hora Final, Motivo ");
 	            writer.newLine();
+	            
 
 	            /*
 	             * ResultSet resultSet = extratos.executeQuery();
@@ -60,5 +70,5 @@ public class RelatorioControllerGestor {
 	        MenuController.irMenu();
 	    }
 
-	}
+}
 

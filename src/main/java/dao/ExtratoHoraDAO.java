@@ -8,6 +8,7 @@ import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import enums.EtapaExtrato;
 
+
 public class ExtratoHoraDAO extends BaseDAO {
 
     private String getQueryExtratoHoraModel() {
@@ -42,6 +43,28 @@ public class ExtratoHoraDAO extends BaseDAO {
 
         return this.executarQuery(sql, resultSet -> mapearParaExtratoHoraModel(resultSet));
     }
+    
+    
+    
+    
+    
+    public ArrayList<ExtratoHoraModel> obterRelatorioGerente(LocalDateTime dataInicio,LocalDateTime dataFim, String projeto, int userId) {
+        String sql = getQueryExtratoHoraModel() +
+                " where a.Id_Usuario = " + userId;
+
+        if (projeto != null && !projeto.isEmpty())
+            sql += " AND projeto like '%" + projeto + "%'";
+        
+        if (dataInicio != null && dataFim != null && !dataInicio.isAfter(dataFim)){
+        	sql += " a.DataHora_Inicio >= '" + dataInicio + "'";
+        	sql += " a.DataHora_Fim <= '" + dataFim + "'";
+        }
+        
+        return this.executarQuery(sql, resultSet -> mapearParaExtratoHoraModel(resultSet));
+    }
+    
+    
+    
 
     public ArrayList<ExtratoHoraModel> obterExtratosParaAprovar(int userId, String projeto) {
         String sql = getQueryExtratoHoraModel() +
