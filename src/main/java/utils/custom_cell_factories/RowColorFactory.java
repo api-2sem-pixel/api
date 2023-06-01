@@ -16,9 +16,9 @@ public class RowColorFactory{
                 }
                 
                 switch(item.getStatus()){
-                    case EM_APROVACAO:  setStyle("-fx-background-color: #7f7d9c;"); break;
                     case APROVADA: setStyle("-fx-background-color: lightgreen;"); break;
                     case REPROVADA: setStyle("-fx-background-color: #fb3b1e;"); break;
+                    case EM_APROVACAO: 
                     case PENDENTE_CORRECAO:
                     case CRIACAO:
                     default:

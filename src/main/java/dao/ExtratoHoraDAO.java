@@ -24,7 +24,8 @@ public class ExtratoHoraDAO extends BaseDAO {
                 "a.Id IdExtrato, " +
                 "e.Razao_Social NomeCliente, " +
                 "a.Justificativa Justificativa, " +
-                "a.Id_Etapa_Extrato Etapa_Extrato " +
+                "a.Id_Etapa_Extrato Etapa_Extrato, " +
+                "f.nome Solicitante " +
                 "from Extrato_Hora a  " +
                 "inner join Cr b on a.Id_Cr = b.Id " +
                 "inner join Modalidade c on c.Id = a.Id_Modalidade " +
@@ -72,7 +73,8 @@ public class ExtratoHoraDAO extends BaseDAO {
         String sql = getQueryExtratoHoraModel() +
                 " where (a.Id_Cr in (SELECT Id_Cr FROM Cr_Usuario where Id_Usuario = " + userId + ") or " +
                 " " + userId + " in (SELECT Id FROM Usuario where Id_Tipo_Usuario = 3)) " +
-                " and Id_Etapa_Extrato in (1,4)";
+                //" and Id_Etapa_Extrato in (1,4)" +
+                " order by Id_Etapa_Extrato ASC ";
 
         if (projeto != null && !projeto.isEmpty())
             sql += " AND projeto like '%" + projeto + "%'";
@@ -101,6 +103,7 @@ public class ExtratoHoraDAO extends BaseDAO {
             model.setCliente(resultSet.getString(10));
             model.setJustificativa(resultSet.getString(11));
             model.setStatus(resultSet.getInt(12));
+            model.setSolicitante(resultSet.getString(13));
 
             return model;
         } catch (Exception e) {
