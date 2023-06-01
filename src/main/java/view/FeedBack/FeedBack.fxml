@@ -65,6 +65,7 @@
               <children>
                         <TableView fx:id="table_lancamento" centerShape="false" editable="true" layoutX="25.0" layoutY="124.0" prefHeight="451.0" prefWidth="766.0" AnchorPane.leftAnchor="25.0" AnchorPane.rightAnchor="79.0">
                           <columns>
+                              <TableColumn fx:id="col_solicitante" prefWidth="75.0" styleClass="rp-column" text="Solicitante" />
                               <TableColumn fx:id="col_cr" prefWidth="93.6000394821167" styleClass="rp-column" text="CR" />
                             <TableColumn fx:id="col_projeto" prefWidth="75.0" styleClass="rp-column" text="Projeto" />
                               <TableColumn fx:id="col_cliente" prefWidth="75.0" styleClass="rp-column" text="Cliente" />

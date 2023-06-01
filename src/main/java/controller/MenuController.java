@@ -87,7 +87,12 @@ public class MenuController implements Initializable {
     void irVisualizacaoUsuario(MouseEvent event) {
         changeScene("/view/Usuario/VisualizacaoUsuario.fxml");
     }
-
+    
+    @FXML
+    void irRelatorioGestor(MouseEvent event) {
+        changeScene("/view/Relatorio/Relatorio.fxml");
+    }
+    
     @FXML
     void irRelatorio(MouseEvent event) {
         changeScene("/view/Relatorio/Relatorio.fxml");

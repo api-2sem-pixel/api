@@ -7,6 +7,7 @@ import enums.EtapaExtrato;
 public class ExtratoHoraModel {
     private Integer id;
     private Integer idUsuario;
+    private String solicitante;
     private String projeto;
     private Integer idModalidade;
     private String modalidade;
@@ -39,6 +40,14 @@ public class ExtratoHoraModel {
         extrato.setStatus(EtapaExtrato.CRIACAO);
 
         return extrato;
+    }
+
+    public String getSolicitante() {
+        return solicitante;
+    }
+
+    public void setSolicitante(String solicitante) {
+        this.solicitante = solicitante;
     }
 
     public Integer getIdUsuario() {
