@@ -14,61 +14,56 @@ import utils.mensagem_retorno.MensagemRetorno;
 
 public class RelatorioControllerGestor {
 
+	@FXML
+	public void GerarRelatorio(ActionEvent event) {
 
-	  @FXML
-	    public void GerarRelatorio(ActionEvent event) {
-		  
-		  ExtratoHoraDAO extrato = new ExtratoHoraDAO(null);
-		  
-		  extrato.obterRelatorioGerente(null, null, null, 0);
-		  
+		ExtratoHoraDAO extrato = new ExtratoHoraDAO(null);
 
-	        String csvFilePath = "relatorio.csv";
-	        
+		extrato.obterRelatorioGerente(null, null, null, 0);
 
-	        try (BufferedWriter writer = new BufferedWriter(new FileWriter(csvFilePath))) {
-	            // Escreve os cabeçalhos das colunas
-	            writer.write("Projeto,Modalidade, Hora de Inicio, Hora Final, Motivo ");
-	            writer.newLine();
-	            
+		String csvFilePath = "relatorio.csv";
 
-	            /*
-	             * ResultSet resultSet = extratos.executeQuery();
-	             * 
-	             * while (resultSet.next()) {
-	             * String projeto = resultSet.getString("projeto");
-	             * String modalidade = resultSet.getString("modalidade");
-	             * String horaInicio = resultSet.getString("hora_inicio");
-	             * String horaFinal = resultSet.getString("hora_final");
-	             * String motivo = resultSet.getString("motivo");
-	             * 
-	             * writer.write(projeto + "," + modalidade + "," + horaInicio + "," + horaFinal
-	             * + "," + motivo);
-	             * writer.newLine();
-	             * }
-	             */
+		try (BufferedWriter writer = new BufferedWriter(new FileWriter(csvFilePath))) {
+			// Escreve os cabeçalhos das colunas
+			writer.write("Projeto,Modalidade, Hora de Inicio, Hora Final, Motivo ");
+			writer.newLine();
 
-	            // Escreve os dados dos registros
-	            writer.write("");
-	            writer.newLine();
-	            writer.write("");
-	            writer.newLine();
-	            writer.write("");
-	            writer.newLine();
+			/*
+			 * ResultSet resultSet = extratos.executeQuery();
+			 * 
+			 * while (resultSet.next()) {
+			 * String projeto = resultSet.getString("projeto");
+			 * String modalidade = resultSet.getString("modalidade");
+			 * String horaInicio = resultSet.getString("hora_inicio");
+			 * String horaFinal = resultSet.getString("hora_final");
+			 * String motivo = resultSet.getString("motivo");
+			 * 
+			 * writer.write(projeto + "," + modalidade + "," + horaInicio + "," + horaFinal
+			 * + "," + motivo);
+			 * writer.newLine();
+			 * }
+			 */
 
-	            MensagemRetorno.RelatorioGerado();
+			// Escreve os dados dos registros
+			writer.write("");
+			writer.newLine();
+			writer.write("");
+			writer.newLine();
+			writer.write("");
+			writer.newLine();
 
-	            System.out.println("Arquivo CSV gerado com sucesso.");
-	        } catch (IOException e) {
-	            e.printStackTrace();
-	        }
+			MensagemRetorno.RelatorioGerado();
 
-	    }
+			System.out.println("Arquivo CSV gerado com sucesso.");
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
 
-	    @FXML
-	    void retornarMenu(MouseEvent event) {
-	        MenuController.irMenu();
-	    }
+	}
+
+	@FXML
+	void retornarMenu(MouseEvent event) {
+		MenuController.irMenu();
+	}
 
 }
-
