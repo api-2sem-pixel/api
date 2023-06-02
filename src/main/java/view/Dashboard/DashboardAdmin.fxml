@@ -8,7 +8,7 @@
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.DashboardController">
    <children>
       <PieChart id="dash" fx:id="dashboard" layoutX="85.0" layoutY="53.0" prefHeight="325.0" prefWidth="453.0" title="Acompanhamento de horas" />
-      <Text fill="#111fe8" layoutX="151.0" layoutY="47.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Dashboard Colaborador">
+      <Text fill="#111fe8" layoutX="191.0" layoutY="47.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Dashboard Admin">
          <font>
             <Font name="System Bold" size="24.0" />
          </font>

@@ -119,7 +119,6 @@ public class ExtratoHoraDAO extends BaseDAO {
         } catch (Exception e) {
             e.addSuppressed(e);
         }
-
     }
     
     //select para pegar horas aprovada 
