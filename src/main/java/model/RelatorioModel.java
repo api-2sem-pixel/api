@@ -13,6 +13,10 @@ public class RelatorioModel {
 		this.verba = verba;
 		this.quantidadeHoras = quantidadeHoras;
 	}
+	
+	public RelatorioModel() {
+		
+	}
 
 	public String getMatricula() {
 		return matricula;
