@@ -13,18 +13,17 @@ import org.apache.poi.ss.usermodel.IndexedColors;
 import org.apache.poi.ss.usermodel.Row;
 import org.apache.poi.ss.usermodel.Sheet;
 import org.apache.poi.ss.usermodel.Workbook;
-
-
 import model.RelatorioModel;
+import utils.mensagem_retorno.MensagemRetorno;
 
 public class GerarRelatorio {
 
 	private static String[] columns = {"Matricula", "Nome", "Verba", "Qtde de H"};
-	private static List<RelatorioModel> relatorioModel = new ArrayList<RelatorioModel>();
 	
-	public static void main(String[] args) throws IOException {
-		relatorioModel.add(new RelatorioModel("teste", "teste1", "teste2",0d));
-		
+	private MensagemRetorno msg = new MensagemRetorno();
+	
+	public void geraXls(List<RelatorioModel> relatorioModel) throws IOException {
+	
 		HSSFWorkbook workbook = new HSSFWorkbook();
 		Sheet sheet = workbook.createSheet("Relatorio");
 		
@@ -58,10 +57,10 @@ public class GerarRelatorio {
 			sheet.autoSizeColumn(i);
 		}
 		
-		FileOutputStream fileOut = new FileOutputStream("teste9.xls");
+		FileOutputStream fileOut = new FileOutputStream("C:/teste/relatorio.xls");
 		workbook.write(fileOut);
 		fileOut.close();
 		workbook.close();
+		msg.sucesso("Relatório exportado com sucesso");
 	}
-	
 }

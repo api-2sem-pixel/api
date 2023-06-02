@@ -1,5 +1,6 @@
 package controller.Relatorio;
 
+import java.io.IOException;
 import java.sql.Connection;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -27,14 +28,15 @@ import javafx.scene.input.MouseEvent;
 import model.DadosRelatorio;
 import model.RelatorioModel;
 import relatorio.CalcularVerba;
+import relatorio.GerarRelatorio;
 
-public class RelatorioController {
+public class RelatorioVerbaController {
 
 	private CrDAO crDAO;
 	
 	private RelatorioDAO relatorioDAO;
 
-	public RelatorioController() {
+	public RelatorioVerbaController() {
 		Connection connection = new ConnectionFactory().recuperarConexao();
 		this.crDAO = new CrDAO(connection);
 		this.relatorioDAO = new RelatorioDAO(connection);
@@ -67,6 +69,8 @@ public class RelatorioController {
 	
 	private DateTimeFormatter dtf = DateTimeFormat.forPattern("MM/dd/yyyy HH:mm:ss");
 	
+	private GerarRelatorio gerarRelatorio = new GerarRelatorio();
+	
 	@FXML
 	protected void initialize() {
 		cr.addAll(crDAO.getIdGestorAndNomeCr());
@@ -76,7 +80,7 @@ public class RelatorioController {
 		
 	}
 	
-	public void gerarRelatorio(ActionEvent event) {
+	public void gerarRelatorio(ActionEvent event) throws IOException {
 		CrDTO cr = (CrDTO) comboCR.getSelectionModel().getSelectedItem();
 		String verba = (String) comboVerba.getSelectionModel().getSelectedItem();
 		List<RelatorioModel> relatorioModel = new ArrayList<RelatorioModel>();
@@ -92,9 +96,10 @@ public class RelatorioController {
 				relatorioModel.add(relatorio);
 			}else {
 				double qntHr = relatorioModel.get(relatorioModel.size()-1).getQuantidadeHoras();
-				relatorioModel.get(-1).setQuantidadeHoras(qntHr + calcularVerba.calculaQuantidadeHrsPorVerba(verba, convertToDateTime(dado.getDtIni()), convertToDateTime(dado.getDtFim())));
+				relatorioModel.get(relatorioModel.size()-1).setQuantidadeHoras(qntHr + calcularVerba.calculaQuantidadeHrsPorVerba(verba, convertToDateTime(dado.getDtIni()), convertToDateTime(dado.getDtFim())));
 			}
 		}
+		gerarRelatorio.geraXls(relatorioModel);
 	}
 	
     @FXML void retornarMenu(MouseEvent event) {
@@ -102,8 +107,6 @@ public class RelatorioController {
     }
     
     public LocalDateTime convertToDateTime(Date data) {
-    	//"MM/dd/yyyy HH:mm:ss"
-    	//String dataFormatada = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(data);
     	String dataFormatada = new SimpleDateFormat("MM/dd/yyyy HH:mm:ss").format(data);
     	return dtf.parseDateTime(dataFormatada).toLocalDateTime();
     }
