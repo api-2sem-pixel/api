@@ -121,8 +121,7 @@ public class ExtratoHoraDAO extends BaseDAO {
         }
     }
     
-    //select para pegar horas aprovada 
-    
+    //Select para pegar horas aprovadas 
     public int qtdHoraAprovada() {
         try {
            String sql = "SELECT COUNT(*) FROM extrato_hora WHERE  Id_Usuario = 1 AND Id_Etapa_Extrato =" + EtapaExtrato.APROVADA.ordinal();
@@ -133,10 +132,32 @@ public class ExtratoHoraDAO extends BaseDAO {
         }
     }
    
-    //select para pegar horas reaprovada 
+    //Select para pegar horas reaprovadas 
     public int qtdHoraReprovada() {
         try {
             String sql = "SELECT COUNT(*) FROM extrato_hora WHERE  Id_Usuario = 1 AND Id_Etapa_Extrato =" + EtapaExtrato.REPROVADA.ordinal();
+            return executeCount(sql);
+        } catch (Exception e) {
+            e.printStackTrace();
+            return 0;
+        }
+    }
+    
+    // ********************* Pegar horas aprovadas do CR
+    public int qtdHoraCrAprovada() {
+        try {
+           String sql = "SELECT COUNT(*) FROM extrato_hora WHERE  Id_Cr AND Id_Etapa_Extrato =" + EtapaExtrato.APROVADA.ordinal();
+           return executeCount(sql);
+        } catch (Exception e) {
+            e.printStackTrace();
+            return 0;
+        }
+    }
+    
+    // ********************* Pegar horas aprovadas do CR
+    public int qtdHoraCrReprovada() {
+        try {
+            String sql = "SELECT COUNT(*) FROM extrato_hora WHERE  Id_Cr AND Id_Etapa_Extrato =" + EtapaExtrato.REPROVADA.ordinal();
             return executeCount(sql);
         } catch (Exception e) {
             e.printStackTrace();

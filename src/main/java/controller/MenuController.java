@@ -83,11 +83,11 @@ public class MenuController implements Initializable {
         changeScene("/view/Usuario/VisualizacaoUsuario.fxml");
     }
     @FXML
-    void irDashboardColaborador(MouseEvent event) {
+    void irDashboard(MouseEvent event) {
     	changeScene("/view/Dashboard/DashboardColaborador.fxml");
     }
 
-    private void changeScene(String fxml) {
+    void changeScene(String fxml) {
         Parent scene;
         try {
             scene = FXMLLoader.load(getClass().getResource(fxml));
