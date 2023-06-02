@@ -1,25 +1,49 @@
 package controller.Relatorio;
 
+import java.awt.Button;
+import java.awt.TextField;
 import java.io.BufferedWriter;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.sql.Connection;
 import java.time.LocalDateTime;
 
 import dao.ExtratoHoraDAO;
+import factory.ConnectionFactory;
 import controller.MenuController;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.scene.control.ComboBox;
+import javafx.scene.control.DatePicker;
 import javafx.scene.input.MouseEvent;
 import utils.mensagem_retorno.MensagemRetorno;
 
 public class RelatorioControllerGestor {
 
 	@FXML
+	private Button bt_gerar_relatorio;
+
+	@FXML
+	private ComboBox<String> combo_usuario;
+
+	@FXML
+	private DatePicker cx_data_fim;
+
+	@FXML
+	private DatePicker cx_data_inicio;
+
+	@FXML
+	private TextField cx_projeto;
+
+	@FXML
 	public void GerarRelatorio(ActionEvent event) {
 
-		ExtratoHoraDAO extrato = new ExtratoHoraDAO(null);
+		Connection connection = new ConnectionFactory().recuperarConexao();
 
-		extrato.obterRelatorioGerente(null, null, null, 0);
+		ExtratoHoraDAO extrato = new ExtratoHoraDAO(connection);
+
+		extrato.obterRelatorioGerente(cx_data_inicio.getValue(), cx_data_fim.getValue(), cx_projeto.getText(),
+				combo_usuario.getValue());
 
 		String csvFilePath = "relatorio.csv";
 

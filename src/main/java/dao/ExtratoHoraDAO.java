@@ -3,6 +3,7 @@ package dao;
 import model.ExtratoHoraModel;
 import java.sql.Connection;
 import java.sql.ResultSet;
+import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
@@ -46,10 +47,10 @@ public class ExtratoHoraDAO extends BaseDAO {
         return this.executarQuery(sql, resultSet -> mapearParaExtratoHoraModel(resultSet));
     }
 
-    public ArrayList<ExtratoHoraModel> obterRelatorioGerente(LocalDateTime dataInicio, LocalDateTime dataFim,
-            String projeto, int userId) {
+    public ArrayList<ExtratoHoraModel> obterRelatorioGerente(LocalDate dataInicio, LocalDate dataFim, String projeto,
+            String userId) {
         String sql = getQueryExtratoHoraModel() +
-                " where a.Id_Usuario = " + userId;
+                " where f.Nome = " + userId;
 
         if (projeto != null && !projeto.isEmpty())
             sql += " AND projeto like '%" + projeto + "%'";
@@ -77,8 +78,8 @@ public class ExtratoHoraDAO extends BaseDAO {
         String sql = getQueryExtratoHoraModel() +
                 " where (a.Id_Cr in (SELECT Id_Cr FROM Cr_Usuario where Id_Usuario = " + userId + ") or " +
                 " " + userId + " in (SELECT Id FROM Usuario where Id_Tipo_Usuario = 3)) " +
+                // " and Id_Etapa_Extrato in (1,4)" +
                 " order by Id_Etapa_Extrato ASC ";
-        // " and Id_Etapa_Extrato in (1,4)";
 
         if (projeto != null && !projeto.isEmpty())
             sql += " AND projeto like '%" + projeto + "%'";
@@ -107,8 +108,7 @@ public class ExtratoHoraDAO extends BaseDAO {
             model.setCliente(resultSet.getString(10));
             model.setJustificativa(resultSet.getString(11));
             model.setStatus(resultSet.getInt(12));
-            model.setIdUsuario(resultSet.getInt(13));
-            model.setSolicitante(resultSet.getString(14));
+            model.setSolicitante(resultSet.getString(13));
 
             return model;
         } catch (Exception e) {

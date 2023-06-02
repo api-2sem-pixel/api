@@ -42,7 +42,7 @@ public class RelatorioController {
         var projeto = tpProjeto.getText();
         LocalDateTime datai = dataInicio.getValue().atStartOfDay();
         LocalDateTime dataF = dataFim.getValue().atTime(23, 59, 59);
-        ArrayList<ExtratoHoraModel> dados = extrato.obterRelatorioGerente(datai, dataF, projeto, 1);
+        ArrayList<ExtratoHoraModel> dados = extrato.obterRelatorioGerente(datai, dataF, projeto, "1");
 
         try (BufferedWriter writer = new BufferedWriter(new FileWriter(csvFilePath))) {
             writer.write("Projeto,Modalidade, Hora de Inicio, Hora Final, Motivo ");
