@@ -4,7 +4,8 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
-/*
+
+import org.apache.poi.hssf.usermodel.HSSFWorkbook;
 import org.apache.poi.ss.usermodel.Cell;
 import org.apache.poi.ss.usermodel.CellStyle;
 import org.apache.poi.ss.usermodel.Font;
@@ -12,19 +13,19 @@ import org.apache.poi.ss.usermodel.IndexedColors;
 import org.apache.poi.ss.usermodel.Row;
 import org.apache.poi.ss.usermodel.Sheet;
 import org.apache.poi.ss.usermodel.Workbook;
-import org.apache.poi.xssf.usermodel.XSSFWorkbook;
-*/
+
+
 import model.RelatorioModel;
 
 public class GerarRelatorio {
-/*
+
 	private static String[] columns = {"Matricula", "Nome", "Verba", "Qtde de H"};
 	private static List<RelatorioModel> relatorioModel = new ArrayList<RelatorioModel>();
 	
 	public static void main(String[] args) throws IOException {
 		relatorioModel.add(new RelatorioModel("teste", "teste1", "teste2",0d));
 		
-		Workbook workbook = new XSSFWorkbook();
+		HSSFWorkbook workbook = new HSSFWorkbook();
 		Sheet sheet = workbook.createSheet("Relatorio");
 		
 		Font headerFont = workbook.createFont();
@@ -57,11 +58,10 @@ public class GerarRelatorio {
 			sheet.autoSizeColumn(i);
 		}
 		
-		FileOutputStream fileOut = new FileOutputStream("teste5.xlsx");
+		FileOutputStream fileOut = new FileOutputStream("teste9.xls");
 		workbook.write(fileOut);
 		fileOut.close();
 		workbook.close();
 	}
 	
-*/	
 }
