@@ -1,7 +1,5 @@
 package controller.Relatorio;
 
-import java.awt.Button;
-import java.awt.TextField;
 import java.io.BufferedWriter;
 import java.io.FileWriter;
 import java.io.IOException;
@@ -13,6 +11,8 @@ import factory.ConnectionFactory;
 import controller.MenuController;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.scene.control.TextField;
+import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.DatePicker;
 import javafx.scene.input.MouseEvent;
@@ -20,7 +20,7 @@ import utils.mensagem_retorno.MensagemRetorno;
 
 public class RelatorioControllerGestor {
 	
-	 @FXML
+	 	@FXML
 	    private Button bt_gerar_relatorio;
 
 	    @FXML
@@ -46,6 +46,7 @@ public class RelatorioControllerGestor {
 		  
 
 	        String csvFilePath = "relatorio.csv";
+	      
 	        
 	        
 
@@ -54,6 +55,7 @@ public class RelatorioControllerGestor {
 	            writer.write("Projeto,Modalidade, Hora de Inicio, Hora Final, Motivo ");
 	            writer.newLine();
 	            
+	          
 
 	            /*
 	             * ResultSet resultSet = extratos.executeQuery();

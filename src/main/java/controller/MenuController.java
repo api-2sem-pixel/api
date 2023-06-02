@@ -90,7 +90,7 @@ public class MenuController implements Initializable {
     
     @FXML
     void irRelatorioGestor(MouseEvent event) {
-        changeScene("/view/Relatorio/Relatorio.fxml");
+        changeScene("/view/Relatorio/RelatorioGestor.fxml");
     }
     
     @FXML
