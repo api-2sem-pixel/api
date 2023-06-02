@@ -19,81 +19,74 @@ import javafx.scene.input.MouseEvent;
 import utils.mensagem_retorno.MensagemRetorno;
 
 public class RelatorioControllerGestor {
-	
-	 	@FXML
-	    private Button bt_gerar_relatorio;
 
-	    @FXML
-	    private ComboBox<String> combo_usuario;
+	@FXML
+	private Button bt_gerar_relatorio;
 
-	    @FXML
-	    private DatePicker cx_data_fim;
+	@FXML
+	private ComboBox<String> combo_usuario;
 
-	    @FXML
-	    private DatePicker cx_data_inicio;
+	@FXML
+	private DatePicker cx_data_fim;
 
-	    @FXML
-	    private TextField cx_projeto;
+	@FXML
+	private DatePicker cx_data_inicio;
 
+	@FXML
+	private TextField cx_projeto;
 
-	  @FXML
-	    public void GerarRelatorio(ActionEvent event) {
-		  Connection connection = new ConnectionFactory().recuperarConexao();
-		 
-		  ExtratoHoraDAO extrato = new ExtratoHoraDAO(connection);
-		  
-		  extrato.obterRelatorioGerente(cx_data_inicio.getValue(), cx_data_fim.getValue(), cx_projeto.getText(), combo_usuario.getValue());
-		  
+	@FXML
+	public void GerarRelatorio(ActionEvent event) {
+		Connection connection = new ConnectionFactory().recuperarConexao();
 
-	        String csvFilePath = "relatorio.csv";
-	      
-	        
-	        
+		ExtratoHoraDAO extrato = new ExtratoHoraDAO(connection);
 
-	        try (BufferedWriter writer = new BufferedWriter(new FileWriter(csvFilePath))) {
-	            // Escreve os cabeçalhos das colunas
-	            writer.write("Projeto,Modalidade, Hora de Inicio, Hora Final, Motivo ");
-	            writer.newLine();
-	            
-	          
+		var dado = extrato.obterRelatorioGerente(cx_data_inicio.getValue(), cx_data_fim.getValue(), cx_projeto.getText(),
+				combo_usuario.getValue());
 
-	            /*
-	             * ResultSet resultSet = extratos.executeQuery();
-	             * 
-	             * while (resultSet.next()) {
-	             * String projeto = resultSet.getString("projeto");
-	             * String modalidade = resultSet.getString("modalidade");
-	             * String horaInicio = resultSet.getString("hora_inicio");
-	             * String horaFinal = resultSet.getString("hora_final");
-	             * String motivo = resultSet.getString("motivo");
-	             * 
-	             * writer.write(projeto + "," + modalidade + "," + horaInicio + "," + horaFinal
-	             * + "," + motivo);
-	             * writer.newLine();
-	             * }
-	             */
+		String csvFilePath = "relatorio.csv";
 
-	            // Escreve os dados dos registros
-	            writer.write("");
-	            writer.newLine();
-	            writer.write("");
-	            writer.newLine();
-	            writer.write("");
-	            writer.newLine();
+		try (BufferedWriter writer = new BufferedWriter(new FileWriter(csvFilePath))) {
+			// Escreve os cabeçalhos das colunas
+			writer.write("Projeto,Modalidade, Hora de Inicio, Hora Final, Motivo ");
+			writer.newLine();
 
-	            MensagemRetorno.RelatorioGerado();
+			/*
+			 * ResultSet resultSet = extratos.executeQuery();
+			 * 
+			 * while (resultSet.next()) {
+			 * String projeto = resultSet.getString("projeto");
+			 * String modalidade = resultSet.getString("modalidade");
+			 * String horaInicio = resultSet.getString("hora_inicio");
+			 * String horaFinal = resultSet.getString("hora_final");
+			 * String motivo = resultSet.getString("motivo");
+			 * 
+			 * writer.write(projeto + "," + modalidade + "," + horaInicio + "," + horaFinal
+			 * + "," + motivo);
+			 * writer.newLine();
+			 * }
+			 */
 
-	            System.out.println("Arquivo CSV gerado com sucesso.");
-	        } catch (IOException e) {
-	            e.printStackTrace();
-	        }
+			// Escreve os dados dos registros
+			writer.write("");
+			writer.newLine();
+			writer.write("");
+			writer.newLine();
+			writer.write("");
+			writer.newLine();
 
-	    }
+			MensagemRetorno.RelatorioGerado();
 
-	    @FXML
-	    void retornarMenu(MouseEvent event) {
-	        MenuController.irMenu();
-	    }
+			System.out.println("Arquivo CSV gerado com sucesso.");
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+
+	}
+
+	@FXML
+	void retornarMenu(MouseEvent event) {
+		MenuController.irMenu();
+	}
 
 }
-
