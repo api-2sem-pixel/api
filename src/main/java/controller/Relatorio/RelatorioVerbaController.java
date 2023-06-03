@@ -56,7 +56,6 @@ public class RelatorioVerbaController {
 		{
 			add("1601");
 			add("1602");
-			add("1602");
 			add("3000");
 			add("3001");
 			add("1809");
