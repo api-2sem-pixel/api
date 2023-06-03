@@ -1,12 +1,18 @@
 package dao;
 
 import model.ExtratoHoraModel;
+import model.UsuarioModel;
+import model.ComboboxModel.UsuarioComboboxModel;
+
 import java.sql.Connection;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
+import java.util.List;
+
 import enums.EtapaExtrato;
 
 public class ExtratoHoraDAO extends BaseDAO {
@@ -46,11 +52,25 @@ public class ExtratoHoraDAO extends BaseDAO {
 
         return this.executarQuery(sql, resultSet -> mapearParaExtratoHoraModel(resultSet));
     }
+    
+    
+	public List<UsuarioComboboxModel> obterCombobox(){
+		String sql = "SELECT Id, Nome FROM Usuario WHERE Ativo = 1";
+		return executarQuery(sql, x -> {
+			try {
+				return new UsuarioComboboxModel(x.getInt(1), x.getString(2));
+			} catch (SQLException e) {
+				return null;
+			}
+		});
+	}
 
+    
+       	  
     public ArrayList<ExtratoHoraModel> obterRelatorioGerente(LocalDate dataInicio, LocalDate dataFim, String projeto,
-            String userId) {
+            int userId) {
         String sql = getQueryExtratoHoraModel() +
-                " where f.Nome = " + userId;
+                " where f.Id = " + userId;
 
         if (projeto != null && !projeto.isEmpty())
             sql += " AND projeto like '%" + projeto + "%'";
@@ -59,7 +79,7 @@ public class ExtratoHoraDAO extends BaseDAO {
             sql += " AND a.DataHora_Inicio >= '" + dataInicio + "'";
             sql += " AND a.DataHora_Fim <= '" + dataFim + "'";
         }
-
+        System.out.print(sql);
         return this.executarQuery(sql, resultSet -> mapearParaExtratoHoraModel(resultSet));
     }
 
