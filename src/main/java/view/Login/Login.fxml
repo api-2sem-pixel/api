@@ -87,7 +87,7 @@
                   </AnchorPane>
                </right>
             </BorderPane>
-            <Text fill="#2247ff" layoutX="466.0" layoutY="117.0" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-weight: bold;" text="Informe seus dados de cadastros" textAlignment="CENTER">
+            <Text fill="#2247ff" layoutX="458.0" layoutY="117.0" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-weight: bold;" text="Informe seus dados de cadastros" textAlignment="CENTER">
                <font>
                   <Font size="24.0" />
                </font>

@@ -28,7 +28,6 @@ public class MenuController implements Initializable {
     public void initialize(URL location, ResourceBundle resources) {
     }
 
-    
     @FXML
     void irParametrizacao(MouseEvent event) {
         changeScene("/view/Parametrizacao/ParametrizacaoVerbas.fxml");
@@ -88,8 +87,22 @@ public class MenuController implements Initializable {
     void irVisualizacaoUsuario(MouseEvent event) {
         changeScene("/view/Usuario/VisualizacaoUsuario.fxml");
     }
+    
+    @FXML
+    void irRelatorioGestor(MouseEvent event) {
+        changeScene("/view/Relatorio/RelatorioGestor.fxml");
+    }
+    
+    @FXML
+    void irRelatorio(MouseEvent event) {
+        changeScene("/view/Relatorio/Relatorio.fxml");
+	}
+    @FXML
+    void irDashboard(MouseEvent event) {
+    	changeScene("/view/Dashboard/DashboardColaborador.fxml");
+    }
 
-    private void changeScene(String fxml) {
+    void changeScene(String fxml) {
         Parent scene;
         try {
             scene = FXMLLoader.load(getClass().getResource(fxml));
@@ -126,5 +139,10 @@ public class MenuController implements Initializable {
     public static void irMenuGestor() {
         MenuController menu = new MenuController();
         menu.changeScene("/view/Menu/MenuFeedback.fxml");
+    }
+    
+    @FXML
+    void irRelatorios(MouseEvent event) throws IOException {
+        changeScene("/view/Relatorio/RelatorioVerba.fxml");
     }
 }

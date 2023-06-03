@@ -31,6 +31,8 @@ public class FeedBackController implements Initializable {
     @FXML
     private TableColumn<ExtratoHoraModel, Integer> col_id;
     @FXML
+    private TableColumn<ExtratoHoraModel, String> col_solicitante;
+    @FXML
     private TableColumn<ExtratoHoraModel, String> col_projeto;
     @FXML
     private TableColumn<ExtratoHoraModel, String> col_cr;
@@ -70,10 +72,11 @@ public class FeedBackController implements Initializable {
                 "cr",
                 "cliente",
                 "modalidade",
-                "dataHoraInicio",
-                "dataHoraFim",
+                "dataHoraInicioS",
+                "dataHoraFimS",
                 "motivo",
                 "justificativa",
+                "solicitante",
                 ""
         };
 
@@ -85,6 +88,7 @@ public class FeedBackController implements Initializable {
     private void carregarExtratos() {
         var projeto = tfFiltro.getText();
         var extratos = extratoHoraDao.obterExtratosParaAprovar(UsuarioDAO.usuarioLogado.getId(), projeto);
+        table_lancamento.getItems().clear();
         table_lancamento.setItems(FXCollections.observableArrayList(extratos));
     }
 
@@ -96,12 +100,11 @@ public class FeedBackController implements Initializable {
         col_cr.setCellValueFactory(new PropertyValueFactory<ExtratoHoraModel, String>(propertyNames[index++]));
         col_cliente.setCellValueFactory(new PropertyValueFactory<ExtratoHoraModel, String>(propertyNames[index++]));
         col_modalidade.setCellValueFactory(new PropertyValueFactory<ExtratoHoraModel, String>(propertyNames[index++]));
-        col_inicio
-                .setCellValueFactory(new PropertyValueFactory<ExtratoHoraModel, LocalDateTime>(propertyNames[index++]));
+        col_inicio.setCellValueFactory(new PropertyValueFactory<ExtratoHoraModel, LocalDateTime>(propertyNames[index++]));
         col_fim.setCellValueFactory(new PropertyValueFactory<ExtratoHoraModel, LocalDateTime>(propertyNames[index++]));
         col_motivo.setCellValueFactory(new PropertyValueFactory<ExtratoHoraModel, String>(propertyNames[index++]));
-        col_justificativa
-                .setCellValueFactory(new PropertyValueFactory<ExtratoHoraModel, String>(propertyNames[index++]));
+        col_justificativa.setCellValueFactory(new PropertyValueFactory<ExtratoHoraModel, String>(propertyNames[index++]));
+        col_solicitante.setCellValueFactory(new PropertyValueFactory<ExtratoHoraModel, String>(propertyNames[index++]));
         col_acoes.setCellValueFactory(new PropertyValueFactory<>(propertyNames[index++]));
 
         var cellFactory = new Callback<TableColumn<ExtratoHoraModel, Void>, TableCell<ExtratoHoraModel, Void>>() {
@@ -110,6 +113,7 @@ public class FeedBackController implements Initializable {
                 return new TableCell<ExtratoHoraModel, Void>() {
                     private final Button btnAprovar = new Button("Aprovar");
                     private final Button btnReprovar = new Button("Reprovar");
+                    private final boolean show = false;
 
                     {
                         btnAprovar.setOnAction((ActionEvent event) -> {
@@ -119,7 +123,6 @@ public class FeedBackController implements Initializable {
                             if (EtapaExtrato.APROVADA == extratoHora.getStatus()) {
                                 extratoHoraDao.aprovarHoraExtra(extratoHora);
                                 carregarExtratos();
-
                             }
                         });
 
@@ -145,8 +148,11 @@ public class FeedBackController implements Initializable {
                         if (empty) {
                             setGraphic(null);
                         } else {
-                            HBox container = new HBox(btnAprovar, btnReprovar);
-                            setGraphic(container);
+                            var r = getTableView().getItems().get(getIndex());
+                            if(r.getStatus() == EtapaExtrato.EM_APROVACAO || r.getStatus() == EtapaExtrato.PENDENTE_CORRECAO){
+                                HBox container = new HBox(btnAprovar, btnReprovar);
+                                setGraphic(container);
+                            }
 
                         }
                     }

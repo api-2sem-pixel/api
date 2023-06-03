@@ -1,11 +1,18 @@
 package dao;
 
 import model.ExtratoHoraModel;
+import model.UsuarioModel;
+import model.ComboboxModel.UsuarioComboboxModel;
+
 import java.sql.Connection;
 import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
+import java.util.List;
+
 import enums.EtapaExtrato;
 
 public class ExtratoHoraDAO extends BaseDAO {
@@ -22,11 +29,14 @@ public class ExtratoHoraDAO extends BaseDAO {
                 "a.Id IdExtrato, " +
                 "e.Razao_Social NomeCliente, " +
                 "a.Justificativa Justificativa, " +
-                "a.Id_Etapa_Extrato Etapa_Extrato " +
+                "a.Id_Etapa_Extrato Etapa_Extrato, " +
+                "a.Id_Usuario, " +
+                "f.nome " +
                 "from Extrato_Hora a  " +
                 "inner join Cr b on a.Id_Cr = b.Id " +
                 "inner join Modalidade c on c.Id = a.Id_Modalidade " +
-                "inner join Cliente e on e.Id = a.Id_Cliente ";
+                "inner join Cliente e on e.Id = a.Id_Cliente " +
+                "inner join Usuario f on f.Id = a.Id_Usuario";
     }
 
     public ExtratoHoraDAO(Connection connection) {
@@ -42,12 +52,54 @@ public class ExtratoHoraDAO extends BaseDAO {
 
         return this.executarQuery(sql, resultSet -> mapearParaExtratoHoraModel(resultSet));
     }
+    
+    
+	public List<UsuarioComboboxModel> obterCombobox(){
+		String sql = "SELECT Id, Nome FROM Usuario WHERE Ativo = 1";
+		return executarQuery(sql, x -> {
+			try {
+				return new UsuarioComboboxModel(x.getInt(1), x.getString(2));
+			} catch (SQLException e) {
+				return null;
+			}
+		});
+	}
+
+    
+       	  
+    public ArrayList<ExtratoHoraModel> obterRelatorioGerente(LocalDate dataInicio, LocalDate dataFim, String projeto,
+            int userId) {
+        String sql = getQueryExtratoHoraModel() +
+                " where f.Id = " + userId;
+
+        if (projeto != null && !projeto.isEmpty())
+            sql += " AND projeto like '%" + projeto + "%'";
+
+        if (dataInicio != null && dataFim != null && !dataInicio.isAfter(dataFim)) {
+            sql += " AND a.DataHora_Inicio >= '" + dataInicio + "'";
+            sql += " AND a.DataHora_Fim <= '" + dataFim + "'";
+        }
+        System.out.print(sql);
+        return this.executarQuery(sql, resultSet -> mapearParaExtratoHoraModel(resultSet));
+    }
+
+    public ArrayList<ExtratoHoraModel> obterExtratoHoraAprovado(int userId, String projeto) {
+        String sql = "SELECT Projeto, Modalidade, Inicio, Fim, Motivo FROM extrato_hora WHERE Id_Usuario = " + userId
+                + " AND Status = 'Aprovado'";
+
+        if (projeto != null && !projeto.isEmpty()) {
+            sql += " AND Projeto LIKE '%" + projeto + "%'";
+        }
+
+        return this.executarQuery(sql, resultSet -> mapearParaExtratoHoraModel(resultSet));
+    }
 
     public ArrayList<ExtratoHoraModel> obterExtratosParaAprovar(int userId, String projeto) {
         String sql = getQueryExtratoHoraModel() +
                 " where (a.Id_Cr in (SELECT Id_Cr FROM Cr_Usuario where Id_Usuario = " + userId + ") or " +
-                " Id_Usuario in (SELECT Id_Usuario FROM Usuario where Id_Tipo_Usuario = 3)) " +
-                " and Id_Etapa_Extrato in (1,4)";
+                " " + userId + " in (SELECT Id FROM Usuario where Id_Tipo_Usuario = 3)) " +
+                // " and Id_Etapa_Extrato in (1,4)" +
+                " order by Id_Etapa_Extrato ASC ";
 
         if (projeto != null && !projeto.isEmpty())
             sql += " AND projeto like '%" + projeto + "%'";
@@ -76,6 +128,7 @@ public class ExtratoHoraDAO extends BaseDAO {
             model.setCliente(resultSet.getString(10));
             model.setJustificativa(resultSet.getString(11));
             model.setStatus(resultSet.getInt(12));
+            model.setSolicitante(resultSet.getString(13));
 
             return model;
         } catch (Exception e) {
@@ -121,7 +174,50 @@ public class ExtratoHoraDAO extends BaseDAO {
         } catch (Exception e) {
             e.addSuppressed(e);
         }
-
+    }
+    
+    //Select para pegar as horas aprovadas do Colaborador
+    public int qtdHoraAprovada(int idUser) {
+        try {
+           String sql = "SELECT COUNT(*) FROM Extrato_Hora eh inner join usuario user on eh.Id_Usuario = user.Id  WHERE  user.Id_Tipo_Usuario = 1  AND user.Id = " + idUser + " AND Id_Etapa_Extrato =" + EtapaExtrato.APROVADA.ordinal();
+           return executeCount(sql);
+        } catch (Exception e) {
+            e.printStackTrace();
+            return 0;
+        }
+    }
+   
+    //Select para pegar as horas reprovadas do Colaborador
+    public int qtdHoraReprovada(int idUser) {
+        try {
+            String sql = "SELECT COUNT(*) FROM Extrato_Hora eh inner join usuario user on eh.Id_Usuario = user.Id  WHERE  user.Id_Tipo_Usuario = 1 AND user.Id = " + idUser + " AND Id_Etapa_Extrato =" + EtapaExtrato.REPROVADA.ordinal();
+            return executeCount(sql);
+        } catch (Exception e) {
+            e.printStackTrace();
+            return 0;
+        }
+    }
+    
+    //Select para pegar as horas aprovadas do CR
+    public int qtdHoraCrAprovada() {
+        try {
+           String sql = "SELECT COUNT(*) FROM extrato_hora WHERE  Id_Cr AND Id_Etapa_Extrato =" + EtapaExtrato.APROVADA.ordinal();
+           return executeCount(sql);
+        } catch (Exception e) {
+            e.printStackTrace();
+            return 0;
+        }
+    }
+    
+    //Select para pegar as horas reprovadas do CR
+    public int qtdHoraCrReprovada() {
+        try {
+            String sql = "SELECT COUNT(*) FROM extrato_hora WHERE  Id_Cr AND Id_Etapa_Extrato =" + EtapaExtrato.REPROVADA.ordinal();
+            return executeCount(sql);
+        } catch (Exception e) {
+            e.printStackTrace();
+            return 0;
+        }
     }
 
     public void inserirMotivo(String motivo, ExtratoHoraModel extratoHora) {

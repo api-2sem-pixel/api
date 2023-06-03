@@ -118,8 +118,13 @@ create table Parametrizacao_Verba(
   Multiplicador decimal(6,2) not null
 );
 
-insert into Parametrizacao_Verba values(1601,1);
-insert into Parametrizacao_Verba values(1602,1);
-insert into Parametrizacao_Verba values(1809,1);
-insert into Parametrizacao_Verba values(3000,1);
-insert into Parametrizacao_Verba values(3001,1);
+insert into PARAMETRIZACAO values(1601,1);
+insert into PARAMETRIZACAO values(1602,1);
+insert into PARAMETRIZACAO values(1809,1);
+insert into PARAMETRIZACAO values(3000,1);
+insert into PARAMETRIZACAO values(3001,1);
+INSERT INTO PARAMETRIZACAO VALUES('Data_Inicio_Mes', '25');
+INSERT INTO PARAMETRIZACAO VALUES('Data_Fechamento_Mes', '26');
+
+alter table Usuario
+add column Ativo bit default 1;

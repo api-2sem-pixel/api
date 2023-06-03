@@ -70,12 +70,12 @@
                         <Group layoutX="326.0" layoutY="249.0" onMouseClicked="#irFeedBackHora" AnchorPane.leftAnchor="326.0">
                            <children>
                               <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#2128bf1f" height="112.0" layoutY="-7.0" stroke="BLACK" strokeType="INSIDE" style="-fx-border-radious: 10px;" width="192.0" />
-                              <ImageView fitHeight="54.0" fitWidth="65.0" layoutX="64.0" layoutY="22.0" pickOnBounds="true" preserveRatio="true">
+                              <ImageView fitHeight="97.0" fitWidth="65.0" layoutX="64.0" layoutY="22.0" pickOnBounds="true" preserveRatio="true">
                                  <image>
-                                    <Image url="@../assets/Grafico.png" />
+                                    <Image url="@../assets/feedback.png" />
                                  </image>
                               </ImageView>
-                              <Label layoutX="58.0" layoutY="76.0" text="FeedBack" textFill="#1f25c1">
+                              <Label layoutX="58.0" layoutY="82.0" text="FeedBack" textFill="#1f25c1">
                                  <font>
                                     <Font name="Verdana Bold" size="14.0" />
                                  </font>
@@ -98,12 +98,30 @@
                         <Group layoutX="55.0" layoutY="249.0" onMouseClicked="#irLancamentoHora">
                            <children>
                               <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#2128bf1f" height="112.0" layoutY="-7.0" stroke="BLACK" strokeType="INSIDE" width="192.0" />
+                              <ImageView fitHeight="54.0" fitWidth="65.0" layoutX="69.0" layoutY="22.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../assets/lancamento-horas.png" />
+                                 </image>
+                              </ImageView>
+                              <Label layoutX="11.0" layoutY="82.0" text="Lançamento de Horas" textFill="#1f25c1">
+                                 <font>
+                                    <Font name="Verdana Bold" size="14.0" />
+                                 </font>
+                              </Label>
+                           </children>
+                           <effect>
+                              <ColorAdjust contrast="1.0" hue="0.02" saturation="1.0" />
+                           </effect>
+                        </Group>
+                        <Group layoutX="589.0" layoutY="249.0" onMouseClicked="#irRelatorioGestor">
+                           <children>
+                              <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#2128bf1f" height="112.0" layoutY="-7.0" stroke="BLACK" strokeType="INSIDE" width="192.0" />
                               <ImageView fitHeight="54.0" fitWidth="65.0" layoutX="64.0" layoutY="22.0" pickOnBounds="true" preserveRatio="true">
                                  <image>
                                     <Image url="@../assets/Grafico.png" />
                                  </image>
                               </ImageView>
-                              <Label layoutX="11.0" layoutY="76.0" text="Lançamento de Horas" textFill="#1f25c1">
+                              <Label layoutX="64.0" layoutY="76.0" prefHeight="18.0" prefWidth="79.0" text="Relatório" textFill="#1f25c1">
                                  <font>
                                     <Font name="Verdana Bold" size="14.0" />
                                  </font>

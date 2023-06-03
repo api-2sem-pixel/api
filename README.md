@@ -101,11 +101,14 @@ CR e colaborador
    </ul>
    
    <h3>Sprint-4</h3>
+     <ul> 
+      <li><a href="https://github.com/api-2sem-pixel/api/blob/develop/assets/burndown/sp4/burndown.png"> Burndown </a></li>
 
 |      | **Entrega**    |**Prioridade**  |   
 | :-------------: | :-------------: |:-------------: | 
 |   Sprint-4    |      **Dashboard**           |   **6**              |
 |   Sprint-4    |      **Relatórios**          |   **6**              |
+|   Sprint-4    |      **Correção E Melhorias**          |   **?**              |
    </ul>
 
    <h2>Configurar Projeto</h2>
