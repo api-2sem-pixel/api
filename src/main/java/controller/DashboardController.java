@@ -10,6 +10,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.chart.PieChart;
+import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 import java.io.IOException;
 import java.sql.Connection;
@@ -35,13 +36,13 @@ public class DashboardController {
         //Validação para exibir o dashboard do usuário
         if (UsuarioDAO.usuarioLogado.getIdTipoUsuario() == TipoUsuario.Colaborador) {
         	// Adicione os dados da lista aprovada ao gráfico de pizza, adicionando a legenda de "Aprovado" e a quantidade aprovada construção para extrair o tipo de usuario talvez necessario?
-        	int qtdAprovada = extratoHoraDAO.qtdHoraAprovada();
+        	int qtdAprovada = extratoHoraDAO.qtdHoraAprovada(UsuarioDAO.usuarioLogado.getId());
         	if (qtdAprovada > 0) {
         		pieChartData.add(new PieChart.Data("Aprovado", qtdAprovada));
         	}
         
         	// Adicione os dados da lista reprovada ao gráfico de pizza, adicionando a legenda de "Reprovado" e a quantidade reprovada
-        	int qtdReprovada = extratoHoraDAO.qtdHoraReprovada();
+        	int qtdReprovada = extratoHoraDAO.qtdHoraReprovada(UsuarioDAO.usuarioLogado.getId());
         	if (qtdReprovada > 0) {
         		pieChartData.add(new PieChart.Data("Reprovado", qtdReprovada));
         	}
@@ -77,6 +78,7 @@ public class DashboardController {
         }
     }
 
+    /*
     @FXML
     public static void irMenu() {
         if (UsuarioDAO.usuarioLogado.getIdTipoUsuario() == TipoUsuario.Administrador) {
@@ -105,5 +107,11 @@ public class DashboardController {
     public static void irMenuGestor() {
         MenuController menu = new MenuController();
         menu.changeScene("/view/Menu/MenuFeedback.fxml");
+    }
+    */
+    
+    @FXML
+    void irMenu(MouseEvent event) {
+        MenuController.irMenu();
     }
 }

@@ -65,12 +65,12 @@
           <content>
             <AnchorPane id="Content" prefHeight="544.0" prefWidth="921.0" styleClass="content">
               <children>
-                        <Label fx:id="homeText" layoutX="316.0" layoutY="35.0" styleClass="title" text="Dashboard Colaborador" textFill="#1f25c1" AnchorPane.leftAnchor="316.0" AnchorPane.rightAnchor="301.0" AnchorPane.topAnchor="35.0">
+                        <Label fx:id="homeText" layoutX="316.0" layoutY="38.0" prefHeight="28.0" prefWidth="240.0" styleClass="title" text="Dashboard Colaborador" textFill="#1f25c1" AnchorPane.leftAnchor="316.0" AnchorPane.rightAnchor="365.0" AnchorPane.topAnchor="38.0">
                            <font>
                               <Font name="Calibri Bold" size="24.0" />
                            </font>
                         </Label>
-                        <PieChart fx:id="dashboard" layoutX="211.0" layoutY="91.0" title="Acompanhamento de horas" />
+                        <PieChart fx:id="dashboard" layoutX="186.0" layoutY="105.0" title="Acompanhamento de horas" />
             
             
             
