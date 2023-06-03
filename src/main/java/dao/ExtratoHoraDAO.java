@@ -121,10 +121,10 @@ public class ExtratoHoraDAO extends BaseDAO {
         }
     }
     
-    //Select para pegar horas aprovadas 
+    //Select para pegar as horas aprovadas do Colaborador
     public int qtdHoraAprovada() {
         try {
-           String sql = "SELECT COUNT(*) FROM extrato_hora WHERE  Id_Usuario = 1 AND Id_Etapa_Extrato =" + EtapaExtrato.APROVADA.ordinal();
+           String sql = "SELECT COUNT(*) FROM Extrato_Hora eh inner join usuario user on eh.Id_Usuario = user.Id  WHERE  user.Id_Tipo_Usuario = 1 AND Id_Etapa_Extrato =" + EtapaExtrato.APROVADA.ordinal();
            return executeCount(sql);
         } catch (Exception e) {
             e.printStackTrace();
@@ -132,10 +132,10 @@ public class ExtratoHoraDAO extends BaseDAO {
         }
     }
    
-    //Select para pegar horas reaprovadas 
+    //Select para pegar as horas reprovadas do Colaborador
     public int qtdHoraReprovada() {
         try {
-            String sql = "SELECT COUNT(*) FROM extrato_hora WHERE  Id_Usuario = 1 AND Id_Etapa_Extrato =" + EtapaExtrato.REPROVADA.ordinal();
+            String sql = "SELECT COUNT(*) FROM Extrato_Hora eh inner join usuario user on eh.Id_Usuario = user.Id  WHERE  user.Id_Tipo_Usuario = 1 AND Id_Etapa_Extrato =" + EtapaExtrato.REPROVADA.ordinal();
             return executeCount(sql);
         } catch (Exception e) {
             e.printStackTrace();
@@ -143,7 +143,7 @@ public class ExtratoHoraDAO extends BaseDAO {
         }
     }
     
-    // ********************* Pegar horas aprovadas do CR
+    //Select para pegar as horas aprovadas do CR
     public int qtdHoraCrAprovada() {
         try {
            String sql = "SELECT COUNT(*) FROM extrato_hora WHERE  Id_Cr AND Id_Etapa_Extrato =" + EtapaExtrato.APROVADA.ordinal();
@@ -154,7 +154,7 @@ public class ExtratoHoraDAO extends BaseDAO {
         }
     }
     
-    // ********************* Pegar horas aprovadas do CR
+    //Select para pegar as horas reprovadas do CR
     public int qtdHoraCrReprovada() {
         try {
             String sql = "SELECT COUNT(*) FROM extrato_hora WHERE  Id_Cr AND Id_Etapa_Extrato =" + EtapaExtrato.REPROVADA.ordinal();
