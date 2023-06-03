@@ -72,8 +72,8 @@ public class FeedBackController implements Initializable {
                 "cr",
                 "cliente",
                 "modalidade",
-                "dataHoraInicio",
-                "dataHoraFim",
+                "dataHoraInicioS",
+                "dataHoraFimS",
                 "motivo",
                 "justificativa",
                 "solicitante",
@@ -88,6 +88,7 @@ public class FeedBackController implements Initializable {
     private void carregarExtratos() {
         var projeto = tfFiltro.getText();
         var extratos = extratoHoraDao.obterExtratosParaAprovar(UsuarioDAO.usuarioLogado.getId(), projeto);
+        table_lancamento.getItems().clear();
         table_lancamento.setItems(FXCollections.observableArrayList(extratos));
     }
 
@@ -99,8 +100,7 @@ public class FeedBackController implements Initializable {
         col_cr.setCellValueFactory(new PropertyValueFactory<ExtratoHoraModel, String>(propertyNames[index++]));
         col_cliente.setCellValueFactory(new PropertyValueFactory<ExtratoHoraModel, String>(propertyNames[index++]));
         col_modalidade.setCellValueFactory(new PropertyValueFactory<ExtratoHoraModel, String>(propertyNames[index++]));
-        col_inicio
-                .setCellValueFactory(new PropertyValueFactory<ExtratoHoraModel, LocalDateTime>(propertyNames[index++]));
+        col_inicio.setCellValueFactory(new PropertyValueFactory<ExtratoHoraModel, LocalDateTime>(propertyNames[index++]));
         col_fim.setCellValueFactory(new PropertyValueFactory<ExtratoHoraModel, LocalDateTime>(propertyNames[index++]));
         col_motivo.setCellValueFactory(new PropertyValueFactory<ExtratoHoraModel, String>(propertyNames[index++]));
         col_justificativa.setCellValueFactory(new PropertyValueFactory<ExtratoHoraModel, String>(propertyNames[index++]));

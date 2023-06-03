@@ -1,6 +1,8 @@
 package model;
 
+import java.text.SimpleDateFormat;
 import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 
 import enums.EtapaExtrato;
 
@@ -120,6 +122,16 @@ public class ExtratoHoraModel {
 
     public LocalDateTime getDataHoraInicio() {
         return dataHoraInicio;
+    }
+
+    public String getDataHoraInicioS() {
+        var formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm:ss");
+        return dataHoraInicio.format(formatter);
+    }
+
+    public String getDataHoraFimS() {
+        var formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm:ss");  
+        return dataHoraFim.format(formatter);
     }
 
     public void setDataHoraInicio(LocalDateTime dataHoraInicio) {

@@ -3,6 +3,7 @@ package controller.LancamentoHora;
 import java.net.URL;
 import java.sql.Connection;
 import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.ResourceBundle;
@@ -52,9 +53,9 @@ public class LancamentoHoraController implements Initializable {
     @FXML
     private TableColumn<ExtratoHoraModel, String> col_modalidade;
     @FXML
-    private TableColumn<ExtratoHoraModel, LocalDateTime> col_inicio;
+    private TableColumn<ExtratoHoraModel, String> col_inicio;
     @FXML
-    private TableColumn<ExtratoHoraModel, LocalDateTime> col_fim;
+    private TableColumn<ExtratoHoraModel, String> col_fim;
     @FXML
     private TableColumn<ExtratoHoraModel, String> col_motivo;
     @FXML
@@ -92,8 +93,8 @@ public class LancamentoHoraController implements Initializable {
                 "cr",
                 "cliente",
                 "modalidade",
-                "dataHoraInicio",
-                "dataHoraFim",
+                "dataHoraInicioS",
+                "dataHoraFimS",
                 "motivo",
                 "justificativa",
                 ""
@@ -124,9 +125,8 @@ public class LancamentoHoraController implements Initializable {
         col_cr.setCellValueFactory(new PropertyValueFactory<ExtratoHoraModel, String>(propertyNames[index++]));
         col_cliente.setCellValueFactory(new PropertyValueFactory<ExtratoHoraModel, String>(propertyNames[index++]));
         col_modalidade.setCellValueFactory(new PropertyValueFactory<ExtratoHoraModel, String>(propertyNames[index++]));
-        col_inicio
-                .setCellValueFactory(new PropertyValueFactory<ExtratoHoraModel, LocalDateTime>(propertyNames[index++]));
-        col_fim.setCellValueFactory(new PropertyValueFactory<ExtratoHoraModel, LocalDateTime>(propertyNames[index++]));
+        col_inicio.setCellValueFactory(new PropertyValueFactory<ExtratoHoraModel, String>(propertyNames[index++]));
+        col_fim.setCellValueFactory(new PropertyValueFactory<ExtratoHoraModel, String>(propertyNames[index++]));
         col_motivo.setCellValueFactory(new PropertyValueFactory<ExtratoHoraModel, String>(propertyNames[index++]));
         col_justificativa
                 .setCellValueFactory(new PropertyValueFactory<ExtratoHoraModel, String>(propertyNames[index++]));
@@ -196,16 +196,20 @@ public class LancamentoHoraController implements Initializable {
             model.setIdModalidade(modalidade.get().getId());
         });
 
-        col_inicio.setCellFactory(col -> new DateTimeCell<ExtratoHoraModel>());
+        col_inicio.setCellFactory(TextFieldTableCell.forTableColumn());
         col_inicio.setOnEditCommit(event -> {
             var row = event.getTablePosition().getRow();
-            event.getTableView().getItems().get(row).setDataHoraInicio(event.getNewValue());
+            var formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm:ss");  
+            var valor = LocalDateTime.parse(event.getNewValue(), formatter);
+            event.getTableView().getItems().get(row).setDataHoraInicio(valor);
         });
 
-        col_fim.setCellFactory(col -> new DateTimeCell<ExtratoHoraModel>());
+        col_fim.setCellFactory(TextFieldTableCell.forTableColumn());
         col_fim.setOnEditCommit(event -> {
             var row = event.getTablePosition().getRow();
-            event.getTableView().getItems().get(row).setDataHoraFim(event.getNewValue());
+            var formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm:ss");  
+            var valor = LocalDateTime.parse(event.getNewValue(), formatter);
+            event.getTableView().getItems().get(row).setDataHoraFim(valor);
         });
         var buttonDeletar = new Callback<TableColumn<ExtratoHoraModel, Void>, TableCell<ExtratoHoraModel, Void>>() {
             @Override
