@@ -32,21 +32,18 @@
   OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 -->
 
-<?import javafx.scene.Group?>
+<?import javafx.scene.chart.PieChart?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.ScrollPane?>
 <?import javafx.scene.control.SplitPane?>
-<?import javafx.scene.effect.ColorAdjust?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.VBox?>
-<?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Font?>
-<?import javafx.scene.text.Text?>
 
-<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="609.0" prefWidth="944.0" scaleShape="false" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.MenuController">
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="609.0" prefWidth="944.0" scaleShape="false" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.DashboardController">
   <children>
     <SplitPane centerShape="false" dividerPositions="0.11587436332767402" focusTraversable="true" prefHeight="-1.0" prefWidth="-1.0" styleClass="window" VBox.vgrow="ALWAYS">
       <items>
@@ -58,7 +55,7 @@
                      </image>
                   </ImageView>
                   <Button layoutX="28.0" layoutY="542.0" minWidth="46.0" mnemonicParsing="false" prefHeight="38.0" prefWidth="46.0" scaleX="0.5" scaleY="0.5" styleClass="rp-column" text="Button" />
-                  <ImageView fitHeight="40.0" fitWidth="43.0" layoutX="36.0" layoutY="541.0" onMouseClicked="#irLogin" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fitHeight="40.0" fitWidth="43.0" layoutX="36.0" layoutY="541.0" onMouseClicked="#irMenu" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@../figma/log.png" />
                      </image>
@@ -66,54 +63,21 @@
                </children></AnchorPane>
         <ScrollPane prefHeight="-1.0" prefWidth="-1.0" SplitPane.resizableWithParent="false">
           <content>
-            <AnchorPane id="Content" minWidth="818.0" prefHeight="595.0" prefWidth="818.0" styleClass="content">
+            <AnchorPane id="Content" fx:id="dashboard" prefHeight="544.0" prefWidth="921.0" styleClass="content">
               <children>
-                             <Group layoutX="319.0" layoutY="249.0" onMouseClicked="#irLancamentoHora" AnchorPane.leftAnchor="319.0">
-                           <children>
-                              <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#2128bf1f" height="112.0" layoutY="-7.0" stroke="BLACK" strokeType="INSIDE" style="-fx-border-radious: 10px;" width="192.0" />
-                              <ImageView fitHeight="54.0" fitWidth="65.0" layoutX="72.0" layoutY="22.0" pickOnBounds="true" preserveRatio="true">
-                                 <image>
-                                    <Image url="@../assets/lancamento-horas.png" />
-                                 </image>
-                              </ImageView>
-                              <Label layoutX="18.0" layoutY="82.0" text="Lançamento de Hora" textFill="#1f25c1">
-                                 <font>
-                                    <Font name="Verdana Bold" size="14.0" />
-                                 </font>
-                              </Label>
-                           </children>
-                           <effect>
-                              <ColorAdjust contrast="1.0" hue="0.02" saturation="1.0" />
-                           </effect>
-                        </Group>
-                        <Text fill="#3a2fd3" layoutX="261.0" layoutY="62.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Seja bem vindo, Colaborador!" textAlignment="CENTER">
+                        <Label fx:id="homeText" layoutX="315.0" layoutY="35.0" styleClass="title" text="Dashboard Admin" textFill="#1f25c1" AnchorPane.leftAnchor="315.0" AnchorPane.rightAnchor="302.0" AnchorPane.topAnchor="35.0">
                            <font>
                               <Font name="Calibri Bold" size="24.0" />
                            </font>
-                        </Text>
-                        <Group layoutX="430.0" layoutY="203.0" onMouseClicked="#irDashboard">
-                           <children>
-                              <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#2128bf1f" height="112.0" layoutY="-7.0" stroke="BLACK" strokeType="INSIDE" style="-fx-border-radious: 10px;" width="192.0" />
-                              <ImageView fitHeight="54.0" fitWidth="65.0" layoutX="64.0" layoutY="22.0" pickOnBounds="true" preserveRatio="true">
-                                 <image>
-                                    <Image url="@../assets/Grafico.png" />
-                                 </image>
-                              </ImageView>
-                              <Label layoutX="54.0" layoutY="76.0" text="Dashboard" textFill="#1f25c1">
-                                 <font>
-                                    <Font name="Verdana Bold" size="14.0" />
-                                 </font>
-                              </Label>
-                           </children>
-                           <effect>
-                              <ColorAdjust contrast="1.0" hue="0.02" saturation="1.0" />
-                           </effect>
-                        </Group>
-                 
+                        </Label>
+                        <PieChart fx:id="dashboard" layoutX="211.0" layoutY="91.0" title="Acompanhamento de horas" />
+            
+            
+            
                         
-                     </children>
+                                 </children>
                      
-            </AnchorPane>
+                        </AnchorPane>
           </content>
         </ScrollPane>
       </items>

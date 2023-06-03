@@ -174,7 +174,50 @@ public class ExtratoHoraDAO extends BaseDAO {
         } catch (Exception e) {
             e.addSuppressed(e);
         }
-
+    }
+    
+    //Select para pegar as horas aprovadas do Colaborador
+    public int qtdHoraAprovada(int idUser) {
+        try {
+           String sql = "SELECT COUNT(*) FROM Extrato_Hora eh inner join usuario user on eh.Id_Usuario = user.Id  WHERE  user.Id_Tipo_Usuario = 1  AND user.Id = " + idUser + " AND Id_Etapa_Extrato =" + EtapaExtrato.APROVADA.ordinal();
+           return executeCount(sql);
+        } catch (Exception e) {
+            e.printStackTrace();
+            return 0;
+        }
+    }
+   
+    //Select para pegar as horas reprovadas do Colaborador
+    public int qtdHoraReprovada(int idUser) {
+        try {
+            String sql = "SELECT COUNT(*) FROM Extrato_Hora eh inner join usuario user on eh.Id_Usuario = user.Id  WHERE  user.Id_Tipo_Usuario = 1 AND user.Id = " + idUser + " AND Id_Etapa_Extrato =" + EtapaExtrato.REPROVADA.ordinal();
+            return executeCount(sql);
+        } catch (Exception e) {
+            e.printStackTrace();
+            return 0;
+        }
+    }
+    
+    //Select para pegar as horas aprovadas do CR
+    public int qtdHoraCrAprovada() {
+        try {
+           String sql = "SELECT COUNT(*) FROM extrato_hora WHERE  Id_Cr AND Id_Etapa_Extrato =" + EtapaExtrato.APROVADA.ordinal();
+           return executeCount(sql);
+        } catch (Exception e) {
+            e.printStackTrace();
+            return 0;
+        }
+    }
+    
+    //Select para pegar as horas reprovadas do CR
+    public int qtdHoraCrReprovada() {
+        try {
+            String sql = "SELECT COUNT(*) FROM extrato_hora WHERE  Id_Cr AND Id_Etapa_Extrato =" + EtapaExtrato.REPROVADA.ordinal();
+            return executeCount(sql);
+        } catch (Exception e) {
+            e.printStackTrace();
+            return 0;
+        }
     }
 
     public void inserirMotivo(String motivo, ExtratoHoraModel extratoHora) {

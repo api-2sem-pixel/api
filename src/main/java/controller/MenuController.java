@@ -96,9 +96,13 @@ public class MenuController implements Initializable {
     @FXML
     void irRelatorio(MouseEvent event) {
         changeScene("/view/Relatorio/Relatorio.fxml");
+	}
+    @FXML
+    void irDashboard(MouseEvent event) {
+    	changeScene("/view/Dashboard/DashboardColaborador.fxml");
     }
 
-    private void changeScene(String fxml) {
+    void changeScene(String fxml) {
         Parent scene;
         try {
             scene = FXMLLoader.load(getClass().getResource(fxml));

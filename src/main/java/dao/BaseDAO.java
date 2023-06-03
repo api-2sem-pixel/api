@@ -34,6 +34,23 @@ public abstract class BaseDAO {
         return data;
     }
 
+    protected int executeCount(String sql){
+        try {
+            try (PreparedStatement statement = connection.prepareStatement(sql)) {
+                statement.execute();
+
+                ResultSet resultSet = statement.getResultSet();
+                while (resultSet.next()) {
+                    return resultSet.getInt(1);
+                }
+            }
+        } catch (SQLException exception) {
+            System.out.println(exception.getStackTrace());
+        }
+        
+        return 0;
+    }
+
     protected int executeUpdate(String sql) {
         try {
             try (PreparedStatement statement = connection.prepareStatement(sql)) {
