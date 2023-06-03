@@ -136,4 +136,9 @@ public class MenuController implements Initializable {
         MenuController menu = new MenuController();
         menu.changeScene("/view/Menu/MenuFeedback.fxml");
     }
+    
+    @FXML
+    void irRelatorios(MouseEvent event) throws IOException {
+        changeScene("/view/Relatorio/RelatorioVerba.fxml");
+    }
 }

@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="609.0" prefWidth="944.0" style="-fx-background-color: fffff;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.Relatorio.RelatorioVerbaController">
+   <children>
+      <Pane prefHeight="610.0" prefWidth="113.0" styleClass="sidebar">
+         <children>
+            <ImageView fitHeight="52.0" fitWidth="93.0" layoutX="15.0" layoutY="36.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../figma/2rp.png" />
+               </image>
+            </ImageView>
+            <Button layoutX="34.0" layoutY="538.0" mnemonicParsing="false" scaleX="0.5" scaleY="0.5" text="Button" />
+            <ImageView fitHeight="40.0" fitWidth="43.0" layoutX="42.0" layoutY="533.0" onMouseClicked="#retornarMenu" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../figma/log.png" />
+               </image>
+            </ImageView>
+         </children></Pane>
+      <Label layoutX="409.0" layoutY="32.0" text="Extração de Relatórios" textFill="#483fee">
+         <font>
+            <Font size="27.0" />
+         </font>
+      </Label>
+      <Button layoutX="429.0" layoutY="392.0" maxHeight="58.0" maxWidth="188.0" minHeight="30.0" minWidth="135.0" mnemonicParsing="false" onAction="#gerarRelatorio" prefHeight="58.0" prefWidth="188.0" styleClass="btn-no-restriction" text="Gerar Relatório">
+         <font>
+            <Font size="14.0" />
+         </font></Button>
+      <ComboBox fx:id="comboCR" layoutX="201.0" layoutY="210.0" prefHeight="70.0" prefWidth="201.0" promptText="CR" styleClass="input-text" />
+      <ComboBox fx:id="comboVerba" layoutX="645.0" layoutY="210.0" prefHeight="70.0" prefWidth="201.0" promptText="VERBA" styleClass="input-text" />
+   </children>
+</AnchorPane>
