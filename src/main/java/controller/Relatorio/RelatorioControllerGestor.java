@@ -5,11 +5,6 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.sql.Connection;
 import java.time.LocalDateTime;
-import java.util.ArrayList;
-import java.util.List;
-
-import dao.CrDAO;
-import dao.CrUsuarioDAO;
 import dao.ExtratoHoraDAO;
 import dao.UsuarioDAO;
 import dto.UsuarioDTO;
@@ -25,10 +20,6 @@ import javafx.scene.control.ComboBox;
 import javafx.scene.control.DatePicker;
 import javafx.scene.input.MouseEvent;
 import model.ExtratoHoraModel;
-import model.UsuarioModel;
-import model.ComboboxModel.ClienteComboboxModel;
-import model.ComboboxModel.CrComboboxModel;
-import model.ComboboxModel.UsuarioComboboxModel;
 import utils.mensagem_retorno.MensagemRetorno;
 
 public class RelatorioControllerGestor {

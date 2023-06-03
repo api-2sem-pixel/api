@@ -57,7 +57,7 @@ public class GerarRelatorio {
 			sheet.autoSizeColumn(i);
 		}
 		
-		FileOutputStream fileOut = new FileOutputStream("C:/teste/relatorio.xls");
+		FileOutputStream fileOut = new FileOutputStream("C:/relatorios/relatorio.xls");
 		workbook.write(fileOut);
 		fileOut.close();
 		workbook.close();
