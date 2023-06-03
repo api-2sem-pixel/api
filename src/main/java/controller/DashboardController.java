@@ -10,10 +10,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.chart.PieChart;
-import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
-import dao.UsuarioDAO;
-
 import java.io.IOException;
 import java.sql.Connection;
 
@@ -70,7 +67,7 @@ public class DashboardController {
         }
     }
     
-    private void changeScene(String fxml) {
+    void changeScene(String fxml) {
         Parent scene;
         try {
             scene = FXMLLoader.load(getClass().getResource(fxml));
